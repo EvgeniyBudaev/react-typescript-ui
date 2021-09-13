@@ -15,6 +15,20 @@ export const downloadFile = (fileUrl: string): void => {
     });
 };
 
+// export const downloadFile = (fileUrl: string): void => {
+//   void axios
+//     .get<Blob>(fileUrl, {
+//       responseType: "blob",
+//     })
+//     .then(response => {
+//       console.log("response", response);
+//       const filename = getFileName(response);
+//       console.log("filename", filename);
+//       // filename && createBlobFile(response.data, decodeURIComponent(filename));
+//       createBlobFile(response.data, decodeURIComponent("test"));
+//     });
+// };
+
 const createBlobFile = (data: Blob, filename: string): void => {
   const blob = new Blob([data]);
   const link = document.createElement("a");

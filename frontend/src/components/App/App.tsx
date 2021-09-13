@@ -95,6 +95,21 @@ export const App: React.FC = () => {
     event.stopPropagation();
   };
 
+  const handleDownload = () => {
+  fetch(`http://127.0.0.1:8000/api/v1/download/${FILE_ID}/`).then(
+    response => {
+      console.log("[response]", response);
+      response.blob().then(blob => {
+      let url = window.URL.createObjectURL(blob);
+      let a = document.createElement("a");
+      console.log(url);
+      a.href = url;
+      a.download = "test";
+      a.click();
+    });
+  });
+}
+
 
   //   const res = key.replace(/\.[^/.]+$/, "");
 
@@ -121,6 +136,7 @@ export const App: React.FC = () => {
         <button onClick={handleSubmit}>submit</button>
         <button onClick={handleLoad}>Загрузить файл111</button>
         <button onClick={handleFileDownload}>Загрузить файл222</button>
+        <button onClick={handleDownload}>Загрузить файл333</button>
       </Layout>
     </div>
   );
