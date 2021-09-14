@@ -5,6 +5,10 @@ from rest_framework import generics
 from django.http import HttpResponse
 from wsgiref.util import FileWrapper
 import magic
+import os
+from corsheaders.defaults import default_headers
+from django.http import FileResponse, StreamingHttpResponse
+from django.utils.encoding import escape_uri_path  # кириллица в имени файла
 
 from uploader.models import File
 from .serializers import FileSerializer
@@ -34,12 +38,26 @@ class FileDownloadListAPIView(generics.ListAPIView):
         file_handle = queryset.file.path
         document = open(file_handle, 'rb')
         file_type = self.get_mime_type(queryset.file.file)
-        response = HttpResponse(FileWrapper(document), content_type=file_type)
-        # print("[response]", response)
-        headers = {
-            'Content-Disposition': 'attachment; filename="%s"' % queryset.file.file,
-        }
-        print("headers", headers)
-        response.headers['Content-Disposition'] = 'attachment; filename="%s"' % queryset.file.file
-        print("[Disposition]", response)
+        # response = HttpResponse(FileWrapper(document), content_type=file_type)
+
+        # response = HttpResponse(FileWrapper(document), headers={
+        #     'Content-Type': f'application/vnd.ms-excel',
+        #     'Content-Disposition': 'attachment; filename="foo.xls"',
+        # })
+        # response.headers[
+        #     'Content-Disposition'] = 'attachment; filename="%s"' % queryset.file.file
+
+        # response = HttpResponse(content_type='application/creole')
+
+        # filename = "sample.creole"
+        # response.headers[
+        #     'Content-Disposition'] = 'attachment; filename={}'.format(filename)
+        # return response
+
+        # response = HttpResponse(FileWrapper(document), content_type=file_type)
+        # response['Content-Disposition'] = 'Attachment; filename="%s"' % queryset.file.file
+
+        response = HttpResponse(FileWrapper(document),
+                                     content_type='application/vnd.ms-excel')
+        response['Content-Disposition'] = 'attachment; filename="foo.xls"'
         return response
