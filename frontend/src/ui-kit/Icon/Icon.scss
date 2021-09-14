@@ -1,0 +1,13 @@
+@import "ui-kit/styles";
+
+.Icon {
+  display: inline-flex;
+  align-items: center;
+  text-align: center;
+
+  svg {
+    display: inline-block;
+    width: 100%;
+    height: max-content;
+  }
+}
