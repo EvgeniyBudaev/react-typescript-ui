@@ -6,12 +6,14 @@ import "react-slidedown/lib/slidedown.css";
 import "./Accordion.scss";
 
 export interface IAccordionProps {
+  className?: string;
   title?: string;
   isActive?: boolean;
   children?: React.ReactNode;
 }
 
 export const Accordion: React.FC<IAccordionProps> = ({
+  className,
   title = "",
   isActive = false,
   children = null,
@@ -25,7 +27,7 @@ export const Accordion: React.FC<IAccordionProps> = ({
   return (
     <div
       className={classNames(
-        "Accordion", {
+        "Accordion", className, {
           "Accordion__active": isOpen
         }
       )}
