@@ -18,7 +18,7 @@ export const Accordion: React.FC<IAccordionProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(isActive);
 
-  const toggleAccordion = () => {
+  const handleToggleAccordion = () => {
     setIsOpen(prev => !prev);
   };
 
@@ -30,7 +30,7 @@ export const Accordion: React.FC<IAccordionProps> = ({
         }
       )}
     >
-      <div className="Accordion-Header" onClick={toggleAccordion}>
+      <div className="Accordion-Header" onClick={handleToggleAccordion}>
         <div className="Accordion-HeaderTitle">{title}</div>
         <Icon className="Accordion-HeaderIcon" type="ArrowDown" />
       </div>

@@ -2,17 +2,17 @@ import React, { ReactNode } from "react";
 import "./AccordionGroup.scss";
 
 export interface IAccordionGroupProps {
-  label?: string;
+  title?: string;
   children?: ReactNode;
 }
 
 export const AccordionGroup: React.FC<IAccordionGroupProps> = ({
-  label = "",
+  title = "",
   children,
 }) => {
   return (
     <div className="AccordionGroup">
-      {label && <div className="AccordionGroup-Label">{label}</div>}
+      {title && <div className="AccordionGroup-Label">{title}</div>}
       {children}
     </div>
   );
