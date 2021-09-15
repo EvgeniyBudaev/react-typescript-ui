@@ -1,0 +1,59 @@
+@import "ui-kit/styles";
+
+.Accordion {
+  $this: &;
+  margin-top: 18px;
+  box-shadow: none;
+
+  &-Header {
+    @include roboto-14-bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 32px;
+    padding: 7px 15px 7px 0;
+    color: $color-text;
+    background-color: white;
+    border-bottom: 1px solid $color-suit-gray;
+    transition: all 0.3s ease;
+
+    &:hover {
+      cursor: pointer;
+      background-color: white;
+      box-shadow: $shadow-bottom;
+    }
+    &:last-child {
+      margin-top: 0;
+    }
+
+    &Title {}
+
+    &Icon {
+      svg {
+        transition: all 0.3s ease;
+        width: 16px;
+        height: 10px;
+      }
+    }
+  }
+
+
+
+  &-Content {
+    padding: 15px 0;
+    overflow: hidden;
+    color: $color-text;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-top: 1px solid transparent;
+    transition: all 0.3s;
+  }
+
+  &#{$this}__active {
+    #{$this}-HeaderIcon {
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

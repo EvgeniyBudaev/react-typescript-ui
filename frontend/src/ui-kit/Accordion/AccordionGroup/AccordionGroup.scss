@@ -1,0 +1,8 @@
+@import "ui-kit/styles";
+
+.AccordionGroup {
+  &-Label {
+    @include roboto-14-bold;
+    margin-bottom: 15px;
+  }
+}

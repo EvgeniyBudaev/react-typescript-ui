@@ -17,7 +17,15 @@
 
     &Title {
       margin: 15px 0 8px 15px;
-      color: $color-suit-gray;
+      &Link {
+        color: $color-suit-gray;
+        transition: all 0.15s;
+
+        &:hover {
+          color: $color-text;
+          text-decoration: underline;
+        }
+      }
     }
 
     &Version {
