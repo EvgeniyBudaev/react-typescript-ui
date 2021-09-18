@@ -4,7 +4,7 @@ import classNames from "classnames";
 import * as productsApi from "api/product";
 import { IProduct } from "types/product";
 import { Select } from "ui-kit";
-import { ISortingOption } from "ui-kit/Select";
+import { ISelectOption } from "ui-kit/Select";
 import { ProductsList } from "components";
 import { SelectStyles } from "./styles";
 import "./SelectPage.scss";
@@ -14,11 +14,11 @@ type IsMulti = false;
 export const SelectPage: React.FC = () => {
   const PRICE_UP = "по возрастанию цены";
   const PRICE_DOWN = "по убыванию цены";
-  const options: ISortingOption[] = [
+  const options: ISelectOption[] = [
     { value: "price", label: PRICE_UP },
     { value: "-price", label: PRICE_DOWN },
   ];
-  const [selectedOption, setSelectedOption] = useState<ISortingOption>({
+  const [selectedOption, setSelectedOption] = useState<ISelectOption>({
     value: "price",
     label: PRICE_UP,
   });
@@ -30,7 +30,7 @@ export const SelectPage: React.FC = () => {
     setNeedRequestIndicator(needRequestIndicator + 1);
   }, [setNeedRequestIndicator, needRequestIndicator]);
 
-  const handleChange = (selectedOption: ValueType<ISortingOption, IsMulti>) => {
+  const handleChange = (selectedOption: ValueType<ISelectOption, IsMulti>) => {
     setSelectedOption(selectedOption);
     requestProducts();
   };
@@ -44,7 +44,7 @@ export const SelectPage: React.FC = () => {
   };
 
   const fetchProductsBySorting = useCallback(
-    (selectedOption: ISortingOption) => {
+    (selectedOption: ISelectOption) => {
       productsApi
         .fetchProducts(selectedOption)
         .then(response => {

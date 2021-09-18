@@ -9,24 +9,22 @@ import {
 import classNames from "classnames";
 import "./Select.scss";
 
-export interface ISortingOption {
+export interface ISelectOption {
   value: string;
   label: string;
 }
 
 export interface ISelectProps {
   className?: string;
-  options: ISortingOption[];
-  styles?: Partial<
-    Styles<ISortingOption, false, GroupTypeBase<ISortingOption>>
-  >;
-  value: ISortingOption;
+  options: ISelectOption[];
+  styles?: Partial<Styles<ISelectOption, false, GroupTypeBase<ISelectOption>>>;
+  value: ISelectOption;
   onBlur?: FocusEventHandler;
   onChange?: ((
-    value: ISortingOption,
-    actionMeta: ActionMeta<ISortingOption>
+    value: ISelectOption,
+    actionMeta: ActionMeta<ISelectOption>
   ) => void) &
-    ((value: ISortingOption, action: ActionMeta<ISortingOption>) => void);
+    ((value: ISelectOption, action: ActionMeta<ISelectOption>) => void);
   onFocus?: FocusEventHandler;
 }
 
