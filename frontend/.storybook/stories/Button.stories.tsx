@@ -14,6 +14,5 @@ export const stories = () => (
       <label>Button Disabled</label>
       <Button isDisabled>Disabled</Button>
     </div>
-
   </div>
-)
+);

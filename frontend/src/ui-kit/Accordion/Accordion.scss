@@ -26,7 +26,8 @@
       margin-top: 0;
     }
 
-    &Title {}
+    &Title {
+    }
 
     &Icon {
       svg {
@@ -36,8 +37,6 @@
       }
     }
   }
-
-
 
   &-Content {
     padding: 15px 0;

@@ -10,12 +10,9 @@ export const ButtonPage: React.FC = () => {
   return (
     <div className="ButtonPage">
       <h2>Button</h2>
-      <Button
-        isDisabled={false}
-        onClick={handleButtonClick}
-      >
+      <Button isDisabled={false} onClick={handleButtonClick}>
         Send
       </Button>
     </div>
-  )
+  );
 };

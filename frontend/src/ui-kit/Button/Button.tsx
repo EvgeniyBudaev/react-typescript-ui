@@ -22,7 +22,7 @@ export const Button: React.FC<IButtonProps> = ({
   return (
     <button
       className={classNames("Button", className, {
-        "Button__disabled": isDisabled,
+        Button__disabled: isDisabled,
       })}
       disabled={isDisabled}
       type={typeButton}

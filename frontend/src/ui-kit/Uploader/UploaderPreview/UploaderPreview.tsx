@@ -8,9 +8,9 @@ interface IUploaderPreviewProps {
 export const UploaderPreview: React.FC<IUploaderPreviewProps> = ({ files }) => {
   return (
     <div className="UploaderPreview">
-      {!isNil(files) ? files.map((file, index) => (
-        <p key={index}>{file.name}</p>
-      )) : "Файлов нет."}
+      {!isNil(files)
+        ? files.map((file, index) => <p key={index}>{file.name}</p>)
+        : "Файлов нет."}
     </div>
   );
 };

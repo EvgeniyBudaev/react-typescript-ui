@@ -7,5 +7,5 @@ export const HomePage: React.FC = () => {
       <h1>React TypeScript UI Library</h1>
       <hr />
     </div>
-  )
+  );
 };

@@ -1,5 +1,6 @@
-from rest_framework import viewsets
+from rest_framework import viewsets, filters
 from rest_framework.permissions import AllowAny
+from django_filters.rest_framework import DjangoFilterBackend
 
 from rest_framework import generics
 from django.http import HttpResponse
@@ -11,7 +12,9 @@ from django.http import FileResponse, StreamingHttpResponse
 from django.utils.encoding import escape_uri_path  # кириллица в имени файла
 
 from uploader.models import File
-from .serializers import FileSerializer
+from store.models import Product
+from .serializers import FileSerializer, ProductSerializer
+from .filters import ProductFilter
 
 
 class FileViewSet(viewsets.ModelViewSet):
@@ -19,6 +22,17 @@ class FileViewSet(viewsets.ModelViewSet):
     queryset = File.objects.all()
     serializer_class = FileSerializer
     permission_classes = (AllowAny,)
+
+
+class ProductViewSet(viewsets.ModelViewSet):
+    """API для работы с продуктами."""
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    permission_classes = (AllowAny,)
+    filter_backends = (DjangoFilterBackend, filters.OrderingFilter)
+    filterset_class = ProductFilter
+    ordering_fields = ('price',)
+    ordering = ('price',)
 
 
 class FileDownloadListAPIView(generics.ListAPIView):

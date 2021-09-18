@@ -10,4 +10,4 @@ export const stories = () => (
       <Icon type="Pdf" />
     </div>
   </div>
-)
+);

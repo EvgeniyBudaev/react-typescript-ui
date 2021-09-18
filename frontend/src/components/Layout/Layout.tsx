@@ -11,9 +11,7 @@ export const Layout: React.FC<ILayoutProps> = ({ children }) => {
     <div className="Layout">
       <MenuPanel />
       <Header />
-      <div className="Layout-Container">
-        {children}
-      </div>
+      <div className="Layout-Container">{children}</div>
     </div>
   );
 };

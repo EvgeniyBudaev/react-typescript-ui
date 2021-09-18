@@ -1,10 +1,11 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
-from .views import FileViewSet, FileDownloadListAPIView
+from .views import FileViewSet, FileDownloadListAPIView, ProductViewSet
 
 router = DefaultRouter()
 router.register('files', FileViewSet, basename='files')
+router.register('products', ProductViewSet, basename='products')
 
 urlpatterns = [
     path('v1/', include(router.urls)),

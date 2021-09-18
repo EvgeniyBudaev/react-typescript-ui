@@ -8,13 +8,14 @@ export const MenuPanel: React.FC = () => {
     <nav className="MenuPanel">
       <div className="MenuPanel-Brand">
         <div className="MenuPanel-BrandTitle">
-          <Link className="MenuPanel-BrandTitleLink" to={ROUTES.HOME}>UI</Link>
+          <Link className="MenuPanel-BrandTitleLink" to={ROUTES.HOME}>
+            UI
+          </Link>
         </div>
         <div className="MenuPanel-BrandVersion">v1.0.0</div>
       </div>
       <div className="MenuPanel-Title">Components</div>
       <div className="MenuPanel-List">
-
         <NavLink
           className="MenuPanel-ListItem"
           activeClassName="MenuPanel-ListItem__active"
@@ -42,12 +43,19 @@ export const MenuPanel: React.FC = () => {
         <NavLink
           className="MenuPanel-ListItem"
           activeClassName="MenuPanel-ListItem__active"
+          to={ROUTES.SELECT}
+        >
+          Select
+        </NavLink>
+
+        <NavLink
+          className="MenuPanel-ListItem"
+          activeClassName="MenuPanel-ListItem__active"
           to={ROUTES.UPLOADER}
         >
           Uploader
         </NavLink>
-
       </div>
     </nav>
-    )
+  );
 };

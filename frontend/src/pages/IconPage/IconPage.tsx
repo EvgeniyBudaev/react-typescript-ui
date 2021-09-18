@@ -9,4 +9,4 @@ export const IconPage: React.FC = () => {
       <Icon type="Pdf" />
     </div>
   );
-}
+};

@@ -1,0 +1,26 @@
+@import "ui-kit/styles";
+
+.Product {
+  $this: &;
+  padding: 10px;
+  width: 100%;
+  height: 330px;
+  border: 1px solid #e4e4e4;
+  border-radius: 4px;
+
+  &-Images {
+    text-align: center;
+    height: 216px;
+  }
+
+  &-Title {
+    margin: 8px 0;
+    text-align: center;
+  }
+
+  &-Price {
+    @include roboto-24-bold;
+    margin: 16px 0;
+    text-align: center;
+  }
+}

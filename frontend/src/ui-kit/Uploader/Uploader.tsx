@@ -8,7 +8,10 @@ interface IUploaderProps {
   onFilesUploadedAll?: (handleFilesAllAdd: File[]) => void;
 }
 
-export const Uploader: React.FC<IUploaderProps> = ({ config, onFilesUploadedAll }) => {
+export const Uploader: React.FC<IUploaderProps> = ({
+  config,
+  onFilesUploadedAll,
+}) => {
   const UPLOADER_CONFIG_DEFAULT: IUploaderConfig = {
     accept: [],
   };
@@ -26,7 +29,7 @@ export const Uploader: React.FC<IUploaderProps> = ({ config, onFilesUploadedAll 
 
   const handleFilesAllAdd = (files: File[]) => {
     return files;
-  }
+  };
 
   useEffect(() => {
     onFilesUploadedAll && onFilesUploadedAll(handleFilesAllAdd(files));
@@ -35,10 +38,14 @@ export const Uploader: React.FC<IUploaderProps> = ({ config, onFilesUploadedAll 
 
   return (
     <div className="Uploader">
-      {
-        !isNil(config) ? <UploaderDropzone config={config} onDrop={handleDrop} />
-          : <UploaderDropzone config={UPLOADER_CONFIG_DEFAULT} onDrop={handleDrop} />
-      }
+      {!isNil(config) ? (
+        <UploaderDropzone config={config} onDrop={handleDrop} />
+      ) : (
+        <UploaderDropzone
+          config={UPLOADER_CONFIG_DEFAULT}
+          onDrop={handleDrop}
+        />
+      )}
     </div>
   );
 };

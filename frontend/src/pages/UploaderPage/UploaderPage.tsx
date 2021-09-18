@@ -14,18 +14,18 @@ export interface INewFile {
 }
 
 export const UploaderPage: React.FC = () => {
-    const UPLOADER_CONFIG: IUploaderConfig = {
-  accept: ["image/jpg", "image/jpeg", "image/png", "application/pdf"]
-};
+  const UPLOADER_CONFIG: IUploaderConfig = {
+    accept: ["image/jpg", "image/jpeg", "image/png", "application/pdf"],
+  };
   const [filesUploaded, setFilesUploaded] = useState<File[]>([]);
   const [filesNew, setFilesNew] = useState<INewFile[]>([]);
 
   const handleFilesUploadedAll = (files: any) => {
     console.log("Uploaded files", files);
     setFilesUploaded(files);
-  }
+  };
 
-    const handleFilesAdd = async (filesToAdd: File[]) => {
+  const handleFilesAdd = async (filesToAdd: File[]) => {
     console.log("filesToAdd", filesToAdd);
     const newFiles: INewFile[] = [];
 
@@ -54,35 +54,38 @@ export const UploaderPage: React.FC = () => {
         url: "http://127.0.0.1:8000/api/v1/files/",
         data: formData,
         headers: {
-          "Content-Type": "multipart/form-data"
+          "Content-Type": "multipart/form-data",
         },
       })
-        .then((data) => {
+        .then(data => {
           console.log("[data]", data);
         })
         .catch(err => console.log("[error]", err));
     });
-  }
+  };
 
   const FILE_ID = 1;
 
   const handleLoad = async () => {
-    const response = await axios(`http://127.0.0.1:8000/api/v1/download/${FILE_ID}/`, {responseType: "blob"});
+    const response = await axios(
+      `http://127.0.0.1:8000/api/v1/download/${FILE_ID}/`,
+      { responseType: "blob" }
+    );
     console.log("Response: ", response);
 
-    const url = window.URL.createObjectURL(
-      new Blob([response.data], {
-        type: response.headers["content-type"]
-      })
-    );
-    console.log("URL: " ,url);
-
-    const link = document.createElement("a");
-    link.href = url;
-    const filename = "test";
-    link.setAttribute("download", filename);
-    document.body.appendChild(link);
-    link.click();
+    // const url = window.URL.createObjectURL(
+    //   new Blob([response.data], {
+    //     type: response.headers["content-type"]
+    //   })
+    // );
+    // console.log("URL: " ,url);
+    //
+    // const link = document.createElement("a");
+    // link.href = url;
+    // const filename = "test";
+    // link.setAttribute("download", filename);
+    // document.body.appendChild(link);
+    // link.click();
   };
 
   const handleFileDownload = (event: React.MouseEvent) => {
@@ -91,20 +94,20 @@ export const UploaderPage: React.FC = () => {
   };
 
   const handleDownload = () => {
-  fetch(`http://127.0.0.1:8000/api/v1/download/${FILE_ID}/`).then(
-    response => {
-      console.log("[response]", response);
-      response.blob().then(blob => {
-      let url = window.URL.createObjectURL(blob);
-      let a = document.createElement("a");
-      console.log(url);
-      a.href = url;
-      a.download = "test";
-      a.click();
-    });
-  });
-}
-
+    fetch(`http://127.0.0.1:8000/api/v1/download/${FILE_ID}/`).then(
+      response => {
+        console.log("[response]", response);
+        //   response.blob().then(blob => {
+        //   let url = window.URL.createObjectURL(blob);
+        //   let a = document.createElement("a");
+        //   console.log(url);
+        //   a.href = url;
+        //   a.download = "test";
+        //   a.click();
+        // });
+      }
+    );
+  };
 
   //   const res = key.replace(/\.[^/.]+$/, "");
 
@@ -118,9 +121,9 @@ export const UploaderPage: React.FC = () => {
       <UploaderPreview files={filesUploaded} />
 
       <button onClick={handleSubmit}>submit</button>
-      <button onClick={handleLoad}>Загрузить файл111</button>
       <button onClick={handleFileDownload}>Загрузить файл222</button>
       <button onClick={handleDownload}>Загрузить файл333</button>
+      <button onClick={handleLoad}>Загрузить файл111</button>
     </div>
   );
 };

@@ -26,11 +26,9 @@ export const Accordion: React.FC<IAccordionProps> = ({
 
   return (
     <div
-      className={classNames(
-        "Accordion", className, {
-          "Accordion__active": isOpen
-        }
-      )}
+      className={classNames("Accordion", className, {
+        Accordion__active: isOpen,
+      })}
     >
       <div className="Accordion-Header" onClick={handleToggleAccordion}>
         <div className="Accordion-HeaderTitle">{title}</div>

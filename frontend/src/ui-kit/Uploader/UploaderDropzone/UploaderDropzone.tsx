@@ -9,18 +9,13 @@ export interface IUploaderDropzoneProps {
   onDrop: (acceptedFiles: any) => void;
 }
 
-export const UploaderDropzone: React.FC<IUploaderDropzoneProps> = ({ config, onDrop }) => {
+export const UploaderDropzone: React.FC<IUploaderDropzoneProps> = ({
+  config,
+  onDrop,
+}) => {
   return (
-    <Dropzone
-      accept={config.accept.join(", ")}
-      onDrop={onDrop}
-    >
-      {({
-          getRootProps,
-          getInputProps,
-          isDragActive,
-          isDragReject,
-        }) => {
+    <Dropzone accept={config.accept.join(", ")} onDrop={onDrop}>
+      {({ getRootProps, getInputProps, isDragActive, isDragReject }) => {
         let className = "";
         className = isDragActive ? "active" : className;
         className = isDragReject ? "reject" : className;
@@ -29,9 +24,7 @@ export const UploaderDropzone: React.FC<IUploaderDropzoneProps> = ({ config, onD
           <div className={`UploaderDropzone ${className}`} {...getRootProps()}>
             <input {...getInputProps()} />
             <div className="UploaderDropzone-Title">
-              <div>
-                Drag and Drop files here,
-              </div>
+              <div>Drag and Drop files here,</div>
               <div>or Click</div>
             </div>
             <Button>Upload Here</Button>
