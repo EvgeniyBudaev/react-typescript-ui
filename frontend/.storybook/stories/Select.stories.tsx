@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import { ValueType } from "react-select";
 import classNames from "classnames";
 import { Select } from "ui-kit";
+import { ISortingOption } from "ui-kit/Select";
 import { SelectStyles } from "pages/SelectPage/styles";
-import {ISortingOption} from "../../src/ui-kit/Select";
-import {ValueType} from "react-select";
 
 type IsMulti = false;
 
@@ -52,4 +52,4 @@ export const stories = () => {
       </div>
     </div>
   );
-}
+};
