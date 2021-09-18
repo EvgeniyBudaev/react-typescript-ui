@@ -13,6 +13,11 @@ export const ButtonPage: React.FC = () => {
       <Button isDisabled={false} onClick={handleButtonClick}>
         Send
       </Button>
+      <hr />
+      <h2>Button Disabled</h2>
+      <Button isDisabled onClick={handleButtonClick}>
+        Send
+      </Button>
     </div>
   );
 };
