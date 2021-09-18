@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { ValueType } from "react-select";
 import classNames from "classnames";
+import { isNull } from "lodash";
 import * as productsApi from "api/product";
 import { IProduct } from "types/product";
 import { Select } from "ui-kit";
@@ -31,6 +32,7 @@ export const SelectPage: React.FC = () => {
   }, [setNeedRequestIndicator, needRequestIndicator]);
 
   const handleChange = (selectedOption: ValueType<ISelectOption, IsMulti>) => {
+    if (isNull(selectedOption)) return;
     setSelectedOption(selectedOption);
     requestProducts();
   };

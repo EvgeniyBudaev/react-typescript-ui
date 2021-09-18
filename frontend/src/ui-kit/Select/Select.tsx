@@ -20,11 +20,16 @@ export interface ISelectProps {
   styles?: Partial<Styles<ISelectOption, false, GroupTypeBase<ISelectOption>>>;
   value: ISelectOption;
   onBlur?: FocusEventHandler;
-  onChange?: ((
-    value: ISelectOption,
-    actionMeta: ActionMeta<ISelectOption>
-  ) => void) &
-    ((value: ISelectOption, action: ActionMeta<ISelectOption>) => void);
+  onChange?:
+    | (((
+        value: ISelectOption | null,
+        actionMeta: ActionMeta<ISelectOption>
+      ) => void) &
+        ((
+          value: ISelectOption | null,
+          action: ActionMeta<ISelectOption>
+        ) => void))
+    | undefined;
   onFocus?: FocusEventHandler;
 }
 
