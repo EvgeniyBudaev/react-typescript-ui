@@ -1,0 +1,52 @@
+@import "ui-kit/styles";
+
+.Modal {
+  &__open {}
+
+  &Header {
+    h2 {
+      @include roboto-28-medium;
+    }
+
+    &__start {}
+
+    &__center {}
+
+    &__end {}
+  }
+
+  &Content {
+    margin-top: 24px;
+  }
+
+  &Footer {
+    margin-top: 32px;
+  }
+
+  &Default {
+    padding: 40px;
+    color: $color-text;
+
+    &__medium {
+      min-width: 760px;
+      max-width: 760px;
+      width: 100%;
+    }
+
+    &CloseButton {
+      width: 20px;
+      height: 20px;
+
+      svg {
+        fill: $color-dark-gray;
+        transition: all 0.15s;
+      }
+
+      &:hover {
+        svg {
+          fill: $color-suit-gray;
+        }
+      }
+    }
+  }
+}

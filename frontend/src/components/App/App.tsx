@@ -6,6 +6,7 @@ import {
   ButtonPage,
   HomePage,
   IconPage,
+  ModalPage,
   SelectPage,
   UploaderPage,
 } from "pages";
@@ -20,6 +21,7 @@ export const App: React.FC = () => {
           <Route path={ROUTES.ACCORDION} component={AccordionPage} />
           <Route path={ROUTES.BUTTON} component={ButtonPage} />
           <Route path={ROUTES.ICON} component={IconPage} />
+          <Route path={ROUTES.MODAL} component={ModalPage} />
           <Route path={ROUTES.SELECT} component={SelectPage} />
           <Route path={ROUTES.UPLOADER} component={UploaderPage} />
           <Route path={ROUTES.HOME} component={HomePage} exact />
