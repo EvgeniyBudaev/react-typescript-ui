@@ -1,0 +1,13 @@
+.ScrollbarPage {
+  h2 {
+    margin-bottom: 25px;
+  }
+
+  &-Content {
+    padding: 15px;
+    width: 300px;
+    height: 300px;
+    border: 1px solid #ccc;
+    overflow: auto;
+  }
+}

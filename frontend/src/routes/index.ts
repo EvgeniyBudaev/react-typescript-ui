@@ -5,6 +5,7 @@ export const ROUTES = {
   ICON: "/icon/",
   MODAL: "/modal/",
   HOME: "/",
+  SCROLLBAR: "/scrollbar/",
   SELECT: "/select/",
   UPLOADER: "/uploader/",
 };

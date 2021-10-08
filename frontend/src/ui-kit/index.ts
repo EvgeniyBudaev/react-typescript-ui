@@ -5,6 +5,7 @@ import Checkbox from "./Checkbox";
 import CheckboxGroup from "./Checkbox/CheckboxGroup";
 import Icon from "./Icon";
 import Modal from "./Modal";
+import Scrollbar from "./Scrollbar";
 import Select from "./Select";
 import Uploader from "./Uploader";
 import UploaderPreview from "./Uploader/UploaderPreview";
@@ -19,6 +20,7 @@ export {
   CheckboxGroup,
   Icon,
   Modal,
+  Scrollbar,
   Select,
   Uploader,
   UploaderPreview,

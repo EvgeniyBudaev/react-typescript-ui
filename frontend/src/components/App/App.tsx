@@ -8,6 +8,7 @@ import {
   HomePage,
   IconPage,
   ModalPage,
+  ScrollbarPage,
   SelectPage,
   UploaderPage,
 } from "pages";
@@ -24,6 +25,7 @@ export const App: React.FC = () => {
           <Route path={ROUTES.CHECKBOX} component={CheckboxPage} />
           <Route path={ROUTES.ICON} component={IconPage} />
           <Route path={ROUTES.MODAL} component={ModalPage} />
+          <Route path={ROUTES.SCROLLBAR} component={ScrollbarPage} />
           <Route path={ROUTES.SELECT} component={SelectPage} />
           <Route path={ROUTES.UPLOADER} component={UploaderPage} />
           <Route path={ROUTES.HOME} component={HomePage} exact />

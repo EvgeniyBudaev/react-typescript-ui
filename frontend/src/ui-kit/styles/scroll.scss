@@ -1,0 +1,33 @@
+@import "./colors";
+
+.scrollbar-track-x,
+.scrollbar-thumb-x {
+  height: 8px !important;
+}
+
+.scrollbar-track-y,
+.scrollbar-thumb-y {
+  width: 8px !important;
+}
+
+.scroll-content:hover ~ .scrollbar-track {
+  opacity: 1;
+}
+
+.custom-class {
+  background: #fff;
+}
+
+.scrollbar-track .scrollbar-thumb {
+    background: $color-suit-gray;
+}
+
+.scrollbar-thumb-y {
+  &:hover {
+    background: $color-primary;
+  }
+
+  &:active {
+    background: $color-primary-hover;
+  }
+}
