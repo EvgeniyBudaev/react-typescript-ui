@@ -9,7 +9,10 @@ interface ICheckboxGroupProps {
   id: string;
   nameGroup: string;
   value: string;
-  onChange: (event, nameGroup) => void;
+  onChange: (
+    event: React.ChangeEvent<HTMLInputElement>,
+    nameGroup: string
+  ) => void;
 }
 
 export const CheckboxGroup: React.FC<ICheckboxGroupProps> = ({

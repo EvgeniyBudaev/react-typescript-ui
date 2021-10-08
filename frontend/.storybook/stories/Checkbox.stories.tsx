@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { Checkbox, CheckboxGroup } from "ui-kit";
-import "./CheckboxPage.scss";
+import { ICheckedGroup } from "../../src/pages/CheckboxPage/CheckboxPage";
 
-export interface ICheckedGroup {
-  category: string[];
-}
+export default { title: "Checkbox" };
 
-export const CheckboxPage: React.FC = () => {
+export const stories = () => {
   const checkboxGroupOptions = {
     category: ["Smartphones", "Notebooks"],
   };
@@ -14,7 +12,7 @@ export const CheckboxPage: React.FC = () => {
     category: [],
   });
   const [checkedBox, setCheckedBox] = useState(false);
-
+  
   const handleChangeCheckedBox = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -45,35 +43,33 @@ export const CheckboxPage: React.FC = () => {
   };
 
   return (
-    <div className="CheckboxPage">
-      <h2>Checkbox</h2>
-      <Checkbox
-        isChecked={checkedBox}
-        id={"1"}
-        value="Single"
-        onChange={handleChangeCheckedBox}
-      />
-      <div>
-        <pre>{JSON.stringify(checkedBox, null, 2)}</pre>
+    <div>
+      <div className="story">
+        <label>Checkbox</label>
+        <Checkbox
+          isChecked={checkedBox}
+          id={"1"}
+          value="Single"
+          onChange={handleChangeCheckedBox}
+        />
       </div>
-      <h2>Checkbox Group</h2>
-      <div className="CheckboxPage-CheckboxGroup">
-        {checkboxGroupOptions.category.map(value => (
-          <CheckboxGroup
-            checkedBoxByGroup={checkedBoxByGroup}
-            id={value}
-            key={value}
-            nameGroup="category"
-            value={value}
-            onChange={(event, nameGroup) =>
-              handleChangeCheckedGroup(event, nameGroup)
-            }
-          />
-        ))}
-      </div>
-      <div>
-        <pre>{JSON.stringify(checkedBoxByGroup, null, 2)}</pre>
+      <div className="story">
+        <label>Checkbox Group</label>
+        <div style={{ display: "inline-flex", flexDirection: "column"}}>
+          {checkboxGroupOptions.category.map(value => (
+            <CheckboxGroup
+              checkedBoxByGroup={checkedBoxByGroup}
+              id={value}
+              key={value}
+              nameGroup="category"
+              value={value}
+              onChange={(event, nameGroup) =>
+                handleChangeCheckedGroup(event, nameGroup)
+              }
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
-};
+}
