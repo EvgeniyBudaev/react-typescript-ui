@@ -4,6 +4,7 @@ import { ROUTES } from "routes";
 import {
   AccordionPage,
   ButtonPage,
+  CheckboxPage,
   HomePage,
   IconPage,
   ModalPage,
@@ -20,6 +21,7 @@ export const App: React.FC = () => {
         <Switch>
           <Route path={ROUTES.ACCORDION} component={AccordionPage} />
           <Route path={ROUTES.BUTTON} component={ButtonPage} />
+          <Route path={ROUTES.CHECKBOX} component={CheckboxPage} />
           <Route path={ROUTES.ICON} component={IconPage} />
           <Route path={ROUTES.MODAL} component={ModalPage} />
           <Route path={ROUTES.SELECT} component={SelectPage} />

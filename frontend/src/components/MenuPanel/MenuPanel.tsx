@@ -35,6 +35,14 @@ export const MenuPanel: React.FC = () => {
         <NavLink
           className="MenuPanel-ListItem"
           activeClassName="MenuPanel-ListItem__active"
+          to={ROUTES.CHECKBOX}
+        >
+          Checkbox
+        </NavLink>
+
+        <NavLink
+          className="MenuPanel-ListItem"
+          activeClassName="MenuPanel-ListItem__active"
           to={ROUTES.ICON}
         >
           Icon

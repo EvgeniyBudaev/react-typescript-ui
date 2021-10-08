@@ -1,5 +1,6 @@
 import AccordionPage from "./AccordionPage";
 import ButtonPage from "./ButtonPage";
+import CheckboxPage from "./CheckboxPage";
 import HomePage from "./HomePage";
 import IconPage from "./IconPage";
 import ModalPage from "./ModalPage";
@@ -9,6 +10,7 @@ import UploaderPage from "./UploaderPage";
 export {
   AccordionPage,
   ButtonPage,
+  CheckboxPage,
   HomePage,
   IconPage,
   ModalPage,

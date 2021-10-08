@@ -1,0 +1,10 @@
+.CheckboxPage {
+  h2 {
+    margin-bottom: 25px;
+  }
+
+  &-CheckboxGroup {
+    display: inline-flex;
+    flex-direction: column;
+  }
+}
