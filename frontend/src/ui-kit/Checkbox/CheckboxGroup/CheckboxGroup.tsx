@@ -1,7 +1,6 @@
 import React from "react";
 import classNames from "classnames";
 import { Icon } from "ui-kit/index";
-import "./CheckboxGroup.scss";
 
 interface ICheckboxGroupProps {
   className?: string;
@@ -25,19 +24,19 @@ export const CheckboxGroup: React.FC<ICheckboxGroupProps> = ({
 }) => {
   const isChecked: boolean = checkedBoxByGroup[nameGroup].includes(label);
 
-  const handleChange = event => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onChange(event, nameGroup);
   };
 
   return (
     <label
-      className={classNames("CheckBoxGroup", className, {
-        CheckBoxGroup__active: isChecked,
+      className={classNames("CheckBox", className, {
+        CheckBox__active: isChecked,
       })}
       htmlFor={id}
     >
-      <span className="CheckBoxGroup-Inner">
-        <Icon className="CheckBoxGroup-Icon" type="Checkbox" />
+      <span className="CheckBox-Inner">
+        <Icon className="CheckBox-Icon" type="Checkbox" />
         <input
           checked={isChecked}
           id={id}
@@ -47,7 +46,7 @@ export const CheckboxGroup: React.FC<ICheckboxGroupProps> = ({
           onChange={handleChange}
         />
       </span>
-      {label && <span className="CheckBoxGroup-Label">{label}</span>}
+      {label && <span className="CheckBox-Label">{label}</span>}
     </label>
   );
 };

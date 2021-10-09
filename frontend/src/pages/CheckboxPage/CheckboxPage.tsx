@@ -3,7 +3,7 @@ import { Checkbox, CheckboxGroup } from "ui-kit";
 import "./CheckboxPage.scss";
 
 export interface ICheckedGroup {
-  category: string[];
+  [T: string]: string[];
 }
 
 export const CheckboxPage: React.FC = () => {
@@ -21,7 +21,7 @@ export const CheckboxPage: React.FC = () => {
     setCheckedBox(event.target.checked);
   };
 
-  const handleChangeCheckedGroup = (
+  const handleChangeCheckedBoxGroup = (
     { target: { checked, value } },
     nameGroup
   ) => {
@@ -49,7 +49,7 @@ export const CheckboxPage: React.FC = () => {
       <h2>Checkbox</h2>
       <Checkbox
         isChecked={checkedBox}
-        id={"1"}
+        id="1"
         label="Single"
         onChange={handleChangeCheckedBox}
       />
@@ -65,9 +65,7 @@ export const CheckboxPage: React.FC = () => {
             key={label}
             nameGroup="category"
             label={label}
-            onChange={(event, nameGroup) =>
-              handleChangeCheckedGroup(event, nameGroup)
-            }
+            onChange={handleChangeCheckedBoxGroup}
           />
         ))}
       </div>
