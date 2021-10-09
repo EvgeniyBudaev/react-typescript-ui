@@ -8,7 +8,7 @@ interface ICheckboxGroupProps {
   checkedBoxByGroup: any;
   id: string;
   nameGroup: string;
-  value: string;
+  label: string;
   onChange: (
     event: React.ChangeEvent<HTMLInputElement>,
     nameGroup: string
@@ -20,10 +20,10 @@ export const CheckboxGroup: React.FC<ICheckboxGroupProps> = ({
   checkedBoxByGroup,
   id,
   nameGroup,
-  value,
+  label,
   onChange,
 }) => {
-  const isChecked: boolean = checkedBoxByGroup[nameGroup].includes(value);
+  const isChecked: boolean = checkedBoxByGroup[nameGroup].includes(label);
 
   const handleChange = event => {
     onChange(event, nameGroup);
@@ -41,13 +41,13 @@ export const CheckboxGroup: React.FC<ICheckboxGroupProps> = ({
         <input
           checked={isChecked}
           id={id}
-          name={value}
+          name={label}
           type="checkbox"
-          value={value}
+          value={label}
           onChange={handleChange}
         />
       </span>
-      {value && <span className="CheckBoxGroup-Label">{value}</span>}
+      {label && <span className="CheckBoxGroup-Label">{label}</span>}
     </label>
   );
 };

@@ -6,7 +6,7 @@ import "./Checkbox.scss";
 interface ICheckboxProps {
   className?: string;
   id: string;
-  value?: string;
+  label?: string;
   isChecked?: boolean;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
@@ -15,7 +15,7 @@ export const Checkbox: React.FC<ICheckboxProps> = ({
   className,
   isChecked,
   id,
-  value,
+  label,
   onChange,
 }) => {
   return (
@@ -30,13 +30,13 @@ export const Checkbox: React.FC<ICheckboxProps> = ({
         <input
           checked={isChecked}
           id={id}
-          name={value}
+          name={label}
           type="checkbox"
-          value={value}
+          value={label}
           onChange={onChange}
         />
       </span>
-      {value && <span className="CheckBox-Label">{value}</span>}
+      {label && <span className="CheckBox-Label">{label}</span>}
     </label>
   );
 };

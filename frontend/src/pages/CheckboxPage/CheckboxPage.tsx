@@ -50,7 +50,7 @@ export const CheckboxPage: React.FC = () => {
       <Checkbox
         isChecked={checkedBox}
         id={"1"}
-        value="Single"
+        label="Single"
         onChange={handleChangeCheckedBox}
       />
       <div>
@@ -58,13 +58,13 @@ export const CheckboxPage: React.FC = () => {
       </div>
       <h2>Checkbox Group</h2>
       <div className="CheckboxPage-CheckboxGroup">
-        {checkboxGroupOptions.category.map(value => (
+        {checkboxGroupOptions.category.map(label => (
           <CheckboxGroup
             checkedBoxByGroup={checkedBoxByGroup}
-            id={value}
-            key={value}
+            id={label}
+            key={label}
             nameGroup="category"
-            value={value}
+            label={label}
             onChange={(event, nameGroup) =>
               handleChangeCheckedGroup(event, nameGroup)
             }
