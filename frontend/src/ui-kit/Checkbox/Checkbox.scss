@@ -34,6 +34,10 @@
                 opacity: 0;
                 transition: opacity .128s ease-in-out,transform .328s ease-in-out;
             }
+
+            path {
+                stroke: white;
+            }
         }
 
         input {
