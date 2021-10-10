@@ -10,14 +10,6 @@
   width: 8px !important;
 }
 
-.scroll-content:hover ~ .scrollbar-track {
-  opacity: 1;
-}
-
-.custom-class {
-  background: #fff;
-}
-
 .scrollbar-track .scrollbar-thumb {
     background: $color-suit-gray;
 }
