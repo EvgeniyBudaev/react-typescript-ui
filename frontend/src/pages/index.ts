@@ -6,6 +6,7 @@ import IconPage from "./IconPage";
 import ModalPage from "./ModalPage";
 import ScrollbarPage from "./ScrollbarPage";
 import SelectPage from "./SelectPage";
+import SpinnerPage from "./SpinnerPage";
 import UploaderPage from "./UploaderPage";
 
 export {
@@ -17,5 +18,6 @@ export {
   ModalPage,
   ScrollbarPage,
   SelectPage,
+  SpinnerPage,
   UploaderPage,
 };

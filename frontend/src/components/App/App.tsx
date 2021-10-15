@@ -10,6 +10,7 @@ import {
   ModalPage,
   ScrollbarPage,
   SelectPage,
+  SpinnerPage,
   UploaderPage,
 } from "pages";
 import { Layout } from "components";
@@ -27,6 +28,7 @@ export const App: React.FC = () => {
           <Route path={ROUTES.MODAL} component={ModalPage} />
           <Route path={ROUTES.SCROLLBAR} component={ScrollbarPage} />
           <Route path={ROUTES.SELECT} component={SelectPage} />
+          <Route path={ROUTES.SPINNER} component={SpinnerPage} />
           <Route path={ROUTES.UPLOADER} component={UploaderPage} />
           <Route path={ROUTES.HOME} component={HomePage} exact />
         </Switch>

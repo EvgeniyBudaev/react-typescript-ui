@@ -7,5 +7,6 @@ export const ROUTES = {
   HOME: "/",
   SCROLLBAR: "/scrollbar/",
   SELECT: "/select/",
+  SPINNER: "/spinner/",
   UPLOADER: "/uploader/",
 };

@@ -7,6 +7,7 @@ import Icon from "./Icon";
 import Modal from "./Modal";
 import Scrollbar from "./Scrollbar";
 import Select from "./Select";
+import Spinner from "./Spinner";
 import Uploader from "./Uploader";
 import UploaderPreview from "./Uploader/UploaderPreview";
 
@@ -22,6 +23,7 @@ export {
   Modal,
   Scrollbar,
   Select,
+  Spinner,
   Uploader,
   UploaderPreview,
 };
