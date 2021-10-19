@@ -1,0 +1,25 @@
+$height: 800px;
+
+.DocumentViewerPage {
+  h2 {
+    margin-bottom: 25px;
+  }
+
+  iframe {
+    margin-bottom: 25px;
+  }
+
+  &-DocumentViewer {
+    margin-top: 25px;
+  }
+
+  &-Modal {
+    max-width: 1200px;
+    height: $height;
+    overflow: hidden;
+
+    & .Modal {
+      height: $height;
+    }
+  }
+}

@@ -3,7 +3,9 @@ import AccordionGroup from "./Accordion/AccordionGroup";
 import Button from "./Button";
 import Checkbox from "./Checkbox";
 import CheckboxGroup from "./Checkbox/CheckboxGroup";
+import DocumentViewer from "./DocumentViewer";
 import Icon from "./Icon";
+import IconButton from "./Button/IconButton";
 import Modal from "./Modal";
 import Scrollbar from "./Scrollbar";
 import Select from "./Select";
@@ -19,7 +21,9 @@ export {
   Button,
   Checkbox,
   CheckboxGroup,
+  DocumentViewer,
   Icon,
+  IconButton,
   Modal,
   Scrollbar,
   Select,

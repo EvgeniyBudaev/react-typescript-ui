@@ -1,0 +1,52 @@
+@import "ui-kit/styles";
+
+.IconButton {
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  box-shadow: none;
+  transition: all 0.15s;
+
+  &::before {
+    height: 0;
+    width: 0;
+  }
+
+  & svg {
+    fill: $color-primary;
+    transition: all 0.15s;
+  }
+
+  & path {
+    fill: $color-primary;
+    transition: all 0.15s;
+  }
+
+  &:hover {
+    background-color: transparent;
+
+    svg {
+      fill: $color-primary-hover;
+    }
+
+    path {
+      fill: $color-primary-hover;
+    }
+  }
+
+  &.Button__disabled {
+    background-color: white;
+
+    svg {
+      fill: $color-disabled;
+    }
+
+    path {
+      fill: $color-disabled;
+    }
+
+    &:hover {
+      background-color: white;
+    }
+  }
+}

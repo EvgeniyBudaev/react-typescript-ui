@@ -5,8 +5,10 @@ import {
   AccordionPage,
   ButtonPage,
   CheckboxPage,
+  DocumentViewerPage,
   HomePage,
   IconPage,
+  IconButtonPage,
   ModalPage,
   ScrollbarPage,
   SelectPage,
@@ -24,6 +26,8 @@ export const App: React.FC = () => {
           <Route path={ROUTES.ACCORDION} component={AccordionPage} />
           <Route path={ROUTES.BUTTON} component={ButtonPage} />
           <Route path={ROUTES.CHECKBOX} component={CheckboxPage} />
+          <Route path={ROUTES.DOCUMENT_VIEWER} component={DocumentViewerPage} />
+          <Route path={ROUTES.ICON_BUTTON} component={IconButtonPage} />
           <Route path={ROUTES.ICON} component={IconPage} />
           <Route path={ROUTES.MODAL} component={ModalPage} />
           <Route path={ROUTES.SCROLLBAR} component={ScrollbarPage} />

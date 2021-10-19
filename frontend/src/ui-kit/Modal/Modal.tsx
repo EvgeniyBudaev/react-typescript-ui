@@ -23,11 +23,10 @@ export const Modal = ({
   onCloseModal,
 }: IModalProps): JSX.Element => {
   const defaultClassNames = {
-    modal: classNames("ModalDefault", {
+    modal: classNames("ModalDefault", className, {
       ModalDefault__medium: size === "medium",
     }),
     closeButton: classNames("ModalDefaultCloseButton"),
-    className,
   };
   const [styles, setStyles] = useState({});
 

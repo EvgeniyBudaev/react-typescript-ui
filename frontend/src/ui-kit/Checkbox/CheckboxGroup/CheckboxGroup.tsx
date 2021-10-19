@@ -4,6 +4,7 @@ import { Icon } from "ui-kit/index";
 
 interface ICheckboxGroupProps {
   className?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   checkedBoxByGroup: any;
   id: string;
   nameGroup: string;
