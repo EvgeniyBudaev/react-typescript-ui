@@ -6,6 +6,7 @@ import HomePage from "./HomePage";
 import IconPage from "./IconPage";
 import IconButtonPage from "./IconButtonPage";
 import ModalPage from "./ModalPage";
+import OverlayPage from "./OverlayPage";
 import ScrollbarPage from "./ScrollbarPage";
 import SelectPage from "./SelectPage";
 import SpinnerPage from "./SpinnerPage";
@@ -20,6 +21,7 @@ export {
   IconPage,
   IconButtonPage,
   ModalPage,
+  OverlayPage,
   ScrollbarPage,
   SelectPage,
   SpinnerPage,

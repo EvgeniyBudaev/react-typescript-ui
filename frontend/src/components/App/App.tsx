@@ -10,6 +10,7 @@ import {
   IconPage,
   IconButtonPage,
   ModalPage,
+  OverlayPage,
   ScrollbarPage,
   SelectPage,
   SpinnerPage,
@@ -30,6 +31,7 @@ export const App: React.FC = () => {
           <Route path={ROUTES.ICON_BUTTON} component={IconButtonPage} />
           <Route path={ROUTES.ICON} component={IconPage} />
           <Route path={ROUTES.MODAL} component={ModalPage} />
+          <Route path={ROUTES.OVERLAY} component={OverlayPage} />
           <Route path={ROUTES.SCROLLBAR} component={ScrollbarPage} />
           <Route path={ROUTES.SELECT} component={SelectPage} />
           <Route path={ROUTES.SPINNER} component={SpinnerPage} />

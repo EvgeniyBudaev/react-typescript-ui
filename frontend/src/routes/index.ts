@@ -7,6 +7,7 @@ export const ROUTES = {
   ICON_BUTTON: "/icon-button/",
   MODAL: "/modal/",
   HOME: "/",
+  OVERLAY: "/overlay/",
   SCROLLBAR: "/scrollbar/",
   SELECT: "/select/",
   SPINNER: "/spinner/",

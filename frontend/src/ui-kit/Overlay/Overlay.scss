@@ -1,0 +1,40 @@
+@import "ui-kit/styles";
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.6;
+  z-index: 100;
+  visibility: visible;
+
+  &.enter {
+    background: transparent;
+    opacity: 1;
+    visibility: hidden;
+  }
+
+  &.enter-active {
+    background-color: #000;
+    opacity: 0.6;
+    visibility: visible;
+    transition: all 0.5s;
+  }
+
+  &.exit {
+    background-color: #000;
+    opacity: 0.6;
+    visibility: visible;
+    transition: all 0.5s;
+  }
+
+  &.exit-active {
+    background: transparent;
+    opacity: 1;
+    visibility: hidden;
+  }
+}

@@ -7,6 +7,7 @@ import DocumentViewer from "./DocumentViewer";
 import Icon from "./Icon";
 import IconButton from "./Button/IconButton";
 import Modal from "./Modal";
+import Overlay from "./Overlay";
 import Scrollbar from "./Scrollbar";
 import Select from "./Select";
 import Spinner from "./Spinner";
@@ -25,6 +26,7 @@ export {
   Icon,
   IconButton,
   Modal,
+  Overlay,
   Scrollbar,
   Select,
   Spinner,
