@@ -4,6 +4,7 @@ import Button from "./Button";
 import Checkbox from "./Checkbox";
 import CheckboxGroup from "./Checkbox/CheckboxGroup";
 import DocumentViewer from "./DocumentViewer";
+import Hamburger from "./Hamburger";
 import Icon from "./Icon";
 import IconButton from "./Button/IconButton";
 import Modal from "./Modal";
@@ -23,6 +24,7 @@ export {
   Checkbox,
   CheckboxGroup,
   DocumentViewer,
+  Hamburger,
   Icon,
   IconButton,
   Modal,

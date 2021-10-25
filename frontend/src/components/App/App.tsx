@@ -6,6 +6,7 @@ import {
   ButtonPage,
   CheckboxPage,
   DocumentViewerPage,
+  HamburgerPage,
   HomePage,
   IconPage,
   IconButtonPage,
@@ -28,6 +29,7 @@ export const App: React.FC = () => {
           <Route path={ROUTES.BUTTON} component={ButtonPage} />
           <Route path={ROUTES.CHECKBOX} component={CheckboxPage} />
           <Route path={ROUTES.DOCUMENT_VIEWER} component={DocumentViewerPage} />
+          <Route path={ROUTES.HAMBURGER} component={HamburgerPage} />
           <Route path={ROUTES.ICON_BUTTON} component={IconButtonPage} />
           <Route path={ROUTES.ICON} component={IconPage} />
           <Route path={ROUTES.MODAL} component={ModalPage} />

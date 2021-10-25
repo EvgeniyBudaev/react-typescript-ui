@@ -3,6 +3,7 @@ export const ROUTES = {
   BUTTON: "/button/",
   CHECKBOX: "/checkbox/",
   DOCUMENT_VIEWER: "/document-viewer",
+  HAMBURGER: "/hamburger/",
   ICON: "/icon/",
   ICON_BUTTON: "/icon-button/",
   MODAL: "/modal/",
