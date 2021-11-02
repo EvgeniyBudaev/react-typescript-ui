@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import { ROUTES } from "routes";
 import {
   AccordionPage,
+  AvatarPage,
   ButtonPage,
   CheckboxPage,
   DocumentViewerPage,
@@ -26,6 +27,7 @@ export const App: React.FC = () => {
       <Layout>
         <Switch>
           <Route path={ROUTES.ACCORDION} component={AccordionPage} />
+          <Route path={ROUTES.AVATAR} component={AvatarPage} />
           <Route path={ROUTES.BUTTON} component={ButtonPage} />
           <Route path={ROUTES.CHECKBOX} component={CheckboxPage} />
           <Route path={ROUTES.DOCUMENT_VIEWER} component={DocumentViewerPage} />

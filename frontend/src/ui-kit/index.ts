@@ -1,5 +1,6 @@
 import Accordion from "./Accordion";
 import AccordionGroup from "./Accordion/AccordionGroup";
+import Avatar from "./Avatar";
 import Button from "./Button";
 import Checkbox from "./Checkbox";
 import CheckboxGroup from "./Checkbox/CheckboxGroup";
@@ -20,6 +21,7 @@ export type IconType = import("./Icon").IconType;
 export {
   Accordion,
   AccordionGroup,
+  Avatar,
   Button,
   Checkbox,
   CheckboxGroup,

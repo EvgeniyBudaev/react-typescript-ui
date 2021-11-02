@@ -1,0 +1,75 @@
+@import "ui-kit/styles";
+
+.Avatar {
+  $this: &;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: transparent;
+  border-radius: 50%;
+  z-index: 2;
+  cursor: pointer;
+
+  &Border {
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #65D0E4, #4D88DF,
+      #6A53D6, #914ACC, #CF5E94, #E98958, #FBB754) no-repeat;
+    background-size: contain;
+    z-index: 1;
+
+    &Box {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      background: white;
+      border-radius: 50%;
+      z-index: 1;
+    }
+  }
+
+  &Inner {
+    position: relative;
+    z-index: 2;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      width: 14px;
+      height: 14px;
+      background-color: $color-primary;
+      border: 2px solid white;
+      border-radius: 50%;
+      z-index: 1;
+    }
+  }
+
+  &Face {
+    @include roboto-24-regular;
+    line-height: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    width: 100%;
+    height: 100%;
+    background-color: $color-light-violet;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    transition: all 0.15s ease-out;
+  }
+
+  &:hover {
+    #{$this}Face {
+      background-color: $color-dark-violet;
+    }
+  }
+}
