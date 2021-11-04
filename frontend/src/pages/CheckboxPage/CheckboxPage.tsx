@@ -6,12 +6,28 @@ export interface ICheckedGroup {
   [T: string]: string[];
 }
 
-export const CheckboxPage: React.FC = () => {
-  const checkboxGroupOptions = {
-    category: ["Smartphones", "Notebooks"],
+export interface ICheckboxGroupOption {
+  option: {
+    optionNameRu: string;
+    optionNameOnBackend: string;
   };
+  entities: string[];
+}
+
+export const CheckboxPage: React.FC = () => {
+  const checkboxGroupOptions: ICheckboxGroupOption[] = [
+    {
+      option: { optionNameRu: "Категория", optionNameOnBackend: "category" },
+      entities: ["Smartphones", "Notebooks"],
+    },
+    {
+      option: { optionNameRu: "Форма", optionNameOnBackend: "form" },
+      entities: ["Круглая", "Овальная", "Прямоугольная", "Фигурная"],
+    },
+  ];
   const [checkedBoxByGroup, setCheckedBoxByGroup] = useState<ICheckedGroup>({
     category: [],
+    form: [],
   });
   const [checkedBox, setCheckedBox] = useState(false);
 
@@ -57,16 +73,20 @@ export const CheckboxPage: React.FC = () => {
         <pre>{JSON.stringify(checkedBox, null, 2)}</pre>
       </div>
       <h2>Checkbox Group</h2>
-      <div className="CheckboxPage-CheckboxGroup">
-        {checkboxGroupOptions.category.map(label => (
-          <CheckboxGroup
-            checkedBoxByGroup={checkedBoxByGroup}
-            id={label}
-            key={label}
-            nameGroup="category"
-            label={label}
-            onChange={handleChangeCheckedBoxGroup}
-          />
+      <div className="CheckboxPage-CheckboxGroupInner">
+        {checkboxGroupOptions.map(item => (
+          <div className="CheckboxPage-CheckboxGroup">
+            {item.entities.map((label, index) => (
+              <CheckboxGroup
+                id={index.toString() + label}
+                label={label}
+                checkedBoxByGroup={checkedBoxByGroup}
+                key={index}
+                nameGroup={item.option.optionNameOnBackend}
+                onChange={handleChangeCheckedBoxGroup}
+              />
+            ))}
+          </div>
         ))}
       </div>
       <div>

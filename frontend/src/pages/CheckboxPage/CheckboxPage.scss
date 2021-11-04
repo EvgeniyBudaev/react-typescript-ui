@@ -3,8 +3,12 @@
     margin-bottom: 25px;
   }
 
-  &-CheckboxGroup {
+  &-CheckboxGroupInner {
     display: inline-flex;
     flex-direction: column;
+  }
+
+  &-CheckboxGroup {
+    margin-bottom: 25px;
   }
 }
