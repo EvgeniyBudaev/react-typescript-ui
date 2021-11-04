@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { ValueType } from "react-select";
 import classNames from "classnames";
-import { isNull } from "lodash";
+import isEmpty from "lodash/isEmpty";
+import isNull from "lodash/isNull";
 import * as productsApi from "api/product";
 import { IProduct } from "types/product";
 import { Select } from "ui-kit";
@@ -66,7 +67,7 @@ export const SelectPage: React.FC = () => {
     fetchProductsBySorting(selectedOption);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [needRequestIndicator]);
-
+  console.log("products", products);
   return (
     <div className="SelectPage">
       <h2>Select</h2>
@@ -81,7 +82,14 @@ export const SelectPage: React.FC = () => {
         onChange={handleChange}
         onFocus={handleFocus}
       />
-      <ProductsList products={products} />
+      {!isEmpty(products) ? (
+        <ProductsList products={products} />
+      ) : (
+        <div className="SelectPage-Warning">
+          Для вывода списка товаров нужно запустить backend. Применить миграции.
+          Заполнить БД товарами.
+        </div>
+      )}
     </div>
   );
 };

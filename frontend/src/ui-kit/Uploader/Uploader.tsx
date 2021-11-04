@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { isEmpty, isNil } from "lodash";
+import isEmpty from "lodash/isEmpty";
+import isNil from "lodash/isNil";
 import { UploaderDropzone } from "./UploaderDropzone/UploaderDropzone";
 import { IUploaderConfig } from "./types";
 
