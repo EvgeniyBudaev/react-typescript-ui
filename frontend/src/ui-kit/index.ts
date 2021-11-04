@@ -12,6 +12,7 @@ import Modal from "./Modal";
 import Overlay from "./Overlay";
 import Scrollbar from "./Scrollbar";
 import Select from "./Select";
+import Sidebar from "./Sidebar";
 import Spinner from "./Spinner";
 import Uploader from "./Uploader";
 import UploaderPreview from "./Uploader/UploaderPreview";
@@ -33,6 +34,7 @@ export {
   Overlay,
   Scrollbar,
   Select,
+  Sidebar,
   Spinner,
   Uploader,
   UploaderPreview,

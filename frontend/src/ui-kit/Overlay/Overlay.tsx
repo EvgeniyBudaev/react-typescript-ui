@@ -5,12 +5,14 @@ import "./Overlay.scss";
 
 export interface IOverlayProps {
   className?: string;
+  timeout?: number;
   isActive?: boolean;
   onClick?: (event: React.MouseEvent) => void;
 }
 
 export const Overlay: React.FC<IOverlayProps> = ({
   className,
+  timeout = 300,
   isActive = false,
   onClick,
 }) => {
@@ -21,7 +23,7 @@ export const Overlay: React.FC<IOverlayProps> = ({
       className={classNames("Overlay", className)}
       in={isActive}
       nodeRef={nodeRef}
-      timeout={500}
+      timeout={timeout}
       unmountOnExit
       onClick={onClick}
     >

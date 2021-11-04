@@ -1,0 +1,38 @@
+$transition: 0.3s;
+
+.Sidebar {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  max-width: 80vw;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  overflow: auto;
+  z-index: 101;
+
+  &.enter {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: opacity $transition, transform $transition;
+  }
+
+  &.enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity $transition, transform $transition;
+  }
+
+  &.exit {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity $transition, transform $transition;
+  }
+
+  &.exit-active {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: opacity $transition, transform $transition;
+  }
+}

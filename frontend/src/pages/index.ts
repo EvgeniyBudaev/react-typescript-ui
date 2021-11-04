@@ -11,6 +11,7 @@ import ModalPage from "./ModalPage";
 import OverlayPage from "./OverlayPage";
 import ScrollbarPage from "./ScrollbarPage";
 import SelectPage from "./SelectPage";
+import SidebarPage from "./SidebarPage";
 import SpinnerPage from "./SpinnerPage";
 import UploaderPage from "./UploaderPage";
 
@@ -28,6 +29,7 @@ export {
   OverlayPage,
   ScrollbarPage,
   SelectPage,
+  SidebarPage,
   SpinnerPage,
   UploaderPage,
 };

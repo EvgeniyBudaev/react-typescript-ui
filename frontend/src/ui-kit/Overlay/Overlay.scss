@@ -1,5 +1,8 @@
 @import "ui-kit/styles";
 
+$opacity: 0.6;
+$transition: 0.3s;
+
 .Overlay {
   position: fixed;
   top: 0;
@@ -8,7 +11,7 @@
   left: 0;
   height: 100%;
   background-color: #000;
-  opacity: 0.6;
+  opacity: $opacity;
   z-index: 100;
   visibility: visible;
 
@@ -20,16 +23,16 @@
 
   &.enter-active {
     background-color: #000;
-    opacity: 0.6;
+    opacity: $opacity;
     visibility: visible;
-    transition: all 0.5s;
+    transition: all $transition;
   }
 
   &.exit {
     background-color: #000;
-    opacity: 0.6;
+    opacity: $opacity;
     visibility: visible;
-    transition: all 0.5s;
+    transition: all $transition;
   }
 
   &.exit-active {

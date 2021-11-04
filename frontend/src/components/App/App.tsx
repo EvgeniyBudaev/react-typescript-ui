@@ -15,6 +15,7 @@ import {
   OverlayPage,
   ScrollbarPage,
   SelectPage,
+  SidebarPage,
   SpinnerPage,
   UploaderPage,
 } from "pages";
@@ -38,6 +39,7 @@ export const App: React.FC = () => {
           <Route path={ROUTES.OVERLAY} component={OverlayPage} />
           <Route path={ROUTES.SCROLLBAR} component={ScrollbarPage} />
           <Route path={ROUTES.SELECT} component={SelectPage} />
+          <Route path={ROUTES.SIDEBAR} component={SidebarPage} />
           <Route path={ROUTES.SPINNER} component={SpinnerPage} />
           <Route path={ROUTES.UPLOADER} component={UploaderPage} />
           <Route path={ROUTES.HOME} component={HomePage} exact />

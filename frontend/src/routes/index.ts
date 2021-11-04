@@ -12,6 +12,7 @@ export const ROUTES = {
   OVERLAY: "/overlay/",
   SCROLLBAR: "/scrollbar/",
   SELECT: "/select/",
+  SIDEBAR: "/sidebar/",
   SPINNER: "/spinner/",
   UPLOADER: "/uploader/",
 };
