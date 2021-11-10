@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'djoser',
     'django_filters',
     'corsheaders',
+    'accounts.apps.AccountsConfig',
     'api.apps.ApiConfig',
     'uploader.apps.UploaderConfig',
     'store.apps.StoreConfig',
@@ -157,6 +158,17 @@ REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'api.renderers.UTF8CharsetJSONRenderer',
     ),
+}
+
+AUTH_USER_MODEL = 'accounts.UserAccount'
+
+DJOSER = {
+    'LOGIN_FIELD': 'email',
+    'SERIALIZERS': {
+        'user_create': 'accounts.serializers.UserCreate',
+        'user': 'accounts.serializers.UserSerializer',
+        'user_delete': 'djoser.serializers.UserDeleteSerializer',
+    }
 }
 
 SIMPLE_JWT = {

@@ -3,6 +3,7 @@ import AvatarPage from "./AvatarPage";
 import ButtonPage from "./ButtonPage";
 import CheckboxPage from "./CheckboxPage";
 import DocumentViewerPage from "./DocumentViewerPage";
+import FormPage from "./FormPage";
 import HamburgerPage from "./HamburgerPage";
 import HomePage from "./HomePage";
 import IconPage from "./IconPage";
@@ -21,6 +22,7 @@ export {
   ButtonPage,
   CheckboxPage,
   DocumentViewerPage,
+  FormPage,
   HamburgerPage,
   HomePage,
   IconPage,

@@ -14,6 +14,5 @@ export const fetchProducts = async (
     `http://127.0.0.1:8000/api/v1/products/?ordering=${selectOption.value}`,
     config
   );
-
   return response.data;
 };

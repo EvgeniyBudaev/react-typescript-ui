@@ -9,6 +9,8 @@ import { ReactComponent as Pdf } from "ui-kit/assets/icons/files/Pdf.svg";
 import { ReactComponent as Plus } from "ui-kit/assets/icons/Plus.svg";
 import { ReactComponent as Spinner } from "ui-kit/assets/icons/Spinner.svg";
 import { ReactComponent as Telegram } from "ui-kit/assets/icons/Telegram.svg";
+import { ReactComponent as Visibility } from "ui-kit/assets/icons/Visibility.svg";
+import { ReactComponent as VisibilityOff } from "ui-kit/assets/icons/VisibilityOff.svg";
 
 export type IconType =
   | "ArrowDown"
@@ -19,7 +21,9 @@ export type IconType =
   | "Pdf"
   | "Plus"
   | "Spinner"
-  | "Telegram";
+  | "Telegram"
+  | "Visibility"
+  | "VisibilityOff";
 
 export const iconTypes = new Map([
   ["ArrowDown", <ArrowDown key={newGuid()} />],
@@ -31,4 +35,6 @@ export const iconTypes = new Map([
   ["Plus", <Plus key={newGuid()} />],
   ["Spinner", <Spinner key={newGuid()} />],
   ["Telegram", <Telegram key={newGuid()} />],
+  ["Visibility", <Visibility key={newGuid()} />],
+  ["VisibilityOff", <VisibilityOff key={newGuid()} />],
 ]);

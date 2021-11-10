@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { ValueType } from "react-select";
 import classNames from "classnames";
 import isEmpty from "lodash/isEmpty";
 import isNull from "lodash/isNull";
@@ -11,7 +10,10 @@ import { ProductsList } from "components";
 import { SelectStyles } from "./styles";
 import "./SelectPage.scss";
 
-type IsMulti = false;
+interface ISorting {
+  value: string;
+  label: string;
+}
 
 export const SelectPage: React.FC = () => {
   const PRICE_UP = "по возрастанию цены";
@@ -32,7 +34,7 @@ export const SelectPage: React.FC = () => {
     setNeedRequestIndicator(needRequestIndicator + 1);
   }, [setNeedRequestIndicator, needRequestIndicator]);
 
-  const handleChange = (selectedOption: ValueType<ISelectOption, IsMulti>) => {
+  const handleChange = (selectedOption: ISorting) => {
     if (isNull(selectedOption)) return;
     setSelectedOption(selectedOption);
     requestProducts();

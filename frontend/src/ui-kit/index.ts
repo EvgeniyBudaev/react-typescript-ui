@@ -5,15 +5,18 @@ import Button from "./Button";
 import Checkbox from "./Checkbox";
 import CheckboxGroup from "./Checkbox/CheckboxGroup";
 import DocumentViewer from "./DocumentViewer";
+import FormField from "./FormField";
 import Hamburger from "./Hamburger";
 import Icon from "./Icon";
 import IconButton from "./Button/IconButton";
+import Input from "./Input";
 import Modal from "./Modal";
 import Overlay from "./Overlay";
 import Scrollbar from "./Scrollbar";
 import Select from "./Select";
 import Sidebar from "./Sidebar";
 import Spinner from "./Spinner";
+import TextArea from "./TextArea";
 import Uploader from "./Uploader";
 import UploaderPreview from "./Uploader/UploaderPreview";
 
@@ -27,15 +30,18 @@ export {
   Checkbox,
   CheckboxGroup,
   DocumentViewer,
+  FormField,
   Hamburger,
   Icon,
   IconButton,
+  Input,
   Modal,
   Overlay,
   Scrollbar,
   Select,
   Sidebar,
   Spinner,
+  TextArea,
   Uploader,
   UploaderPreview,
 };
