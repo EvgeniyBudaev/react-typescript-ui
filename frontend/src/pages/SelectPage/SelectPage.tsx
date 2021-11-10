@@ -10,11 +10,6 @@ import { ProductsList } from "components";
 import { SelectStyles } from "./styles";
 import "./SelectPage.scss";
 
-interface ISorting {
-  value: string;
-  label: string;
-}
-
 export const SelectPage: React.FC = () => {
   const PRICE_UP = "ascending price";
   const PRICE_DOWN = "descending price";
@@ -34,7 +29,7 @@ export const SelectPage: React.FC = () => {
     setNeedRequestIndicator(needRequestIndicator + 1);
   }, [setNeedRequestIndicator, needRequestIndicator]);
 
-  const handleChange = (selectedOption: ISorting) => {
+  const handleChange = (selectedOption: ISelectOption) => {
     if (isNull(selectedOption)) return;
     setSelectedOption(selectedOption);
     requestProducts();
