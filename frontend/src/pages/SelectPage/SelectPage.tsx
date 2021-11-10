@@ -16,8 +16,8 @@ interface ISorting {
 }
 
 export const SelectPage: React.FC = () => {
-  const PRICE_UP = "по возрастанию цены";
-  const PRICE_DOWN = "по убыванию цены";
+  const PRICE_UP = "ascending price";
+  const PRICE_DOWN = "descending price";
   const options: ISelectOption[] = [
     { value: "price", label: PRICE_UP },
     { value: "-price", label: PRICE_DOWN },
@@ -88,8 +88,8 @@ export const SelectPage: React.FC = () => {
         <ProductsList products={products} />
       ) : (
         <div className="SelectPage-Warning">
-          Для вывода списка товаров нужно запустить backend. Применить миграции.
-          Заполнить БД товарами.
+          To display a list of products, you need to run the backend. Apply
+          migrations. Fill the database with goods.
         </div>
       )}
     </div>
