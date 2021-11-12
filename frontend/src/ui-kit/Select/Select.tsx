@@ -1,10 +1,9 @@
-import React from "react";
+import React, { FocusEventHandler } from "react";
 import {
   ActionMeta,
   default as ReactSelect,
-  FocusEventHandler,
-  GroupTypeBase,
-  Styles,
+  OnChangeValue,
+  StylesConfig,
 } from "react-select";
 import classNames from "classnames";
 import "./Select.scss";
@@ -14,23 +13,19 @@ export interface ISelectOption {
   label: string;
 }
 
+type isMulti = false;
+
 export interface ISelectProps {
   className?: string;
   options: ISelectOption[];
-  styles?: Partial<Styles<ISelectOption, false, GroupTypeBase<ISelectOption>>>;
+  styles?: StylesConfig<ISelectOption, isMulti>;
   value: ISelectOption;
-  onBlur?: FocusEventHandler;
-  onChange?:
-    | (((
-        value: ISelectOption | null,
-        actionMeta: ActionMeta<ISelectOption>
-      ) => void) &
-        ((
-          value: ISelectOption | null,
-          action: ActionMeta<ISelectOption>
-        ) => void))
-    | undefined;
-  onFocus?: FocusEventHandler;
+  onBlur?: FocusEventHandler<HTMLInputElement>;
+  onChange?: (
+    value: OnChangeValue<ISelectOption, isMulti>,
+    action: ActionMeta<ISelectOption>
+  ) => void;
+  onFocus?: FocusEventHandler<HTMLInputElement>;
 }
 
 export const Select: React.FC<ISelectProps> = ({
