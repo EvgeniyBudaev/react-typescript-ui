@@ -14,7 +14,7 @@ export interface ISignupForm {
   phoneNumber: string;
   email: string;
   password: string;
-  rePassword: string;
+  passwordConfirm: string;
 }
 
 const schema = yup.object().shape({
@@ -33,24 +33,24 @@ const schema = yup.object().shape({
     .email("Неверный email. Проверьте, правильно ли введён email"),
   password: yup
     .string()
-    .required("Укажите пароль")
-    .min(8, "Пароль должен быть не менее 8 символов"),
-  rePassword: yup
+    .required("Write your password")
+    .min(8, "ust be at 8 characters"),
+  passwordConfirm: yup
     .string()
-    .required("Укажите пароль")
-    .min(8, "Пароль должен быть не менее 8 символов"),
+    .required("Write your confirm password")
+    .min(8, "ust be at 8 characters"),
 });
 
 export const FormPage: React.FC = () => {
-  const [isPasswordMatch, setIsPasswordMatch] = useState(false);
   const [isFocused, setIsFocused] = useState({
     firstName: false,
     lastName: false,
     phoneNumber: false,
     email: false,
     password: false,
-    rePassword: false,
+    passwordConfirm: false,
   });
+  const [isPasswordMatch, setIsPasswordMatch] = useState(true);
   const {
     register,
     watch,
@@ -60,13 +60,12 @@ export const FormPage: React.FC = () => {
   const watchAllFields = watch();
 
   const onSubmit = (data: ISignupForm) => {
-    console.log("[DATA]", data);
     const phone_number_normalize = normalizePhoneNumber(data.phoneNumber);
-    if (data.password === data.rePassword) {
-      setIsPasswordMatch(false);
-      console.log("[DATA]", data);
-    } else {
+    if (data.password === data.passwordConfirm) {
+      console.log("data: ", data);
       setIsPasswordMatch(true);
+    } else {
+      setIsPasswordMatch(false);
     }
   };
 
@@ -102,7 +101,7 @@ export const FormPage: React.FC = () => {
     if (message) {
       return message;
     }
-    if (isPasswordMatch) {
+    if (!isPasswordMatch) {
       return "Пароли не совпадают";
     }
   };
@@ -164,7 +163,7 @@ export const FormPage: React.FC = () => {
               onFocus={handleFocus}
             />
             <FormField
-              label="Пароль"
+              label="Password"
               name="password"
               type="password"
               register={register}
@@ -175,12 +174,12 @@ export const FormPage: React.FC = () => {
               onFocus={handleFocus}
             />
             <FormField
-              label="Подтверждение пароля"
-              name="rePassword"
+              label="Confirm password"
+              name="passwordConfirm"
               type="password"
               register={register}
-              error={errorPasswordMessage(errors.rePassword?.message)}
-              isFocused={isFocused.rePassword}
+              error={errorPasswordMessage(errors.passwordConfirm?.message)}
+              isFocused={isFocused.passwordConfirm}
               isRequired
               onBlur={handleBlur}
               onFocus={handleFocus}
