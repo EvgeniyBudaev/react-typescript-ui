@@ -4,6 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup/dist/yup.umd";
 import isEmpty from "lodash/isEmpty";
 import isNull from "lodash/isNull";
 import * as yup from "yup";
+import { fetchUserSignup } from "api/account";
 import { Button, FormField, Spinner } from "ui-kit";
 import { normalizePhoneNumber } from "utils/normalizePhoneNumber";
 import "./FormPage.scss";
@@ -64,6 +65,7 @@ export const FormPage: React.FC = () => {
     if (data.password === data.passwordConfirm) {
       console.log("data: ", data);
       setIsPasswordMatch(true);
+      fetchUserSignup(data);
     } else {
       setIsPasswordMatch(false);
     }

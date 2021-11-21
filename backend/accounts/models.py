@@ -4,15 +4,15 @@ from django.contrib.auth.models import (AbstractBaseUser, PermissionsMixin,
 
 
 class UserAccountManager(BaseUserManager):
-    def create_user(self, first_name, last_name, phone_number,
+    def create_user(self, firstName, lastName, phoneNumber,
                     email, password=None, **extra_fields):
         """Creates and saves a new user"""
         if not email:
             raise ValueError('User must have an email address')
         user = self.model(
-            first_name=first_name,
-            last_name=last_name,
-            phone_number=phone_number,
+            firstName=firstName,
+            lastName=lastName,
+            phoneNumber=phoneNumber,
             email=self.normalize_email(email),
             password=password,
             **extra_fields
@@ -22,13 +22,13 @@ class UserAccountManager(BaseUserManager):
 
         return user
 
-    def create_superuser(self, first_name, last_name, phone_number, email,
+    def create_superuser(self, firstName, lastName, phoneNumber, email,
                          password=None):
         """Creates and saves a new super user"""
         user = self.create_user(
-            first_name=first_name,
-            last_name=last_name,
-            phone_number=phone_number,
+            firstName=firstName,
+            lastName=lastName,
+            phoneNumber=phoneNumber,
             email=email,
             password=password
         )
@@ -44,11 +44,10 @@ class UserAccountManager(BaseUserManager):
 
 class UserAccount(AbstractBaseUser, PermissionsMixin):
     """Custom user model that supports using email instead of username"""
-    first_name = models.CharField(max_length=255)
-    last_name = models.CharField(max_length=255)
-    medium_name = models.CharField(max_length=255, null=True, blank=True)
+    firstName = models.CharField(max_length=255)
+    lastName = models.CharField(max_length=255)
     email = models.EmailField(max_length=255, unique=True)
-    phone_number = models.CharField(max_length=50)
+    phoneNumber = models.CharField(max_length=50)
 
     data_joined = models.DateTimeField(auto_now_add=True)
     last_login = models.DateTimeField(auto_now_add=True)
@@ -60,7 +59,7 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
     objects = UserAccountManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ('first_name', 'last_name', 'phone_number')
+    REQUIRED_FIELDS = ('firstName', 'lastName', 'phoneNumber')
 
     def __str__(self):
         return self.email

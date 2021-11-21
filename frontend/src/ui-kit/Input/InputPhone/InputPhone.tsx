@@ -23,9 +23,10 @@ export const InputPhone = forwardRef(
     { className, name, type, error, ...rest }: IInputPhoneProps,
     ref: ForwardedRef<HTMLInputElement>
   ): JSX.Element => {
-    const PATTERN = /\D/g;
+    const PATTERN = /\D/g; // все символы, которые не числа
 
     const getInputNumbersValue = (value: string) => {
+      // return only numbers
       return value.replace(PATTERN, "");
     };
 
@@ -44,6 +45,7 @@ export const InputPhone = forwardRef(
       }
 
       if (["7", "8", "9"].indexOf(inputNumbersValue[0]) > -1) {
+        // Russian phone number
         if (inputNumbersValue[0] === "9") {
           inputNumbersValue = "7" + inputNumbersValue;
         }
@@ -64,6 +66,7 @@ export const InputPhone = forwardRef(
           formattedInputValue += "-" + inputNumbersValue.substring(9, 11);
         }
       } else {
+        // Not Russian phone number
         formattedInputValue = "+" + inputNumbersValue.substring(0, 16);
       }
 
@@ -71,6 +74,7 @@ export const InputPhone = forwardRef(
     };
 
     const handlePhoneKeyDown = (
+      // remove first symbol
       event: React.KeyboardEvent<HTMLInputElement>
     ) => {
       const input = event.target as HTMLInputElement;

@@ -6,18 +6,17 @@ from .models import UserAccount
 
 
 class UserAdmin(BaseUserAdmin):
-    list_display = ('email', 'first_name', 'last_name', 'phone_number',
+    list_display = ('email', 'firstName', 'lastName', 'phoneNumber',
                     'last_login', 'data_joined', 'is_active')
     list_display_links = ('email',)
     readonly_fields = ('last_login', 'data_joined')
     ordering = ('email',)
     filter_horizontal = ()
     list_filter = ()
-    fieldsets = ()
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
-        (_('Personal Info'), {'fields': ('first_name', 'last_name',
-                                         'phone_number')}),
+        (_('Personal Info'), {'fields': ('firstName', 'lastName',
+                                         'phoneNumber')}),
         (
             _('Permissions'),
             {'fields': ('is_active', 'is_staff', 'is_admin', 'is_superuser')}

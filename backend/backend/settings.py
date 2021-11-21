@@ -165,7 +165,7 @@ AUTH_USER_MODEL = 'accounts.UserAccount'
 DJOSER = {
     'LOGIN_FIELD': 'email',
     'SERIALIZERS': {
-        'user_create': 'accounts.serializers.UserCreate',
+        'user_create': 'djoser.serializers.UserCreateSerializer',
         'user': 'accounts.serializers.UserSerializer',
         'user_delete': 'djoser.serializers.UserDeleteSerializer',
     }
