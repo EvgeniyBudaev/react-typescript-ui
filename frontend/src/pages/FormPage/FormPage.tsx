@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup/dist/yup.umd";
-import isEmpty from "lodash/isEmpty";
-import isNull from "lodash/isNull";
 import * as yup from "yup";
 import { fetchUserSignup } from "api/account";
-import { Button, FormField, Spinner } from "ui-kit";
+import { Button, FormField } from "ui-kit";
 import { normalizePhoneNumber } from "utils/normalizePhoneNumber";
 import "./FormPage.scss";
 
@@ -63,9 +61,16 @@ export const FormPage: React.FC = () => {
   const onSubmit = (data: ISignupForm) => {
     const phone_number_normalize = normalizePhoneNumber(data.phoneNumber);
     if (data.password === data.passwordConfirm) {
-      console.log("data: ", data);
       setIsPasswordMatch(true);
-      fetchUserSignup(data);
+      const options = {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        phoneNumber: phone_number_normalize,
+        email: data.email,
+        password: data.password,
+        passwordConfirm: data.passwordConfirm,
+      };
+      void fetchUserSignup(options);
     } else {
       setIsPasswordMatch(false);
     }
@@ -83,22 +88,6 @@ export const FormPage: React.FC = () => {
     }
   };
 
-  const errorEmailMessage = (
-    errorValidation: string,
-    errorResponse: string
-  ) => {
-    if (!isEmpty(errorValidation) && !errorResponse) {
-      return errorValidation;
-    }
-    if (!isNull(errorResponse) && !errors.email) {
-      if (errorResponse === "user account с таким email уже существует.") {
-        return "Пользователь с таким email уже существует";
-      } else {
-        return errorResponse;
-      }
-    }
-  };
-
   const errorPasswordMessage = (message: string) => {
     if (message) {
       return message;
@@ -107,8 +96,6 @@ export const FormPage: React.FC = () => {
       return "Пароли не совпадают";
     }
   };
-
-  //if (isLoading) return <Spinner />;
 
   return (
     <div className="FormPage">
@@ -155,10 +142,6 @@ export const FormPage: React.FC = () => {
               type="text"
               register={register}
               error={errors.email && errors.email.message}
-              // error={errorEmailMessage(
-              //   errors.email?.message,
-              //   error?.response.data?.email[0]
-              // )}
               isFocused={isFocused.email}
               isRequired
               onBlur={handleBlur}
