@@ -14,6 +14,7 @@ import ScrollbarPage from "./ScrollbarPage";
 import SelectPage from "./SelectPage";
 import SidebarPage from "./SidebarPage";
 import SpinnerPage from "./SpinnerPage";
+import TextAreaPage from "./TextAreaPage";
 import UploaderPage from "./UploaderPage";
 
 export {
@@ -33,5 +34,6 @@ export {
   SelectPage,
   SidebarPage,
   SpinnerPage,
+  TextAreaPage,
   UploaderPage,
 };

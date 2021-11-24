@@ -18,6 +18,7 @@ import {
   SelectPage,
   SidebarPage,
   SpinnerPage,
+  TextAreaPage,
   UploaderPage,
 } from "pages";
 import { Layout } from "components";
@@ -43,6 +44,7 @@ export const App: React.FC = () => {
           <Route path={ROUTES.SELECT} component={SelectPage} />
           <Route path={ROUTES.SIDEBAR} component={SidebarPage} />
           <Route path={ROUTES.SPINNER} component={SpinnerPage} />
+          <Route path={ROUTES.TEXTAREA} component={TextAreaPage} />
           <Route path={ROUTES.UPLOADER} component={UploaderPage} />
           <Route path={ROUTES.HOME} component={HomePage} exact />
         </Switch>
