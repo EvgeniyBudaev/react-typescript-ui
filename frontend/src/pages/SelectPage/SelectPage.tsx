@@ -7,7 +7,11 @@ import { IProduct } from "types/product";
 import { Select } from "ui-kit";
 import { ISelectOption } from "ui-kit/Select";
 import { ProductsList } from "components";
-import { SelectStyles } from "./styles";
+import {
+  SelectStyles,
+  StyledDropdownIndicator,
+  StyledMultiValueRemove,
+} from "./styles";
 import "./SelectPage.scss";
 
 export const SelectPage: React.FC = () => {
@@ -21,6 +25,8 @@ export const SelectPage: React.FC = () => {
     value: "price",
     label: PRICE_UP,
   });
+  const [multipleSelectedOption, setMultipleSelectedOption] =
+    useState<ISelectOption>();
   const [products, setProducts] = useState<IProduct[]>([]);
   const [needRequestIndicator, setNeedRequestIndicator] = useState(0);
   const [isSelectOpened, setIsSelectOpened] = useState(false);
@@ -33,6 +39,11 @@ export const SelectPage: React.FC = () => {
     if (isNull(selectedOption)) return;
     setSelectedOption(selectedOption);
     requestProducts();
+  };
+
+  const handleChangeMultiple = (selectedOption: ISelectOption) => {
+    if (isNull(selectedOption)) return;
+    setMultipleSelectedOption(selectedOption);
   };
 
   const handleFocus = () => {
@@ -72,9 +83,10 @@ export const SelectPage: React.FC = () => {
         className={classNames("SelectPage-Select", {
           "SelectPage-Select__active": isSelectOpened,
         })}
+        DropdownIndicator={StyledDropdownIndicator}
+        options={options}
         styles={SelectStyles}
         value={selectedOption}
-        options={options}
         onBlur={handleBlur}
         onChange={handleChange}
         onFocus={handleFocus}
@@ -87,6 +99,22 @@ export const SelectPage: React.FC = () => {
           migrations. Fill the database with goods.
         </div>
       )}
+      <hr />
+      <h2>Multiple Select</h2>
+      <Select
+        className={classNames("SelectPage-Select", {
+          "SelectPage-Select__active": isSelectOpened,
+        })}
+        DropdownIndicator={StyledDropdownIndicator}
+        MultiValueRemove={StyledMultiValueRemove}
+        options={options}
+        styles={SelectStyles}
+        value={multipleSelectedOption}
+        isMulti
+        onBlur={handleBlur}
+        onChange={handleChangeMultiple}
+        onFocus={handleFocus}
+      />
     </div>
   );
 };

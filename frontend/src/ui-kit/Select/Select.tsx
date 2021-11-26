@@ -2,6 +2,9 @@ import React, { FocusEventHandler } from "react";
 import {
   ActionMeta,
   default as ReactSelect,
+  DropdownIndicatorProps,
+  GroupBase,
+  MultiValueRemoveProps,
   OnChangeValue,
   StylesConfig,
 } from "react-select";
@@ -13,16 +16,27 @@ export interface ISelectOption {
   label: string;
 }
 
-type isMulti = false;
+type isMultiType = true | false;
+export type DropdownIndicatorType = React.ComponentType<
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  DropdownIndicatorProps<any, any, GroupBase<any>>
+>;
+export type MultiValueRemoveType = React.ComponentType<
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  MultiValueRemoveProps<any, isMultiType, GroupBase<any>>
+>;
 
 export interface ISelectProps {
   className?: string;
+  DropdownIndicator?: DropdownIndicatorType;
+  isMulti?: isMultiType;
+  MultiValueRemove?: MultiValueRemoveType;
   options: ISelectOption[];
-  styles?: StylesConfig<ISelectOption, isMulti>;
+  styles?: StylesConfig<ISelectOption, isMultiType>;
   value: ISelectOption;
   onBlur?: FocusEventHandler<HTMLInputElement>;
   onChange?: (
-    value: OnChangeValue<ISelectOption, isMulti>,
+    value: OnChangeValue<ISelectOption, isMultiType>,
     action: ActionMeta<ISelectOption>
   ) => void;
   onFocus?: FocusEventHandler<HTMLInputElement>;
@@ -30,6 +44,9 @@ export interface ISelectProps {
 
 export const Select: React.FC<ISelectProps> = ({
   className,
+  DropdownIndicator,
+  isMulti = false,
+  MultiValueRemove,
   options,
   styles,
   value,
@@ -40,6 +57,11 @@ export const Select: React.FC<ISelectProps> = ({
   return (
     <ReactSelect
       className={classNames("Select", className)}
+      components={{
+        DropdownIndicator: DropdownIndicator,
+        MultiValueRemove: MultiValueRemove,
+      }}
+      isMulti={isMulti}
       options={options}
       styles={styles}
       value={value}

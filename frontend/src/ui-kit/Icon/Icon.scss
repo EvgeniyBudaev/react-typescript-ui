@@ -10,4 +10,11 @@
     width: 100%;
     height: max-content;
   }
+
+  &-IconSize {
+    &__small {
+      width: 12px;
+      height: 12px;
+    }
+  }
 }
