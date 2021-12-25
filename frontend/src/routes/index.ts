@@ -15,6 +15,7 @@ export const ROUTES = {
   SELECT: "/select/",
   SIDEBAR: "/sidebar/",
   SPINNER: "/spinner/",
+  TABS: "/tabs",
   TEXTAREA: "/textarea/",
   UPLOADER: "/uploader/",
 };

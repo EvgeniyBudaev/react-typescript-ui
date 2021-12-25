@@ -139,6 +139,14 @@ export const MenuPanel: React.FC = () => {
         <NavLink
           className="MenuPanel-ListItem"
           activeClassName="MenuPanel-ListItem__active"
+          to={ROUTES.TABS}
+        >
+          Tabs
+        </NavLink>
+
+        <NavLink
+          className="MenuPanel-ListItem"
+          activeClassName="MenuPanel-ListItem__active"
           to={ROUTES.TEXTAREA}
         >
           TextArea
