@@ -4,6 +4,7 @@ import { ReactComponent as ArrowDown } from "ui-kit/assets/icons/ArrowDown.svg";
 import { ReactComponent as Center } from "ui-kit/assets/icons/Center.svg";
 import { ReactComponent as Checkbox } from "ui-kit/assets/icons/Checkbox.svg";
 import { ReactComponent as Close } from "ui-kit/assets/icons/Close.svg";
+import { ReactComponent as Edit } from "ui-kit/assets/icons/Edit.svg";
 import { ReactComponent as Minus } from "ui-kit/assets/icons/Minus.svg";
 import { ReactComponent as Pdf } from "ui-kit/assets/icons/files/Pdf.svg";
 import { ReactComponent as Plus } from "ui-kit/assets/icons/Plus.svg";
@@ -17,6 +18,7 @@ export type IconType =
   | "Center"
   | "Checkbox"
   | "Close"
+  | "Edit"
   | "Minus"
   | "Pdf"
   | "Plus"
@@ -30,6 +32,7 @@ export const iconTypes = new Map([
   ["Center", <Center key={newGuid()} />],
   ["Checkbox", <Checkbox key={newGuid()} />],
   ["Close", <Close key={newGuid()} />],
+  ["Edit", <Edit key={newGuid()} />],
   ["Minus", <Minus key={newGuid()} />],
   ["Pdf", <Pdf key={newGuid()} />],
   ["Plus", <Plus key={newGuid()} />],

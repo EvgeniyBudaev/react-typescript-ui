@@ -52,7 +52,7 @@ export const TextAreaPage: React.FC = () => {
               onFocus={handleFocus}
             />
           </div>
-          <Button className="FormPage-Button" typeButton="submit">
+          <Button className="FormPage-Button" type="submit">
             Send
           </Button>
         </form>

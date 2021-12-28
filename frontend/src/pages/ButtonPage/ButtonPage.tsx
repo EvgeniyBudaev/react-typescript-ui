@@ -14,9 +14,19 @@ export const ButtonPage: React.FC = () => {
         Send
       </Button>
       <hr />
-      <h2>Button Disabled</h2>
+      <h2>Button disabled</h2>
       <Button isDisabled onClick={handleButtonClick}>
         Send
+      </Button>
+      <hr />
+      <h2>Button with icon</h2>
+      <Button typeIcon="Edit" onClick={handleButtonClick}>
+        Create a record
+      </Button>
+      <hr />
+      <h2>Button with icon and disabled</h2>
+      <Button typeIcon="Edit" isDisabled onClick={handleButtonClick}>
+        Create a record
       </Button>
     </div>
   );

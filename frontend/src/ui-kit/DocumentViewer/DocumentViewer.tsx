@@ -117,10 +117,10 @@ export const DocumentViewer: React.FC<IDocumentViewerProps> = ({
         />
       </div>
       <div className="DocumentViewer-ControlButtons">
-        <IconButton type="Center" onClick={handleSetDefault} />
-        <IconButton type="Plus" onClick={handleSetScale(step)} />
+        <IconButton typeIcon="Center" onClick={handleSetDefault} />
+        <IconButton typeIcon="Plus" onClick={handleSetScale(step)} />
         <IconButton
-          type="Minus"
+          typeIcon="Minus"
           isDisabled={position.scale - step < 0.1}
           onClick={handleSetScale(-step)}
         />

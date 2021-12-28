@@ -6,14 +6,14 @@ import "./IconButton.scss";
 
 export interface IIconButtonProps extends IButtonProps {
   className?: string;
-  type: IconType;
+  typeIcon: IconType;
   isDisabled?: boolean;
   onClick?: (event: React.MouseEvent) => void;
 }
 
 export const IconButton: React.FC<IIconButtonProps> = ({
   className,
-  type,
+  typeIcon,
   isDisabled = false,
   onClick,
   ...rest
@@ -25,7 +25,7 @@ export const IconButton: React.FC<IIconButtonProps> = ({
       onClick={onClick}
       {...rest}
     >
-      <Icon type={type} />
+      <Icon type={typeIcon} />
     </Button>
   );
 };

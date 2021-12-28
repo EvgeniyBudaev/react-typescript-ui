@@ -1,21 +1,24 @@
-import React, { DOMAttributes } from "react";
+import React, { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
 import classNames from "classnames";
+import { Icon, IconType } from "ui-kit";
 import "./Button.scss";
 
-export type ButtonType = "button" | "submit" | "reset";
-
-export interface IButtonProps extends DOMAttributes<HTMLButtonElement> {
+export interface IButtonProps
+  extends DetailedHTMLProps<
+    ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
   className?: string;
+  typeIcon?: IconType;
   isDisabled?: boolean;
-  typeButton?: ButtonType;
   onClick?: (event: React.MouseEvent) => void;
 }
 
 export const Button: React.FC<IButtonProps> = ({
   className,
   children,
+  typeIcon,
   isDisabled = false,
-  typeButton = "button",
   onClick,
   ...rest
 }) => {
@@ -25,11 +28,11 @@ export const Button: React.FC<IButtonProps> = ({
         Button__disabled: isDisabled,
       })}
       disabled={isDisabled}
-      type={typeButton}
       onClick={onClick}
       {...rest}
     >
-      <span>{children}</span>
+      {typeIcon && <Icon type={typeIcon} />}
+      <span className={typeIcon ? "Button-Text" : ""}>{children}</span>
     </button>
   );
 };

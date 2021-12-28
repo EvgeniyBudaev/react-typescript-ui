@@ -170,7 +170,7 @@ export const FormPage: React.FC = () => {
               onFocus={handleFocus}
             />
           </div>
-          <Button className="FormPage-Button" typeButton="submit">
+          <Button className="FormPage-Button" type="submit">
             Signup
           </Button>
         </form>

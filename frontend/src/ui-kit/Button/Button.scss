@@ -2,6 +2,9 @@
 
 .Button {
   $this: &;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 10px 30px;
   height: max-content;
   width: max-content;
@@ -11,6 +14,10 @@
   outline: transparent;
   transition: all 0.3s;
   cursor: pointer;
+
+  &-Text {
+    margin-left: 12px;
+  }
 
   &:hover {
     background-color: $color-primary-hover;

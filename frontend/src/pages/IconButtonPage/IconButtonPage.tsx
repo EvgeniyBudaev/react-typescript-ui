@@ -10,10 +10,10 @@ export const IconButtonPage: React.FC = () => {
   return (
     <div className="IconButtonPage">
       <h2>IconButton</h2>
-      <IconButton type="Telegram" onClick={handleClick} />
+      <IconButton typeIcon="Telegram" onClick={handleClick} />
       <hr />
       <h2>IconButton Disabled</h2>
-      <IconButton isDisabled type="Telegram" />
+      <IconButton isDisabled typeIcon="Telegram" />
     </div>
   );
 };
