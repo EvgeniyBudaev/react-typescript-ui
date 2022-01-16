@@ -12,6 +12,7 @@ import IconButton from "./Button/IconButton";
 import Input from "./Input";
 import Modal from "./Modal";
 import Overlay from "./Overlay";
+import Pagination from "./Pagination";
 import Scrollbar from "./Scrollbar";
 import Select from "./Select";
 import Sidebar from "./Sidebar";
@@ -38,6 +39,7 @@ export {
   Input,
   Modal,
   Overlay,
+  Pagination,
   Scrollbar,
   Select,
   Sidebar,

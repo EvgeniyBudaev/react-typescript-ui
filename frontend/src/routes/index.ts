@@ -11,6 +11,7 @@ export const ROUTES = {
   MODAL: "/modal/",
   HOME: "/",
   OVERLAY: "/overlay/",
+  PAGINATION: "/pagination",
   SCROLLBAR: "/scrollbar/",
   SELECT: "/select/",
   SIDEBAR: "/sidebar/",

@@ -13,8 +13,9 @@ from django.utils.encoding import escape_uri_path  # кириллица в им�
 
 from uploader.models import File
 from store.models import Product
-from .serializers import FileSerializer, ProductSerializer
 from .filters import ProductFilter
+from .serializers import FileSerializer, ProductSerializer
+from .pagination import Pagination
 
 
 class FileViewSet(viewsets.ModelViewSet):
@@ -27,12 +28,13 @@ class FileViewSet(viewsets.ModelViewSet):
 class ProductViewSet(viewsets.ModelViewSet):
     """API для работы с продуктами."""
     queryset = Product.objects.all()
-    serializer_class = ProductSerializer
-    permission_classes = (AllowAny,)
     filter_backends = (DjangoFilterBackend, filters.OrderingFilter)
     filterset_class = ProductFilter
     ordering_fields = ('price',)
     ordering = ('price',)
+    pagination_class = Pagination
+    permission_classes = (AllowAny,)
+    serializer_class = ProductSerializer
 
 
 class FileDownloadListAPIView(generics.ListAPIView):

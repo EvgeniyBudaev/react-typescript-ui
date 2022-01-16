@@ -14,6 +14,7 @@ import {
   IconButtonPage,
   ModalPage,
   OverlayPage,
+  PaginationPage,
   ScrollbarPage,
   SelectPage,
   SidebarPage,
@@ -41,6 +42,7 @@ export const App: React.FC = () => {
           <Route path={ROUTES.ICON} component={IconPage} />
           <Route path={ROUTES.MODAL} component={ModalPage} />
           <Route path={ROUTES.OVERLAY} component={OverlayPage} />
+          <Route path={ROUTES.PAGINATION} component={PaginationPage} />
           <Route path={ROUTES.SCROLLBAR} component={ScrollbarPage} />
           <Route path={ROUTES.SELECT} component={SelectPage} />
           <Route path={ROUTES.SIDEBAR} component={SidebarPage} />

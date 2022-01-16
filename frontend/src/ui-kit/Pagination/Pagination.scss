@@ -1,0 +1,79 @@
+@import "ui-kit/styles";
+
+.Pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.PaginationCurrentButton {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin: 2px;
+  color: $color-text;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.15s;
+
+  &:hover {
+    background-color: $color-light-gray;
+  }
+
+  span {
+    position: absolute;
+    background-color: white;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    border-radius: 50%;
+    animation: animate 0.3s linear;
+  }
+
+  @keyframes animate {
+    0% {
+      width: 0;
+      height: 0;
+      opacity: 0.5;
+    }
+    100% {
+      width: 60px;
+      height: 60px;
+      opacity: 0;
+    }
+  }
+}
+
+.PaginationCurrentButton__active {
+  background-color: $color-primary;
+  color: white;
+
+  &:hover {
+    background-color: $color-primary;
+  }
+}
+
+.PaginationArrowButton {
+  margin: 0 16px;
+
+  .Icon {
+    svg {
+      width: 6px;
+      height: 12px;
+    }
+  }
+}
+
+.PaginationArrowButton__disabled {
+  opacity: 0.5;
+
+  &:active,
+  &:hover {
+    cursor: default;
+  }
+}

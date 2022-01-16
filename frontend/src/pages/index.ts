@@ -10,6 +10,7 @@ import IconPage from "./IconPage";
 import IconButtonPage from "./IconButtonPage";
 import ModalPage from "./ModalPage";
 import OverlayPage from "./OverlayPage";
+import PaginationPage from "./PaginationPage";
 import ScrollbarPage from "./ScrollbarPage";
 import SelectPage from "./SelectPage";
 import SidebarPage from "./SidebarPage";
@@ -31,6 +32,7 @@ export {
   IconButtonPage,
   ModalPage,
   OverlayPage,
+  PaginationPage,
   ScrollbarPage,
   SelectPage,
   SidebarPage,

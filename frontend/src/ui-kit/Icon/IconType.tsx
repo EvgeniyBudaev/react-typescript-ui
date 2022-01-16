@@ -1,6 +1,8 @@
 import React from "react";
 import { newGuid } from "utils/guid";
 import { ReactComponent as ArrowDown } from "ui-kit/assets/icons/ArrowDown.svg";
+import { ReactComponent as ArrowLeft } from "ui-kit/assets/icons/ArrowLeft.svg";
+import { ReactComponent as ArrowRight } from "ui-kit/assets/icons/ArrowRight.svg";
 import { ReactComponent as Center } from "ui-kit/assets/icons/Center.svg";
 import { ReactComponent as Checkbox } from "ui-kit/assets/icons/Checkbox.svg";
 import { ReactComponent as Close } from "ui-kit/assets/icons/Close.svg";
@@ -15,6 +17,8 @@ import { ReactComponent as VisibilityOff } from "ui-kit/assets/icons/VisibilityO
 
 export type IconType =
   | "ArrowDown"
+  | "ArrowLeft"
+  | "ArrowRight"
   | "Center"
   | "Checkbox"
   | "Close"
@@ -29,6 +33,8 @@ export type IconType =
 
 export const iconTypes = new Map([
   ["ArrowDown", <ArrowDown key={newGuid()} />],
+  ["ArrowLeft", <ArrowLeft key={newGuid()} />],
+  ["ArrowRight", <ArrowRight key={newGuid()} />],
   ["Center", <Center key={newGuid()} />],
   ["Checkbox", <Checkbox key={newGuid()} />],
   ["Close", <Close key={newGuid()} />],
