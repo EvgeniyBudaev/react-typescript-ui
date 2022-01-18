@@ -8,7 +8,7 @@ export const ButtonPage: React.FC = () => {
   };
 
   return (
-    <div className="ButtonPage">
+    <section className="ButtonPage">
       <h2>Button</h2>
       <Button isDisabled={false} onClick={handleButtonClick}>
         Send
@@ -28,6 +28,6 @@ export const ButtonPage: React.FC = () => {
       <Button typeIcon="Edit" isDisabled onClick={handleButtonClick}>
         Create a record
       </Button>
-    </div>
+    </section>
   );
 };

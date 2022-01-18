@@ -16,7 +16,7 @@ export const TabsPage: React.FC = () => {
   };
 
   return (
-    <div className="TabsPage">
+    <section className="TabsPage">
       <h2>Tabs</h2>
       <Tabs selectedId={selectedTabId} tabs={tabs} onClick={handleTabClick} />
       <div className="TabsPage-Content">
@@ -38,6 +38,6 @@ export const TabsPage: React.FC = () => {
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 };

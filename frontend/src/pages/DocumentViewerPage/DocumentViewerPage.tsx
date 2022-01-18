@@ -15,7 +15,7 @@ export const DocumentViewerPage: React.FC = () => {
   };
 
   return (
-    <div className="DocumentViewerPage">
+    <section className="DocumentViewerPage">
       <h2>IFrame</h2>
       <iframe srcDoc={template} frameBorder="0"></iframe>
       <hr />
@@ -28,6 +28,6 @@ export const DocumentViewerPage: React.FC = () => {
       >
         <DocumentViewer template={template} />
       </Modal>
-    </div>
+    </section>
   );
 };

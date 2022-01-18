@@ -4,7 +4,7 @@ import "./AccordionPage.scss";
 
 export const AccordionPage: React.FC = () => {
   return (
-    <div className="AccordionPage">
+    <section className="AccordionPage">
       <h2>Accordion</h2>
       <Accordion title="Card" isActive={true}>
         <p>
@@ -48,6 +48,6 @@ export const AccordionPage: React.FC = () => {
           </p>
         </Accordion>
       </AccordionGroup>
-    </div>
+    </section>
   );
 };

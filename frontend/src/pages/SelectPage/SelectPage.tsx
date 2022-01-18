@@ -77,7 +77,7 @@ export const SelectPage: React.FC = () => {
   }, [needRequestIndicator]);
   console.log("products", products);
   return (
-    <div className="SelectPage">
+    <section className="SelectPage">
       <h2>Select</h2>
       <Select
         className={classNames("SelectPage-Select", {
@@ -115,6 +115,6 @@ export const SelectPage: React.FC = () => {
         onChange={handleChangeMultiple}
         onFocus={handleFocus}
       />
-    </div>
+    </section>
   );
 };

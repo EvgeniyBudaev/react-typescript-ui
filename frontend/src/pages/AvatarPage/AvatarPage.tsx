@@ -5,12 +5,12 @@ import "./AvatarPage.scss";
 
 export const AvatarPage: React.FC = () => {
   return (
-    <div className="AvatarPage">
+    <section className="AvatarPage">
       <h2>Avatar with initials</h2>
       <Avatar title="IT" />
       <hr />
       <h2>Avatar with image</h2>
       <Avatar image={avatar} />
-    </div>
+    </section>
   );
 };

@@ -14,7 +14,7 @@ export const SidebarPage: React.FC = () => {
   };
 
   return (
-    <div className="SidebarPage">
+    <section className="SidebarPage">
       <h2>Sidebar</h2>
       <Hamburger
         color="black"
@@ -28,6 +28,6 @@ export const SidebarPage: React.FC = () => {
       >
         <Avatar title="IT" />
       </Sidebar>
-    </div>
+    </section>
   );
 };

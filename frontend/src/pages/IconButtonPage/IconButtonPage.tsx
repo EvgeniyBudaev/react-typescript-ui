@@ -8,12 +8,12 @@ export const IconButtonPage: React.FC = () => {
   };
 
   return (
-    <div className="IconButtonPage">
+    <section className="IconButtonPage">
       <h2>IconButton</h2>
       <IconButton typeIcon="Telegram" onClick={handleClick} />
       <hr />
       <h2>IconButton Disabled</h2>
       <IconButton isDisabled typeIcon="Telegram" />
-    </div>
+    </section>
   );
 };

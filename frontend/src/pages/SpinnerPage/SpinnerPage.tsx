@@ -4,11 +4,11 @@ import "./SpinnerPage.scss";
 
 export const SpinnerPage: React.FC = () => {
   return (
-    <div className="SpinnerPage">
+    <section className="SpinnerPage">
       <h2>Spinner</h2>
       <section className="SpinnerPage-Section">
         <Spinner />
       </section>
-    </div>
+    </section>
   );
 };

@@ -18,7 +18,7 @@ export const ModalPage: React.FC = () => {
   };
 
   return (
-    <div className="ModalPage">
+    <section className="ModalPage">
       <h2>Modal</h2>
       <Button onClick={handleModalOpen}>Open</Button>
       <Modal isOpen={isOpenModal} onCloseModal={handleModalClose}>
@@ -30,6 +30,6 @@ export const ModalPage: React.FC = () => {
         </Modal.Content>
         <Modal.Footer buttonSubmitText="Choice" onSubmit={handleModalSubmit} />
       </Modal>
-    </div>
+    </section>
   );
 };

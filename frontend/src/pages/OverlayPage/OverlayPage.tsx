@@ -13,9 +13,9 @@ export const OverlayPage: React.FC = () => {
   };
 
   return (
-    <div className="OverlayPage">
+    <section className="OverlayPage">
       <Button onClick={handleOpen}>Open</Button>
       <Overlay isActive={isOpen} onClick={handleClose} />
-    </div>
+    </section>
   );
 };

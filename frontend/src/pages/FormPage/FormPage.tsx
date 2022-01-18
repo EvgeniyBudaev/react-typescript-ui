@@ -98,7 +98,7 @@ export const FormPage: React.FC = () => {
   };
 
   return (
-    <div className="FormPage">
+    <section className="FormPage">
       <div className="FormPageContent">
         <h1 className="FormPageContentTitle">Signup</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -175,6 +175,6 @@ export const FormPage: React.FC = () => {
           </Button>
         </form>
       </div>
-    </div>
+    </section>
   );
 };

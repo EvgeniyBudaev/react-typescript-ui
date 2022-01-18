@@ -12,6 +12,7 @@ export const ROUTES = {
   HOME: "/",
   OVERLAY: "/overlay/",
   PAGINATION: "/pagination",
+  RATING: "/rating",
   SCROLLBAR: "/scrollbar/",
   SELECT: "/select/",
   SIDEBAR: "/sidebar/",

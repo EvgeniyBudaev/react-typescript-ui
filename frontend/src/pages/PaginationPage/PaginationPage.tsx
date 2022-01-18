@@ -38,17 +38,19 @@ export const PaginationPage: React.FC = () => {
   };
 
   return (
-    <div className="PaginationPage">
+    <section className="PaginationPage">
       <h2>Pagination</h2>
       {!isEmpty(products) ? (
-        <ProductsList products={products.entities} />
+        <>
+          <ProductsList products={products.entities} />
+          <Pagination pages={pagesCount} onChange={handlePageChange} />
+        </>
       ) : (
         <div className="PaginationPage-Warning">
           To display a list of products, you need to run the backend. Apply
           migrations. Fill the database with goods.
         </div>
       )}
-      <Pagination pages={pagesCount} onChange={handlePageChange} />
-    </div>
+    </section>
   );
 };

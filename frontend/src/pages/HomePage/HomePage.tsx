@@ -3,9 +3,9 @@ import "./HomePage.scss";
 
 export const HomePage: React.FC = () => {
   return (
-    <div className="HomePage">
+    <section className="HomePage">
       <h1>React TypeScript UI Library</h1>
       <hr />
-    </div>
+    </section>
   );
 };

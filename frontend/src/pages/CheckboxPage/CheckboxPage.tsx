@@ -61,7 +61,7 @@ export const CheckboxPage: React.FC = () => {
   };
 
   return (
-    <div className="CheckboxPage">
+    <section className="CheckboxPage">
       <h2>Checkbox</h2>
       <Checkbox
         isChecked={checkedBox}
@@ -92,6 +92,6 @@ export const CheckboxPage: React.FC = () => {
       <div>
         <pre>{JSON.stringify(checkedBoxByGroup, null, 2)}</pre>
       </div>
-    </div>
+    </section>
   );
 };

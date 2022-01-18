@@ -10,7 +10,7 @@ export const ScrollbarPage: React.FC = () => {
   const scrollbar = useRef<BaseScrollbar | null>(null);
 
   return (
-    <div className="ScrollbarPage">
+    <section className="ScrollbarPage">
       <h2>Scrollbar</h2>
       <Scrollbar
         alwaysShowTracks
@@ -26,6 +26,6 @@ export const ScrollbarPage: React.FC = () => {
           {description}
         </div>
       </Scrollbar>
-    </div>
+    </section>
   );
 };

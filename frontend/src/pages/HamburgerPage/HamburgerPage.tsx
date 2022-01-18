@@ -10,9 +10,9 @@ export const HamburgerPage: React.FC = () => {
   };
 
   return (
-    <div className="HamburgerPage">
+    <section className="HamburgerPage">
       <h2>Hamburger</h2>
       <Hamburger color="black" isActive={isActive} onClick={handleToggle} />
-    </div>
+    </section>
   );
 };

@@ -112,7 +112,7 @@ export const UploaderPage: React.FC = () => {
   //   const res = key.replace(/\.[^/.]+$/, "");
 
   return (
-    <div className="UploaderPage">
+    <section className="UploaderPage">
       <h2>Uploader</h2>
       <Uploader
         config={UPLOADER_CONFIG}
@@ -124,6 +124,6 @@ export const UploaderPage: React.FC = () => {
       <button onClick={handleFileDownload}>Загрузить файл222</button>
       <button onClick={handleDownload}>Загрузить файл333</button>
       <button onClick={handleLoad}>Загрузить файл111</button>
-    </div>
+    </section>
   );
 };

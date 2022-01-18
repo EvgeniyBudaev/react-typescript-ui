@@ -13,6 +13,7 @@ import Input from "./Input";
 import Modal from "./Modal";
 import Overlay from "./Overlay";
 import Pagination from "./Pagination";
+import Rating from "./Rating";
 import Scrollbar from "./Scrollbar";
 import Select from "./Select";
 import Sidebar from "./Sidebar";
@@ -40,6 +41,7 @@ export {
   Modal,
   Overlay,
   Pagination,
+  Rating,
   Scrollbar,
   Select,
   Sidebar,
