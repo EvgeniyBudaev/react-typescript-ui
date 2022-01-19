@@ -1,79 +1,58 @@
 @import "ui-kit/styles";
 
 .Pagination {
+  $this: &;
   display: flex;
   align-items: center;
   justify-content: center;
-}
+  list-style: none;
+  outline: transparent;
 
-.PaginationCurrentButton {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  margin: 2px;
-  color: $color-text;
-  background-color: transparent;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  cursor: pointer;
-  overflow: hidden;
-  transition: all 0.15s;
-
-  &:hover {
-    background-color: $color-light-gray;
+  & > li {
+    margin: 2px;
+    width: 30px;
+    height: 30px;
   }
 
-  span {
-    position: absolute;
-    background-color: white;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    border-radius: 50%;
-    animation: animate 0.3s linear;
-  }
+  & > li > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    //margin: 2px;
+    width: 30px;
+    height: 30px;
+    color: $color-text;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
 
-  @keyframes animate {
-    0% {
-      width: 0;
-      height: 0;
-      opacity: 0.5;
-    }
-    100% {
-      width: 60px;
-      height: 60px;
-      opacity: 0;
+    &:hover {
+      background-color: $color-light-gray;
     }
   }
-}
 
-.PaginationCurrentButton__active {
-  background-color: $color-primary;
-  color: white;
-
-  &:hover {
+  & > #{$this}__active > a {
     background-color: $color-primary;
+    border-color: $color-primary;
+    color: white;
   }
-}
 
-.PaginationArrowButton {
-  margin: 0 16px;
-
-  .Icon {
-    svg {
-      width: 6px;
-      height: 12px;
-    }
-  }
-}
-
-.PaginationArrowButton__disabled {
-  opacity: 0.5;
-
-  &:active,
-  &:hover {
+  & > #{$this}__active > a,
+  & > #{$this}__active > a:hover,
+  & > #{$this}__active > a:focus {
+    background-color: $color-primary;
+    border-color: $color-primary;
+    outline: transparent;
     cursor: default;
+  }
+
+  & > .disabled > a {
+    cursor: default;
+
+    &:hover {
+      background-color: transparent;
+    }
   }
 }

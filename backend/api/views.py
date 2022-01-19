@@ -30,8 +30,8 @@ class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     filter_backends = (DjangoFilterBackend, filters.OrderingFilter)
     filterset_class = ProductFilter
-    ordering_fields = ('price',)
     ordering = ('price',)
+    ordering_fields = ('price',)
     pagination_class = Pagination
     permission_classes = (AllowAny,)
     serializer_class = ProductSerializer

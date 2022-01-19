@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import isEmpty from "lodash/isEmpty";
+import isNaN from "lodash/isNaN";
 import { getProducts } from "api/product";
 import { ProductsList } from "components";
 import { IFilter, IProduct } from "types/product";
@@ -10,7 +11,9 @@ import "./PaginationPage.scss";
 export const PaginationPage: React.FC = () => {
   const history = useHistory();
   const location = useLocation();
-  const pageNumber = Number(location.search.split("=")[1]);
+  const pageNumber = !isNaN(Number(location.search.split("=")[1]))
+    ? Number(location.search.split("=")[1])
+    : 1;
   const [currentPage, setCurrentPage] = useState(pageNumber);
   const [pagesCount, setPagesCount] = useState(0);
   const [products, setProducts] = useState<IFilter<IProduct>>();
@@ -26,15 +29,15 @@ export const PaginationPage: React.FC = () => {
         setProducts(response);
         setPagesCount(pagesQuantity);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     };
     void fetchProducts();
   }, [currentPage]);
 
-  const handlePageChange = (currentButton: number) => {
-    setCurrentPage(currentButton);
-    history.replace(`?page=${currentButton}`);
+  const handlePageChange = ({ selected }) => {
+    setCurrentPage(selected + 1);
+    history.replace(`?page=${selected + 1}`);
   };
 
   return (
@@ -43,7 +46,11 @@ export const PaginationPage: React.FC = () => {
       {!isEmpty(products) ? (
         <>
           <ProductsList products={products.entities} />
-          <Pagination pages={pagesCount} onChange={handlePageChange} />
+          <Pagination
+            initialPage={pageNumber - 1}
+            pagesCount={pagesCount}
+            onChange={handlePageChange}
+          />
         </>
       ) : (
         <div className="PaginationPage-Warning">
