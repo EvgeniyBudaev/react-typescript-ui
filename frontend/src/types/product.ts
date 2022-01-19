@@ -1,8 +1,6 @@
 export interface IFilter<TItem> {
   entities: TItem[];
   pageItemsCount: number;
-  pageNumber: number;
-  pagesCount: number;
   totalItemsCount: number;
 }
 

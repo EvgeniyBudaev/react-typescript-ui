@@ -18,14 +18,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    //margin: 2px;
     width: 30px;
     height: 30px;
     color: $color-text;
     background-color: transparent;
     border: 1px solid transparent;
     border-radius: 4px;
-    outline: none;
+    outline: transparent;
     cursor: pointer;
 
     &:hover {

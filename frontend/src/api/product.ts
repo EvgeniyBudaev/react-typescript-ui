@@ -18,14 +18,16 @@ export const fetchProducts = async (
   return response.data;
 };
 
-export const getProducts = async (page: number): Promise<IFilter<IProduct>> => {
+export const getProducts = async (
+  pageNumber: number
+): Promise<IFilter<IProduct>> => {
   const config = {
     headers: {
       "Content-Type": "application/json",
     },
   };
   const response = await axios.get<IFilter<IProduct>>(
-    `${BASE_URL}products/?page=${page}`,
+    `${BASE_URL}products/?page=${pageNumber}`,
     config
   );
   return response.data;
