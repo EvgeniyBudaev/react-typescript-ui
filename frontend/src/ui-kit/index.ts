@@ -18,6 +18,7 @@ import Scrollbar from "./Scrollbar";
 import Select from "./Select";
 import Sidebar from "./Sidebar";
 import Spinner from "./Spinner";
+import Table from "./Table";
 import Tabs from "./Tabs";
 import TextArea from "./TextArea";
 import Uploader from "./Uploader";
@@ -46,6 +47,7 @@ export {
   Select,
   Sidebar,
   Spinner,
+  Table,
   Tabs,
   TextArea,
   Uploader,

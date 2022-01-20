@@ -1,0 +1,36 @@
+@import "ui-kit/styles";
+
+.Table {
+  $this: &;
+  height: 100%;
+  width: 100%;
+  border: none;
+  border-collapse: separate;
+  border-spacing: 0;
+
+  &-THead {
+    @include roboto-16-bold;
+  }
+
+  &-TH {
+    padding: 20px 23px;
+    text-align: start;
+    border-bottom: 1px solid rgba(224, 224, 224, 1);
+  }
+
+  &-TD {
+    padding: 16px 23px;
+    border-bottom: 1px solid rgba(224, 224, 224, 1);
+  }
+
+  &-TBody {
+    & #{$this}-TR {
+      background-color: transparent;
+      transition: background-color 0.15s;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.04);
+      }
+    }
+  }
+}

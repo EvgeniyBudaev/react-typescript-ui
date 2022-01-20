@@ -35,6 +35,7 @@
     "react-scripts": "4.0.3",
     "react-select": "^5.2.1",
     "react-shadow": "^19.0.2",
+    "react-table": "^7.7.0",
     "react-transition-group": "^4.4.2",
     "smooth-scrollbar": "^8.6.3",
     "smooth-scrollbar-react": "^2.3.0",

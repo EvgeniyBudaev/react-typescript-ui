@@ -3,7 +3,20 @@ import axios from "axios";
 import { ISelectOption } from "ui-kit/Select";
 import { IFilter, IProduct } from "types/product";
 
-export const fetchProducts = async (
+export const getProducts = async (): Promise<IFilter<IProduct>> => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  const response = await axios.get<IFilter<IProduct>>(
+    `${BASE_URL}products/`,
+    config
+  );
+  return response.data;
+};
+
+export const getProductsBySelect = async (
   selectOption: ISelectOption
 ): Promise<IProduct[]> => {
   const config = {
@@ -18,7 +31,7 @@ export const fetchProducts = async (
   return response.data;
 };
 
-export const getProducts = async (
+export const getProductsByPagination = async (
   pageNumber: number
 ): Promise<IFilter<IProduct>> => {
   const config = {

@@ -16,6 +16,7 @@ import ScrollbarPage from "./ScrollbarPage";
 import SelectPage from "./SelectPage";
 import SidebarPage from "./SidebarPage";
 import SpinnerPage from "./SpinnerPage";
+import TablePage from "./TablePage";
 import TabsPage from "./TabsPage";
 import TextAreaPage from "./TextAreaPage";
 import UploaderPage from "./UploaderPage";
@@ -39,6 +40,7 @@ export {
   SelectPage,
   SidebarPage,
   SpinnerPage,
+  TablePage,
   TabsPage,
   TextAreaPage,
   UploaderPage,

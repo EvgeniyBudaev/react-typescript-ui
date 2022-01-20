@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import classNames from "classnames";
 import isEmpty from "lodash/isEmpty";
 import isNull from "lodash/isNull";
-import * as productsApi from "api/product";
+import { getProductsBySelect } from "api/product";
 import { IProduct } from "types/product";
 import { Select } from "ui-kit";
 import { ISelectOption } from "ui-kit/Select";
@@ -56,8 +56,7 @@ export const SelectPage: React.FC = () => {
 
   const fetchProductsBySorting = useCallback(
     (selectedOption: ISelectOption) => {
-      productsApi
-        .fetchProducts(selectedOption)
+      getProductsBySelect(selectedOption)
         .then(response => {
           console.log("[response]", response);
           setProducts(response);

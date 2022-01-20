@@ -20,6 +20,7 @@ import {
   SelectPage,
   SidebarPage,
   SpinnerPage,
+  TablePage,
   TabsPage,
   TextAreaPage,
   UploaderPage,
@@ -49,6 +50,7 @@ export const App: React.FC = () => {
           <Route path={ROUTES.SELECT} component={SelectPage} />
           <Route path={ROUTES.SIDEBAR} component={SidebarPage} />
           <Route path={ROUTES.SPINNER} component={SpinnerPage} />
+          <Route path={ROUTES.TABLE} component={TablePage} />
           <Route path={ROUTES.TABS} component={TabsPage} />
           <Route path={ROUTES.TEXTAREA} component={TextAreaPage} />
           <Route path={ROUTES.UPLOADER} component={UploaderPage} />

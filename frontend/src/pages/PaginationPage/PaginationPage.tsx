@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import isEmpty from "lodash/isEmpty";
 import isNaN from "lodash/isNaN";
-import { getProducts } from "api/product";
+import { getProductsByPagination } from "api/product";
 import { ProductsList } from "components";
 import { IFilter, IProduct } from "types/product";
 import { Pagination } from "ui-kit";
@@ -21,7 +21,7 @@ export const PaginationPage: React.FC = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await getProducts(currentPage);
+        const response = await getProductsByPagination(currentPage);
         const pagesQuantity = Math.max(
           Math.ceil(response.totalItemsCount / response.pageItemsCount),
           1
