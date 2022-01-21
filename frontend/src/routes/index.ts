@@ -16,6 +16,7 @@ export const ROUTES = {
   SCROLLBAR: "/scrollbar/",
   SELECT: "/select/",
   SIDEBAR: "/sidebar/",
+  SKELETON: "/skeleton",
   SPINNER: "/spinner/",
   TABLE: "/table",
   TABS: "/tabs",

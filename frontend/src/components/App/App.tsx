@@ -19,6 +19,7 @@ import {
   ScrollbarPage,
   SelectPage,
   SidebarPage,
+  SkeletonPage,
   SpinnerPage,
   TablePage,
   TabsPage,
@@ -50,6 +51,7 @@ export const App: React.FC = () => {
           <Route path={ROUTES.SELECT} component={SelectPage} />
           <Route path={ROUTES.SIDEBAR} component={SidebarPage} />
           <Route path={ROUTES.SPINNER} component={SpinnerPage} />
+          <Route path={ROUTES.SKELETON} component={SkeletonPage} />
           <Route path={ROUTES.TABLE} component={TablePage} />
           <Route path={ROUTES.TABS} component={TabsPage} />
           <Route path={ROUTES.TEXTAREA} component={TextAreaPage} />

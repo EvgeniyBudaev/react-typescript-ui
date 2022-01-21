@@ -17,6 +17,7 @@ import Rating from "./Rating";
 import Scrollbar from "./Scrollbar";
 import Select from "./Select";
 import Sidebar from "./Sidebar";
+import Skeleton from "./Skeleton";
 import Spinner from "./Spinner";
 import Table from "./Table";
 import Tabs from "./Tabs";
@@ -46,6 +47,7 @@ export {
   Scrollbar,
   Select,
   Sidebar,
+  Skeleton,
   Spinner,
   Table,
   Tabs,

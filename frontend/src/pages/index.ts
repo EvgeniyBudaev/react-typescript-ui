@@ -15,6 +15,7 @@ import RatingPage from "./RatingPage";
 import ScrollbarPage from "./ScrollbarPage";
 import SelectPage from "./SelectPage";
 import SidebarPage from "./SidebarPage";
+import SkeletonPage from "./SkeletonPage";
 import SpinnerPage from "./SpinnerPage";
 import TablePage from "./TablePage";
 import TabsPage from "./TabsPage";
@@ -39,6 +40,7 @@ export {
   ScrollbarPage,
   SelectPage,
   SidebarPage,
+  SkeletonPage,
   SpinnerPage,
   TablePage,
   TabsPage,
