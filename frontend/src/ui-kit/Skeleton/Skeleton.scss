@@ -15,7 +15,7 @@
   background-color: #ebebeb;
   border-radius: 4px;
   overflow: hidden;
-  z-index: 101;
+  z-index: 1;
 
   &::after {
     content: ' ';
@@ -31,7 +31,7 @@
                     #f5f5f5,
                     #ebebeb
     );
-    z-index: 101;
+    z-index: 1;
     transform: translateX(-100%);
     animation-name: react-loading-skeleton;
     animation-direction: normal;

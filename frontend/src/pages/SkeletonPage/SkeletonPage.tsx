@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getProductsByPagination } from "api/product";
+import { getProducts } from "api/product";
 import { Product } from "components/Products/Product/Product";
 import { IFilter, IProduct } from "types/product";
 import { Skeleton } from "ui-kit";
@@ -13,7 +13,7 @@ export const SkeletonPage: React.FC = () => {
     const fetchProducts = async () => {
       setIsLoading(true);
       try {
-        const response = await getProductsByPagination(1);
+        const response = await getProducts();
         setProducts(response);
       } catch (error) {
         console.error(error);
@@ -27,6 +27,9 @@ export const SkeletonPage: React.FC = () => {
   return (
     <section className="SkeletonPage">
       <h2>Skeleton</h2>
+      <div style={{ height: "50px", width: "50px", marginBottom: "25px" }}>
+        {isLoading && <Skeleton />}
+      </div>
       {isLoading ? <Skeleton height="27px" width="200px" /> : <h2>Skeleton</h2>}
       {isLoading ? (
         <div className="ProductsList">

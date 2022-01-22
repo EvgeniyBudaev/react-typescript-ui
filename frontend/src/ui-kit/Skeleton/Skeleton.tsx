@@ -1,5 +1,6 @@
 import React, { CSSProperties, useEffect, useRef } from "react";
 import classNames from "classnames";
+import { setAtToStringAndPx } from "utils/string";
 import "./Skeleton.scss";
 
 export interface ISkeletonProps {
@@ -17,26 +18,20 @@ export const Skeleton: React.FC<ISkeletonProps> = ({
   width = "100%",
   isCircle,
 }) => {
-  const ref = useRef(null);
-
-  const setAtToStringAndPx = (value: string | number): string => {
-    if (typeof value === "string") {
-      return value;
-    } else {
-      return value.toString() + "px";
-    }
-  };
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (ref.current) {
-      ref.current.style.setProperty(
-        "--skeleton-width",
-        setAtToStringAndPx(width)
-      );
-      ref.current.style.setProperty(
-        "--skeleton-height",
-        setAtToStringAndPx(height)
-      );
+      height &&
+        ref.current.style.setProperty(
+          "--skeleton-height",
+          setAtToStringAndPx(height)
+        );
+      width &&
+        ref.current.style.setProperty(
+          "--skeleton-width",
+          setAtToStringAndPx(width)
+        );
     }
   }, [height, width]);
 
