@@ -6,7 +6,7 @@ import { Skeleton } from "ui-kit";
 import "./SkeletonPage.scss";
 
 export const SkeletonPage: React.FC = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [products, setProducts] = useState<IFilter<IProduct>>();
 
   useEffect(() => {
