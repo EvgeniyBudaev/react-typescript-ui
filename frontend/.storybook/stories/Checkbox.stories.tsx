@@ -12,7 +12,7 @@ export const stories = () => {
     category: [],
   });
   const [checkedBox, setCheckedBox] = useState(false);
-  
+
   const handleChangeCheckedBox = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -55,7 +55,7 @@ export const stories = () => {
       </div>
       <div className="story">
         <label>Checkbox Group</label>
-        <div style={{ display: "inline-flex", flexDirection: "column"}}>
+        <div style={{ display: "inline-flex", flexDirection: "column" }}>
           {checkboxGroupOptions.category.map(value => (
             <CheckboxGroup
               checkedBoxByGroup={checkedBoxByGroup}
@@ -72,4 +72,4 @@ export const stories = () => {
       </div>
     </div>
   );
-}
+};

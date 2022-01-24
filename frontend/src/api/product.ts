@@ -45,3 +45,19 @@ export const getProductsByPagination = async (
   );
   return response.data;
 };
+
+export const getProductsByTable = async (
+  pageNumber: number,
+  searchedKeyword = ""
+): Promise<IFilter<IProduct>> => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  const response = await axios.get<IFilter<IProduct>>(
+    `${BASE_URL}products/?page=${pageNumber}&search=${searchedKeyword}`,
+    config
+  );
+  return response.data;
+};

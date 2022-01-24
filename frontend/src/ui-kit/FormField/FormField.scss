@@ -15,8 +15,8 @@
     top: 20px;
     left: 12px;
     z-index: 1;
-    color: rgba(0,0,0,.54);
-    pointer-events:none;
+    color: rgba(0, 0, 0, 0.54);
+    pointer-events: none;
     transition: all 0.2s;
 
     .Input__error {
@@ -44,7 +44,7 @@
     right: 12px;
 
     svg {
-      fill: rgba(0,0,0,.54);
+      fill: rgba(0, 0, 0, 0.54);
     }
   }
 
@@ -75,7 +75,7 @@
     input:-webkit-autofill.Input__active,
     input:-webkit-autofill.Input__active:hover,
     input:-webkit-autofill.Input__active:focus,
-    input:-webkit-autofill.Input__active:active  {
+    input:-webkit-autofill.Input__active:active {
       -webkit-box-shadow: 0 0 0 30px white inset !important;
     }
 
@@ -90,7 +90,8 @@
     }
 
     &:hover {
-      .Input__active, .Input.Input__error {
+      .Input__active,
+      .Input.Input__error {
         background-color: white;
       }
     }

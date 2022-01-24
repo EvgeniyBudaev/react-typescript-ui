@@ -6,10 +6,18 @@ export default { title: "Spinner" };
 export const stories = () => {
   return (
     <div>
-      <div className="story" style={{ position: "relative", padding: "15px", width: "300px", height: "300px"}}>
+      <div
+        className="story"
+        style={{
+          position: "relative",
+          padding: "15px",
+          width: "300px",
+          height: "300px",
+        }}
+      >
         <label>Spinner</label>
         <Spinner />
       </div>
     </div>
-  )
-}
+  );
+};

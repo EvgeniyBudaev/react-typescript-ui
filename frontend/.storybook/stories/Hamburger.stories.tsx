@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Hamburger } from "ui-kit";
 
 export default { title: "Hamburger" };
@@ -18,4 +18,4 @@ export const stories = () => {
       </div>
     </div>
   );
-}
+};

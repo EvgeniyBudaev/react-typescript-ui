@@ -1,18 +1,22 @@
 @import "ui-kit/styles";
 
 .Modal {
-  &__open {}
+  &__open {
+  }
 
   &Header {
     h2 {
       @include roboto-28-medium;
     }
 
-    &__start {}
+    &__start {
+    }
 
-    &__center {}
+    &__center {
+    }
 
-    &__end {}
+    &__end {
+    }
   }
 
   &Content {

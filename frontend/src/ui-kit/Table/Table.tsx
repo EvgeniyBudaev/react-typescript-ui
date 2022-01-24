@@ -1,7 +1,7 @@
 import React, { PropsWithChildren, ReactElement, useMemo } from "react";
 import { Column, useTable } from "react-table";
 import classNames from "classnames";
-import { Pagination } from "ui-kit";
+import { Pagination, Search } from "ui-kit";
 import "./Table.scss";
 
 export interface ITableProps<T extends Record<string, unknown>> {
@@ -10,8 +10,10 @@ export interface ITableProps<T extends Record<string, unknown>> {
   currentPage?: number;
   data: T[];
   pagesCount?: number;
+  searchedKeyword?: string;
   isPagination?: boolean;
   onPageChange?: ({ selected }: { selected: number }) => void;
+  onSearchChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const Table = <T extends Record<string, unknown>>(
@@ -23,8 +25,10 @@ export const Table = <T extends Record<string, unknown>>(
     columns,
     currentPage,
     pagesCount,
+    searchedKeyword,
     isPagination,
     onPageChange,
+    onSearchChange,
   } = props;
 
   const { getTableProps, getTableBodyProps, headerGroups, prepareRow, rows } =
@@ -35,6 +39,10 @@ export const Table = <T extends Record<string, unknown>>(
 
   return (
     <>
+      <Search
+        searchedKeyword={searchedKeyword}
+        onSearchChange={onSearchChange}
+      />
       <table className={classNames("Table", className)} {...getTableProps()}>
         <thead className="Table-THead">
           {headerGroups.map(headerGroup => (

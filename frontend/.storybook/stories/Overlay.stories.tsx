@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Overlay } from "ui-kit";
 
 export default { title: "Overlay" };
@@ -17,5 +17,5 @@ export const stories = () => {
         <Overlay isActive={isOpen} onClick={handleClose} />
       </div>
     </div>
-  )
-}
+  );
+};

@@ -15,6 +15,7 @@ import Overlay from "./Overlay";
 import Pagination from "./Pagination";
 import Rating from "./Rating";
 import Scrollbar from "./Scrollbar";
+import Search from "./Search";
 import Select from "./Select";
 import Sidebar from "./Sidebar";
 import Skeleton from "./Skeleton";
@@ -45,6 +46,7 @@ export {
   Pagination,
   Rating,
   Scrollbar,
+  Search,
   Select,
   Sidebar,
   Skeleton,

@@ -12,7 +12,16 @@ export const stories = () => {
 
   return (
     <div>
-      <div className="story" style={{ padding: "15px", width: "300px", height: "300px", border: "1px solid #ccc", overflow: "auto"}}>
+      <div
+        className="story"
+        style={{
+          padding: "15px",
+          width: "300px",
+          height: "300px",
+          border: "1px solid #ccc",
+          overflow: "auto",
+        }}
+      >
         <label>Scrollbar</label>
         <Scrollbar
           alwaysShowTracks
@@ -30,5 +39,5 @@ export const stories = () => {
         </Scrollbar>
       </div>
     </div>
-  )
-}
+  );
+};

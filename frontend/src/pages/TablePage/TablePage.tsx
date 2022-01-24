@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { Column } from "react-table";
 import isNaN from "lodash/isNaN";
-import { getProductsByPagination } from "api/product";
+import { getProductsByTable } from "api/product";
 import { IFilter, IProduct } from "types/product";
 import { IconButton, Spinner, Table } from "ui-kit";
 import "./TablePage.scss";
@@ -17,12 +17,17 @@ export const TablePage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [pagesCount, setPagesCount] = useState(0);
   const [products, setProducts] = useState<IFilter<IProduct>>();
+  const [searchedKeyword, setSearchedKeyword] = useState("");
+  console.log("searchedKeyword: ", searchedKeyword);
 
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchProducts = async (
+      currentPage: number,
+      searchedKeyword: string
+    ) => {
       setIsLoading(true);
       try {
-        const response = await getProductsByPagination(currentPage);
+        const response = await getProductsByTable(currentPage, searchedKeyword);
         const pagesQuantity = Math.max(
           Math.ceil(response.totalItemsCount / response.pageItemsCount),
           1
@@ -35,8 +40,8 @@ export const TablePage: React.FC = () => {
         setIsLoading(false);
       }
     };
-    void fetchProducts();
-  }, [currentPage]);
+    void fetchProducts(currentPage, searchedKeyword);
+  }, [currentPage, searchedKeyword]);
 
   const data =
     products && (products.entities as unknown as Record<string, unknown>[]);
@@ -74,7 +79,12 @@ export const TablePage: React.FC = () => {
 
   const handlePageChange = ({ selected }) => {
     setCurrentPage(selected + 1);
-    history.replace(`?page=${selected + 1}`);
+    history.replace(`?page=${selected + 1}&search=${searchedKeyword}`);
+  };
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchedKeyword(event.target.value);
+    history.replace(`?page=${currentPage}&search=${event.target.value}`);
   };
 
   if (isLoading) return <Spinner />;
@@ -88,8 +98,10 @@ export const TablePage: React.FC = () => {
           currentPage={currentPage}
           data={data}
           pagesCount={pagesCount}
+          searchedKeyword={searchedKeyword}
           isPagination
           onPageChange={handlePageChange}
+          onSearchChange={handleSearchChange}
         />
       )}
     </section>

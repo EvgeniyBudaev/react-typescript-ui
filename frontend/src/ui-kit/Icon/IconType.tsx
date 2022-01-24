@@ -10,6 +10,7 @@ import { ReactComponent as Edit } from "ui-kit/assets/icons/Edit.svg";
 import { ReactComponent as Minus } from "ui-kit/assets/icons/Minus.svg";
 import { ReactComponent as Pdf } from "ui-kit/assets/icons/files/Pdf.svg";
 import { ReactComponent as Plus } from "ui-kit/assets/icons/Plus.svg";
+import { ReactComponent as Search } from "ui-kit/assets/icons/Search.svg";
 import { ReactComponent as Spinner } from "ui-kit/assets/icons/Spinner.svg";
 import { ReactComponent as Telegram } from "ui-kit/assets/icons/Telegram.svg";
 import { ReactComponent as Visibility } from "ui-kit/assets/icons/Visibility.svg";
@@ -26,6 +27,7 @@ export type IconType =
   | "Minus"
   | "Pdf"
   | "Plus"
+  | "Search"
   | "Spinner"
   | "Telegram"
   | "Visibility"
@@ -42,6 +44,7 @@ export const iconTypes = new Map([
   ["Minus", <Minus key={newGuid()} />],
   ["Pdf", <Pdf key={newGuid()} />],
   ["Plus", <Plus key={newGuid()} />],
+  ["Search", <Search key={newGuid()} />],
   ["Spinner", <Spinner key={newGuid()} />],
   ["Telegram", <Telegram key={newGuid()} />],
   ["Visibility", <Visibility key={newGuid()} />],

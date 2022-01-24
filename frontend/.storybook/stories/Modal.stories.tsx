@@ -30,9 +30,12 @@ export const stories = () => {
           <Modal.Content>
             <div>Content</div>
           </Modal.Content>
-          <Modal.Footer buttonSubmitText="Choice" onSubmit={handleModalSubmit} />
+          <Modal.Footer
+            buttonSubmitText="Choice"
+            onSubmit={handleModalSubmit}
+          />
         </Modal>
       </div>
     </div>
   );
-}
+};
