@@ -28,12 +28,14 @@ class FileViewSet(viewsets.ModelViewSet):
 class ProductViewSet(viewsets.ModelViewSet):
     """API для работы с продуктами."""
     queryset = Product.objects.all()
-    filter_backends = (DjangoFilterBackend, filters.OrderingFilter)
+    filter_backends = (DjangoFilterBackend, filters.OrderingFilter,
+                        filters.SearchFilter)
     filterset_class = ProductFilter
     ordering = ('price',)
     ordering_fields = ('price',)
     pagination_class = Pagination
     permission_classes = (AllowAny,)
+    search_fields = ('title',)
     serializer_class = ProductSerializer
 
 

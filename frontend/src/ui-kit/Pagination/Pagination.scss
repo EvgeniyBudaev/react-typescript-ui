@@ -50,6 +50,10 @@
   & > .disabled > a {
     cursor: default;
 
+    svg {
+      fill: $color-suit-gray;
+    }
+
     &:hover {
       background-color: transparent;
     }
