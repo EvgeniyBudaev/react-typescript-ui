@@ -1,33 +1,35 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { Column } from "react-table";
-import isNaN from "lodash/isNaN";
+import queryString from "query-string";
 import { getProductsByTable } from "api/product";
 import { IFilter, IProduct } from "types/product";
 import { IconButton, Spinner, Table } from "ui-kit";
+import { TableSortingType } from "ui-kit/Table";
 import "./TablePage.scss";
 
 export const TablePage: React.FC = () => {
   const history = useHistory();
   const location = useLocation();
-  const pageNumber = !isNaN(Number(location.search.split("=")[1]))
-    ? Number(location.search.split("=")[1])
-    : 1;
-  const [currentPage, setCurrentPage] = useState(pageNumber);
   const [isLoading, setIsLoading] = useState(false);
   const [pagesCount, setPagesCount] = useState(0);
   const [products, setProducts] = useState<IFilter<IProduct>>();
-  const [searchedKeyword, setSearchedKeyword] = useState("");
-  console.log("searchedKeyword: ", searchedKeyword);
+  const parsedUrl = queryString.parse(location.search);
+  const pageParsedUrl = parsedUrl.page ? Number(parsedUrl.page) : 1;
+  const searchParsedUrl = parsedUrl.search ? parsedUrl.search.toString() : "";
+  const [currentPage, setCurrentPage] = useState(pageParsedUrl);
+  const [searchedKeyword, setSearchedKeyword] = useState(searchParsedUrl);
+  const [sorting, setSorting] = useState<TableSortingType>();
 
   useEffect(() => {
-    const fetchProducts = async (
-      currentPage: number,
-      searchedKeyword: string
-    ) => {
+    const fetchProducts = async () => {
       setIsLoading(true);
       try {
-        const response = await getProductsByTable(currentPage, searchedKeyword);
+        const response = await getProductsByTable(
+          currentPage,
+          searchParsedUrl as string,
+          { ...sorting }
+        );
         const pagesQuantity = Math.max(
           Math.ceil(response.totalItemsCount / response.pageItemsCount),
           1
@@ -40,25 +42,33 @@ export const TablePage: React.FC = () => {
         setIsLoading(false);
       }
     };
-    void fetchProducts(currentPage, searchedKeyword);
-  }, [currentPage, searchedKeyword]);
+    void fetchProducts();
+  }, [currentPage, searchParsedUrl, sorting]);
 
   const data =
     products && (products.entities as unknown as Record<string, unknown>[]);
 
-  const columns: Column<Record<string, unknown>>[] = useMemo(
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  const columns: Column<object>[] = useMemo(
     () => [
       {
         Header: "Title",
         accessor: "title",
+        disableSortBy: false,
+        maxWidth: 700,
+        minWidth: 700,
       },
       {
         Header: "Price",
         accessor: "price",
+        disableSortBy: false,
+        maxWidth: 200,
+        minWidth: 200,
       },
       {
         Header: "Edit",
         accessor: "id",
+        disableSortBy: true,
         Cell: props => {
           const rowIdx = props.value;
 
@@ -79,12 +89,17 @@ export const TablePage: React.FC = () => {
 
   const handlePageChange = ({ selected }) => {
     setCurrentPage(selected + 1);
-    history.replace(`?page=${selected + 1}&search=${searchedKeyword}`);
+    if (searchParsedUrl) {
+      history.replace(`?page=${selected + 1}&search=${searchParsedUrl}`);
+    } else {
+      history.replace(`?page=${selected + 1}`);
+    }
   };
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    history.replace(`?page=${1}&search=${event.target.value}`);
     setSearchedKeyword(event.target.value);
-    history.replace(`?page=${currentPage}&search=${event.target.value}`);
+    setCurrentPage(1);
   };
 
   if (isLoading) return <Spinner />;
@@ -99,9 +114,12 @@ export const TablePage: React.FC = () => {
           data={data}
           pagesCount={pagesCount}
           searchedKeyword={searchedKeyword}
+          sorting={sorting}
           isPagination
+          isSearch
           onPageChange={handlePageChange}
           onSearchChange={handleSearchChange}
+          onSort={sorting => setSorting(sorting)}
         />
       )}
     </section>

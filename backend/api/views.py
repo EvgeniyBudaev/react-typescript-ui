@@ -32,7 +32,7 @@ class ProductViewSet(viewsets.ModelViewSet):
                         filters.SearchFilter)
     filterset_class = ProductFilter
     ordering = ('price',)
-    ordering_fields = ('price',)
+    ordering_fields = ('title', 'price',)
     pagination_class = Pagination
     permission_classes = (AllowAny,)
     search_fields = ('title',)

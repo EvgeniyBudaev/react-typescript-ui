@@ -16,6 +16,16 @@
     padding: 20px 23px;
     text-align: start;
     border-bottom: 1px solid rgba(224, 224, 224, 1);
+
+    &Inner {
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    &Text {
+      display: inline-block;
+    }
   }
 
   &-TD {
@@ -32,5 +42,10 @@
         background-color: rgba(0, 0, 0, 0.04);
       }
     }
+  }
+
+  &-SortingIcon {
+    display: inline-flex;
+    align-items: center;
   }
 }

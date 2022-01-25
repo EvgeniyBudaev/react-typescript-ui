@@ -20,7 +20,7 @@ import Select from "./Select";
 import Sidebar from "./Sidebar";
 import Skeleton from "./Skeleton";
 import Spinner from "./Spinner";
-import Table from "./Table";
+import { Table } from "./Table";
 import Tabs from "./Tabs";
 import TextArea from "./TextArea";
 import Uploader from "./Uploader";

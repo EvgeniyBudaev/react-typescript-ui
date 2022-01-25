@@ -21,7 +21,7 @@ $maxWidth: 620px;
   &__active {
     #{$this}-InputWrapper {
       border: 1px solid $color-primary;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 4px 8px rgba(176, 151, 106, 0.25);
     }
 
     #{$this}-Input {
@@ -48,7 +48,7 @@ $maxWidth: 620px;
   &-Input {
     @include roboto-16-regular;
     margin: 0;
-    padding: 0 50px 0 16px;
+    padding: 0 50px 0 23px;
     width: 100%;
     height: $height;
     color: $color-text;

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import classNames from "classnames";
+import queryString from "query-string";
 import { Icon } from "ui-kit";
 import "./Search.scss";
 
@@ -17,15 +18,16 @@ export const Search: React.FC<ISearchProps> = ({
 }) => {
   const [isActive, setIsActive] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
-  const history = useHistory();
-  console.log("history: ", history);
+  const location = useLocation();
+  const parsedUrl = queryString.parse(location.search);
+  const searchParsedUrl = parsedUrl.search ? parsedUrl.search : "";
 
   useEffect(() => {
-    if (inputRef.current) {
+    if (inputRef.current && searchParsedUrl) {
       setIsActive(true);
       inputRef.current.focus();
     }
-  }, [searchedKeyword]);
+  }, [location.search, searchParsedUrl, searchedKeyword]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onSearchChange(event);

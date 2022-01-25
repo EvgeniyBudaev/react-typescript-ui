@@ -1,7 +1,8 @@
 import { BASE_URL } from "constants/url";
 import axios from "axios";
-import { ISelectOption } from "ui-kit/Select";
 import { IFilter, IProduct } from "types/product";
+import { ISelectOption } from "ui-kit/Select";
+import { TableSortingType } from "ui-kit/Table";
 
 export const getProducts = async (): Promise<IFilter<IProduct>> => {
   const config = {
@@ -48,15 +49,17 @@ export const getProductsByPagination = async (
 
 export const getProductsByTable = async (
   pageNumber: number,
-  searchedKeyword = ""
+  searchedKeyword = "",
+  sorting: TableSortingType
 ): Promise<IFilter<IProduct>> => {
   const config = {
     headers: {
       "Content-Type": "application/json",
     },
   };
+  const orderingFields = Object.values(sorting).join(",");
   const response = await axios.get<IFilter<IProduct>>(
-    `${BASE_URL}products/?page=${pageNumber}&search=${searchedKeyword}`,
+    `${BASE_URL}products/?page=${pageNumber}&ordering=${orderingFields}&search=${searchedKeyword}`,
     config
   );
   return response.data;
