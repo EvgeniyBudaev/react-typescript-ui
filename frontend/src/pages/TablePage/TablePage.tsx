@@ -19,7 +19,10 @@ export const TablePage: React.FC = () => {
   const searchParsedUrl = parsedUrl.search ? parsedUrl.search.toString() : "";
   const [currentPage, setCurrentPage] = useState(pageParsedUrl);
   const [searchedKeyword, setSearchedKeyword] = useState(searchParsedUrl);
-  const [sorting, setSorting] = useState<TableSortingType>();
+  const [sorting, setSorting] = useState<TableSortingType>({
+    title: "",
+    price: "",
+  });
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -102,6 +105,13 @@ export const TablePage: React.FC = () => {
     setCurrentPage(1);
   };
 
+  const handleSort = (sorting: TableSortingType) => {
+    setSorting(prevState => ({
+      ...prevState,
+      ...sorting,
+    }));
+  };
+
   if (isLoading) return <Spinner />;
 
   return (
@@ -119,7 +129,7 @@ export const TablePage: React.FC = () => {
           isSearch
           onPageChange={handlePageChange}
           onSearchChange={handleSearchChange}
-          onSort={sorting => setSorting(sorting)}
+          onSort={handleSort}
         />
       )}
     </section>
