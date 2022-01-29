@@ -1,13 +1,6 @@
 import axios from "axios";
 import { ISignupForm } from "pages/FormPage/FormPage";
-
-export interface IUserSignup {
-  email: string;
-  firstName: string;
-  id: number;
-  lastName: string;
-  phoneNumber: string;
-}
+import { IUserSignup } from "./types/account";
 
 export const fetchUserSignup = async ({
   firstName,

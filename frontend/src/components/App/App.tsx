@@ -12,9 +12,11 @@ import {
   HomePage,
   IconPage,
   IconButtonPage,
+  LoginPage,
   ModalPage,
   OverlayPage,
   PaginationPage,
+  PrivateRoutePage,
   RatingPage,
   ScrollbarPage,
   SelectPage,
@@ -26,7 +28,7 @@ import {
   TextAreaPage,
   UploaderPage,
 } from "pages";
-import { Layout } from "components";
+import { Layout, PrivateRoute } from "components";
 import "./App.scss";
 
 export const App: React.FC = () => {
@@ -43,9 +45,15 @@ export const App: React.FC = () => {
           <Route path={ROUTES.HAMBURGER} component={HamburgerPage} />
           <Route path={ROUTES.ICON_BUTTON} component={IconButtonPage} />
           <Route path={ROUTES.ICON} component={IconPage} />
+          <Route path={ROUTES.LOGIN} component={LoginPage} />
           <Route path={ROUTES.MODAL} component={ModalPage} />
           <Route path={ROUTES.OVERLAY} component={OverlayPage} />
           <Route path={ROUTES.PAGINATION} component={PaginationPage} />
+          <PrivateRoute
+            path={ROUTES.PRIVATE_ROUTE}
+            redirectTo={ROUTES.LOGIN}
+            component={PrivateRoutePage}
+          />
           <Route path={ROUTES.RATING} component={RatingPage} />
           <Route path={ROUTES.SCROLLBAR} component={ScrollbarPage} />
           <Route path={ROUTES.SELECT} component={SelectPage} />

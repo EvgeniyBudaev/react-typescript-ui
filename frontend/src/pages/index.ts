@@ -8,9 +8,11 @@ import HamburgerPage from "./HamburgerPage";
 import HomePage from "./HomePage";
 import IconPage from "./IconPage";
 import IconButtonPage from "./IconButtonPage";
+import LoginPage from "./LoginPage";
 import ModalPage from "./ModalPage";
 import OverlayPage from "./OverlayPage";
 import PaginationPage from "./PaginationPage";
+import PrivateRoutePage from "./PrivateRoutePage";
 import RatingPage from "./RatingPage";
 import ScrollbarPage from "./ScrollbarPage";
 import SelectPage from "./SelectPage";
@@ -33,9 +35,11 @@ export {
   HomePage,
   IconPage,
   IconButtonPage,
+  LoginPage,
   ModalPage,
   OverlayPage,
   PaginationPage,
+  PrivateRoutePage,
   RatingPage,
   ScrollbarPage,
   SelectPage,

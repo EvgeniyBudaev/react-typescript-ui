@@ -5,6 +5,7 @@ import Button from "./Button";
 import Checkbox from "./Checkbox";
 import CheckboxGroup from "./Checkbox/CheckboxGroup";
 import DocumentViewer from "./DocumentViewer";
+import DropDown from "./DropDown";
 import FormField from "./FormField";
 import Hamburger from "./Hamburger";
 import Icon from "./Icon";
@@ -36,6 +37,7 @@ export {
   Checkbox,
   CheckboxGroup,
   DocumentViewer,
+  DropDown,
   FormField,
   Hamburger,
   Icon,

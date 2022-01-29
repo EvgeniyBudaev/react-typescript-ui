@@ -8,6 +8,7 @@ export interface IAvatarProps {
   image?: string;
   size?: number;
   title?: string;
+  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 export const Avatar: React.FC<IAvatarProps> = ({
@@ -16,6 +17,7 @@ export const Avatar: React.FC<IAvatarProps> = ({
   image,
   size = 46,
   title,
+  onClick,
 }) => {
   const sizeBox = `${size - 4}px`;
   const sizeInner = `${size - 8}px`;
@@ -23,9 +25,10 @@ export const Avatar: React.FC<IAvatarProps> = ({
   const sizeWrapper = `${size}px`;
 
   return (
-    <button
+    <div
       className={classNames("Avatar", className)}
       style={{ width: sizeInner, height: sizeInner }}
+      onClick={onClick}
     >
       <div
         className={classNames("AvatarInner", classNameSmallCircle)}
@@ -58,6 +61,6 @@ export const Avatar: React.FC<IAvatarProps> = ({
           style={{ width: sizeBox, height: sizeBox }}
         />
       </div>
-    </button>
+    </div>
   );
 };
