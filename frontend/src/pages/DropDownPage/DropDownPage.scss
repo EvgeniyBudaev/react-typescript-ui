@@ -67,11 +67,11 @@ $transition: 0.15s;
     transition: opacity $transition;
   }
 
-  &_Menu {
+  &-Menu {
     padding: 4px;
   }
 
-  &_MenuItem {
+  &-MenuItem {
     display: flex;
     align-items: center;
     margin: 3px;

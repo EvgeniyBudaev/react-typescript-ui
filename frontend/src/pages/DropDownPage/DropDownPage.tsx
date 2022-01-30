@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
+import { DropDown } from "ui-kit";
 import "./DropDownPage.scss";
-import { DropDown, Icon } from "../../ui-kit";
 
 export const DropDownPage: React.FC = () => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
@@ -40,10 +40,10 @@ export const DropDownPage: React.FC = () => {
           >
             <span>Catalog</span>
             <DropDown className="DropDownCatalog" isOpen={isDropDownOpen}>
-              <ul className="DropDownCatalog_Menu">
-                <li className="DropDownCatalog_MenuItem">Smartphones</li>
-                <li className="DropDownCatalog_MenuItem">Notebooks</li>
-                <li className="DropDownCatalog_MenuItem">TV</li>
+              <ul className="DropDownCatalog-Menu">
+                <li className="DropDownCatalog-MenuItem">Smartphones</li>
+                <li className="DropDownCatalog-MenuItem">Notebooks</li>
+                <li className="DropDownCatalog-MenuItem">TV</li>
               </ul>
             </DropDown>
           </li>
