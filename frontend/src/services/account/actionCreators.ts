@@ -1,6 +1,6 @@
 import { BASE_URL } from "constants/url";
 import axios from "axios";
-import { setCookie } from "utils/coockie";
+import { deleteCookie, setCookie } from "utils/coockie";
 import { ActionTypes } from "./actionTypes";
 import { ITokenRequest, ITokenResponse } from "./types";
 
@@ -45,8 +45,8 @@ export const logout = (): ((dispatch) => Promise<void>) => async dispatch => {
     dispatch({
       type: ActionTypes.LOGOUT_SUCCESS,
     });
-    setCookie("accessToken", "", {});
-    setCookie("refreshToken", "", {});
+    deleteCookie("accessToken");
+    deleteCookie("refreshToken");
   } catch (error) {
     dispatch({
       type: ActionTypes.LOGOUT_FAILED,

@@ -7,6 +7,7 @@ import {
   ButtonPage,
   CheckboxPage,
   DocumentViewerPage,
+  DropDownPage,
   FormPage,
   HamburgerPage,
   HomePage,
@@ -28,7 +29,7 @@ import {
   TextAreaPage,
   UploaderPage,
 } from "pages";
-import { Layout, PrivateRoute } from "components";
+import { Layout, PrivateRoute, PublicRoute } from "components";
 import "./App.scss";
 
 export const App: React.FC = () => {
@@ -36,34 +37,43 @@ export const App: React.FC = () => {
     <div className="App">
       <Layout>
         <Switch>
-          <Route path={ROUTES.ACCORDION} component={AccordionPage} />
-          <Route path={ROUTES.AVATAR} component={AvatarPage} />
-          <Route path={ROUTES.BUTTON} component={ButtonPage} />
-          <Route path={ROUTES.CHECKBOX} component={CheckboxPage} />
-          <Route path={ROUTES.DOCUMENT_VIEWER} component={DocumentViewerPage} />
-          <Route path={ROUTES.FORM} component={FormPage} />
-          <Route path={ROUTES.HAMBURGER} component={HamburgerPage} />
-          <Route path={ROUTES.ICON_BUTTON} component={IconButtonPage} />
-          <Route path={ROUTES.ICON} component={IconPage} />
-          <Route path={ROUTES.LOGIN} component={LoginPage} />
-          <Route path={ROUTES.MODAL} component={ModalPage} />
-          <Route path={ROUTES.OVERLAY} component={OverlayPage} />
-          <Route path={ROUTES.PAGINATION} component={PaginationPage} />
+          <Route path={ROUTES.ACCORDION} component={AccordionPage} exact />
+          <Route path={ROUTES.AVATAR} component={AvatarPage} exact />
+          <Route path={ROUTES.BUTTON} component={ButtonPage} exact />
+          <Route path={ROUTES.CHECKBOX} component={CheckboxPage} exact />
+          <Route
+            path={ROUTES.DOCUMENT_VIEWER}
+            component={DocumentViewerPage}
+            exact
+          />
+          <Route path={ROUTES.DROPDOWN} component={DropDownPage} exact />
+          <Route path={ROUTES.FORM} component={FormPage} exact />
+          <Route path={ROUTES.HAMBURGER} component={HamburgerPage} exact />
+          <Route path={ROUTES.ICON_BUTTON} component={IconButtonPage} exact />
+          <Route path={ROUTES.ICON} component={IconPage} exact />
+          <PublicRoute
+            path={ROUTES.LOGIN}
+            redirectTo={ROUTES.HOME}
+            component={LoginPage}
+          />
+          <Route path={ROUTES.MODAL} component={ModalPage} exact />
+          <Route path={ROUTES.OVERLAY} component={OverlayPage} exact />
+          <Route path={ROUTES.PAGINATION} component={PaginationPage} exact />
           <PrivateRoute
             path={ROUTES.PRIVATE_ROUTE}
             redirectTo={ROUTES.LOGIN}
             component={PrivateRoutePage}
           />
-          <Route path={ROUTES.RATING} component={RatingPage} />
-          <Route path={ROUTES.SCROLLBAR} component={ScrollbarPage} />
-          <Route path={ROUTES.SELECT} component={SelectPage} />
-          <Route path={ROUTES.SIDEBAR} component={SidebarPage} />
-          <Route path={ROUTES.SPINNER} component={SpinnerPage} />
-          <Route path={ROUTES.SKELETON} component={SkeletonPage} />
-          <Route path={ROUTES.TABLE} component={TablePage} />
-          <Route path={ROUTES.TABS} component={TabsPage} />
-          <Route path={ROUTES.TEXTAREA} component={TextAreaPage} />
-          <Route path={ROUTES.UPLOADER} component={UploaderPage} />
+          <Route path={ROUTES.RATING} component={RatingPage} exact />
+          <Route path={ROUTES.SCROLLBAR} component={ScrollbarPage} exact />
+          <Route path={ROUTES.SELECT} component={SelectPage} exact />
+          <Route path={ROUTES.SIDEBAR} component={SidebarPage} exact />
+          <Route path={ROUTES.SPINNER} component={SpinnerPage} exact />
+          <Route path={ROUTES.SKELETON} component={SkeletonPage} exact />
+          <Route path={ROUTES.TABLE} component={TablePage} exact />
+          <Route path={ROUTES.TABS} component={TabsPage} exact />
+          <Route path={ROUTES.TEXTAREA} component={TextAreaPage} exact />
+          <Route path={ROUTES.UPLOADER} component={UploaderPage} exact />
           <Route path={ROUTES.HOME} component={HomePage} exact />
         </Switch>
       </Layout>

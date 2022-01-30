@@ -8,6 +8,8 @@ interface IAccountState {
   refreshToken: string | null;
   tokenRequest: boolean;
   tokenFailed: boolean;
+  logoutRequest: boolean;
+  logoutFailed: boolean;
   error: AxiosError | null;
 }
 
@@ -16,6 +18,8 @@ const initialState: IAccountState = {
   refreshToken: getCookie("refreshToken") || null,
   tokenRequest: false,
   tokenFailed: false,
+  logoutRequest: false,
+  logoutFailed: false,
   error: null,
 };
 
@@ -47,11 +51,26 @@ export const reducer: Reducer<IAccountState, AccountActionsType> = (
         tokenFailed: true,
         error: action.payload,
       };
+    case ActionTypes.LOGOUT_REQUEST: {
+      return {
+        ...state,
+        logoutRequest: true,
+        logoutFailed: false,
+        error: null,
+      };
+    }
     case ActionTypes.LOGOUT_SUCCESS:
       return {
         ...state,
         accessToken: "",
         refreshToken: "",
+      };
+    case ActionTypes.LOGOUT_FAILED:
+      return {
+        ...state,
+        logoutRequest: false,
+        logoutFailed: true,
+        error: action.payload,
       };
     default:
       return state;

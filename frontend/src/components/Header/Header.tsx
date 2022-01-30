@@ -15,6 +15,7 @@ export const Header: React.FC = () => {
   const { accessToken: isAuthenticated } = useTypedSelector(
     state => state.account
   );
+  console.log("isAuthenticated ", isAuthenticated);
 
   useEffect(() => {
     window.addEventListener("click", handleClickOutsideDropDown);

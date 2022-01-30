@@ -7,6 +7,7 @@ type PrivateRouteProps = RouteProps & {
 };
 
 export const PrivateRoute: React.FC<PrivateRouteProps> = ({
+  children,
   redirectTo,
   ...props
 }) => {
@@ -14,9 +15,26 @@ export const PrivateRoute: React.FC<PrivateRouteProps> = ({
     state => state.account
   );
 
-  if (!isAuthenticated) {
-    return <Redirect to={redirectTo} />;
-  }
+  // if (!isAuthenticated) {
+  //   return <Redirect to={redirectTo} />;
+  // }
 
-  return <Route {...props} />;
+  // return <Route {...props} />;
+  return (
+    <Route
+      {...props}
+      render={({ location }) =>
+        isAuthenticated ? (
+          children
+        ) : (
+          <Redirect
+            to={{
+              pathname: redirectTo,
+              state: { from: location },
+            }}
+          />
+        )
+      }
+    />
+  );
 };

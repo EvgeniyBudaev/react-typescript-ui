@@ -59,6 +59,14 @@ export const MenuPanel: React.FC = () => {
         <NavLink
           className="MenuPanel-ListItem"
           activeClassName="MenuPanel-ListItem__active"
+          to={ROUTES.DROPDOWN}
+        >
+          DropDown
+        </NavLink>
+
+        <NavLink
+          className="MenuPanel-ListItem"
+          activeClassName="MenuPanel-ListItem__active"
           to={ROUTES.FORM}
         >
           Form

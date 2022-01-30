@@ -1,0 +1,88 @@
+@import "ui-kit/styles";
+
+.DropDownPage {
+  h2 {
+    margin-bottom: 25px;
+  }
+
+  &-Navigation {
+    width: 100%;
+  }
+
+  &-Menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  &-MenuItem {
+    position: relative;
+    padding: 0 50px;
+    border-bottom: 1px solid $color-light-gray;
+    cursor: pointer;
+    transition: all 0.15s;
+
+    &:hover {
+      border-bottom: 1px solid $color-primary;
+    }
+  }
+}
+
+/* ----- Открытие/закрытие DropDown ----- */
+$positionDropDown: -500px;
+$transition: 0.15s;
+
+.DropDownCatalog {
+  content: "";
+  position: absolute;
+  bottom: -165px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  height: max-content;
+  width: max-content;
+  background-color: white;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-shadow: $shadow-perimeter;
+  z-index: 103;
+
+  &.enter {
+    opacity: 0;
+  }
+
+  &.enter-active {
+    opacity: 1;
+    transition: opacity $transition;
+  }
+
+  &.exit {
+    opacity: 1;
+    transition: opacity $transition;
+  }
+
+  &.exit-active {
+    opacity: 0;
+    transition: opacity $transition;
+  }
+
+  &_Menu {
+    padding: 4px;
+  }
+
+  &_MenuItem {
+    display: flex;
+    align-items: center;
+    margin: 3px;
+    padding: 0 16px;
+    min-height: 44px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s;
+
+    &:hover {
+      background-color: rgba(223, 213, 195, 1);
+    }
+  }
+}
