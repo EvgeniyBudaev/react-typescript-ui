@@ -12,14 +12,14 @@ export interface ITableProps<T extends Record<string, unknown>> {
   className?: string;
   // eslint-disable-next-line @typescript-eslint/ban-types
   columns: readonly Column<object>[];
-  currentPage?: number;
+  currentPage: number;
   data: T[];
   pagesCount?: number;
   searchedKeyword?: string;
   sorting?: TableSortingType;
   isPagination?: boolean;
   isSearch?: boolean;
-  onPageChange?: ({ selected }: { selected: number }) => void;
+  onPageChange: ({ selected }: { selected: number }) => void;
   onSearchChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onSort?: (sorting: TableSortingType) => void;
 }
@@ -51,7 +51,10 @@ export const Table = <T extends Record<string, unknown>>(
       useSortBy
     );
 
-  const getNewSort = (currentSort: SortingType, key: string): string => {
+  const getNewSort = (
+    currentSort: SortingType,
+    key: string
+  ): string | undefined => {
     switch (currentSort) {
       case `-${key}`:
         return undefined;
@@ -63,8 +66,13 @@ export const Table = <T extends Record<string, unknown>>(
   };
 
   const handleSortClick = (column: Column) => {
-    const newSort = getNewSort(sorting?.[column.id], column.id);
-    onSort({ [column.id]: newSort as SortingType });
+    const columnId = column.id;
+    if (columnId) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      const newSort = getNewSort(sorting?.[columnId], columnId);
+      onSort && onSort({ [columnId]: newSort as SortingType });
+    }
   };
 
   return (
@@ -134,7 +142,7 @@ export const Table = <T extends Record<string, unknown>>(
           })}
         </tbody>
       </table>
-      {isPagination && (
+      {isPagination && pagesCount && (
         <Pagination
           initialPage={currentPage - 1}
           pagesCount={pagesCount}

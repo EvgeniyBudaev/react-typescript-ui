@@ -1,7 +1,7 @@
-import { components } from "react-select";
+import { components, GroupBase, StylesConfig } from "react-select";
 import cn from "classnames";
-import { CSSObject } from "@emotion/serialize";
 import { Icon } from "ui-kit";
+import { ISelectOption, isMultiType } from "ui-kit/Select";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const StyledDropdownIndicator = props => {
@@ -31,16 +31,20 @@ export const StyledMultiValueRemove = props => {
   );
 };
 
-export const SelectStyles = {
-  control: (styles: CSSObject): CSSObject => ({
+export const SelectStyles: StylesConfig<
+  ISelectOption,
+  isMultiType,
+  GroupBase<ISelectOption>
+> = {
+  control: styles => ({
     ...styles,
     border: "1px solid #B0976A",
     cursor: "pointer",
   }),
   option: (
-    styles: CSSObject,
+    styles,
     { isFocused, isSelected }: { isFocused: boolean; isSelected: boolean }
-  ): CSSObject => ({
+  ) => ({
     ...styles,
     backgroundColor: isSelected ? "#dfd3c3" : "",
     color: isFocused || isSelected ? "black" : "",
@@ -53,7 +57,7 @@ export const SelectStyles = {
       transition: "all 0.15s",
     },
   }),
-  multiValue: (styles: CSSObject): CSSObject => {
+  multiValue: styles => {
     return {
       ...styles,
       display: "flex",
@@ -62,14 +66,14 @@ export const SelectStyles = {
       padding: "4px 8px",
     };
   },
-  multiValueLabel: (styles: CSSObject): CSSObject => ({
+  multiValueLabel: styles => ({
     ...styles,
     color: "black",
     fontSize: "16px",
     lineHeight: "20px",
     marginRight: "8px",
   }),
-  multiValueRemove: (styles: CSSObject): CSSObject => ({
+  multiValueRemove: styles => ({
     ...styles,
     color: "#828c9c",
     cursor: "pointer",

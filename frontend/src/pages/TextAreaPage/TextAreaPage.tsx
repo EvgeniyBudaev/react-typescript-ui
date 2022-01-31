@@ -22,11 +22,11 @@ export const TextAreaPage: React.FC = () => {
     console.log("TextArea data: ", data);
   };
 
-  const handleFocus = (event: React.FocusEvent<HTMLInputElement>) => {
+  const handleFocus = (event: React.FocusEvent<HTMLTextAreaElement>) => {
     setIsFocused({ ...isFocused, [event.target.name]: true });
   };
 
-  const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+  const handleBlur = (event: React.FocusEvent<HTMLTextAreaElement>) => {
     if (watchAllFields[event.target.name] !== "") {
       setIsFocused({ ...isFocused, [event.target.name]: true });
     } else {
@@ -48,8 +48,8 @@ export const TextAreaPage: React.FC = () => {
               error={errors.comment && errors.comment.message}
               isFocused={isFocused.comment}
               isRequired
-              onBlur={handleBlur}
-              onFocus={handleFocus}
+              onBlurTextArea={handleBlur}
+              onFocusTextArea={handleFocus}
             />
           </div>
           <Button className="FormPage-Button" type="submit">

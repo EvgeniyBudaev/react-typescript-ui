@@ -12,7 +12,7 @@ export const Header: React.FC = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const location = useLocation();
-  const refToggleDropDown = useRef(null);
+  const refToggleDropDown = useRef<HTMLDivElement>(null);
   const { accessToken: isAuthenticated } = useTypedSelector(
     state => state.account
   );
@@ -26,7 +26,7 @@ export const Header: React.FC = () => {
 
   const handleClickOutsideDropDown = (event: MouseEvent) => {
     if (isDropDownOpen) {
-      if (refToggleDropDown.current) {
+      if (refToggleDropDown.current && event.target instanceof HTMLDivElement) {
         if (!refToggleDropDown.current.contains(event.target)) {
           setIsDropDownOpen(false);
         }

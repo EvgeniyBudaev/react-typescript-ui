@@ -30,13 +30,15 @@ export const DocumentViewer: React.FC<IDocumentViewerProps> = ({
   const [position, setPosition] = useState(defaultPosition);
 
   const handleSetDefault = () => {
-    setPosition({
-      scale: getDefaultScale(),
-      top: 0,
-      left:
-        contentRef.current.clientWidth / containerRef.current?.clientWidth -
-        documentRef.current.clientHeight / containerRef.current?.clientHeight,
-    });
+    if (containerRef.current && contentRef.current && documentRef.current) {
+      setPosition({
+        scale: getDefaultScale(),
+        top: 0,
+        left:
+          contentRef.current.clientWidth / containerRef.current?.clientWidth -
+          documentRef.current.clientHeight / containerRef.current?.clientHeight,
+      });
+    }
   };
 
   useEffect(() => {
@@ -61,11 +63,15 @@ export const DocumentViewer: React.FC<IDocumentViewerProps> = ({
   }, [contentRef, containerRef]);
 
   const getDefaultScale = () => {
-    const xScale =
-      contentRef.current?.clientWidth / containerRef.current?.clientWidth;
-    const yScale =
-      contentRef.current?.clientHeight / containerRef.current?.clientHeight;
-    return Math.min(xScale, yScale) || 1;
+    if (containerRef.current && contentRef.current) {
+      const xScale =
+        contentRef.current?.clientWidth / containerRef.current?.clientWidth;
+      const yScale =
+        contentRef.current?.clientHeight / containerRef.current?.clientHeight;
+      return Math.min(xScale, yScale) || 1;
+    } else {
+      return 1;
+    }
   };
 
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -106,7 +112,9 @@ export const DocumentViewer: React.FC<IDocumentViewerProps> = ({
           <div className="DocumentViewer-ShadowContainer">
             <shadowRoot.div className="DocumentViewer-ShadowRoot">
               <div ref={containerRef}>
-                <div dangerouslySetInnerHTML={{ __html: template }} />
+                {template && (
+                  <div dangerouslySetInnerHTML={{ __html: template }} />
+                )}
               </div>
             </shadowRoot.div>
           </div>

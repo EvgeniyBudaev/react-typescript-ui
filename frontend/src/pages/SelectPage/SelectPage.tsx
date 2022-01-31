@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { MultiValue, SingleValue } from "react-select";
 import classNames from "classnames";
 import isEmpty from "lodash/isEmpty";
 import isNull from "lodash/isNull";
@@ -21,12 +22,15 @@ export const SelectPage: React.FC = () => {
     { value: "price", label: PRICE_UP },
     { value: "-price", label: PRICE_DOWN },
   ];
-  const [selectedOption, setSelectedOption] = useState<ISelectOption>({
+  const [selectedOption, setSelectedOption] = useState<
+    SingleValue<ISelectOption> | MultiValue<ISelectOption>
+  >({
     value: "price",
     label: PRICE_UP,
   });
-  const [multipleSelectedOption, setMultipleSelectedOption] =
-    useState<ISelectOption>();
+  const [multipleSelectedOption, setMultipleSelectedOption] = useState<
+    SingleValue<ISelectOption> | MultiValue<ISelectOption>
+  >({ value: "price", label: PRICE_UP });
   const [products, setProducts] = useState<IProduct[]>([]);
   const [needRequestIndicator, setNeedRequestIndicator] = useState(0);
   const [isSelectOpened, setIsSelectOpened] = useState(false);
@@ -35,13 +39,17 @@ export const SelectPage: React.FC = () => {
     setNeedRequestIndicator(needRequestIndicator + 1);
   }, [setNeedRequestIndicator, needRequestIndicator]);
 
-  const handleChange = (selectedOption: ISelectOption) => {
+  const handleChange = (
+    selectedOption: SingleValue<ISelectOption> | MultiValue<ISelectOption>
+  ) => {
     if (isNull(selectedOption)) return;
     setSelectedOption(selectedOption);
     requestProducts();
   };
 
-  const handleChangeMultiple = (selectedOption: ISelectOption) => {
+  const handleChangeMultiple = (
+    selectedOption: SingleValue<ISelectOption> | MultiValue<ISelectOption>
+  ) => {
     if (isNull(selectedOption)) return;
     setMultipleSelectedOption(selectedOption);
   };
@@ -55,11 +63,13 @@ export const SelectPage: React.FC = () => {
   };
 
   const fetchProductsBySorting = useCallback(
-    (selectedOption: ISelectOption) => {
+    (
+      selectedOption: SingleValue<ISelectOption> | MultiValue<ISelectOption>
+    ) => {
       getProductsBySelect(selectedOption)
         .then(response => {
           console.log("[response]", response);
-          setProducts(response);
+          setProducts(response.entities);
           setIsSelectOpened(false);
         })
         .catch(error => {
@@ -74,7 +84,7 @@ export const SelectPage: React.FC = () => {
     fetchProductsBySorting(selectedOption);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [needRequestIndicator]);
-  console.log("products", products);
+
   return (
     <section className="SelectPage">
       <h2>Select</h2>

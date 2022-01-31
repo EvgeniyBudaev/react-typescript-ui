@@ -4,7 +4,7 @@ import "./DropDownPage.scss";
 
 export const DropDownPage: React.FC = () => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
-  const refToggleDropDown = useRef(null);
+  const refToggleDropDown = useRef<HTMLLIElement>(null);
 
   useEffect(() => {
     window.addEventListener("click", handleClickOutsideDropDown);
@@ -15,7 +15,7 @@ export const DropDownPage: React.FC = () => {
 
   const handleClickOutsideDropDown = (event: MouseEvent) => {
     if (isDropDownOpen) {
-      if (refToggleDropDown.current) {
+      if (refToggleDropDown.current && event.target instanceof HTMLElement) {
         if (!refToggleDropDown.current.contains(event.target)) {
           setIsDropDownOpen(false);
         }

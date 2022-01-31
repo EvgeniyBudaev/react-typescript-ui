@@ -15,16 +15,10 @@ export interface IFormFieldProps {
   register?: (Ref, RegisterOptions?) => { onChange; onBlur; name; ref };
   isFocused?: boolean;
   isRequired?: boolean;
-  onBlur?: (
-    event:
-      | React.FocusEvent<HTMLInputElement>
-      | React.FocusEvent<HTMLTextAreaElement>
-  ) => void;
-  onFocus?: (
-    event:
-      | React.FocusEvent<HTMLInputElement>
-      | React.FocusEvent<HTMLTextAreaElement>
-  ) => void;
+  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  onBlurTextArea?: (event: React.FocusEvent<HTMLTextAreaElement>) => void;
+  onFocusTextArea?: (event: React.FocusEvent<HTMLTextAreaElement>) => void;
 }
 
 export const FormField: React.FC<IFormFieldProps> = ({
@@ -38,6 +32,8 @@ export const FormField: React.FC<IFormFieldProps> = ({
   isRequired,
   onBlur,
   onFocus,
+  onBlurTextArea,
+  onFocusTextArea,
 }) => {
   const [isShowPassword, setIsShowPassword] = useState(false);
 
@@ -75,7 +71,7 @@ export const FormField: React.FC<IFormFieldProps> = ({
             error={error}
             name={name}
             type={handleType(type)}
-            {...register(name)}
+            {...(register ? register(name) : register)}
             onFocus={onFocus}
             onBlur={onBlur}
           />
@@ -93,7 +89,7 @@ export const FormField: React.FC<IFormFieldProps> = ({
             name={name}
             type={handleType(type)}
             error={error}
-            {...register(name)}
+            {...(register ? register(name) : register)}
             onFocus={onFocus}
             onBlur={onBlur}
           />
@@ -118,7 +114,7 @@ export const FormField: React.FC<IFormFieldProps> = ({
             name={name}
             type={type}
             error={error}
-            {...register(name)}
+            {...(register ? register(name) : register)}
             onFocus={onFocus}
             onBlur={onBlur}
           />
@@ -134,9 +130,9 @@ export const FormField: React.FC<IFormFieldProps> = ({
           })}
           name={name}
           error={error}
-          {...register(name)}
-          onFocus={onFocus}
-          onBlur={onBlur}
+          {...(register ? register(name) : register)}
+          onFocus={onFocusTextArea}
+          onBlur={onBlurTextArea}
         />
       )}
     </div>

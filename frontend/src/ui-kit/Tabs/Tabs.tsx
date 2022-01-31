@@ -11,7 +11,7 @@ export interface ITabsProps {
   className?: string;
   selectedId: string | number;
   tabs: ITab[];
-  onClick?: (id: string | number) => void;
+  onClick: (id: string | number) => void;
 }
 
 export const Tabs: React.FC<ITabsProps> = ({

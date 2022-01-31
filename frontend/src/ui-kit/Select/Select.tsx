@@ -4,8 +4,10 @@ import {
   default as ReactSelect,
   DropdownIndicatorProps,
   GroupBase,
+  MultiValue,
   MultiValueRemoveProps,
   OnChangeValue,
+  SingleValue,
   StylesConfig,
 } from "react-select";
 import classNames from "classnames";
@@ -16,7 +18,7 @@ export interface ISelectOption {
   label: string;
 }
 
-type isMultiType = true | false;
+export type isMultiType = true | false;
 export type DropdownIndicatorType = React.ComponentType<
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   DropdownIndicatorProps<any, any, GroupBase<any>>
@@ -32,8 +34,8 @@ export interface ISelectProps {
   isMulti?: isMultiType;
   MultiValueRemove?: MultiValueRemoveType;
   options: ISelectOption[];
-  styles?: StylesConfig<ISelectOption, isMultiType>;
-  value: ISelectOption;
+  styles?: StylesConfig<ISelectOption, isMultiType, GroupBase<ISelectOption>>;
+  value: SingleValue<ISelectOption> | MultiValue<ISelectOption>;
   onBlur?: FocusEventHandler<HTMLInputElement>;
   onChange?: (
     value: OnChangeValue<ISelectOption, isMultiType>,

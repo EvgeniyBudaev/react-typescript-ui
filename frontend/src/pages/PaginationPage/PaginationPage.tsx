@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
-import isEmpty from "lodash/isEmpty";
+import isNil from "lodash/isNil";
 import isNaN from "lodash/isNaN";
 import { getProductsByPagination } from "api/product";
 import { ProductsList } from "components";
@@ -43,7 +43,7 @@ export const PaginationPage: React.FC = () => {
   return (
     <section className="PaginationPage">
       <h2>Pagination</h2>
-      {!isEmpty(products) ? (
+      {!isNil(products) ? (
         <>
           <ProductsList products={products.entities} />
           <Pagination

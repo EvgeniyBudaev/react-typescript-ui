@@ -1,4 +1,5 @@
 import { BASE_URL } from "constants/url";
+import { MultiValue, SingleValue } from "react-select";
 import axios from "axios";
 import { IFilter, IProduct } from "types/product";
 import { ISelectOption } from "ui-kit/Select";
@@ -18,18 +19,22 @@ export const getProducts = async (): Promise<IFilter<IProduct>> => {
 };
 
 export const getProductsBySelect = async (
-  selectOption: ISelectOption
-): Promise<IProduct[]> => {
+  selectOption: SingleValue<ISelectOption> | MultiValue<ISelectOption>
+): Promise<IFilter<IProduct>> => {
   const config = {
     headers: {
       "Content-Type": "application/json",
     },
   };
-  const response = await axios.get<IProduct[]>(
-    `${BASE_URL}products/?ordering=${selectOption.value}`,
-    config
-  );
-  return response.data;
+  if (selectOption && "value" in selectOption) {
+    const response = await axios.get<IFilter<IProduct>>(
+      `${BASE_URL}products/?ordering=${selectOption.value}`,
+      config
+    );
+    return response.data;
+  } else {
+    return { entities: [], pageItemsCount: 0, totalItemsCount: 0 };
+  }
 };
 
 export const getProductsByPagination = async (

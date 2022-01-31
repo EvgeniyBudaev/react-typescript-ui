@@ -52,7 +52,7 @@ export const LoginPage: React.FC = () => {
     }
   };
 
-  const errorPasswordMessage = (message: string) => {
+  const errorPasswordMessage = (message: string | undefined) => {
     if (message) {
       return message;
     }

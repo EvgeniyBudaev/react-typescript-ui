@@ -30,7 +30,7 @@ export const Search: React.FC<ISearchProps> = ({
   }, [location.search, searchParsedUrl, searchedKeyword]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onSearchChange(event);
+    onSearchChange && onSearchChange(event);
   };
 
   const handleBlur = () => {

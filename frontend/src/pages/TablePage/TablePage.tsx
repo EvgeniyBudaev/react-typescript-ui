@@ -117,7 +117,7 @@ export const TablePage: React.FC = () => {
   return (
     <section className="TablePage">
       <h2>Table</h2>
-      {products && (
+      {products && data && (
         <Table
           columns={columns}
           currentPage={currentPage}
