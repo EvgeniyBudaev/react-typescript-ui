@@ -74,8 +74,8 @@ export const CheckboxPage: React.FC = () => {
       </div>
       <h2>Checkbox Group</h2>
       <div className="CheckboxPage-CheckboxGroupInner">
-        {checkboxGroupOptions.map(item => (
-          <div className="CheckboxPage-CheckboxGroup">
+        {checkboxGroupOptions.map((item, index) => (
+          <div className="CheckboxPage-CheckboxGroup" key={index}>
             {item.entities.map((label, index) => (
               <CheckboxGroup
                 id={index.toString() + label}

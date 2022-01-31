@@ -1,22 +1,30 @@
 import React from "react";
-import { Redirect, Route, RouteProps } from "react-router";
+import { Route, RouteProps } from "react-router";
+import { Redirect, useLocation } from "react-router-dom";
 import { useTypedSelector } from "hooks/useTypedSelector";
 
 type PublicRouteProps = RouteProps & {
   redirectTo: string;
 };
 
+interface IStateLocation {
+  from: { pathname: string };
+}
+
 export const PublicRoute: React.FC<PublicRouteProps> = ({
+  children,
   redirectTo,
   ...props
 }) => {
   const { accessToken: isAuthenticated } = useTypedSelector(
     state => state.account
   );
+  const { state } = useLocation<IStateLocation>();
+
+  const pathGoBack = state?.from.pathname || redirectTo;
 
   if (isAuthenticated) {
-    const state = { from: undefined };
-    return <Redirect to={state?.from || redirectTo} />;
+    return <Redirect to={pathGoBack} />;
   }
 
   return <Route {...props} />;

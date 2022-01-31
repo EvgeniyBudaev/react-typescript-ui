@@ -16,6 +16,8 @@ interface IAccountState {
 const initialState: IAccountState = {
   accessToken: getCookie("accessToken") || null,
   refreshToken: getCookie("refreshToken") || null,
+  // accessToken: localStorage.getItem("accessToken") || null,
+  // refreshToken: localStorage.getItem("refreshToken") || null,
   tokenRequest: false,
   tokenFailed: false,
   logoutRequest: false,
@@ -62,8 +64,8 @@ export const reducer: Reducer<IAccountState, AccountActionsType> = (
     case ActionTypes.LOGOUT_SUCCESS:
       return {
         ...state,
-        accessToken: "",
-        refreshToken: "",
+        accessToken: null,
+        refreshToken: null,
       };
     case ActionTypes.LOGOUT_FAILED:
       return {

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import { ROUTES } from "routes";
 import { useTypedSelector } from "hooks/useTypedSelector";
 import { logout } from "services/account";
@@ -11,11 +11,11 @@ export const Header: React.FC = () => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
+  const location = useLocation();
   const refToggleDropDown = useRef(null);
   const { accessToken: isAuthenticated } = useTypedSelector(
     state => state.account
   );
-  console.log("isAuthenticated ", isAuthenticated);
 
   useEffect(() => {
     window.addEventListener("click", handleClickOutsideDropDown);
@@ -62,7 +62,10 @@ export const Header: React.FC = () => {
           </DropDown>
         </div>
       ) : (
-        <Link className="Header-Login" to={ROUTES.LOGIN}>
+        <Link
+          className="Header-Login"
+          to={{ pathname: ROUTES.LOGIN, state: { from: location } }}
+        >
           Войти
         </Link>
       )}

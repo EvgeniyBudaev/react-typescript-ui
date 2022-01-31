@@ -1,10 +1,15 @@
 import React from "react";
-import { Redirect, Route, RouteProps } from "react-router";
+import { Route, RouteProps } from "react-router";
+import { Redirect, useLocation } from "react-router-dom";
 import { useTypedSelector } from "hooks/useTypedSelector";
 
 type PrivateRouteProps = RouteProps & {
   redirectTo: string;
 };
+
+interface IStateLocation {
+  from: { pathname: string };
+}
 
 export const PrivateRoute: React.FC<PrivateRouteProps> = ({
   children,
@@ -14,27 +19,13 @@ export const PrivateRoute: React.FC<PrivateRouteProps> = ({
   const { accessToken: isAuthenticated } = useTypedSelector(
     state => state.account
   );
+  const location = useLocation<IStateLocation>();
 
-  // if (!isAuthenticated) {
-  //   return <Redirect to={redirectTo} />;
-  // }
+  if (!isAuthenticated) {
+    return (
+      <Redirect to={{ pathname: redirectTo, state: { from: location } }} />
+    );
+  }
 
-  // return <Route {...props} />;
-  return (
-    <Route
-      {...props}
-      render={({ location }) =>
-        isAuthenticated ? (
-          children
-        ) : (
-          <Redirect
-            to={{
-              pathname: redirectTo,
-              state: { from: location },
-            }}
-          />
-        )
-      }
-    />
-  );
+  return <Route {...props} />;
 };

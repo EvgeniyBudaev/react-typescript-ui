@@ -29,6 +29,8 @@ export const getToken =
         type: ActionTypes.TOKEN_SUCCESS,
         payload: data,
       });
+      // localStorage.setItem("accessToken", data.access);
+      // localStorage.setItem("refreshToken", data.refresh);
       setCookie("accessToken", data.access, {});
       setCookie("refreshToken", data.refresh, {});
     } catch (error) {
@@ -45,6 +47,8 @@ export const logout = (): ((dispatch) => Promise<void>) => async dispatch => {
     dispatch({
       type: ActionTypes.LOGOUT_SUCCESS,
     });
+    // localStorage.removeItem("accessToken");
+    // localStorage.removeItem("refreshToken");
     deleteCookie("accessToken");
     deleteCookie("refreshToken");
   } catch (error) {
