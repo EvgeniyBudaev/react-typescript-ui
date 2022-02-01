@@ -7,7 +7,7 @@ type PublicRouteProps = RouteProps & {
   redirectTo: string;
 };
 
-interface IStateLocation {
+interface TStateLocation {
   from: { pathname: string };
 }
 
@@ -19,7 +19,7 @@ export const PublicRoute: React.FC<PublicRouteProps> = ({
   const { accessToken: isAuthenticated } = useTypedSelector(
     state => state.account
   );
-  const { state } = useLocation<IStateLocation>();
+  const { state } = useLocation<TStateLocation>();
 
   const pathGoBack = state?.from.pathname || redirectTo;
 

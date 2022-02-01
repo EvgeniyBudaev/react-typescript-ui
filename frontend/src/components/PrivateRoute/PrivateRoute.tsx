@@ -3,7 +3,7 @@ import { Route, RouteProps } from "react-router";
 import { Redirect, useLocation } from "react-router-dom";
 import { useTypedSelector } from "hooks/useTypedSelector";
 
-type PrivateRouteProps = RouteProps & {
+type TPrivateRoute = RouteProps & {
   redirectTo: string;
 };
 
@@ -11,8 +11,7 @@ interface IStateLocation {
   from: { pathname: string };
 }
 
-export const PrivateRoute: React.FC<PrivateRouteProps> = ({
-  children,
+export const PrivateRoute: React.FC<TPrivateRoute> = ({
   redirectTo,
   ...props
 }) => {

@@ -7,11 +7,15 @@ import { logout } from "services/account";
 import { Avatar, DropDown, Icon } from "ui-kit";
 import "./Header.scss";
 
+interface IStateLocation {
+  from: { pathname: string };
+}
+
 export const Header: React.FC = () => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
-  const location = useLocation();
+  const location = useLocation<IStateLocation>();
   const refToggleDropDown = useRef<HTMLDivElement>(null);
   const { accessToken: isAuthenticated } = useTypedSelector(
     state => state.account
