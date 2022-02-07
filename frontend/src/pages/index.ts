@@ -4,6 +4,7 @@ import ButtonPage from "./ButtonPage";
 import CheckboxPage from "./CheckboxPage";
 import DocumentViewerPage from "./DocumentViewerPage";
 import DropDownPage from "./DropDownPage";
+import ErrorPage from "./ErrorPage";
 import FormPage from "./FormPage";
 import HamburgerPage from "./HamburgerPage";
 import HomePage from "./HomePage";
@@ -32,6 +33,7 @@ export {
   CheckboxPage,
   DocumentViewerPage,
   DropDownPage,
+  ErrorPage,
   FormPage,
   HamburgerPage,
   HomePage,

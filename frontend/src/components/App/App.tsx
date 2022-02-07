@@ -8,6 +8,7 @@ import {
   CheckboxPage,
   DocumentViewerPage,
   DropDownPage,
+  ErrorPage,
   FormPage,
   HamburgerPage,
   HomePage,
@@ -47,6 +48,7 @@ export const App: React.FC = () => {
             exact
           />
           <Route path={ROUTES.DROPDOWN} component={DropDownPage} exact />
+          <Route path={ROUTES.ERROR} component={ErrorPage} exact />
           <Route path={ROUTES.FORM} component={FormPage} exact />
           <Route path={ROUTES.HAMBURGER} component={HamburgerPage} exact />
           <Route path={ROUTES.ICON_BUTTON} component={IconButtonPage} exact />
