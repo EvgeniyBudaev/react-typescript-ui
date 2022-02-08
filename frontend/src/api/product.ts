@@ -1,11 +1,11 @@
 import { BASE_URL } from "constants/url";
 import { MultiValue, SingleValue } from "react-select";
 import axios, { AxiosError } from "axios";
+import { TApiResponse, TError } from "api/types/common";
 import { IFilter, IProduct } from "types/product";
 import { ISelectOption } from "ui-kit/Select";
 import { TableSortingType } from "ui-kit/Table";
-import { getErrorStatus } from "../utils/error";
-import { AlertError } from "../utils/alert";
+import { getErrorByStatus } from "utils/error";
 
 export const getProducts = async (): Promise<IFilter<IProduct>> => {
   const config = {
@@ -72,21 +72,6 @@ export const getProductsByTable = async (
   return response.data;
 };
 
-type TApiResponse<TData, TError> =
-  | {
-      success: true;
-      data: TData;
-    }
-  | {
-      success: false;
-      error: TError;
-    };
-
-type TError = {
-  body: string;
-  message: string;
-};
-
 export const getProductsByError = async (): Promise<
   TApiResponse<IFilter<IProduct>, TError>
 > => {
@@ -97,60 +82,12 @@ export const getProductsByError = async (): Promise<
   };
   try {
     const response = await axios.get<IFilter<IProduct>>(
-      `${BASE_URL}products2`,
+      `${BASE_URL}products*`, // here is an error
       config
     );
     return { success: true, data: response.data };
   } catch (err) {
     const error = err as AxiosError;
-    if (error) {
-      if (error.response) {
-        const errorStatus = getErrorStatus(error);
-        if (errorStatus === 404) {
-          return {
-            success: false,
-            error: {
-              body: "Запрашиваемой страницы не существует!",
-              message: error.message,
-            },
-          };
-        }
-        if (errorStatus === 500) {
-          return {
-            success: false,
-            error: {
-              body: "Ошибка сервера!",
-              message: error.message,
-            },
-          };
-        }
-      } else if (error.request) {
-        return {
-          success: false,
-          error: {
-            body:
-              error.message === "Network Error"
-                ? "Нет соединения с интернетом!"
-                : "Не правильные параметры запроса!",
-            message: error.message,
-          },
-        };
-      } else {
-        return {
-          success: false,
-          error: {
-            body: "Не удалось получить данные!",
-            message: error.message,
-          },
-        };
-      }
-    }
-    return {
-      success: false,
-      error: {
-        body: "Что-то пошло не так!",
-        message: error.message,
-      },
-    };
+    return getErrorByStatus(error);
   }
 };
