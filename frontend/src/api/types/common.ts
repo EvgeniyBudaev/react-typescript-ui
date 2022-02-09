@@ -1,13 +1,3 @@
-export type TApiResponse<TData, TError> =
-  | {
-      success: true;
-      data: TData;
-    }
-  | {
-      success: false;
-      error: TError;
-    };
-
 export type TError = {
   body: string;
   message: string;

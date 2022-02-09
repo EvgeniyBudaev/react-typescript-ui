@@ -1,7 +1,7 @@
 import { BASE_URL } from "constants/url";
 import { MultiValue, SingleValue } from "react-select";
 import axios, { AxiosError } from "axios";
-import { TApiResponse, TError } from "api/types/common";
+import { TErrorResponse } from "api/types/common";
 import { IFilter, IProduct } from "types/product";
 import { ISelectOption } from "ui-kit/Select";
 import { TableSortingType } from "ui-kit/Table";
@@ -72,22 +72,30 @@ export const getProductsByTable = async (
   return response.data;
 };
 
-export const getProductsByError = async (): Promise<
-  TApiResponse<IFilter<IProduct>, TError>
-> => {
+export const getProductsByError: (
+  setProducts: (data: IFilter<IProduct>) => void,
+  setIsLoading: (isLoading: boolean) => void,
+  setError: (error: TErrorResponse | null) => void
+) => void = async (setProducts, setIsLoading, setError) => {
   const config = {
     headers: {
       "Content-Type": "application/json",
     },
   };
+  setIsLoading(true);
+  setError(null);
   try {
     const response = await axios.get<IFilter<IProduct>>(
       `${BASE_URL}products*`, // here is an error
       config
     );
-    return { success: true, data: response.data };
+    setProducts(response.data);
+    setError(null);
+    setIsLoading(false);
   } catch (err) {
     const error = err as AxiosError;
-    return getErrorByStatus(error);
+    const errorByStatus = getErrorByStatus(error);
+    setError(errorByStatus);
+    setIsLoading(false);
   }
 };

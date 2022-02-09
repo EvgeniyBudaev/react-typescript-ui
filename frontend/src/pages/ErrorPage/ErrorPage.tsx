@@ -1,32 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { ToastContainer as ErrorPopup } from "react-toastify";
 import isNil from "lodash/isNil";
-import { getProductsByError } from "api/product";
 import { ProductsList } from "components";
-import { IFilter, IProduct } from "types/product";
+import { useApiProducts } from "hooks/useApiProducts";
 import { Spinner } from "ui-kit";
 import { AlertError } from "utils/alert";
 import "react-toastify/dist/ReactToastify.css";
 import "./ErrorPage.scss";
 
 export const ErrorPage: React.FC = () => {
-  const [products, setProducts] = useState<IFilter<IProduct>>();
-  const [isLoading, setIsLoading] = useState(false);
+  const { products, error, isLoading } = useApiProducts();
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      setIsLoading(true);
-      const response = await getProductsByError();
-      if (response.success) {
-        setProducts(response.data);
-        setIsLoading(false);
-      } else {
-        AlertError(response.error.body, response.error.message);
-        setIsLoading(false);
-      }
-    };
-    void fetchProducts();
-  }, []);
+    if (error) {
+      AlertError(error.error.body);
+    }
+  }, [error]);
 
   if (isLoading) return <Spinner />;
 

@@ -16,7 +16,7 @@ export const getErrorByStatus = (error: AxiosError): TErrorResponse => {
         return {
           success: false,
           error: {
-            body: "Запрашиваемой страницы не существует!",
+            body: "Page not found!",
             message: error.message,
           },
         };
@@ -25,7 +25,7 @@ export const getErrorByStatus = (error: AxiosError): TErrorResponse => {
         return {
           success: false,
           error: {
-            body: "Ошибка сервера!",
+            body: "Server error!",
             message: error.message,
           },
         };
@@ -37,8 +37,8 @@ export const getErrorByStatus = (error: AxiosError): TErrorResponse => {
         error: {
           body:
             error.message === "Network Error"
-              ? "Нет соединения с интернетом!"
-              : "Не правильные параметры запроса!",
+              ? "No internet connection!"
+              : "Invalid request parameters!",
           message: error.message,
         },
       };
@@ -47,7 +47,7 @@ export const getErrorByStatus = (error: AxiosError): TErrorResponse => {
   return {
     success: false,
     error: {
-      body: "Не удалось получить данные!",
+      body: "Failed to get data!",
       message: error.message,
     },
   };
