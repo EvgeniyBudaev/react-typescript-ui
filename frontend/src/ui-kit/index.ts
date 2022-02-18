@@ -2,6 +2,7 @@ import Accordion from "./Accordion";
 import AccordionGroup from "./Accordion/AccordionGroup";
 import { Alert, AlertType } from "./Alert";
 import Avatar from "./Avatar";
+import { Breadcrumbs } from "./Breadcrumbs";
 import Button from "./Button";
 import Checkbox from "./Checkbox";
 import CheckboxGroup from "./Checkbox/CheckboxGroup";
@@ -36,6 +37,7 @@ export {
   Alert,
   AlertType,
   Avatar,
+  Breadcrumbs,
   Button,
   Checkbox,
   CheckboxGroup,

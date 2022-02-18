@@ -4,6 +4,7 @@ import { ROUTES } from "routes";
 import {
   AccordionPage,
   AvatarPage,
+  BreadcrumbsPage,
   ButtonPage,
   CheckboxPage,
   DocumentViewerPage,
@@ -40,6 +41,7 @@ export const App: React.FC = () => {
         <Switch>
           <Route path={ROUTES.ACCORDION} component={AccordionPage} exact />
           <Route path={ROUTES.AVATAR} component={AvatarPage} exact />
+          <Route path={ROUTES.BREADCRUMBS} component={BreadcrumbsPage} exact />
           <Route path={ROUTES.BUTTON} component={ButtonPage} exact />
           <Route path={ROUTES.CHECKBOX} component={CheckboxPage} exact />
           <Route

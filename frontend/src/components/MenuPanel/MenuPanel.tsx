@@ -1,9 +1,20 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import { Link, NavLink, useHistory, useLocation } from "react-router-dom";
+import classNames from "classnames";
 import { ROUTES } from "routes";
+import { IBreadcrumbsLocationState } from "ui-kit/Breadcrumbs";
 import "./MenuPanel.scss";
 
 export const MenuPanel: React.FC = () => {
+  const history = useHistory();
+  const location = useLocation<IBreadcrumbsLocationState[]>();
+  const { pathname } = location;
+
+  const handleClick = (pathname: string, title: string) => {
+    const initialBreadcrumb = [{ path: "/", url: "/", title: title }];
+    history.replace({ pathname: pathname, state: initialBreadcrumb });
+  };
+
   return (
     <nav className="MenuPanel">
       <div className="MenuPanel-Brand">
@@ -31,6 +42,15 @@ export const MenuPanel: React.FC = () => {
         >
           Avatar
         </NavLink>
+
+        <div
+          className={classNames("MenuPanel-ListItem", {
+            "MenuPanel-ListItem__active": pathname === ROUTES.BREADCRUMBS,
+          })}
+          onClick={() => handleClick(ROUTES.BREADCRUMBS, "Home")}
+        >
+          Breadcrumbs
+        </div>
 
         <NavLink
           className="MenuPanel-ListItem"

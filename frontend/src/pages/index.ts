@@ -1,5 +1,6 @@
 import AccordionPage from "./AccordionPage";
 import AvatarPage from "./AvatarPage";
+import BreadcrumbsPage from "./BreadcrumbsPage";
 import ButtonPage from "./ButtonPage";
 import CheckboxPage from "./CheckboxPage";
 import DocumentViewerPage from "./DocumentViewerPage";
@@ -29,6 +30,7 @@ import UploaderPage from "./UploaderPage";
 export {
   AccordionPage,
   AvatarPage,
+  BreadcrumbsPage,
   ButtonPage,
   CheckboxPage,
   DocumentViewerPage,
