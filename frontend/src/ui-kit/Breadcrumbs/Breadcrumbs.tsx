@@ -4,6 +4,7 @@ import Crumb from "./Crumb";
 import "./Breadcrumbs.scss";
 
 export interface IBreadcrumbsLocationState {
+  id: string;
   path: string;
   title: string;
   url: string;

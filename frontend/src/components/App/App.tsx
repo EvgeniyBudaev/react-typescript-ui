@@ -31,7 +31,7 @@ import {
   TextAreaPage,
   UploaderPage,
 } from "pages";
-import { Layout, PrivateRoute, PublicRoute } from "components";
+import { Layout, PrivateRoute, ProductCard, PublicRoute } from "components";
 import "./App.scss";
 
 export const App: React.FC = () => {
@@ -41,6 +41,11 @@ export const App: React.FC = () => {
         <Switch>
           <Route path={ROUTES.ACCORDION} component={AccordionPage} exact />
           <Route path={ROUTES.AVATAR} component={AvatarPage} exact />
+          <Route
+            path={`${ROUTES.BREADCRUMBS}/:id`}
+            component={ProductCard}
+            exact
+          />
           <Route path={ROUTES.BREADCRUMBS} component={BreadcrumbsPage} exact />
           <Route path={ROUTES.BUTTON} component={ButtonPage} exact />
           <Route path={ROUTES.CHECKBOX} component={CheckboxPage} exact />

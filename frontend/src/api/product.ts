@@ -86,10 +86,39 @@ export const getProductsByError: (
   setError(null);
   try {
     const response = await axios.get<IFilter<IProduct>>(
-      `${BASE_URL}products*`, // here is an error
+      `${BASE_URL}products`, // here is an error
       config
     );
     setProducts(response.data);
+    setError(null);
+    setIsLoading(false);
+  } catch (err) {
+    const error = err as AxiosError;
+    const errorByStatus = getErrorByStatus(error);
+    setError(errorByStatus);
+    setIsLoading(false);
+  }
+};
+
+export const getProductCard: (
+  id: string | number,
+  setProduct: (data: IProduct) => void,
+  setIsLoading: (isLoading: boolean) => void,
+  setError: (error: TErrorResponse | null) => void
+) => void = async (id, setProduct, setIsLoading, setError) => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  setIsLoading(true);
+  setError(null);
+  try {
+    const response = await axios.get<IProduct>(
+      `${BASE_URL}products/${id}`,
+      config
+    );
+    setProduct(response.data);
     setError(null);
     setIsLoading(false);
   } catch (err) {
