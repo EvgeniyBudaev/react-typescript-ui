@@ -19,6 +19,7 @@ import {
   ModalPage,
   OverlayPage,
   PaginationPage,
+  PortalPage,
   PrivateRoutePage,
   RatingPage,
   ScrollbarPage,
@@ -68,6 +69,7 @@ export const App: React.FC = () => {
           <Route path={ROUTES.MODAL} component={ModalPage} exact />
           <Route path={ROUTES.OVERLAY} component={OverlayPage} exact />
           <Route path={ROUTES.PAGINATION} component={PaginationPage} exact />
+          <Route path={ROUTES.PORTAL} component={PortalPage} exact />
           <PrivateRoute
             path={ROUTES.PRIVATE_ROUTE}
             redirectTo={ROUTES.LOGIN}

@@ -16,6 +16,7 @@ export const ROUTES = {
   HOME: "/",
   OVERLAY: "/overlay",
   PAGINATION: "/pagination",
+  PORTAL: "/portal",
   PRIVATE_ROUTE: "/private-route",
   RATING: "/rating",
   SCROLLBAR: "/scrollbar",

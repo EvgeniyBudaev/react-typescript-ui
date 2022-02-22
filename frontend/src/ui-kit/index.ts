@@ -16,6 +16,7 @@ import Input from "./Input";
 import Modal from "./Modal";
 import Overlay from "./Overlay";
 import Pagination from "./Pagination";
+import Portal from "./Portal";
 import Rating from "./Rating";
 import Scrollbar from "./Scrollbar";
 import Search from "./Search";
@@ -51,6 +52,7 @@ export {
   Modal,
   Overlay,
   Pagination,
+  Portal,
   Rating,
   Scrollbar,
   Search,

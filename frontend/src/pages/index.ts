@@ -15,6 +15,7 @@ import LoginPage from "./LoginPage";
 import ModalPage from "./ModalPage";
 import OverlayPage from "./OverlayPage";
 import PaginationPage from "./PaginationPage";
+import PortalPage from "./PortalPage";
 import PrivateRoutePage from "./PrivateRoutePage";
 import RatingPage from "./RatingPage";
 import ScrollbarPage from "./ScrollbarPage";
@@ -45,6 +46,7 @@ export {
   ModalPage,
   OverlayPage,
   PaginationPage,
+  PortalPage,
   PrivateRoutePage,
   RatingPage,
   ScrollbarPage,
