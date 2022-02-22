@@ -1,8 +1,8 @@
+import { IBreadcrumbsLocationState } from "ui-kit/Breadcrumbs";
+
 /*
  * state -- history state of app
  * route -- url of a new breadcrumb  */
-import { IBreadcrumbsLocationState } from "ui-kit/Breadcrumbs";
-
 export const isContainRoute = (
   state: IBreadcrumbsLocationState[],
   route: string
