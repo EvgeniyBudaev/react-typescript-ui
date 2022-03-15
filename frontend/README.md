@@ -1,11 +1,14 @@
 # React Typescript UI Components
 
-## Available Scripts
+## Содержание
+- [Технологии](#Технологии)
 
-In the project directory, you can run:
+### <a name="Технологии">Технологии</a>
 
-### `npm install`
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+В проекте применяется
+- **Django REST Framework**,
+- **Python 3**,
+- **Git**,
+- **React**,
+- **Redux**,
+- **TypeScript**,
