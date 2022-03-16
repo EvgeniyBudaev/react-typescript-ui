@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Path, UseFormRegister } from "react-hook-form";
 import classNames from "classnames";
 import { Icon, Input, TextArea } from "ui-kit";
 import InputPhone from "../Input/InputPhone";
@@ -6,13 +7,13 @@ import "./FormField.scss";
 
 export type FormFieldType = "text" | "password" | "tel" | "textarea";
 
-export interface IFormFieldProps {
+export interface IFormFieldProps<T> {
   className?: string;
   error?: string;
   label?: string;
-  name?: string;
+  name: Path<T>;
   type: FormFieldType;
-  register?: (Ref, RegisterOptions?) => { onChange; onBlur; name; ref };
+  register: UseFormRegister<T>;
   isFocused?: boolean;
   isRequired?: boolean;
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
@@ -21,7 +22,7 @@ export interface IFormFieldProps {
   onFocusTextArea?: (event: React.FocusEvent<HTMLTextAreaElement>) => void;
 }
 
-export const FormField: React.FC<IFormFieldProps> = ({
+export const FormField = <T,>({
   className,
   label,
   name,
@@ -34,7 +35,7 @@ export const FormField: React.FC<IFormFieldProps> = ({
   onFocus,
   onBlurTextArea,
   onFocusTextArea,
-}) => {
+}: IFormFieldProps<T>): JSX.Element => {
   const [isShowPassword, setIsShowPassword] = useState(false);
 
   const handlePasswordShow = () => {
@@ -51,6 +52,24 @@ export const FormField: React.FC<IFormFieldProps> = ({
     }
   };
 
+  const renderInput = () => {
+    return (
+      <Input
+        className={classNames({
+          Input__active: isFocused,
+          Input__error: error,
+        })}
+        {...(register ? register(name) : register)}
+        autoComplete="on"
+        error={error}
+        name={name}
+        type={handleType(type)}
+        onFocus={onFocus}
+        onBlur={onBlur}
+      />
+    );
+  };
+
   return (
     <div
       className={classNames("FormField", className, {
@@ -63,36 +82,14 @@ export const FormField: React.FC<IFormFieldProps> = ({
       </label>
       {type === "text" && (
         <>
-          <Input
-            className={classNames({
-              Input__active: isFocused,
-              Input__error: error,
-            })}
-            error={error}
-            name={name}
-            type={handleType(type)}
-            {...(register ? register(name) : register)}
-            onFocus={onFocus}
-            onBlur={onBlur}
-          />
+          {renderInput()}
           {error && <div className="FormField-ErrorMessage">{error}</div>}
         </>
       )}
 
       {type === "password" && (
         <>
-          <Input
-            className={classNames({
-              Input__active: isFocused,
-              Input__error: error,
-            })}
-            name={name}
-            type={handleType(type)}
-            error={error}
-            {...(register ? register(name) : register)}
-            onFocus={onFocus}
-            onBlur={onBlur}
-          />
+          {renderInput()}
           <div className="FormField-Visibility" onClick={handlePasswordShow}>
             {isShowPassword ? (
               <Icon type="VisibilityOff" />
@@ -111,10 +108,10 @@ export const FormField: React.FC<IFormFieldProps> = ({
               Input__active: isFocused,
               Input__error: error,
             })}
+            {...(register ? register(name) : register)}
             name={name}
             type={type}
             error={error}
-            {...(register ? register(name) : register)}
             onFocus={onFocus}
             onBlur={onBlur}
           />
@@ -128,9 +125,9 @@ export const FormField: React.FC<IFormFieldProps> = ({
             Input__active: isFocused,
             Input__error: error,
           })}
+          {...(register ? register(name) : register)}
           name={name}
           error={error}
-          {...(register ? register(name) : register)}
           onFocus={onFocusTextArea}
           onBlur={onBlurTextArea}
         />

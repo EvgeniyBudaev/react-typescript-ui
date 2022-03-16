@@ -13,6 +13,7 @@ export interface IInputProps
     HTMLInputElement
   > {
   className?: string;
+  autoComplete?: string;
   name?: string;
   type?: string;
   error?: string;
@@ -20,7 +21,7 @@ export interface IInputProps
 
 export const Input = forwardRef(
   (
-    { className, name, type, error, ...rest }: IInputProps,
+    { className, autoComplete, name, type, error, ...rest }: IInputProps,
     ref: ForwardedRef<HTMLInputElement>
   ): JSX.Element => {
     return (
@@ -29,6 +30,7 @@ export const Input = forwardRef(
           className={classNames(className, "Input", {
             Input__error: error,
           })}
+          autoComplete={autoComplete}
           name={name}
           type={type}
           ref={ref}
