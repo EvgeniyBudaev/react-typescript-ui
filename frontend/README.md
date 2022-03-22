@@ -21,6 +21,32 @@ React UI Components
 - **TypeScript**,
 
 ### <a name="Запуск_проекта">Запуск проекта</a>
+- Из директории react-typescript-ui создаем виртуальное окружение:
+
+```python
+  python -m venv venv
+```
+
+- Активируем виртуальное окружение:
+
+```python
+  Windows: .\venv\Scripts\activate
+  MacOC: source venv/bin/activate
+  Linux: source venv/bin/activate
+```
+
+- Устанавливаем зависимости (пакеты):
+
+```python
+  pip install -r requirements.txt
+```
+
+- Из директории backend:
+
+```python
+  python manage.py runserver
+```
+
 - Из директории frontend:
 
 ```python
