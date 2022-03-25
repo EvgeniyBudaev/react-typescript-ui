@@ -51,7 +51,7 @@ describe("TEST Button", () => {
     expect(screen.getByTestId("test-button")).not.toBeDisabled();
     userEvent.click(screen.getByTestId("test-button"));
     expect(onClick).toHaveBeenCalledTimes(1);
-    userEvent.click(screen.getByText(/Button text/i));
+    userEvent.click(screen.getByRole("button", { name: /Button text/i }));
     expect(onClick).toHaveBeenCalled();
   });
 });
