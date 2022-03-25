@@ -29,6 +29,7 @@ export const Avatar: React.FC<IAvatarProps> = ({
       className={classNames("Avatar", className)}
       style={{ width: sizeInner, height: sizeInner }}
       onClick={onClick}
+      data-testid="test-avatar"
     >
       <div
         className={classNames("AvatarInner", classNameSmallCircle)}
@@ -44,10 +45,15 @@ export const Avatar: React.FC<IAvatarProps> = ({
             alt=""
             width={sizeInner}
             height={sizeInner}
+            data-testid="test-avatarFace_image"
           />
         )}
         {title && (
-          <div className="AvatarFace" style={{ fontSize: sizeTitle }}>
+          <div
+            className="AvatarFace"
+            style={{ fontSize: sizeTitle }}
+            data-testid="test-avatarFace_title"
+          >
             {title}
           </div>
         )}

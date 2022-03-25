@@ -29,9 +29,10 @@ export const Button: React.FC<IButtonProps> = ({
       })}
       disabled={isDisabled}
       onClick={onClick}
+      data-testid="test-button"
       {...rest}
     >
-      {typeIcon && <Icon type={typeIcon} />}
+      {typeIcon && <Icon type={typeIcon} data-testid="test-button-icon" />}
       <span className={typeIcon ? "Button-Text" : ""}>{children}</span>
     </button>
   );
