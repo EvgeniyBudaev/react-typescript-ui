@@ -27,9 +27,9 @@ export const Button: React.FC<IButtonProps> = ({
       className={classNames("Button", className, {
         Button__disabled: isDisabled,
       })}
+      data-testid="test-button"
       disabled={isDisabled}
       onClick={onClick}
-      data-testid="test-button"
       {...rest}
     >
       {typeIcon && <Icon type={typeIcon} data-testid="test-button-icon" />}
