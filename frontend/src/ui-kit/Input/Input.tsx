@@ -25,20 +25,19 @@ export const Input = forwardRef(
     ref: ForwardedRef<HTMLInputElement>
   ): JSX.Element => {
     return (
-      <>
-        <input
-          className={classNames(className, "Input", {
-            Input__error: error,
-          })}
-          autoComplete={autoComplete}
-          name={name}
-          type={type}
-          ref={ref}
-          {...rest}
-        />
-      </>
+      <input
+        className={classNames(className, "Input", {
+          Input__error: error,
+        })}
+        autoComplete={autoComplete}
+        data-testid="test-input"
+        name={name}
+        type={type}
+        ref={ref}
+        {...rest}
+      />
     );
   }
 );
 
-Input.displayName = "FormInput";
+Input.displayName = "Input";
