@@ -21,6 +21,7 @@ export const IconButton: React.FC<IIconButtonProps> = ({
   return (
     <Button
       className={classNames("IconButton", className)}
+      data-testid="test-icon-button"
       isDisabled={isDisabled}
       onClick={onClick}
       {...rest}
