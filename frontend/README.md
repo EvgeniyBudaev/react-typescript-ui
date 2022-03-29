@@ -54,6 +54,12 @@ React UI Components
   python manage.py makemigrations
 ```
 
+- Из директории backend запускаем миграции:
+
+```python
+  python manage.py migrate
+```
+
 - Из директории frontend:
 
 ```python
