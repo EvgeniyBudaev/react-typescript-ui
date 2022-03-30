@@ -60,6 +60,12 @@ React UI Components
   python manage.py migrate
 ```
 
+- Из директории backend создаём супер пользователя:
+
+```python
+  python manage.py createsuperuser
+```
+
 - Из директории frontend:
 
 ```python
