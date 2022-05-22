@@ -3,6 +3,7 @@ import AvatarPage from "./AvatarPage";
 import BreadcrumbsPage from "./BreadcrumbsPage";
 import ButtonPage from "./ButtonPage";
 import CheckboxPage from "./CheckboxPage";
+import CopyPage from "./CopyPage";
 import DocumentViewerPage from "./DocumentViewerPage";
 import DropDownPage from "./DropDownPage";
 import ErrorPage from "./ErrorPage";
@@ -34,6 +35,7 @@ export {
   BreadcrumbsPage,
   ButtonPage,
   CheckboxPage,
+  CopyPage,
   DocumentViewerPage,
   DropDownPage,
   ErrorPage,

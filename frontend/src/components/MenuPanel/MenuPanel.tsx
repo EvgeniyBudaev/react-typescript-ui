@@ -71,6 +71,14 @@ export const MenuPanel: React.FC = () => {
         <NavLink
           className="MenuPanel-ListItem"
           activeClassName="MenuPanel-ListItem__active"
+          to={ROUTES.COPY}
+        >
+          Copy
+        </NavLink>
+
+        <NavLink
+          className="MenuPanel-ListItem"
+          activeClassName="MenuPanel-ListItem__active"
           to={ROUTES.DOCUMENT_VIEWER}
         >
           Document Viewer

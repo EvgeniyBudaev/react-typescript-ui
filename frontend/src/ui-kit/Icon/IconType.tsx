@@ -6,6 +6,7 @@ import { ReactComponent as ArrowRight } from "ui-kit/assets/icons/ArrowRight.svg
 import { ReactComponent as Center } from "ui-kit/assets/icons/Center.svg";
 import { ReactComponent as Checkbox } from "ui-kit/assets/icons/Checkbox.svg";
 import { ReactComponent as Close } from "ui-kit/assets/icons/Close.svg";
+import { ReactComponent as Copy } from "ui-kit/assets/icons/Copy.svg";
 import { ReactComponent as Edit } from "ui-kit/assets/icons/Edit.svg";
 import { ReactComponent as Exit } from "ui-kit/assets/icons/Exit.svg";
 import { ReactComponent as Home } from "ui-kit/assets/icons/Home.svg";
@@ -25,6 +26,7 @@ export type IconType =
   | "Center"
   | "Checkbox"
   | "Close"
+  | "Copy"
   | "Edit"
   | "Exit"
   | "Home"
@@ -44,6 +46,7 @@ export const iconTypes = new Map([
   ["Center", <Center key={newGuid()} />],
   ["Checkbox", <Checkbox key={newGuid()} />],
   ["Close", <Close key={newGuid()} />],
+  ["Copy", <Copy key={newGuid()} />],
   ["Edit", <Edit key={newGuid()} />],
   ["Exit", <Exit key={newGuid()} />],
   ["Home", <Home key={newGuid()} />],

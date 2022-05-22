@@ -7,6 +7,7 @@ import {
   BreadcrumbsPage,
   ButtonPage,
   CheckboxPage,
+  CopyPage,
   DocumentViewerPage,
   DropDownPage,
   ErrorPage,
@@ -50,6 +51,7 @@ export const App: React.FC = () => {
           <Route path={ROUTES.BREADCRUMBS} component={BreadcrumbsPage} exact />
           <Route path={ROUTES.BUTTON} component={ButtonPage} exact />
           <Route path={ROUTES.CHECKBOX} component={CheckboxPage} exact />
+          <Route path={ROUTES.COPY} component={CopyPage} exact />
           <Route
             path={ROUTES.DOCUMENT_VIEWER}
             component={DocumentViewerPage}

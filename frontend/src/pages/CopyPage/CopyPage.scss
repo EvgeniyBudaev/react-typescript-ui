@@ -1,0 +1,25 @@
+.CopyPage {
+  h2 {
+    margin-bottom: 25px;
+  }
+
+  hr {
+    margin: 25px 0;
+  }
+
+  &-Details {
+    display: flex;
+    align-items: center;
+  }
+
+  &-Label {
+    margin-right: 8px;
+    font-size: 16px;
+    color: grey;
+  }
+
+  &-Icon {
+    margin-left: 8px;
+    cursor: pointer;
+  }
+}

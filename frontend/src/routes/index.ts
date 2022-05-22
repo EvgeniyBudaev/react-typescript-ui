@@ -4,6 +4,7 @@ export const ROUTES = {
   BREADCRUMBS: "/breadcrumbs",
   BUTTON: "/button",
   CHECKBOX: "/checkbox",
+  COPY: "/copy",
   DOCUMENT_VIEWER: "/document-viewer",
   DROPDOWN: "/dropdown",
   ERROR: "/error",
