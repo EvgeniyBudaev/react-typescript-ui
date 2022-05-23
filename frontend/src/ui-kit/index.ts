@@ -27,6 +27,7 @@ import Spinner from "./Spinner";
 import { Table } from "./Table";
 import Tabs from "./Tabs";
 import TextArea from "./TextArea";
+import { Tooltip } from "./Tooltip";
 import Uploader from "./Uploader";
 import UploaderPreview from "./Uploader/UploaderPreview";
 
@@ -63,6 +64,7 @@ export {
   Table,
   Tabs,
   TextArea,
+  Tooltip,
   Uploader,
   UploaderPreview,
 };

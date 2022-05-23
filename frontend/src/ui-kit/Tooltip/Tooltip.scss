@@ -1,0 +1,129 @@
+.Tooltip {
+  position: relative;
+  display: inline-flex;
+
+  &_Target {
+    border: none;
+    background: inherit;
+    padding: 5px;
+    margin: -1px;
+    font-size: inherit;
+    color: inherit;
+    cursor: inherit;
+    display: flex;
+    outline: transparent;
+
+    &__showOnFocus {}
+  }
+
+  &_CenterContainer {
+    position: absolute;
+    width: 200px;
+    margin-left: -100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    bottom: calc(100% + 5px);
+    pointer-events: none;
+
+    &__top {
+      bottom: calc(100% + 5px);
+    }
+
+    &__bottom {
+      bottom: unset !important;
+      top: calc(100% + 5px);
+    }
+
+    &__left {
+      margin-right: 0;
+      width: 100%;
+      left: unset;
+      top: 50%;
+      right: calc(100% + 5px);
+      width: max-content;
+    }
+
+    &__right {
+      margin-left: 0;
+      width: 100%;
+      top: 50%;
+      left: calc(100% + 5px);
+      width: max-content;
+    }
+  }
+
+  &_Content {
+    position: relative;
+    background-color: #EEEEEE;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px 8px;
+    font-size: 1.25rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.2);
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: #EEEEEE transparent transparent transparent;
+      left: calc(50% - 4.5px);
+      top: 100%;
+    }
+
+    &__top {}
+
+    &__bottom {
+      &::after {
+        top: unset;
+        width: 1px;
+        bottom: 100%;
+        left: calc(50% - 5px);
+        border-color: transparent transparent #EEEEEE transparent;
+      }
+    }
+
+    &__left {
+      &::after {
+        left: 100%;
+        top: calc(50% - 5px);
+        border-color: transparent transparent transparent #EEEEEE;
+      }
+    }
+
+    &__right {
+      &::after {
+        right: 100%;
+        left: unset;
+        top: calc(50% - 5px);
+        border-color: transparent #EEEEEE transparent transparent;
+        color: #000;
+      }
+    }
+  }
+
+  &_Transition {
+    &-enter {
+      opacity: 0;
+    }
+
+    &-enter-active {
+      transition: all 200ms;
+      opacity: 1;
+    }
+
+    &-exit {
+      opacity: 1;
+    }
+
+    &-exit-active {
+      transition: all 200ms;
+      opacity: 0;
+    }
+  }
+}

@@ -31,6 +31,7 @@ import {
   TablePage,
   TabsPage,
   TextAreaPage,
+  TooltipPage,
   UploaderPage,
 } from "pages";
 import { Layout, PrivateRoute, ProductCard, PublicRoute } from "components";
@@ -86,6 +87,7 @@ export const App: React.FC = () => {
           <Route path={ROUTES.TABLE} component={TablePage} exact />
           <Route path={ROUTES.TABS} component={TabsPage} exact />
           <Route path={ROUTES.TEXTAREA} component={TextAreaPage} exact />
+          <Route path={ROUTES.TOOLTIP} component={TooltipPage} exact />
           <Route path={ROUTES.UPLOADER} component={UploaderPage} exact />
           <Route path={ROUTES.HOME} component={HomePage} exact />
         </Switch>

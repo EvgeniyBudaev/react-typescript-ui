@@ -28,5 +28,6 @@ export const ROUTES = {
   TABLE: "/table",
   TABS: "/tabs",
   TEXTAREA: "/textarea",
+  TOOLTIP: "/tooltip",
   UPLOADER: "/uploader",
 };

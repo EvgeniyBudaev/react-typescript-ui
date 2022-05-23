@@ -27,6 +27,7 @@ import SpinnerPage from "./SpinnerPage";
 import TablePage from "./TablePage";
 import TabsPage from "./TabsPage";
 import TextAreaPage from "./TextAreaPage";
+import TooltipPage from "./TooltipPage";
 import UploaderPage from "./UploaderPage";
 
 export {
@@ -59,5 +60,6 @@ export {
   TablePage,
   TabsPage,
   TextAreaPage,
+  TooltipPage,
   UploaderPage,
 };
