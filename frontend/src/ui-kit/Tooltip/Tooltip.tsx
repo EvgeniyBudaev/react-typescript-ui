@@ -85,9 +85,7 @@ export const TooltipComponent: React.FC<ITooltipProps> = ({
   return (
     <div className={classNames("Tooltip", className)}>
       <button
-        className={classNames("Tooltip_Target", {
-          Tooltip_Target__showOnFocus: isFocused,
-        })}
+        className="Tooltip_Target"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onFocus={handleFocus}

@@ -19,7 +19,7 @@ export const TooltipPage: React.FC = () => {
       <Tooltip
         behavior="click"
         content={renderTooltipContent()}
-        placement="right"
+        placement="top"
       >
         <div>Click me</div>
       </Tooltip>
@@ -29,7 +29,7 @@ export const TooltipPage: React.FC = () => {
       <Tooltip
         behavior="focus"
         content={renderTooltipContent()}
-        placement="right"
+        placement="bottom"
       >
         <div>Focus me</div>
       </Tooltip>
