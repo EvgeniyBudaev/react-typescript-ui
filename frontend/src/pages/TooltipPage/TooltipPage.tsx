@@ -9,30 +9,34 @@ export const TooltipPage: React.FC = () => {
 
   return (
     <section className="TooltipPage">
-      <h2>Default tooltip on hover</h2>
-      <Tooltip content={renderTooltipContent()} placement="right">
-        Hover me
-      </Tooltip>
-      <hr />
+      <div className="TooltipPage-Block">
+        <h2>Default tooltip on hover</h2>
+        <Tooltip content={renderTooltipContent()} placement="right">
+          Hover me
+        </Tooltip>
+      </div>
 
-      <h2>Tooltip is clickable</h2>
-      <Tooltip
-        behavior="click"
-        content={renderTooltipContent()}
-        placement="top"
-      >
-        <div>Click me</div>
-      </Tooltip>
-      <hr />
+      <div className="TooltipPage-Block">
+        <h2>Tooltip is clickable</h2>
+        <Tooltip
+          behavior="click"
+          content={renderTooltipContent()}
+          placement="top"
+        >
+          <div>Click me</div>
+        </Tooltip>
+      </div>
 
-      <h2>Tooltip is focusable</h2>
-      <Tooltip
-        behavior="focus"
-        content={renderTooltipContent()}
-        placement="bottom"
-      >
-        <div>Focus me</div>
-      </Tooltip>
+      <div className="TooltipPage-Block">
+        <h2>Tooltip is focusable</h2>
+        <Tooltip
+          behavior="focus"
+          content={renderTooltipContent()}
+          placement="bottom"
+        >
+          <div>Focus me</div>
+        </Tooltip>
+      </div>
     </section>
   );
 };

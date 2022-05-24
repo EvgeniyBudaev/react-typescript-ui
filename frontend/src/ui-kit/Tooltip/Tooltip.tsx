@@ -41,24 +41,24 @@ export const TooltipComponent: React.FC<ITooltipProps> = ({
     }
   }, [behavior, isClicked, isFocused, isHovered]);
 
-  const handleOutsideClick = e => {
+  const handleOutsideClick = event => {
     if (targetRef.current) {
-      if (targetRef.current.contains(e.target)) {
+      if (targetRef.current.contains(event.target)) {
         return;
       }
       setIsClicked(false);
     }
   };
 
-  const handleClick = e => {
-    e.preventDefault();
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
     if (behavior === TOOLTIP_BEHAVIOR.CLICK) {
       if (!isClicked) {
         document.addEventListener("click", handleOutsideClick, false);
       } else {
         document.removeEventListener("click", handleOutsideClick, false);
       }
-      setIsClicked(!isClicked);
+      setIsClicked(prevState => !prevState);
     } else {
       if (targetRef.current) {
         targetRef.current.blur();
