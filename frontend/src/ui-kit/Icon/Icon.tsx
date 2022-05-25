@@ -9,6 +9,7 @@ export interface IIconProps extends DOMAttributes<HTMLSpanElement> {
   className?: string;
   size?: IconSizeType;
   type: IconType;
+  onClick?: () => void | Promise<void>;
 }
 
 const getIcon = (type: IconType): JSX.Element =>
@@ -18,11 +19,13 @@ export const Icon: React.FC<IIconProps> = ({
   className,
   size,
   type,
+  onClick,
   ...rest
 }) => {
   return (
     <div
       className={classNames("Icon", className, `Icon-IconSize__${size}`)}
+      onClick={onClick}
       {...rest}
     >
       {getIcon(type)}

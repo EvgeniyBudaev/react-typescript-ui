@@ -1,4 +1,11 @@
-import React, { memo, ReactNode, useMemo, useRef, useState } from "react";
+import React, {
+  memo,
+  ReactNode,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { CSSTransition } from "react-transition-group";
 import classNames from "classnames";
 import "./Tooltip.scss";
@@ -15,7 +22,7 @@ export interface ITooltipProps {
   behavior?: TooltipBehaviorType;
   children: ReactNode;
   className?: string;
-  content: JSX.Element;
+  content: JSX.Element | string;
   placement: TooltipPlacementType;
 }
 
@@ -30,6 +37,7 @@ export const TooltipComponent: React.FC<ITooltipProps> = ({
   const [isHovered, setIsHovered] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
   const targetRef = useRef<HTMLButtonElement>(null);
+  const nodeRef = useRef(null);
 
   const showTooltip = useMemo(() => {
     if (behavior === TOOLTIP_BEHAVIOR.CLICK) {
@@ -82,6 +90,13 @@ export const TooltipComponent: React.FC<ITooltipProps> = ({
     setIsFocused(false);
   };
 
+  useEffect(() => {
+    const clickTimer = setTimeout(() => {
+      setIsClicked(false);
+    }, 1000);
+    return () => clearTimeout(clickTimer);
+  }, [isClicked]);
+
   return (
     <div className={classNames("Tooltip", className)}>
       <button
@@ -96,9 +111,10 @@ export const TooltipComponent: React.FC<ITooltipProps> = ({
         {children}
       </button>
       <CSSTransition
-        in={showTooltip}
-        timeout={200}
         classNames="Tooltip_Transition"
+        in={showTooltip}
+        nodeRef={nodeRef}
+        timeout={200}
         unmountOnExit
       >
         <div
@@ -106,6 +122,7 @@ export const TooltipComponent: React.FC<ITooltipProps> = ({
             "Tooltip_CenterContainer",
             `Tooltip_CenterContainer__${placement}`
           )}
+          ref={nodeRef}
         >
           <div
             className={classNames(

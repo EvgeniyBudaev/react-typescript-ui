@@ -21,5 +21,11 @@
   &-Icon {
     margin-left: 8px;
     cursor: pointer;
+
+    &__active {
+      svg {
+        fill: limegreen;
+      }
+    }
   }
 }
