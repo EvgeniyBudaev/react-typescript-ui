@@ -1,4 +1,4 @@
-import React, { CSSProperties, useEffect, useRef } from "react";
+import React, { CSSProperties, memo, useEffect, useRef } from "react";
 import classNames from "classnames";
 import { setAtToStringAndPx } from "utils/string";
 import "./Skeleton.scss";
@@ -11,7 +11,7 @@ export interface ISkeletonProps {
   isCircle?: boolean;
 }
 
-export const Skeleton: React.FC<ISkeletonProps> = ({
+const SkeletonComponent: React.FC<ISkeletonProps> = ({
   className,
   height = "100%",
   style,
@@ -45,3 +45,5 @@ export const Skeleton: React.FC<ISkeletonProps> = ({
     />
   );
 };
+
+export const Skeleton = memo(SkeletonComponent);

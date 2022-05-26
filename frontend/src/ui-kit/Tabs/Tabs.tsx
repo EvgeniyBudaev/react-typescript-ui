@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import classNames from "classnames";
 import "./Tabs.scss";
 
@@ -14,7 +14,7 @@ export interface ITabsProps {
   onClick: (id: string | number) => void;
 }
 
-export const Tabs: React.FC<ITabsProps> = ({
+const TabsComponent: React.FC<ITabsProps> = ({
   className,
   selectedId,
   tabs,
@@ -43,3 +43,5 @@ export const Tabs: React.FC<ITabsProps> = ({
     </div>
   );
 };
+
+export const Tabs = memo(TabsComponent);

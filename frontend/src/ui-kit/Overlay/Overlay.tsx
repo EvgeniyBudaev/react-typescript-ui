@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { memo, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import classNames from "classnames";
 import "./Overlay.scss";
@@ -10,7 +10,7 @@ export interface IOverlayProps {
   onClick?: (event: React.MouseEvent) => void;
 }
 
-export const Overlay: React.FC<IOverlayProps> = ({
+const OverlayComponent: React.FC<IOverlayProps> = ({
   className,
   timeout = 300,
   isActive = false,
@@ -31,3 +31,5 @@ export const Overlay: React.FC<IOverlayProps> = ({
     </CSSTransition>
   );
 };
+
+export const Overlay = memo(OverlayComponent);

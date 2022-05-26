@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { memo, useEffect, useRef, useState } from "react";
 import shadowRoot from "react-shadow";
 import classNames from "classnames";
 import { IconButton } from "ui-kit";
@@ -14,7 +14,7 @@ interface IPosition {
   y: number;
 }
 
-export const DocumentViewer: React.FC<IDocumentViewerProps> = ({
+const DocumentViewerComponent: React.FC<IDocumentViewerProps> = ({
   className,
   step = 0.1,
   template,
@@ -59,7 +59,6 @@ export const DocumentViewer: React.FC<IDocumentViewerProps> = ({
 
       handleSetDefault();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [contentRef, containerRef]);
 
   const getDefaultScale = () => {
@@ -136,3 +135,5 @@ export const DocumentViewer: React.FC<IDocumentViewerProps> = ({
     </div>
   );
 };
+
+export const DocumentViewer = memo(DocumentViewerComponent);

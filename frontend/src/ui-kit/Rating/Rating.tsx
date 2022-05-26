@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import ReactStars from "react-rating-stars-component";
 
 export interface IRatingProps {
@@ -8,7 +8,7 @@ export interface IRatingProps {
   onChange?: (newRating: number) => void;
 }
 
-export const Rating: React.FC<IRatingProps> = ({
+const RatingComponent: React.FC<IRatingProps> = ({
   activeColor,
   count,
   size,
@@ -23,3 +23,5 @@ export const Rating: React.FC<IRatingProps> = ({
     />
   );
 };
+
+export const Rating = memo(RatingComponent);

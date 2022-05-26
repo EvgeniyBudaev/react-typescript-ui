@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { useLocation } from "react-router-dom";
 import Crumb from "./Crumb";
 import "./Breadcrumbs.scss";
@@ -10,7 +10,7 @@ export interface IBreadcrumbsLocationState {
   url: string;
 }
 
-export const Breadcrumbs: React.FC = () => {
+const BreadcrumbsComponent: React.FC = () => {
   const location = useLocation<IBreadcrumbsLocationState[]>();
   const { state } = location;
 
@@ -25,3 +25,5 @@ export const Breadcrumbs: React.FC = () => {
   }
   return null;
 };
+
+export const Breadcrumbs = memo(BreadcrumbsComponent);

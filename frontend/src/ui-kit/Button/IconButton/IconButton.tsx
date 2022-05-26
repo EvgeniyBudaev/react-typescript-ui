@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import classNames from "classnames";
 import { Button, Icon, IconType } from "ui-kit";
 import { IButtonProps } from "../Button";
@@ -11,7 +11,7 @@ export interface IIconButtonProps extends IButtonProps {
   onClick?: (event: React.MouseEvent) => void;
 }
 
-export const IconButton: React.FC<IIconButtonProps> = ({
+const IconButtonComponent: React.FC<IIconButtonProps> = ({
   className,
   typeIcon,
   isDisabled = false,
@@ -30,3 +30,5 @@ export const IconButton: React.FC<IIconButtonProps> = ({
     </Button>
   );
 };
+
+export const IconButton = memo(IconButtonComponent);

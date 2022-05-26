@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import classNames from "classnames";
 import { SlideDown } from "react-slidedown";
 import { Icon } from "ui-kit";
@@ -12,7 +12,7 @@ export interface IAccordionProps {
   children?: React.ReactNode;
 }
 
-export const Accordion: React.FC<IAccordionProps> = ({
+const AccordionComponent: React.FC<IAccordionProps> = ({
   className,
   title = "",
   isActive = false,
@@ -40,3 +40,5 @@ export const Accordion: React.FC<IAccordionProps> = ({
     </div>
   );
 };
+
+export const Accordion = memo(AccordionComponent);

@@ -1,5 +1,5 @@
 import { TRANSITION } from "constants/transition";
-import React, { useRef } from "react";
+import React, { memo, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import classNames from "classnames";
 import "./DropDown.scss";
@@ -10,7 +10,7 @@ export interface IDropDownProps {
   isOpen?: boolean;
 }
 
-export const DropDown: React.FC<IDropDownProps> = ({
+const DropDownComponent: React.FC<IDropDownProps> = ({
   className,
   children,
   isOpen,
@@ -31,3 +31,5 @@ export const DropDown: React.FC<IDropDownProps> = ({
     </CSSTransition>
   );
 };
+
+export const DropDown = memo(DropDownComponent);

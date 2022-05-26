@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import classNames from "classnames";
 import { Icon } from "ui-kit/index";
 import "./Checkbox.scss";
@@ -11,7 +11,7 @@ interface ICheckboxProps {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const Checkbox: React.FC<ICheckboxProps> = ({
+const CheckboxComponent: React.FC<ICheckboxProps> = ({
   className,
   isChecked,
   id,
@@ -40,3 +40,5 @@ export const Checkbox: React.FC<ICheckboxProps> = ({
     </label>
   );
 };
+
+export const Checkbox = memo(CheckboxComponent);

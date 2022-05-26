@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 export enum AlertType {
   Error = "Error",
@@ -14,7 +14,7 @@ export interface IAlertProps {
   onClose?: () => void;
 }
 
-export const Alert: React.FC<IAlertProps> = ({
+const AlertComponent: React.FC<IAlertProps> = ({
   className,
   description,
   title,
@@ -26,3 +26,5 @@ export const Alert: React.FC<IAlertProps> = ({
     </div>
   );
 };
+
+export const Alert = memo(AlertComponent);

@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
+import React, { ButtonHTMLAttributes, DetailedHTMLProps, memo } from "react";
 import classNames from "classnames";
 import { Icon, IconType } from "ui-kit";
 import "./Button.scss";
@@ -14,7 +14,7 @@ export interface IButtonProps
   onClick?: (event: React.MouseEvent) => void;
 }
 
-export const Button: React.FC<IButtonProps> = ({
+const ButtonComponent: React.FC<IButtonProps> = ({
   className,
   children,
   typeIcon,
@@ -37,3 +37,5 @@ export const Button: React.FC<IButtonProps> = ({
     </button>
   );
 };
+
+export const Button = memo(ButtonComponent);

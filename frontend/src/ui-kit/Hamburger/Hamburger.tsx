@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import classNames from "classnames";
 import "./Hamburger.scss";
 
@@ -16,7 +16,7 @@ export interface IHamburgerProps {
   onClick?: (event: React.MouseEvent) => void;
 }
 
-export const Hamburger: React.FC<IHamburgerProps> = ({
+const HamburgerComponent: React.FC<IHamburgerProps> = ({
   className,
   color = HamburgerColor.BLACK,
   isActive = false,
@@ -34,3 +34,5 @@ export const Hamburger: React.FC<IHamburgerProps> = ({
     </div>
   );
 };
+
+export const Hamburger = memo(HamburgerComponent);

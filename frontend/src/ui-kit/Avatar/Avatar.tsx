@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import classNames from "classnames";
 import "./Avatar.scss";
 
@@ -11,7 +11,7 @@ export interface IAvatarProps {
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
 }
 
-export const Avatar: React.FC<IAvatarProps> = ({
+const AvatarComponent: React.FC<IAvatarProps> = ({
   className,
   classNameSmallCircle,
   image,
@@ -70,3 +70,5 @@ export const Avatar: React.FC<IAvatarProps> = ({
     </div>
   );
 };
+
+export const Avatar = memo(AvatarComponent);

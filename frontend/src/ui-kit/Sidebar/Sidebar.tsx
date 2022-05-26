@@ -1,4 +1,4 @@
-import React, { ReactNode, useRef } from "react";
+import React, { memo, ReactNode, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import classNames from "classnames";
 import { Overlay } from "ui-kit";
@@ -12,7 +12,7 @@ export interface ISidebarProps {
   onClose?: (event: React.MouseEvent) => void;
 }
 
-export const Sidebar: React.FC<ISidebarProps> = ({
+const SidebarComponent: React.FC<ISidebarProps> = ({
   className,
   children,
   transition = 300,
@@ -37,3 +37,5 @@ export const Sidebar: React.FC<ISidebarProps> = ({
     </>
   );
 };
+
+export const Sidebar = memo(SidebarComponent);

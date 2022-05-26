@@ -1,4 +1,4 @@
-import React, { DOMAttributes } from "react";
+import React, { DOMAttributes, memo } from "react";
 import classNames from "classnames";
 import "./Icon.scss";
 import { IconType, iconTypes } from "./IconType";
@@ -15,7 +15,7 @@ export interface IIconProps extends DOMAttributes<HTMLSpanElement> {
 const getIcon = (type: IconType): JSX.Element =>
   iconTypes.get(type) as JSX.Element;
 
-export const Icon: React.FC<IIconProps> = ({
+const IconComponent: React.FC<IIconProps> = ({
   className,
   size,
   type,
@@ -32,3 +32,5 @@ export const Icon: React.FC<IIconProps> = ({
     </div>
   );
 };
+
+export const Icon = memo(IconComponent);
