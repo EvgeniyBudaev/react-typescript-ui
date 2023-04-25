@@ -32,7 +32,6 @@ export const Uploader: FC<IUploaderProps> = ({ config, onFilesUploadedAll }) => 
 
   useEffect(() => {
     onFilesUploadedAll && onFilesUploadedAll(handleFilesAllAdd(files));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [files]);
 
   return (

@@ -96,7 +96,6 @@ export const useTable: TUseTable = ({ onDelete, pageOption, sizeOption }) => {
     );
   };
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const debouncedFetcher = useCallback(
     debounce((query: string) => {
       setSearchParams(
