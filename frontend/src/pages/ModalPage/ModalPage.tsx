@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import { Button, Modal } from "ui-kit";
+import { useState } from "react";
+import type { FC } from "react";
+import { Button, Modal } from "uikit";
 import "./ModalPage.scss";
 
-export const ModalPage: React.FC = () => {
+export const ModalPage: FC = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
 
   const handleModalOpen = () => {
@@ -28,7 +29,11 @@ export const ModalPage: React.FC = () => {
         <Modal.Content>
           <div>Content</div>
         </Modal.Content>
-        <Modal.Footer buttonSubmitText="Choice" onSubmit={handleModalSubmit} />
+        <Modal.Footer>
+          <Button onClick={handleModalSubmit} type={"submit"}>
+            Apply
+          </Button>
+        </Modal.Footer>
       </Modal>
     </section>
   );

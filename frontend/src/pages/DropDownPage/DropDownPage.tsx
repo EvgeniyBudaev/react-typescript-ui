@@ -1,8 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
-import { DropDown } from "ui-kit";
+import { useEffect, useRef, useState } from "react";
+import type { FC } from "react";
+import { DropDown } from "uikit";
 import "./DropDownPage.scss";
 
-export const DropDownPage: React.FC = () => {
+export const DropDownPage: FC = () => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const refToggleDropDown = useRef<HTMLLIElement>(null);
 
@@ -24,7 +25,7 @@ export const DropDownPage: React.FC = () => {
   };
 
   const handleToggleDropDown = () => {
-    setIsDropDownOpen(prevState => !prevState);
+    setIsDropDownOpen((prevState?: boolean) => !prevState);
   };
 
   return (
@@ -32,7 +33,6 @@ export const DropDownPage: React.FC = () => {
       <h2>DropDown</h2>
       <nav className="DropDownPage-Navigation">
         <ul className="DropDownPage-Menu">
-          <li className="DropDownPage-MenuItem">Home</li>
           <li
             className="DropDownPage-MenuItem"
             ref={refToggleDropDown}
@@ -47,8 +47,6 @@ export const DropDownPage: React.FC = () => {
               </ul>
             </DropDown>
           </li>
-          <li className="DropDownPage-MenuItem">About</li>
-          <li className="DropDownPage-MenuItem">Contacts</li>
         </ul>
       </nav>
     </section>

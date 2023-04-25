@@ -1,1 +1,1 @@
-export { IconPage as default } from "./IconPage";
+export * from "./IconPage";

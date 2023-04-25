@@ -1,1 +1,1 @@
-export { SidebarPage as default } from "./SidebarPage";
+export * from "./SidebarPage";

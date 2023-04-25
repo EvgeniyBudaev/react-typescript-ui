@@ -1,6 +1,7 @@
 # React Typescript UI Components
 
 ## Содержание
+
 - [Описание_проекта](#Описание_проекта)
 - [Технологии](#Технологии)
 - [Запуск проекта](#Запуск_проекта)
@@ -14,6 +15,7 @@ React UI Components
 ### <a name="Технологии">Технологии</a>
 
 В проекте применяется
+
 - **Django REST Framework**,
 - **Python 3**,
 - **Git**,
@@ -22,6 +24,7 @@ React UI Components
 - **TypeScript**,
 
 ### <a name="Запуск_проекта">Запуск проекта</a>
+
 - Из директории react-typescript-ui создаем виртуальное окружение:
 
 ```python
@@ -73,11 +76,13 @@ React UI Components
 ```
 
 ### <a name="Тесты">Тесты</a>
+
 ```python
   npm test
 ```
 
 ### <a name="Авторы">Авторы</a>
+
 ```
  Евгений Будаев
 ```

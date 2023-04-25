@@ -1,0 +1,43 @@
+@import "styles";
+
+$opacity: 0.6;
+$transition: 0.3s;
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 100%;
+  background-color: #000;
+  opacity: $opacity;
+  z-index: 100;
+  visibility: visible;
+
+  &.enter {
+    background: transparent;
+    opacity: 1;
+    visibility: hidden;
+  }
+
+  &.enter-active {
+    background-color: #000;
+    opacity: $opacity;
+    visibility: visible;
+    transition: all $transition;
+  }
+
+  &.exit {
+    background-color: #000;
+    opacity: $opacity;
+    visibility: visible;
+    transition: all $transition;
+  }
+
+  &.exit-active {
+    background: transparent;
+    opacity: 1;
+    visibility: hidden;
+  }
+}

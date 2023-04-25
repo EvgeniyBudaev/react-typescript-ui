@@ -1,12 +1,12 @@
-import React from "react";
-import { Icon } from "ui-kit";
+import type { FC } from "react";
+import { Icon } from "uikit";
 import "./IconPage.scss";
 
-export const IconPage: React.FC = () => {
+export const IconPage: FC = () => {
   return (
     <section className="IconPage">
       <h2>Icon</h2>
-      <Icon type="Pdf" />
+      <Icon type="Close" />
     </section>
   );
 };

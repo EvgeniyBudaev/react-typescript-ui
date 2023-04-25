@@ -1,0 +1,30 @@
+@import "styles";
+
+.Tabs {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.Tab {
+  padding: 16px 24px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s;
+
+  &__selected {
+    border-bottom: 1px solid $color-primary;
+  }
+
+  &:hover {
+    background-color: $color-light-gray;
+  }
+
+  &Label {
+    color: $color-suit-gray;
+
+    &__selected {
+      color: $color-primary;
+    }
+  }
+}

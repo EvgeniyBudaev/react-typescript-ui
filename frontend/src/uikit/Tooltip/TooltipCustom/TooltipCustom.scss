@@ -1,0 +1,129 @@
+.TooltipCustom {
+  position: relative;
+  display: inline-flex;
+
+  &_Target {
+    display: flex;
+    border: none;
+    background: inherit;
+    font-size: inherit;
+    color: inherit;
+    cursor: inherit;
+    outline: transparent;
+  }
+
+  &_CenterContainer {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: calc(100% + 5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: max-content;
+    width: max-content;
+    pointer-events: none;
+
+    &__top {
+      bottom: calc(100% + 5px);
+    }
+
+    &__bottom {
+      bottom: unset !important;
+      top: calc(100% + 5px);
+    }
+
+    &__left {
+      left: unset;
+      top: 50%;
+      right: calc(100% + 5px);
+      transform: translateX(0);
+      margin-right: 0;
+      width: max-content;
+    }
+
+    &__right {
+      top: 50%;
+      left: calc(100% + 5px);
+      transform: translateX(0);
+      margin-left: 0;
+      width: max-content;
+    }
+  }
+
+  &_Content {
+    position: relative;
+    text-align: center;
+    padding: 10px 8px;
+    color: #fff;
+    background-color: black;
+    border-radius: 5px;
+    font-size: 1.25rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.2);
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: calc(50% - 4.5px);
+      top: 100%;
+      width: 1px;
+      height: 1px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: black transparent transparent transparent;
+    }
+
+    &__top {
+    }
+
+    &__bottom {
+      &::after {
+        top: unset;
+        bottom: 100%;
+        left: calc(50% - 5px);
+        width: 1px;
+        border-color: transparent transparent black transparent;
+      }
+    }
+
+    &__left {
+      &::after {
+        left: 100%;
+        top: calc(50% - 5px);
+        border-color: transparent transparent transparent black;
+      }
+    }
+
+    &__right {
+      &::after {
+        right: 100%;
+        left: unset;
+        top: calc(50% - 5px);
+        color: #000;
+        border-color: transparent black transparent transparent;
+      }
+    }
+  }
+
+  &_Transition {
+    &-enter {
+      opacity: 0;
+    }
+
+    &-enter-active {
+      transition: all 200ms;
+      opacity: 1;
+    }
+
+    &-exit {
+      opacity: 1;
+    }
+
+    &-exit-active {
+      transition: all 200ms;
+      opacity: 0;
+    }
+  }
+}

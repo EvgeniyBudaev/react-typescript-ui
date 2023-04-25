@@ -1,1 +1,1 @@
-export { AvatarPage as default } from "./AvatarPage";
+export * from "./AvatarPage";

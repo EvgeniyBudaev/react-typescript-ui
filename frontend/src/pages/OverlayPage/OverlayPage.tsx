@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import { Button, Overlay } from "ui-kit";
+import { useState } from "react";
+import type { FC } from "react";
+import { Button, Overlay } from "uikit";
 
-export const OverlayPage: React.FC = () => {
+export const OverlayPage: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpen = () => {

@@ -1,1 +1,1 @@
-export { DropDownPage as default } from "./DropDownPage";
+export * from "./DropDownPage";

@@ -1,1 +1,1 @@
-export { CopyPage as default } from "./CopyPage";
+export * from "./CopyPage";

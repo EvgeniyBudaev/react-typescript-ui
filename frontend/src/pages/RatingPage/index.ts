@@ -1,1 +1,1 @@
-export { RatingPage as default } from "./RatingPage";
+export * from "./RatingPage";

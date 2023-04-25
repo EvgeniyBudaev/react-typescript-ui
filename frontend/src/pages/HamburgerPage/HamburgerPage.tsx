@@ -1,12 +1,13 @@
-import React, { useState } from "react";
-import { Hamburger } from "ui-kit";
+import { useState } from "react";
+import type { FC } from "react";
+import { Hamburger } from "uikit";
 import "./HamburgerPage.scss";
 
-export const HamburgerPage: React.FC = () => {
+export const HamburgerPage: FC = () => {
   const [isActive, setIsActive] = useState(false);
 
   const handleToggle = () => {
-    setIsActive(prevState => !prevState);
+    setIsActive((prevState?: boolean) => !prevState);
   };
 
   return (

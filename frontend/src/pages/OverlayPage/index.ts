@@ -1,1 +1,1 @@
-export { OverlayPage as default } from "./OverlayPage";
+export * from "./OverlayPage";

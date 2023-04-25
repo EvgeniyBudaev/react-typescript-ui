@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import { Button, DocumentViewer, Modal } from "ui-kit";
+import { useState } from "react";
+import type { FC } from "react";
+import { Button, DocumentViewer, Modal } from "uikit";
 import { template } from "./template";
 import "./DocumentViewerPage.scss";
 
-export const DocumentViewerPage: React.FC = () => {
+export const DocumentViewerPage: FC = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
 
   const handleModalOpen = () => {

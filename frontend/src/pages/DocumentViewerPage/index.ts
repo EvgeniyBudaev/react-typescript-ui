@@ -1,1 +1,1 @@
-export { DocumentViewerPage as default } from "./DocumentViewerPage";
+export * from "./DocumentViewerPage";

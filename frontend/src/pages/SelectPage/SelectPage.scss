@@ -5,20 +5,27 @@
 
   &-Select {
     max-width: 220px;
+    width: 100%;
 
-    svg {
-      fill: black;
-      transition: all 0.15s;
-    }
+    //svg {
+    //  fill: #000;
+    //  transition: all 0.15s;
+    //}
+    //
+    //&__active {
+    //  svg {
+    //    transform: rotate(180deg);
+    //  }
+    //}
+  }
+}
 
-    &__active {
+.theme-dark {
+  .Sorting {
+    &-Select {
       svg {
-        transform: rotate(180deg);
+        fill: #fff;
       }
     }
-  }
-
-  &-Warning {
-    margin-top: 25px;
   }
 }

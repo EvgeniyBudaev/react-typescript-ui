@@ -12,3 +12,23 @@
     margin-bottom: 16px;
   }
 }
+
+.Test {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  max-width: 400px;
+  width: 100%;
+  border: 1px solid #000;
+
+  &-Text {
+    max-width: 100px;
+    width: 100px;
+  }
+
+  &-Tool {
+    max-width: 100px;
+    width: 100px;
+  }
+}

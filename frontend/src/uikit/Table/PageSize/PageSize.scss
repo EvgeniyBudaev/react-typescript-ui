@@ -1,0 +1,29 @@
+@import "styles";
+
+.PageSize {
+  &-Select {
+    max-width: 220px;
+    width: 100%;
+
+    svg {
+      fill: black;
+      transition: all 0.15s;
+    }
+
+    &__active {
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+.theme-dark {
+  .PageSize {
+    &-Select {
+      svg {
+        fill: $color-white;
+      }
+    }
+  }
+}

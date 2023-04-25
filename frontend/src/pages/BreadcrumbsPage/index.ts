@@ -1,1 +1,2 @@
-export { BreadcrumbsPage as default } from "./BreadcrumbsPage";
+export * from "./BreadcrumbsPage";
+export * from "./BreadcrumbsDetailPage";
