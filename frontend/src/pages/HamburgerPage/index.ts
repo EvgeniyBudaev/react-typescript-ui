@@ -1,1 +1,1 @@
-export { HamburgerPage as default } from "./HamburgerPage";
+export * from "./HamburgerPage";

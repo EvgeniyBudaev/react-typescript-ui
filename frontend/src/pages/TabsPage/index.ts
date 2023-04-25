@@ -1,1 +1,1 @@
-export { TabsPage as default } from "./TabsPage";
+export * from "./TabsPage";

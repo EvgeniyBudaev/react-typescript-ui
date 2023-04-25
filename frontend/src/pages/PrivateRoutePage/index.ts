@@ -1,1 +1,1 @@
-export { PrivateRoutePage as default } from "./PrivateRoutePage";
+export * from "./PrivateRoutePage";

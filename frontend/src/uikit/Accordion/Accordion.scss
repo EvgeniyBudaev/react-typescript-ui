@@ -1,0 +1,82 @@
+@import "styles";
+
+$transition: 0.3s;
+
+.Accordion {
+  $this: &;
+  margin-top: 18px;
+  box-shadow: none;
+
+  &-Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 32px;
+    padding: 7px 15px 7px 0;
+    color: $color-text;
+    background-color: white;
+    border-bottom: 1px solid $color-suit-gray;
+    transition: all $transition ease;
+
+    &:hover {
+      cursor: pointer;
+      background-color: white;
+      box-shadow: $shadow-bottom;
+    }
+    &:last-child {
+      margin-top: 0;
+    }
+
+    &Icon {
+      svg {
+        transition: all $transition ease;
+        width: 16px;
+        height: 10px;
+      }
+    }
+  }
+
+  &-ContentWrapper {
+    &-enter {
+      opacity: 0;
+      overflow: hidden;
+      max-height: 0;
+    }
+
+    &-enter-active {
+      opacity: 1;
+      max-height: var(--content-height);
+      transition: opacity $transition, max-height $transition cubic-bezier(0, 1, 0, 1);
+    }
+
+    &-exit {
+      opacity: 1;
+      max-height: var(--content-height);
+    }
+
+    &-exit-active {
+      overflow: hidden;
+      opacity: 0;
+      max-height: 0;
+      transition: opacity $transition, max-height $transition cubic-bezier(0, 1, 0, 1);
+    }
+  }
+
+  &-Content {
+    padding: 15px 0;
+    overflow: hidden;
+    color: $color-text;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-top: 1px solid transparent;
+    transition: all $transition;
+  }
+
+  &#{$this}__active {
+    #{$this}-HeaderIcon {
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

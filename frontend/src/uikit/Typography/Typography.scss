@@ -1,0 +1,151 @@
+@import "styles";
+
+$base-font-family: "Roboto", sans-serif;
+
+.Typography {
+  &-text {
+    &-h1 {
+      font-family: $base-font-family;
+      font-size: 32px;
+      font-style: normal;
+      line-height: 1.25;
+      &__bold {
+        font-weight: 700;
+      }
+      &__bold {
+        font-weight: 500;
+      }
+    }
+
+    &-h2 {
+      font-family: $base-font-family;
+      font-size: 28px;
+      font-style: normal;
+      line-height: 1.25;
+      &__medium {
+        font-weight: 500;
+      }
+    }
+
+    &-h3 {
+      font-family: $base-font-family;
+      font-size: 26px;
+      font-style: normal;
+      line-height: 1.25;
+      &__medium {
+        font-weight: 500;
+      }
+    }
+
+    &-h4 {
+      font-family: $base-font-family;
+      font-size: 24px;
+      font-style: normal;
+      line-height: 1.25;
+      &__medium {
+        font-weight: 500;
+      }
+    }
+
+    &-h5 {
+      font-family: $base-font-family;
+      font-size: 22px;
+      font-style: normal;
+      line-height: 1.25;
+      &__medium {
+        font-weight: 500;
+      }
+      &__bold {
+        font-weight: 700;
+      }
+    }
+
+    &-h6 {
+      font-family: $base-font-family;
+      font-size: 20px;
+      font-style: normal;
+      line-height: 1.25;
+      &__bold {
+        font-weight: 700;
+      }
+    }
+
+    &-b2 {
+      font-family: $base-font-family;
+      font-size: 16px;
+      font-style: normal;
+      line-height: 1.25;
+      &__bold {
+        font-weight: 700;
+      }
+      &__medium {
+        font-weight: 500;
+      }
+      &__regular {
+        font-weight: 400;
+      }
+    }
+
+    &-b3 {
+      font-family: $base-font-family;
+      font-size: 14px;
+      font-style: normal;
+      line-height: 1.25;
+      &__bold {
+        font-weight: 700;
+      }
+      &__medium {
+        font-weight: 500;
+      }
+      &__regular {
+        font-weight: 400;
+      }
+    }
+
+    &-b4 {
+      font-family: $base-font-family;
+      font-size: 12px;
+      font-style: normal;
+      line-height: 1.25;
+      &__bold {
+        font-weight: 700;
+      }
+      &__medium {
+        font-weight: 500;
+      }
+      &__regular {
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .Typography {
+    &-text {
+      &-h1 {
+        font-size: 22px;
+      }
+
+      &-h2 {
+        font-size: 20px;
+      }
+
+      &-h3 {
+        font-size: 18px;
+      }
+
+      &-h4 {
+        font-size: 18px;
+      }
+
+      &-h5 {
+        font-size: 16px;
+      }
+
+      &-h6 {
+        font-size: 16px;
+      }
+    }
+  }
+}

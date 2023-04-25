@@ -1,1 +1,1 @@
-export { SkeletonPage as default } from "./SkeletonPage";
+export * from "./SkeletonPage";

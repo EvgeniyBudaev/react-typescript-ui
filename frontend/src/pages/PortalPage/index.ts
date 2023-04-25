@@ -1,1 +1,1 @@
-export { PortalPage as default } from "./PortalPage";
+export * from "./PortalPage";

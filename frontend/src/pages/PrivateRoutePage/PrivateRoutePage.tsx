@@ -1,7 +1,7 @@
-import React from "react";
+import type { FC } from "react";
 import "./PrivateRoutePage.scss";
 
-export const PrivateRoutePage: React.FC = () => {
+export const PrivateRoutePage: FC = () => {
   return (
     <section className="TestPage">
       <h2>Private Route</h2>

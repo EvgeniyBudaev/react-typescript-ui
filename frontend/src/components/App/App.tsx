@@ -1,25 +1,24 @@
-import React from "react";
-import { Route, Switch } from "react-router-dom";
-import { ROUTES } from "routes";
+import type { FC } from "react";
+import { Routes, Route } from "react-router-dom";
+import { Layout } from "components";
+import { PrivateRoutes } from "components/route/PrivateRoutes";
+import { ERoutes } from "enums";
 import {
   AccordionPage,
   AvatarPage,
   BreadcrumbsPage,
+  BreadcrumbsDetailPage,
   ButtonPage,
   CheckboxPage,
   CopyPage,
   DocumentViewerPage,
   DropDownPage,
-  ErrorPage,
   FormPage,
   HamburgerPage,
-  HomePage,
   IconPage,
-  IconButtonPage,
-  LoginPage,
   ModalPage,
   OverlayPage,
-  PaginationPage,
+  PopoverPage,
   PortalPage,
   PrivateRoutePage,
   RatingPage,
@@ -28,70 +27,57 @@ import {
   SidebarPage,
   SkeletonPage,
   SpinnerPage,
+  SwitcherPage,
   TablePage,
   TabsPage,
-  TextAreaPage,
   TooltipPage,
-  UploaderPage,
+  TypographyPage,
 } from "pages";
-import { Layout, PrivateRoute, ProductCard, PublicRoute } from "components";
+import { ThemeProvider } from "services/context";
+import { useTheme } from "uikit";
 import "./App.scss";
 
-export const App: React.FC = () => {
+export const App: FC = () => {
+  const themeState = useTheme();
+
   return (
-    <div className="App">
-      <Layout>
-        <Switch>
-          <Route path={ROUTES.ACCORDION} component={AccordionPage} exact />
-          <Route path={ROUTES.AVATAR} component={AvatarPage} exact />
-          <Route
-            path={`${ROUTES.BREADCRUMBS}/:id`}
-            component={ProductCard}
-            exact
-          />
-          <Route path={ROUTES.BREADCRUMBS} component={BreadcrumbsPage} exact />
-          <Route path={ROUTES.BUTTON} component={ButtonPage} exact />
-          <Route path={ROUTES.CHECKBOX} component={CheckboxPage} exact />
-          <Route path={ROUTES.COPY} component={CopyPage} exact />
-          <Route
-            path={ROUTES.DOCUMENT_VIEWER}
-            component={DocumentViewerPage}
-            exact
-          />
-          <Route path={ROUTES.DROPDOWN} component={DropDownPage} exact />
-          <Route path={ROUTES.ERROR} component={ErrorPage} exact />
-          <Route path={ROUTES.FORM} component={FormPage} exact />
-          <Route path={ROUTES.HAMBURGER} component={HamburgerPage} exact />
-          <Route path={ROUTES.ICON_BUTTON} component={IconButtonPage} exact />
-          <Route path={ROUTES.ICON} component={IconPage} exact />
-          <PublicRoute
-            path={ROUTES.LOGIN}
-            redirectTo={ROUTES.HOME}
-            component={LoginPage}
-          />
-          <Route path={ROUTES.MODAL} component={ModalPage} exact />
-          <Route path={ROUTES.OVERLAY} component={OverlayPage} exact />
-          <Route path={ROUTES.PAGINATION} component={PaginationPage} exact />
-          <Route path={ROUTES.PORTAL} component={PortalPage} exact />
-          <PrivateRoute
-            path={ROUTES.PRIVATE_ROUTE}
-            redirectTo={ROUTES.LOGIN}
-            component={PrivateRoutePage}
-          />
-          <Route path={ROUTES.RATING} component={RatingPage} exact />
-          <Route path={ROUTES.SCROLLBAR} component={ScrollbarPage} exact />
-          <Route path={ROUTES.SELECT} component={SelectPage} exact />
-          <Route path={ROUTES.SIDEBAR} component={SidebarPage} exact />
-          <Route path={ROUTES.SPINNER} component={SpinnerPage} exact />
-          <Route path={ROUTES.SKELETON} component={SkeletonPage} exact />
-          <Route path={ROUTES.TABLE} component={TablePage} exact />
-          <Route path={ROUTES.TABS} component={TabsPage} exact />
-          <Route path={ROUTES.TEXTAREA} component={TextAreaPage} exact />
-          <Route path={ROUTES.TOOLTIP} component={TooltipPage} exact />
-          <Route path={ROUTES.UPLOADER} component={UploaderPage} exact />
-          <Route path={ROUTES.HOME} component={HomePage} exact />
-        </Switch>
-      </Layout>
-    </div>
+    <ThemeProvider value={themeState}>
+      <div className="App">
+        <Layout>
+          <Routes>
+            <Route path={ERoutes.Accordion} element={<AccordionPage />} />
+            <Route path={ERoutes.Avatar} element={<AvatarPage />} />
+            <Route path={`${ERoutes.Breadcrumbs}/:id`} element={<BreadcrumbsDetailPage />} />
+            <Route path={ERoutes.Breadcrumbs} element={<BreadcrumbsPage />} />
+            <Route path={ERoutes.Button} element={<ButtonPage />} />
+            <Route path={ERoutes.Checkbox} element={<CheckboxPage />} />
+            <Route path={ERoutes.Copy} element={<CopyPage />} />
+            <Route path={ERoutes.DocumentViewer} element={<DocumentViewerPage />} />
+            <Route path={ERoutes.DropDown} element={<DropDownPage />} />
+            <Route path={ERoutes.Form} element={<FormPage />} />
+            <Route path={ERoutes.Hamburger} element={<HamburgerPage />} />
+            <Route path={ERoutes.Icon} element={<IconPage />} />
+            <Route path={ERoutes.Modal} element={<ModalPage />} />
+            <Route path={ERoutes.Overlay} element={<OverlayPage />} />
+            <Route path={ERoutes.Popover} element={<PopoverPage />} />
+            <Route path={ERoutes.Portal} element={<PortalPage />} />
+            <Route element={<PrivateRoutes isAuthenticated={false} />}>
+              <Route path={ERoutes.PrivateRoute} element={<PrivateRoutePage />} />
+            </Route>
+            <Route path={ERoutes.Rating} element={<RatingPage />} />
+            <Route path={ERoutes.Scrollbar} element={<ScrollbarPage />} />
+            <Route path={ERoutes.Select} element={<SelectPage />} />
+            <Route path={ERoutes.Sidebar} element={<SidebarPage />} />
+            <Route path={ERoutes.Skeleton} element={<SkeletonPage />} />
+            <Route path={ERoutes.Spinner} element={<SpinnerPage />} />
+            <Route path={ERoutes.Switcher} element={<SwitcherPage />} />
+            <Route path={ERoutes.Table} element={<TablePage />} />
+            <Route path={ERoutes.Tabs} element={<TabsPage />} />
+            <Route path={ERoutes.Tooltip} element={<TooltipPage />} />
+            <Route path={ERoutes.Typography} element={<TypographyPage />} />
+          </Routes>
+        </Layout>
+      </div>
+    </ThemeProvider>
   );
 };

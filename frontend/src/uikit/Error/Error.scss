@@ -1,0 +1,20 @@
+@import "styles";
+
+.ErrorUI {
+  position: relative;
+  background-color: transparent;
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    color: $color-red;
+
+    &__list-disc {
+      list-style: disc;
+    }
+
+    &__list-none {
+      list-style: none;
+    }
+  }
+}

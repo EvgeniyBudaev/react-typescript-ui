@@ -1,13 +1,44 @@
-@import "ui-kit/styles";
+@import "styles";
 
 .FormPage {
-  &Content {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+
+  &-Inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    flex-direction: column;
+    max-width: 470px;
+    width: 100%;
   }
-  &ContentTitle {
+
+  &-Content {
+    padding: 24px;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: $shadow-form;
+  }
+
+  &-Title {
     margin-bottom: 25px;
+    text-align: center;
   }
+
   &-FormFieldGroup {
+    position: relative;
+    margin-bottom: 50px;
   }
+
+  &-Control {
+    display: flex;
+    justify-content: center;
+  }
+
   &-Button {
+    margin-bottom: 20px;
   }
 }

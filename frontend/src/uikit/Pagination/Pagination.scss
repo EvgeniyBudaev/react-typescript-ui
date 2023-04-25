@@ -1,0 +1,68 @@
+@import "styles";
+
+.Pagination {
+  $this: &;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  outline: transparent;
+
+  & > li {
+    margin: 2px;
+    width: 30px;
+    height: 30px;
+  }
+
+  & > li > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    color: $color-text;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    outline: transparent;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $color-primary-hover;
+      color: white;
+    }
+  }
+
+  & > #{$this}__active > a {
+    background-color: $color-primary;
+    border-color: $color-primary;
+    color: white;
+  }
+
+  & > #{$this}__active > a,
+  & > #{$this}__active > a:hover,
+  & > #{$this}__active > a:focus {
+    background-color: $color-primary;
+    border-color: $color-primary;
+    outline: transparent;
+    cursor: default;
+  }
+
+  & > .disabled > a {
+    cursor: default;
+
+    svg {
+      fill: $color-suit-gray;
+    }
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  &__dark {
+    & > li > a {
+      color: $color-white;
+    }
+  }
+}

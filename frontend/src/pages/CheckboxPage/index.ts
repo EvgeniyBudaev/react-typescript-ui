@@ -1,1 +1,1 @@
-export { CheckboxPage as default } from "./CheckboxPage";
+export * from "./CheckboxPage";

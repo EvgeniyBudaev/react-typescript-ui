@@ -1,0 +1,8 @@
+[date-fade="false"] {
+  opacity: 0;
+}
+
+[date-fade="true"] {
+  transition: opacity 300ms ease;
+  opacity: 1;
+}

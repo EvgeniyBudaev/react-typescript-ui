@@ -1,1 +1,1 @@
-export { SelectPage as default } from "./SelectPage";
+export * from "./SelectPage";

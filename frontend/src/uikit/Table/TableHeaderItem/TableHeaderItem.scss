@@ -1,0 +1,86 @@
+@import "styles";
+
+.TableHeaderItem {
+  width: 100%;
+
+  &-Button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    width: 100%;
+    color: $color-white;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.15s;
+
+    svg {
+      fill: $color-white;
+    }
+
+    &:hover {
+      background-color: $color-primary-hover;
+    }
+  }
+
+  &-IconIndicator {
+    height: 24px;
+    width: 24px;
+  }
+
+  &-DropDownList {
+    background-color: white;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: $shadow-perimeter;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  &-DropDownListItem {
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    cursor: pointer;
+    border-bottom: 1px solid $color-light-gray;
+    transition: all $transition;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &-Icon {
+      height: 24px;
+      width: 24px;
+      margin-right: 8px;
+    }
+
+    &:hover {
+      background-color: $color-primary-hover;
+      color: $color-white;
+    }
+
+    &__active {
+      background-color: $color-primary;
+      color: $color-white;
+      fill: $color-white;
+
+      &:hover {
+        background-color: $color-primary;
+      }
+    }
+  }
+}
+
+.theme-dark {
+  .TableHeaderItem {
+    &-DropDownList {
+      background-color: $color-darkness;
+      box-shadow: $shadow-perimeter-light;
+    }
+
+    &-Button svg {
+      fill: $color-white;
+    }
+  }
+}

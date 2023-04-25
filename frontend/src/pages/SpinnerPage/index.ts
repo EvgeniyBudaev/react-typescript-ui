@@ -1,1 +1,1 @@
-export { SpinnerPage as default } from "./SpinnerPage";
+export * from "./SpinnerPage";

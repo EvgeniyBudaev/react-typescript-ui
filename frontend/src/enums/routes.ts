@@ -1,0 +1,33 @@
+import { PrivateRoutePage } from "../pages";
+
+export enum ERoutes {
+  Root = "/",
+
+  Accordion = "/accordion",
+  Avatar = "/avatar",
+  Breadcrumbs = "/breadcrumbs",
+  Button = "/button",
+  Checkbox = "/checkbox",
+  Copy = "/copy",
+  DocumentViewer = "/documentViewer",
+  DropDown = "/dropDown",
+  Form = "/form",
+  Hamburger = "/hamburger",
+  Icon = "/icon",
+  Modal = "/modal",
+  Overlay = "/overlay",
+  Popover = "/popover",
+  Portal = "/portal",
+  PrivateRoute = "/private-route",
+  Rating = "/rating",
+  Scrollbar = "/scrollbar",
+  Select = "/select",
+  Sidebar = "/sidebar",
+  Skeleton = "/skeleton",
+  Spinner = "/spinner",
+  Switcher = "/switcher",
+  Table = "/table",
+  Tabs = "/tabs",
+  Tooltip = "/tooltip",
+  Typography = "/typography",
+}

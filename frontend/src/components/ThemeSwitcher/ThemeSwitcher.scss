@@ -1,0 +1,39 @@
+@import "styles";
+
+.ThemeSwitcher {
+  &-Switcher {
+    &-DisplayButton {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 38px;
+      width: 40px;
+      z-index: 1;
+
+      span {
+        display: flex;
+        align-items: center;
+      }
+
+      svg {
+        height: 20px;
+        width: 20px;
+        fill: $color-dark-gray;
+      }
+
+      path {
+        fill: $color-dark-gray;
+      }
+
+      &__checked {
+        svg {
+          fill: $color-primary;
+        }
+
+        path {
+          fill: $color-primary;
+        }
+      }
+    }
+  }
+}

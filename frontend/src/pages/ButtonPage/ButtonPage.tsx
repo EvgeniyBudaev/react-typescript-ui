@@ -1,9 +1,10 @@
 import React from "react";
-import { Button } from "ui-kit";
+import type { FC, MouseEvent } from "react";
+import { Button, IconButton } from "uikit";
 import "./ButtonPage.scss";
 
-export const ButtonPage: React.FC = () => {
-  const handleButtonClick = (event: React.MouseEvent) => {
+export const ButtonPage: FC = () => {
+  const handleButtonClick = (event: MouseEvent) => {
     console.log("[button click event]", event);
   };
 
@@ -28,6 +29,12 @@ export const ButtonPage: React.FC = () => {
       <Button typeIcon="Edit" isDisabled onClick={handleButtonClick}>
         Create a record
       </Button>
+      <hr />
+      <h2>IconButton</h2>
+      <IconButton typeIcon="Telegram" onClick={handleButtonClick} />
+      <hr />
+      <h2>IconButton Disabled</h2>
+      <IconButton isDisabled typeIcon="Telegram" />
     </section>
   );
 };

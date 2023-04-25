@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar } from "ui-kit";
+import { Avatar } from "uikit";
 import avatar from "./avatar.jpg";
 import "./AvatarPage.scss";
 

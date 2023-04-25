@@ -1,0 +1,113 @@
+@import "styles";
+
+.PopoverPage {
+  h2 {
+    margin-bottom: 25px;
+  }
+
+  .HeadlessPopover {
+    &-Button {
+      padding: 8px;
+    }
+
+    &-PanelContent {
+      padding: 8px;
+    }
+  }
+}
+
+.HeadlessPopover {
+  position: relative;
+  width: 100%;
+
+  &-Button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $color-primary;
+    border: none;
+    color: $color-white;
+    outline-width: 0;
+    width: 100%;
+    cursor: pointer;
+    transition: all $transition;
+
+    &:hover {
+      background-color: $color-primary-hover;
+    }
+  }
+
+  &-Trigger {
+    width: 100%;
+  }
+
+  &-Panel {
+    position: absolute;
+    z-index: 50;
+    margin-top: 12px;
+    width: 100%;
+
+    &__left {
+      left: 0;
+    }
+
+    &__center {
+      left: 2px;
+      transform: translateX(-2px);
+    }
+
+    &__right {
+      right: 0;
+    }
+  }
+
+  &-PanelContent {
+    position: relative;
+    border: 1px solid $color-light-gray;
+    border-radius: $border-radius;
+    width: 100%;
+    transition: all $transition;
+
+    &:hover {
+      border: 1px solid $color-primary;
+    }
+  }
+
+  &-Transition {
+    &__enter {
+      transition: all $transition ease-out;
+    }
+
+    &__enterFrom {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+
+    &__enterTo {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    &__leave {
+      transition: all $transition ease-in;
+    }
+
+    &__leaveFrom {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    &__leaveTo {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+  }
+}
+
+.theme-dark {
+  .PopoverPage {
+    &-Button svg {
+      fill: $color-white;
+    }
+  }
+}

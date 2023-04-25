@@ -1,0 +1,53 @@
+@import "styles";
+
+.Tooltip {
+  &-Element {
+    display: inline-block;
+    max-width: 300px;
+    width: 100%;
+    background-color: $color-black;
+    color: #fff;
+    border-radius: 4px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 16px 24px;
+    z-index: 10;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+
+  &-Arrow,
+  &-Arrow::before {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: inherit;
+  }
+
+  &-Arrow {
+    visibility: hidden;
+  }
+
+  &-Arrow::before {
+    content: "";
+    visibility: visible;
+    transform: rotate(45deg);
+  }
+
+  &-Element[data-popper-placement^="top"] > &-Arrow {
+    bottom: -4px;
+  }
+
+  &-Element[data-popper-placement^="bottom"] > &-Arrow {
+    top: -4px;
+  }
+
+  &-Element[data-popper-placement^="left"] > &-Arrow {
+    right: -4px;
+  }
+
+  &-Element[data-popper-placement^="right"] > &-Arrow {
+    left: -4px;
+  }
+}
