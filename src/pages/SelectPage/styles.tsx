@@ -2,7 +2,6 @@ import { components, DropdownIndicatorProps, GroupBase, MultiValueRemoveProps } 
 import clsx from "clsx";
 import { Icon } from "uikit";
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const StyledDropdownIndicator = (
   props: JSX.IntrinsicAttributes & DropdownIndicatorProps<unknown, boolean, GroupBase<unknown>>,
 ) => {
@@ -21,7 +20,6 @@ export const StyledDropdownIndicator = (
   );
 };
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const StyledMultiValueRemove = (
   props: JSX.IntrinsicAttributes & MultiValueRemoveProps<unknown, boolean, GroupBase<unknown>>,
 ) => {
