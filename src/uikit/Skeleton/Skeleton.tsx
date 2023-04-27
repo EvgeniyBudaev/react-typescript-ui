@@ -1,5 +1,5 @@
-import { CSSProperties, memo, useEffect, useRef } from "react";
-import type { FC } from "react";
+import { memo, useEffect, useRef } from "react";
+import type { FC, CSSProperties } from "react";
 import clsx from "clsx";
 import { formatToStringWithPx } from "../utils";
 import "./Skeleton.scss";

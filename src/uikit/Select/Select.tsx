@@ -17,9 +17,9 @@ import clsx from "clsx";
 
 import { ETheme } from "../enums";
 import { useMounted } from "../hooks";
-import { selectStyles } from "./selectStyles";
-import { isSelectMultiType, TSelectOption } from "./types";
 import { generateUUID } from "../utils";
+import { selectStyles } from "./selectStyles";
+import type { isSelectMultiType, TSelectOption } from "./types";
 import "./Select.scss";
 
 export type TSelectProps = {

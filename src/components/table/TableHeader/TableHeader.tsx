@@ -1,8 +1,7 @@
 import type { FC, ReactElement, ReactNode } from "react";
 import clsx from "clsx";
-import { Tooltip } from "../../../uikit";
-import { ETablePlacement } from "../../../uikit/Table/enums";
-import { TPlacement } from "../../../uikit/Tooltip/Tooltip/types";
+import { ETablePlacement, Tooltip } from "uikit";
+import type { TPlacement } from "uikit";
 
 type TProps = {
   children?: ReactNode;

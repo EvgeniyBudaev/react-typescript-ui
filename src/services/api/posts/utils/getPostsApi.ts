@@ -1,5 +1,5 @@
 import axios from "axios";
-import { TPosts } from "../types";
+import type { TPosts } from "../types";
 
 const BASE_URL = "https://jsonplaceholder.typicode.com";
 

@@ -1,5 +1,3 @@
-import { PrivateRoutePage } from "../pages";
-
 export enum ERoutes {
   Root = "/",
 

@@ -2,7 +2,7 @@ import { forwardRef, memo } from "react";
 import type { MouseEvent, ForwardedRef, ReactNode } from "react";
 import { CSSTransition } from "react-transition-group";
 import clsx from "clsx";
-import { TRANSITION } from "constants/transition";
+import { TRANSITION } from "uikit/constants/transition";
 import { Overlay } from "uikit";
 import "./Sidebar.scss";
 

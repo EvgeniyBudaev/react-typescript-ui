@@ -3,7 +3,7 @@ import type { FC } from "react";
 import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
 import { UploaderDropzone } from "./UploaderDropzone";
-import { TUploaderConfig } from "./types";
+import type { TUploaderConfig } from "./types";
 
 interface IUploaderProps {
   config?: TUploaderConfig;

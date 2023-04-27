@@ -6,9 +6,8 @@ import xor from "lodash/xor";
 
 import { Button, IconButton } from "../../Button";
 import { Modal, useModalWindow } from "../../Modal";
-import { TTableOptionsProps } from "./types";
-import { Typography } from "../../Typography";
-import { ETypographyVariant } from "../../Typography";
+import { ETypographyVariant, Typography } from "../../Typography";
+import type { TTableOptionsProps } from "./types";
 import "./Options.scss";
 
 const Component = <T extends object>({

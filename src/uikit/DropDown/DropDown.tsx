@@ -2,8 +2,8 @@ import { memo, useRef } from "react";
 import type { FC, ReactNode } from "react";
 import { CSSTransition } from "react-transition-group";
 import clsx from "clsx";
-import { TRANSITION } from "constants/transition";
-import { TDropDownClasses } from "./types";
+import { TRANSITION } from "uikit";
+import type { TDropDownClasses } from "./types";
 import "./DropDown.scss";
 
 type TProps = {

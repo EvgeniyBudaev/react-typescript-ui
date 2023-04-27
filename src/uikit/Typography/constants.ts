@@ -1,8 +1,7 @@
 import clsx from "clsx";
-import { ETypographyVariant } from "uikit/Typography/enums";
-
-import { EColorType } from "../Colors";
-import { TColor } from "./types";
+import { EColorType } from "uikit";
+import { ETypographyVariant } from "uikit";
+import type { TColor } from "./types";
 
 type TThemesOptions = {
   color: TColor;

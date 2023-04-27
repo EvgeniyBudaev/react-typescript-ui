@@ -2,7 +2,7 @@ import { memo, useRef } from "react";
 import type { FC, MouseEvent } from "react";
 import { CSSTransition } from "react-transition-group";
 import classNames from "classnames";
-import { TRANSITION } from "../../constants";
+import { TRANSITION } from "../constants";
 import "./Overlay.scss";
 
 type TProps = {

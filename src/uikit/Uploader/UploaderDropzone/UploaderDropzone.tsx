@@ -2,7 +2,7 @@ import React from "react";
 import type { FC } from "react";
 import Dropzone from "react-dropzone";
 import { Button } from "uikit";
-import { TUploaderConfig } from "../types";
+import type { TUploaderConfig } from "../types";
 import "./UploaderDropzone.scss";
 
 type TProps = {

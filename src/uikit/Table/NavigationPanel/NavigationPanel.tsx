@@ -1,8 +1,8 @@
 import { memo } from "react";
 import type { FC } from "react";
 
-import { ETablePlacement } from "../enums";
-import { ETheme } from "../../enums";
+import type { ETablePlacement } from "../enums";
+import type { ETheme } from "../../enums";
 import { PageSize } from "../PageSize";
 import { Pagination } from "../../Pagination";
 import "./NavigationPanel.scss";

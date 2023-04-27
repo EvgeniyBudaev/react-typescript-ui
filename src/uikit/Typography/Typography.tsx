@@ -1,11 +1,9 @@
 import { createElement, memo } from "react";
 import type { FC, ReactNode } from "react";
 
-import { ETypographyVariant } from "uikit/Typography/enums";
+import { ETextColor, ETypographyVariant } from "uikit";
 import { TYPOGRAPHY_THEMES } from "uikit/Typography/constants";
-
-import { ETextColor } from "../Colors";
-import { TColor } from "./types";
+import type { TColor } from "./types";
 import "./Typography.scss";
 
 type TProps = {

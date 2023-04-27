@@ -2,11 +2,12 @@ import { memo, useEffect, useMemo, useRef, useState } from "react";
 import type { FC, MouseEvent, ReactNode } from "react";
 import { CSSTransition } from "react-transition-group";
 import clsx from "clsx";
-import { TRANSITION } from "constants/transition";
+import { TRANSITION } from "uikit/constants/transition";
 import "./TooltipCustom.scss";
 
 export type TTooltipCustomPlacementType = "top" | "bottom" | "left" | "right";
 export type TTooltipCustomBehaviorType = "click" | "focus" | "hover";
+
 export enum ETooltipCustomBehavior {
   CLICK = "click",
   FOCUS = "focus",

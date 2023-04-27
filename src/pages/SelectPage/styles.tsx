@@ -1,4 +1,5 @@
-import { components, DropdownIndicatorProps, GroupBase, MultiValueRemoveProps } from "react-select";
+import { components } from "react-select";
+import type { DropdownIndicatorProps, GroupBase, MultiValueRemoveProps } from "react-select";
 import clsx from "clsx";
 import { Icon } from "uikit";
 

@@ -1,3 +1,3 @@
-import { TTableSortingColumnState } from "../types";
+import type { TTableSortingColumnState } from "../types";
 
 export type TSortingColumnStateWithReset = TTableSortingColumnState & { shouldReset?: boolean };

@@ -1,4 +1,4 @@
-import { TSelectOption } from "../../../Select";
+import type { TSelectOption } from "uikit";
 
 export const getPageSizeOptions = (numbers: number[]): TSelectOption[] =>
   numbers.map((step) => ({

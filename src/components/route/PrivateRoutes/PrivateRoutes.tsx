@@ -1,6 +1,6 @@
 import type { FC } from "react";
 import { Outlet, Navigate } from "react-router-dom";
-import { ERoutes } from "../../../enums";
+import { ERoutes } from "enums";
 
 type TProps = {
   isAuthenticated?: boolean;

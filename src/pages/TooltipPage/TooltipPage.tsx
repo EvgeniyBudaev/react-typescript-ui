@@ -1,5 +1,5 @@
 import React from "react";
-import { Icon, Tooltip, TooltipCustom } from "uikit";
+import { Icon, Tooltip } from "uikit";
 import "./TooltipPage.scss";
 
 export const TooltipPage: React.FC = () => {

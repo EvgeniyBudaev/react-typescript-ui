@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import type { ColumnDef, ColumnHelper } from "@tanstack/react-table";
 import { TableHeader } from "components/table/TableHeader";
-import { TPost } from "services/api/posts";
+import type { TPost } from "services/api/posts";
 import { ETableColumns } from "../enums";
 
 type TParams = {

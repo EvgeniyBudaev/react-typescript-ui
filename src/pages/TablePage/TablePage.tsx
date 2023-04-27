@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { FC } from "react";
 
-import { TPosts } from "services/api/posts";
+import type { TPosts } from "services/api/posts";
 import { getPostsApi } from "services/api/posts/utils";
 import { Spinner, useTable } from "uikit";
 

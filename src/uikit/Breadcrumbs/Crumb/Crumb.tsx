@@ -2,7 +2,7 @@ import { memo } from "react";
 import type { FC, ReactNode } from "react";
 import { Link } from "react-router-dom";
 import clsx from "clsx";
-import { BreadcrumbMatch } from "use-react-router-breadcrumbs";
+import type { BreadcrumbMatch } from "use-react-router-breadcrumbs";
 import { Icon } from "uikit";
 import "./Crumb.scss";
 

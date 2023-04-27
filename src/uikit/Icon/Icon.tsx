@@ -1,12 +1,12 @@
 import { memo, useEffect, useRef } from "react";
 import type { FC, DOMAttributes } from "react";
 import clsx from "clsx";
-import { formatToStringWithPx } from "uikit/utils";
 
-import { EColorType, ETextColor } from "../Colors";
+import { EColorType, ETextColor } from "uikit";
+import { formatToStringWithPx } from "uikit/utils";
 import type { IconType } from "./IconType";
 import { iconTypes } from "./IconType";
-import { TColor } from "./types";
+import type { TColor } from "./types";
 import "./Icon.scss";
 
 const getIcon = (type: string) => iconTypes.get(type);

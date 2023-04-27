@@ -2,7 +2,7 @@ import { useRef } from "react";
 import type { FC } from "react";
 import { Scrollbar } from "uikit";
 import type { Scrollbar as BaseScrollbar } from "smooth-scrollbar/scrollbar";
-import { OverscrollEffect } from "smooth-scrollbar/plugins/overscroll";
+import type { OverscrollEffect } from "smooth-scrollbar/plugins/overscroll";
 import "./ScrollbarPage.scss";
 
 export const ScrollbarPage: FC = () => {

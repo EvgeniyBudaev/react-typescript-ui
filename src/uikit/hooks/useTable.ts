@@ -6,11 +6,11 @@ import isEmpty from "lodash/isEmpty";
 import isNull from "lodash/isNull";
 import isNil from "lodash/isNil";
 
-import { TDeleteModalState } from "../../components/modal/ModalDelete";
-import { TSearchParams } from "../../components/search";
-import { DEBOUNCE_TIMEOUT, DEFAULT_PAGE, DEFAULT_PAGE_SIZE } from "../../constants";
-import { mapTableSortingToDto } from "../../services/api/sorting";
-import { TTableSortingColumnState } from "../Table/types";
+import type { TDeleteModalState } from "components/modal/ModalDelete";
+import type { TSearchParams } from "components/search";
+import { mapTableSortingToDto } from "services/api/sorting";
+import { DEBOUNCE_TIMEOUT, DEFAULT_PAGE, DEFAULT_PAGE_SIZE } from "../constants";
+import type { TTableSortingColumnState } from "../Table/types";
 
 type TParams = {
   onDelete?: (alias: string) => void;
@@ -58,6 +58,7 @@ export const useTable: TUseTable = ({ onDelete, pageOption, sizeOption }) => {
       ...params,
     };
     return Object.fromEntries(
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       Object.entries(mergedParams).filter(([_key, value]) => !isEmpty(value)),
     );
   };

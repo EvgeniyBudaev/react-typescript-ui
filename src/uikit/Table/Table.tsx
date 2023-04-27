@@ -4,13 +4,13 @@ import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import type { VisibilityState } from "@tanstack/react-table";
 import clsx from "clsx";
 
-import { DEFAULT_PAGE_SIZE, DEFAULT_PAGE_SIZE_LIST } from "../../constants";
+import { DEFAULT_PAGE_SIZE, DEFAULT_PAGE_SIZE_LIST } from "../constants";
 import { Control } from "./Control";
 import { ETablePlacement } from "./enums";
 import { NavigationPanel } from "./NavigationPanel";
 import { TableBody } from "./TableBody";
 import { TableHeader } from "./TableHeader";
-import { TTableProps } from "./types";
+import type { TTableProps } from "./types";
 import "./Table.scss";
 
 const TableComponent = <TColumn extends Record<string, any>>(

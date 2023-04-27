@@ -10,10 +10,11 @@ import type { Header } from "@tanstack/react-table";
 
 import { ETableSortDirection } from "../enums";
 import { Icon } from "../../Icon";
-import { TTableOptionsSorting } from "../Options";
-import { POPOVER_POSITION_STYLES, POPOVER_WIDTH, TPopoverPosition } from "../../Popover";
-import { TSortingColumnStateWithReset } from "../TableHeader";
-import { TTableSortingHandleChange } from "../types";
+import type { TTableOptionsSorting } from "../Options";
+import type { TPopoverPosition } from "../../Popover";
+import { POPOVER_POSITION_STYLES, POPOVER_WIDTH } from "../../Popover";
+import type { TSortingColumnStateWithReset } from "../TableHeader";
+import type { TTableSortingHandleChange } from "../types";
 import { ETypographyVariant, Typography } from "../../Typography";
 import "./TableHeaderItem.scss";
 

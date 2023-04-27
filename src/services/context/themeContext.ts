@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { ETheme } from "uikit";
+import type { ETheme } from "uikit";
 
 export type TThemeState = {
   onChangeTheme: (theme: ETheme) => void;

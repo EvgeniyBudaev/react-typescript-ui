@@ -1,8 +1,9 @@
 import { memo } from "react";
 import type { ButtonHTMLAttributes, DetailedHTMLProps, FC, MouseEvent } from "react";
 import clsx from "clsx";
-import { Icon, IconType } from "uikit";
-import { TButton } from "./types";
+import { Icon } from "uikit";
+import type { IconType } from "uikit";
+import type { TButton } from "./types";
 import "./Button.scss";
 
 export interface IButtonProps

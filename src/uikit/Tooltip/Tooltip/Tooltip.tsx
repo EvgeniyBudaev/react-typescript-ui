@@ -3,11 +3,11 @@ import type { FC, ReactElement, ReactNode } from "react";
 import ReactDOM from "react-dom";
 import { usePopper } from "react-popper";
 import clsx from "clsx";
-import "./Tooltip.scss";
 
-import { useMounted } from "../../hooks";
-import type { TModifiers, TPlacement } from "./types";
+import { useMounted } from "uikit";
+import type { TModifiers, TPlacement } from "uikit";
 import { getTooltipOffset, getVirtualReference } from "./utils";
+import "./Tooltip.scss";
 
 export type TTooltipProps = {
   children?: ReactNode;

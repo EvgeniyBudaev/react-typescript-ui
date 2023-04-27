@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import { Button, ETypographyVariant, Modal, Typography } from "../../../uikit";
+import { Button, ETypographyVariant, Modal, Typography } from "uikit";
 import "./ModalDelete.scss";
 
 type TProps = {

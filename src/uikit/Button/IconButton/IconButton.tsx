@@ -1,8 +1,9 @@
 import { memo } from "react";
 import type { FC, MouseEvent } from "react";
 import clsx from "clsx";
-import { Button, Icon, IconType } from "uikit";
-import { IButtonProps } from "../Button";
+import { Button, Icon } from "uikit";
+import type { IconType } from "uikit";
+import type { IButtonProps } from "../Button";
 import "./IconButton.scss";
 
 export interface IIconButtonProps extends IButtonProps {

@@ -3,7 +3,7 @@ import type { FC, PropsWithChildren } from "react";
 import { CSSTransition } from "react-transition-group";
 import clsx from "clsx";
 
-import { TRANSITION } from "../../constants";
+import { TRANSITION } from "../constants";
 import { Icon } from "../Icon";
 import "./Accordion.scss";
 

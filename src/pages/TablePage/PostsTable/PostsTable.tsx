@@ -1,6 +1,6 @@
 import { forwardRef, memo, useMemo, useState } from "react";
 import isNil from "lodash/isNil";
-import { TPost, TPosts } from "services/api/posts";
+import type { TPost, TPosts } from "services/api/posts";
 import { createColumnHelper, ETheme, Table, useThemeContext } from "uikit";
 import type { TTableSortingProps } from "uikit";
 import { useGetColumns } from "./hooks";

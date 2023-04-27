@@ -1,4 +1,4 @@
-import { TTableSortingParams } from "../../../uikit";
+import type { TTableSortingParams } from "uikit";
 
 export const mapTableSortingToDto = (params?: TTableSortingParams, type?: string) => {
   if (Array.isArray(params)) {

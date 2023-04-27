@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import type { FC } from "react";
-import { MultiValue, SingleValue } from "react-select";
+import type { MultiValue, SingleValue } from "react-select";
 import type { OnChangeValue } from "react-select";
 import clsx from "clsx";
 import isNil from "lodash/isNil";
-import { ETheme, isSelectMultiType, Select, TSelectOption, TSorting, useThemeContext } from "uikit";
+import { ETheme, Select, useThemeContext } from "uikit";
+import type { isSelectMultiType, TSelectOption, TSorting } from "uikit";
 import { StyledDropdownIndicator } from "./styles";
 import "./SelectPage.scss";
 

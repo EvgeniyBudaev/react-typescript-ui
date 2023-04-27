@@ -1,7 +1,7 @@
 import type { GroupBase, StylesConfig } from "react-select";
 import { ETheme } from "../enums";
 import { VARIANTS } from "./selectVariants";
-import { isSelectMultiType, TSelectOption } from "./types";
+import type { isSelectMultiType, TSelectOption } from "./types";
 
 export const selectStyles = (
   variant = ETheme.Light,

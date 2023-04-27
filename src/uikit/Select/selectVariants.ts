@@ -1,5 +1,5 @@
-import { ETheme } from "../enums";
-import { TSelectVariantStyle } from "./types";
+import type { ETheme } from "../enums";
+import type { TSelectVariantStyle } from "./types";
 
 const COLOR_PRIMARY = "#b0976a";
 const COLOR_PRIMARY_HOVER = "#997e4d";

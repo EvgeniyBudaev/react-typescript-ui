@@ -4,13 +4,8 @@ import type { FC } from "react";
 import clsx from "clsx";
 import { Popover as UiPopover, Transition } from "@headlessui/react";
 
-import {
-  ETypographyVariant,
-  POPOVER_POSITION_STYLES,
-  POPOVER_WIDTH,
-  TPopoverPosition,
-  Typography,
-} from "../../uikit";
+import { ETypographyVariant, POPOVER_POSITION_STYLES, POPOVER_WIDTH, Typography } from "uikit";
+import type { TPopoverPosition } from "uikit";
 import "./PopoverPage.scss";
 
 export const PopoverPage: FC = () => {

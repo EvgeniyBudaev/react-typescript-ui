@@ -1,9 +1,9 @@
 import type { FC } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { ERoutes } from "enums";
+import { ETypographyVariant, Typography } from "uikit";
 import { formatToCapitalize } from "utils";
 import "./MenuPanel.scss";
-import { ETypographyVariant, Typography } from "../../../uikit";
 
 export const MenuPanel: FC = () => {
   const navList = [

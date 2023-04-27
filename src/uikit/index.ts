@@ -5,7 +5,6 @@ export * from "./Breadcrumbs";
 export * from "./Button";
 export * from "./Checkbox";
 export * from "./ClientOnly";
-export * from "./Colors";
 export * from "./DocumentViewer";
 export * from "./DropDown";
 export * from "./Error";
@@ -32,7 +31,9 @@ export * from "./Tooltip";
 export * from "./Typography";
 export * from "./Uploader";
 
+// eslint-disable-next-line @typescript-eslint/consistent-type-imports
 export type IconType = import("./Icon/IconType").IconType;
+export * from "./constants";
 export * from "./enums";
 export * from "./hooks";
 export * from "./types";
