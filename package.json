@@ -25,6 +25,7 @@
     "react-scripts": "5.0.1",
     "react-select": "^5.7.0",
     "react-shadow": "^20.0.0",
+    "react-syntax-highlighter": "^15.5.0",
     "react-transition-group": "^4.4.5",
     "smooth-scrollbar": "^8.8.1",
     "smooth-scrollbar-react": "^2.4.1",
