@@ -10,7 +10,7 @@ type TProps = {
   as?: string;
   children?: ReactNode;
   color?: TColor;
-  variant?: `${ETypographyVariant}`;
+  variant?: ETypographyVariant;
 };
 
 const Component: FC<TProps> = ({
