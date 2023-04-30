@@ -5,6 +5,5 @@ import "./ThemeSwitcher.scss";
 export const SWITCHER_THEMES = () => {
   return {
     [ESwitcherVariant.Default]: clsx("ThemeSwitcher"),
-    [ESwitcherVariant.Header]: clsx("ThemeSwitcher ThemeSwitcher__header"),
   };
 };

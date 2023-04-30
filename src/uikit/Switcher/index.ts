@@ -1,3 +1,4 @@
 export * from "./constants";
 export * from "./enums";
-export * from "./Switcher";
+export * from "./SwitcherCustom";
+export * from "./SwitcherHeadless";
