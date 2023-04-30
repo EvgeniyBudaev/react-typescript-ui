@@ -9,7 +9,7 @@ type TProps = {
   variant?: ESwitcherVariant;
 };
 
-export const ThemeSwitcherWithSwitcherCustom: FC<TProps> = ({
+export const ThemeSwitcherCustom: FC<TProps> = ({
   className,
   variant = ESwitcherVariant.Default,
 }) => {

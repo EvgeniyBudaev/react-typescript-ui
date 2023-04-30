@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import { ThemeSwitcher, ThemeSwitcherWithSwitcherCustom } from "components";
+import { ThemeSwitcher, ThemeSwitcherCustom } from "components";
 import "./SwitcherPage.scss";
 
 export const SwitcherPage: FC = () => {
@@ -9,7 +9,7 @@ export const SwitcherPage: FC = () => {
       <ThemeSwitcher />
       <hr />
       <h2>Switcher Custom</h2>
-      <ThemeSwitcherWithSwitcherCustom />
+      <ThemeSwitcherCustom />
     </section>
   );
 };

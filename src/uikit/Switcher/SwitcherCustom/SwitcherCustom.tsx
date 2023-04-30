@@ -11,7 +11,7 @@ type TProps = {
   variant?: ESwitcherVariant;
 };
 
-const Component: FC<TProps> = ({
+const SwitcherCustomComponent: FC<TProps> = ({
   children,
   className,
   isChecked,
@@ -31,4 +31,4 @@ const Component: FC<TProps> = ({
   );
 };
 
-export const SwitcherCustom = memo(Component);
+export const SwitcherCustom = memo(SwitcherCustomComponent);
