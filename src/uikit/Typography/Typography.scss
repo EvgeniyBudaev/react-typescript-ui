@@ -25,6 +25,10 @@ $base-font-family: "Roboto", sans-serif;
       font-style: normal;
       line-height: 1.25;
 
+      &__bold {
+        font-weight: 700;
+      }
+
       &__medium {
         font-weight: 500;
       }

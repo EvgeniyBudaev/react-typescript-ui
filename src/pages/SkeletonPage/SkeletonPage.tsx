@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { FC } from "react";
-import { Skeleton } from "uikit";
+import { ETypographyVariant, Skeleton, Typography } from "uikit";
 import "./SkeletonPage.scss";
 
 export const SkeletonPage: FC = () => {
@@ -8,7 +8,7 @@ export const SkeletonPage: FC = () => {
 
   return (
     <section className="SkeletonPage">
-      <h2>Skeleton</h2>
+      <Typography variant={ETypographyVariant.TextH1Medium}>Skeleton</Typography>
       <div style={{ height: "50px", width: "50px", marginBottom: "25px" }}>
         {isLoading && <Skeleton />}
       </div>

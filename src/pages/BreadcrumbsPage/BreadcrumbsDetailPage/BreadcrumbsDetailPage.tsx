@@ -1,10 +1,10 @@
 import type { FC } from "react";
-import { Breadcrumbs } from "uikit";
+import { Breadcrumbs, ETypographyVariant, Typography } from "uikit";
 
 export const BreadcrumbsDetailPage: FC = () => {
   return (
     <section className="BreadcrumbsDetailPage">
-      <h2>Breadcrumbs detail page</h2>
+      <Typography variant={ETypographyVariant.TextH1Medium}>Breadcrumbs detail page</Typography>
       <Breadcrumbs />
     </section>
   );

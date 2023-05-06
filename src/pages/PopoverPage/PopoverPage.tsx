@@ -72,7 +72,7 @@ export const PopoverPage: FC = () => {
 
   return (
     <section className="PopoverPage">
-      <h2>Popover</h2>
+      <Typography variant={ETypographyVariant.TextH1Medium}>Popover</Typography>
       <UiPopover className="HeadlessPopover">
         <UiPopover.Button ref={setReferenceElement} className="HeadlessPopover-Button">
           <div ref={triggerRef}>{renderPopoverTrigger()}</div>

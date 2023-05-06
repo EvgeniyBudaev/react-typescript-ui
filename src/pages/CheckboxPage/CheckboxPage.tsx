@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { ChangeEvent, FC } from "react";
-import { Checkbox } from "uikit";
+import { Checkbox, ETypographyVariant, Typography } from "uikit";
 import "./CheckboxPage.scss";
 
 type TParams = Record<string, any>;
@@ -33,7 +33,7 @@ export const CheckboxPage: FC = () => {
 
   return (
     <section className="CheckboxPage">
-      <h2>Checkbox</h2>
+      <Typography variant={ETypographyVariant.TextH1Medium}>Checkbox</Typography>
       <div>
         <Checkbox
           checked={filter && filter["enabled"].includes(idCheckbox)}

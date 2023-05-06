@@ -1,11 +1,11 @@
 import type { FC } from "react";
-import { Accordion } from "uikit";
+import { Accordion, ETypographyVariant, Typography } from "uikit";
 import "./AccordionPage.scss";
 
 export const AccordionPage: FC = () => {
   return (
     <section className="AccordionPage">
-      <h2>Accordion</h2>
+      <Typography variant={ETypographyVariant.TextH1Medium}>Accordion</Typography>
       <Accordion title="Title" isActive={true}>
         <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has

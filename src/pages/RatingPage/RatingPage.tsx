@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { FC } from "react";
-import { Rating } from "uikit";
+import { ETypographyVariant, Rating, Typography } from "uikit";
 import "./RatingPage.scss";
 
 export const RatingPage: FC = () => {
@@ -12,7 +12,7 @@ export const RatingPage: FC = () => {
 
   return (
     <section className="RatingPage">
-      <h2>Rating</h2>
+      <Typography variant={ETypographyVariant.TextH1Medium}>Rating</Typography>
       <Rating activeColor="#ffd700" count={5} size={45} onChange={handleRatingChange} />
       <div>
         <pre>{JSON.stringify(rating, null, 2)}</pre>

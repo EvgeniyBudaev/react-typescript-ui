@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { FC } from "react";
-import { Button, Modal } from "uikit";
+import { Button, ETypographyVariant, Modal, Typography } from "uikit";
 import "./ModalPage.scss";
 
 export const ModalPage: FC = () => {
@@ -20,7 +20,7 @@ export const ModalPage: FC = () => {
 
   return (
     <section className="ModalPage">
-      <h2>Modal</h2>
+      <Typography variant={ETypographyVariant.TextH1Medium}>Modal</Typography>
       <Button onClick={handleModalOpen}>Open</Button>
       <Modal isOpen={isOpenModal} onCloseModal={handleModalClose}>
         <Modal.Header>

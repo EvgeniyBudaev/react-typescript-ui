@@ -18,6 +18,10 @@ export const TYPOGRAPHY_THEMES = (options: TThemesOptions) => {
       "Typography-text-h1 Typography-text-h1__medium",
       mainStyles,
     ),
+    [ETypographyVariant.TextH2Bold]: clsx(
+      "Typography-text-h2 Typography-text-h2__bold",
+      mainStyles,
+    ),
     [ETypographyVariant.TextH2Medium]: clsx(
       "Typography-text-h2 Typography-text-h2__medium",
       mainStyles,

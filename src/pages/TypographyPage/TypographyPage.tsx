@@ -5,7 +5,7 @@ import "./TypographyPage.scss";
 export const TypographyPage: FC = () => {
   return (
     <section className="TypographyPage">
-      <h2>Typography</h2>
+      <Typography variant={ETypographyVariant.TextH1Medium}>Typography</Typography>
 
       <hr />
       <Typography variant={ETypographyVariant.TextH1Bold}>Title</Typography>

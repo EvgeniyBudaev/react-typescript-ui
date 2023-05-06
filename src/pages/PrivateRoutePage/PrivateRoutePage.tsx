@@ -1,10 +1,11 @@
 import type { FC } from "react";
 import "./PrivateRoutePage.scss";
+import { ETypographyVariant, Typography } from "uikit";
 
 export const PrivateRoutePage: FC = () => {
   return (
     <section className="TestPage">
-      <h2>Private Route</h2>
+      <Typography variant={ETypographyVariant.TextH1Medium}>Private Route</Typography>
     </section>
   );
 };

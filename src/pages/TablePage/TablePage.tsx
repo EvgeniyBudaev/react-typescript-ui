@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import type { FC } from "react";
 
 import type { TPosts } from "services/api/posts";
 import { getPostsApi } from "services/api/posts/utils";
-import { Spinner, useTable } from "uikit";
+import { ETypographyVariant, Spinner, Typography, useTable } from "uikit";
 
 import { ETableColumns, PostsTable } from "./PostsTable";
 import "./TablePage.scss";
@@ -39,7 +39,7 @@ export const TablePage: FC = () => {
 
   return (
     <section className="TablePage">
-      <h2>Table</h2>
+      <Typography variant={ETypographyVariant.TextH1Medium}>Table</Typography>
       <PostsTable
         fieldsSortState={{
           columns: [ETableColumns.Title],

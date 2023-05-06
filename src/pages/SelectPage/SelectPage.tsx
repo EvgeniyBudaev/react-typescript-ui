@@ -4,7 +4,7 @@ import type { MultiValue, SingleValue } from "react-select";
 import type { OnChangeValue } from "react-select";
 import clsx from "clsx";
 import isNil from "lodash/isNil";
-import { ETheme, Select, useThemeContext } from "uikit";
+import { ETheme, ETypographyVariant, Select, Typography, useThemeContext } from "uikit";
 import type { isSelectMultiType, TSelectOption, TSorting } from "uikit";
 import { StyledDropdownIndicator } from "./styles";
 import "./SelectPage.scss";
@@ -65,7 +65,7 @@ export const SelectPage: FC<TProps> = ({ sorting = "price_asc" }) => {
 
   return (
     <section className="SelectPage">
-      <h2>Select</h2>
+      <Typography variant={ETypographyVariant.TextH1Medium}>Select</Typography>
       <Select
         className={clsx("SelectPage-Select", {
           "SelectPage-Select__active": isSelectOpened,
@@ -83,7 +83,7 @@ export const SelectPage: FC<TProps> = ({ sorting = "price_asc" }) => {
         <pre>{JSON.stringify(selectedOption, null, 2)}</pre>
       </div>
       <hr />
-      <h2>Multiple Select</h2>
+      <Typography variant={ETypographyVariant.TextH1Medium}>Multiple Select</Typography>
       <Select
         className={clsx("SelectPage-Select", {
           "SelectPage-Select__active": isSelectOpened,
