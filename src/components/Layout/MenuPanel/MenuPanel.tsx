@@ -28,6 +28,7 @@ export const MenuPanel: FC = () => {
     ERoutes.Select,
     ERoutes.Sidebar,
     ERoutes.Skeleton,
+    ERoutes.Slider,
     ERoutes.Spinner,
     ERoutes.Switcher,
     ERoutes.Table,

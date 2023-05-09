@@ -26,6 +26,7 @@ import {
   SelectPage,
   SidebarPage,
   SkeletonPage,
+  SliderPage,
   SpinnerPage,
   SwitcherPage,
   TablePage,
@@ -69,6 +70,7 @@ export const App: FC = () => {
             <Route path={ERoutes.Select} element={<SelectPage />} />
             <Route path={ERoutes.Sidebar} element={<SidebarPage />} />
             <Route path={ERoutes.Skeleton} element={<SkeletonPage />} />
+            <Route path={ERoutes.Slider} element={<SliderPage />} />
             <Route path={ERoutes.Spinner} element={<SpinnerPage />} />
             <Route path={ERoutes.Switcher} element={<SwitcherPage />} />
             <Route path={ERoutes.Table} element={<TablePage />} />

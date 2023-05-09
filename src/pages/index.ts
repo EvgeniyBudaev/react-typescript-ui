@@ -19,6 +19,7 @@ export * from "./ScrollbarPage";
 export * from "./SelectPage";
 export * from "./SidebarPage";
 export * from "./SkeletonPage";
+export * from "./SliderPage";
 export * from "./SpinnerPage";
 export * from "./SwitcherPage";
 export * from "./TablePage";

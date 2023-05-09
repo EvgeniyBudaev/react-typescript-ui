@@ -22,6 +22,7 @@ export enum ERoutes {
   Select = "/select",
   Sidebar = "/sidebar",
   Skeleton = "/skeleton",
+  Slider = "/slider",
   Spinner = "/spinner",
   Switcher = "/switcher",
   Table = "/table",

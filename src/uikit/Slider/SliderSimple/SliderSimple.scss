@@ -1,0 +1,14 @@
+.SliderSimple {
+  &-Item {
+    width: 100%;
+    position: relative;
+
+    & > div {
+      width: 100%;
+    }
+  }
+
+  &-Image {
+    cursor: pointer;
+  }
+}
