@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import type { FC } from "react";
+import { Title } from "components";
 import { ETypographyVariant, Tabs, Typography } from "uikit";
 import type { TTab } from "uikit";
 import "./TabsPage.scss";
@@ -18,7 +19,7 @@ export const TabsPage: FC = () => {
 
   return (
     <section className="TabsPage">
-      <Typography variant={ETypographyVariant.TextH1Medium}>Tabs</Typography>
+      <Title>Tabs</Title>
       <Tabs selectedId={selectedTabId} tabs={tabs} onClick={handleTabClick} />
       <div className="TabsPage-Content">
         {selectedTabId === tabs[0].id && (

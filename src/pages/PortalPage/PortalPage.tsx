@@ -1,14 +1,16 @@
 import type { FC } from "react";
-import { ETypographyVariant, Portal, Typography } from "uikit";
+import { Title } from "components";
+import { Portal } from "uikit";
 import "./PortalPage.scss";
+import React from "react";
 
 export const PortalPage: FC = () => {
   return (
-    <div className="PortalPage">
-      <Typography variant={ETypographyVariant.TextH1Medium}>Portal</Typography>
+    <section>
+      <Title>Portal</Title>
       <Portal className="MyPortal" element="span" elementFindById="react-modals">
         <h3>This is portal container</h3>
       </Portal>
-    </div>
+    </section>
   );
 };

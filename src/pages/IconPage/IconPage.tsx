@@ -1,11 +1,12 @@
+import React from "react";
 import type { FC } from "react";
-import { ETypographyVariant, Icon, Typography } from "uikit";
-import "./IconPage.scss";
+import { Title } from "components";
+import { Icon } from "uikit";
 
 export const IconPage: FC = () => {
   return (
-    <section className="IconPage">
-      <Typography variant={ETypographyVariant.TextH1Medium}>Icon</Typography>
+    <section>
+      <Title>Icon</Title>
       <Icon type="Close" />
     </section>
   );

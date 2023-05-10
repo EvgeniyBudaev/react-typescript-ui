@@ -1,11 +1,13 @@
+import React from "react";
 import type { FC } from "react";
-import { ETypographyVariant, Spinner, Typography } from "uikit";
+import { Title } from "components";
+import { Spinner } from "uikit";
 import "./SpinnerPage.scss";
 
 export const SpinnerPage: FC = () => {
   return (
     <section className="SpinnerPage">
-      <Typography variant={ETypographyVariant.TextH1Medium}>Spinner</Typography>
+      <Title>Spinner</Title>
       <section className="SpinnerPage-Section">
         <Spinner />
       </section>

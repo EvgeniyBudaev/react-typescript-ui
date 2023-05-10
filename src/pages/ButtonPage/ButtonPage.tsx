@@ -1,7 +1,7 @@
 import React from "react";
 import type { FC, MouseEvent } from "react";
-import { Button, ETypographyVariant, IconButton, Typography } from "uikit";
-import "./ButtonPage.scss";
+import { Hr, Title } from "components";
+import { Button, IconButton } from "uikit";
 
 export const ButtonPage: FC = () => {
   const handleButtonClick = (event: MouseEvent) => {
@@ -9,33 +9,31 @@ export const ButtonPage: FC = () => {
   };
 
   return (
-    <section className="ButtonPage">
-      <Typography variant={ETypographyVariant.TextH1Medium}>Button</Typography>
+    <section>
+      <Title>Button</Title>
       <Button isDisabled={false} onClick={handleButtonClick}>
         Send
       </Button>
-      <hr />
-      <Typography variant={ETypographyVariant.TextH1Medium}>Button disabled</Typography>
+      <Hr />
+      <Title>Button disabled</Title>
       <Button isDisabled onClick={handleButtonClick}>
         Send
       </Button>
-      <hr />
-      <Typography variant={ETypographyVariant.TextH1Medium}>Button with icon</Typography>
+      <Hr />
+      <Title>Button with icon</Title>
       <Button typeIcon="Edit" onClick={handleButtonClick}>
         Create a record
       </Button>
-      <hr />
-      <Typography variant={ETypographyVariant.TextH1Medium}>
-        Button with icon and disabled
-      </Typography>
+      <Hr />
+      <Title>Button with icon and disabled</Title>
       <Button typeIcon="Edit" isDisabled onClick={handleButtonClick}>
         Create a record
       </Button>
-      <hr />
-      <Typography variant={ETypographyVariant.TextH1Medium}>IconButton</Typography>
+      <Hr />
+      <Title>IconButton</Title>
       <IconButton typeIcon="Telegram" onClick={handleButtonClick} />
-      <hr />
-      <Typography variant={ETypographyVariant.TextH1Medium}>IconButton Disabled</Typography>
+      <Hr />
+      <Title>IconButton Disabled</Title>
       <IconButton isDisabled typeIcon="Telegram" />
     </section>
   );

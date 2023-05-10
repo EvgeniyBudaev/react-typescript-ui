@@ -1,5 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import type { FC } from "react";
+import { Title } from "components";
 import { Button, Overlay } from "uikit";
 
 export const OverlayPage: FC = () => {
@@ -14,7 +15,8 @@ export const OverlayPage: FC = () => {
   };
 
   return (
-    <section className="OverlayPage">
+    <section>
+      <Title>Overlay</Title>
       <Button onClick={handleOpen}>Open</Button>
       <Overlay isActive={isOpen} onClick={handleClose} />
     </section>

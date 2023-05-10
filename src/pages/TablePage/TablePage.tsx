@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import type { FC } from "react";
-
+import { Title } from "components";
 import type { TPosts } from "services/api/posts";
 import { getPostsApi } from "services/api/posts/utils";
-import { ETypographyVariant, Spinner, Typography, useTable } from "uikit";
-
+import { Spinner, useTable } from "uikit";
 import { ETableColumns, PostsTable } from "./PostsTable";
-import "./TablePage.scss";
 
 export const TablePage: FC = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -38,8 +36,8 @@ export const TablePage: FC = () => {
   if (isLoading) return <Spinner />;
 
   return (
-    <section className="TablePage">
-      <Typography variant={ETypographyVariant.TextH1Medium}>Table</Typography>
+    <section>
+      <Title>Table</Title>
       <PostsTable
         fieldsSortState={{
           columns: [ETableColumns.Title],

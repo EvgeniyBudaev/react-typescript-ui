@@ -1,8 +1,10 @@
-import { useRef } from "react";
+import React, { useRef } from "react";
 import type { FC } from "react";
-import { ETypographyVariant, Scrollbar, Typography } from "uikit";
 import type { Scrollbar as BaseScrollbar } from "smooth-scrollbar/scrollbar";
 import type { OverscrollEffect } from "smooth-scrollbar/plugins/overscroll";
+
+import { Title } from "components";
+import { Scrollbar } from "uikit";
 import "./ScrollbarPage.scss";
 
 export const ScrollbarPage: FC = () => {
@@ -13,7 +15,7 @@ export const ScrollbarPage: FC = () => {
 
   return (
     <section className="ScrollbarPage">
-      <Typography variant={ETypographyVariant.TextH1Medium}>Scrollbar</Typography>
+      <Title>Scrollbar</Title>
       <Scrollbar
         alwaysShowTracks
         ref={scrollbar}

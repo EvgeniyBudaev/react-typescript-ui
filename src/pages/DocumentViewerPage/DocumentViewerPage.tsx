@@ -1,6 +1,7 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import type { FC } from "react";
-import { Button, DocumentViewer, ETypographyVariant, Modal, Typography } from "uikit";
+import { Hr, Title } from "components";
+import { Button, DocumentViewer, Modal } from "uikit";
 import { template } from "./template";
 import "./DocumentViewerPage.scss";
 
@@ -17,10 +18,10 @@ export const DocumentViewerPage: FC = () => {
 
   return (
     <section className="DocumentViewerPage">
-      <h2>IFrame</h2>
+      <Title>IFrame</Title>
       <iframe srcDoc={template} frameBorder="0"></iframe>
-      <hr />
-      <Typography variant={ETypographyVariant.TextH1Medium}>Document Viewer</Typography>
+      <Hr />
+      <Title>Document Viewer</Title>
       <Button onClick={handleModalOpen}>Open Modal Window</Button>
       <Modal
         className="DocumentViewerPage-Modal"

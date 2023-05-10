@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import type { FC } from "react";
 import clsx from "clsx";
+import { Hr, Title } from "components";
 import { ETypographyVariant, Icon, TooltipCustom, Typography, useCopyToClipboard } from "uikit";
 import "./CopyPage.scss";
 
@@ -36,8 +37,8 @@ export const CopyPage: FC = () => {
 
   return (
     <section className="CopyPage">
-      <Typography variant={ETypographyVariant.TextH1Medium}>Copy to clipboard</Typography>
-      <hr />
+      <Title>Copy to clipboard</Title>
+      <Hr />
       <div className="CopyPage-Details">
         <div className="CopyPage-Label">User ID</div>
         <div>{userId1}</div>

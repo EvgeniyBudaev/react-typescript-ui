@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import type { FC } from "react";
 import type { MultiValue, SingleValue } from "react-select";
 import type { OnChangeValue } from "react-select";
 import clsx from "clsx";
 import isNil from "lodash/isNil";
-import { ETheme, ETypographyVariant, Select, Typography, useThemeContext } from "uikit";
+import { Hr, Title } from "components";
+import { ETheme, Select, useThemeContext } from "uikit";
 import type { isSelectMultiType, TSelectOption, TSorting } from "uikit";
 import { StyledDropdownIndicator } from "./styles";
 import "./SelectPage.scss";
@@ -65,7 +66,7 @@ export const SelectPage: FC<TProps> = ({ sorting = "price_asc" }) => {
 
   return (
     <section className="SelectPage">
-      <Typography variant={ETypographyVariant.TextH1Medium}>Select</Typography>
+      <Title>Select</Title>
       <Select
         className={clsx("SelectPage-Select", {
           "SelectPage-Select__active": isSelectOpened,
@@ -82,8 +83,8 @@ export const SelectPage: FC<TProps> = ({ sorting = "price_asc" }) => {
       <div>
         <pre>{JSON.stringify(selectedOption, null, 2)}</pre>
       </div>
-      <hr />
-      <Typography variant={ETypographyVariant.TextH1Medium}>Multiple Select</Typography>
+      <Hr />
+      <Title>Multiple Select</Title>
       <Select
         className={clsx("SelectPage-Select", {
           "SelectPage-Select__active": isSelectOpened,

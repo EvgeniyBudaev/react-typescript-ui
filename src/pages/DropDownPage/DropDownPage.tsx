@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import type { FC } from "react";
-import { DropDown, ETypographyVariant, Typography } from "uikit";
+import { Title } from "components";
+import { DropDown } from "uikit";
 import "./DropDownPage.scss";
 
 export const DropDownPage: FC = () => {
@@ -30,7 +31,7 @@ export const DropDownPage: FC = () => {
 
   return (
     <section className="DropDownPage">
-      <Typography variant={ETypographyVariant.TextH1Medium}>DropDown</Typography>
+      <Title>DropDown</Title>
       <nav className="DropDownPage-Navigation">
         <ul className="DropDownPage-Menu">
           <li

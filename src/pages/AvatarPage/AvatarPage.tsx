@@ -1,15 +1,16 @@
 import React from "react";
-import { Avatar, ETypographyVariant, Typography } from "uikit";
+import type { FC } from "react";
+import { Hr, Title } from "components";
+import { Avatar } from "uikit";
 import avatar from "./avatar.jpg";
-import "./AvatarPage.scss";
 
-export const AvatarPage: React.FC = () => {
+export const AvatarPage: FC = () => {
   return (
-    <section className="AvatarPage">
-      <Typography variant={ETypographyVariant.TextH1Medium}>Avatar with initials</Typography>
+    <section>
+      <Title>Avatar with initials</Title>
       <Avatar title="IT" />
-      <hr />
-      <Typography variant={ETypographyVariant.TextH1Medium}>Avatar with image</Typography>
+      <Hr />
+      <Title>Avatar with image</Title>
       <Avatar image={avatar} />
     </section>
   );

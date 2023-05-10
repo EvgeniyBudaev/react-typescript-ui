@@ -1,14 +1,18 @@
+import React from "react";
 import type { FC } from "react";
+import { Hr } from "components";
 import { ETypographyVariant, Typography } from "uikit";
-import "./TypographyPage.scss";
 
 export const TypographyPage: FC = () => {
   return (
-    <section className="TypographyPage">
-      <Typography variant={ETypographyVariant.TextH1Medium}>Typography</Typography>
-
-      <hr />
-      <Typography variant={ETypographyVariant.TextH1Bold}>Title</Typography>
+    <section>
+      <Typography as="div" variant={ETypographyVariant.TextH1Medium}>
+        Typography
+      </Typography>
+      <Hr />
+      <Typography as="div" variant={ETypographyVariant.TextH1Bold}>
+        Title
+      </Typography>
     </section>
   );
 };

@@ -1,5 +1,6 @@
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import type { FC } from "react";
+import { Title } from "components";
 import { Avatar, ETypographyVariant, Hamburger, Sidebar, Typography } from "uikit";
 import "./SidebarPage.scss";
 
@@ -17,7 +18,7 @@ export const SidebarPage: FC = () => {
 
   return (
     <section className="SidebarPage">
-      <Typography variant={ETypographyVariant.TextH1Medium}>Sidebar</Typography>
+      <Title>Sidebar</Title>
       <Hamburger color="black" isActive={isActive} onClick={handleSidebarOpen} />
       <Sidebar
         className="SidebarPageSidebar"

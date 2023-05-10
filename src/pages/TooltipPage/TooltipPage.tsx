@@ -1,5 +1,6 @@
 import React from "react";
-import { ETypographyVariant, Icon, Tooltip, Typography } from "uikit";
+import { Title } from "components";
+import { Icon, Tooltip } from "uikit";
 import "./TooltipPage.scss";
 
 export const TooltipPage: React.FC = () => {
@@ -10,28 +11,28 @@ export const TooltipPage: React.FC = () => {
   return (
     <section className="TooltipPage">
       <div className="TooltipPage-Block">
-        <Typography variant={ETypographyVariant.TextH1Medium}>Tooltip top</Typography>
+        <Title>Tooltip top</Title>
         <Tooltip message={renderTooltipContent()} placement="top">
           Hover me
         </Tooltip>
       </div>
 
       <div className="TooltipPage-Block">
-        <Typography variant={ETypographyVariant.TextH1Medium}>Tooltip bottom</Typography>
+        <Title>Tooltip bottom</Title>
         <Tooltip message={renderTooltipContent()} placement="bottom">
           Hover me
         </Tooltip>
       </div>
 
       <div className="TooltipPage-Block">
-        <Typography variant={ETypographyVariant.TextH1Medium}>Tooltip right</Typography>
+        <Title>Tooltip right</Title>
         <Tooltip message={renderTooltipContent()} placement="right">
           Hover me
         </Tooltip>
       </div>
 
       <div className="TooltipPage-Block">
-        <Typography variant={ETypographyVariant.TextH1Medium}>Tooltip right</Typography>
+        <Title>Tooltip right</Title>
         <div className="Test">
           <div className="Test-Text">Text</div>
           <Tooltip className="Test-Tool" message={renderTooltipContent()} placement="right">
@@ -41,7 +42,7 @@ export const TooltipPage: React.FC = () => {
       </div>
 
       <div className="TooltipPage-Block">
-        <Typography variant={ETypographyVariant.TextH1Medium}>Tooltip left</Typography>
+        <Title>Tooltip left</Title>
         <div className="Test">
           <div className="Test-Text">Text</div>
           <Tooltip className="Test-Tool" message={renderTooltipContent()} placement="left">
@@ -51,7 +52,7 @@ export const TooltipPage: React.FC = () => {
       </div>
 
       <div className="TooltipPage-Block">
-        <Typography variant={ETypographyVariant.TextH1Medium}>Tooltip top</Typography>
+        <Title>Tooltip top</Title>
         <div className="Test">
           <div className="Test-Text">Text</div>
           <Tooltip className="Test-Tool" message={renderTooltipContent()} placement="top">
@@ -61,7 +62,7 @@ export const TooltipPage: React.FC = () => {
       </div>
 
       <div className="TooltipPage-Block">
-        <Typography variant={ETypographyVariant.TextH1Medium}>Tooltip bottom</Typography>
+        <Title>Tooltip bottom</Title>
         <div className="Test">
           <div className="Test-Text">Text</div>
           <Tooltip className="Test-Tool" message={renderTooltipContent()} placement="bottom">

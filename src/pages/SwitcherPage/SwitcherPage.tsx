@@ -1,15 +1,14 @@
+import React from "react";
 import type { FC } from "react";
-import { ThemeSwitcher, ThemeSwitcherCustom } from "components";
-import { ETypographyVariant, Typography } from "uikit";
-import "./SwitcherPage.scss";
+import { Hr, ThemeSwitcher, ThemeSwitcherCustom, Title } from "components";
 
 export const SwitcherPage: FC = () => {
   return (
     <section className="SwitcherPage">
-      <Typography variant={ETypographyVariant.TextH1Medium}>Switcher</Typography>
+      <Title>Switcher</Title>
       <ThemeSwitcher />
-      <hr />
-      <Typography variant={ETypographyVariant.TextH1Medium}>Switcher Custom</Typography>
+      <Hr />
+      <Title>Switcher Custom</Title>
       <ThemeSwitcherCustom />
     </section>
   );

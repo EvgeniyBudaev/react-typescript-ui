@@ -1,7 +1,7 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import type { FC } from "react";
-import { ETypographyVariant, Hamburger, Typography } from "uikit";
-import "./HamburgerPage.scss";
+import { Title } from "components";
+import { Hamburger } from "uikit";
 
 export const HamburgerPage: FC = () => {
   const [isActive, setIsActive] = useState(false);
@@ -11,8 +11,8 @@ export const HamburgerPage: FC = () => {
   };
 
   return (
-    <section className="HamburgerPage">
-      <Typography variant={ETypographyVariant.TextH1Medium}>Hamburger</Typography>
+    <section>
+      <Title>Hamburger</Title>
       <Hamburger color="black" isActive={isActive} onClick={handleToggle} />
     </section>
   );

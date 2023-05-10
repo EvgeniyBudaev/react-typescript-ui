@@ -1,9 +1,10 @@
-import { createRef, Fragment, useEffect, useState } from "react";
+import React, { createRef, Fragment, useEffect, useState } from "react";
 import { usePopper } from "react-popper";
 import type { FC } from "react";
 import clsx from "clsx";
 import { Popover as UiPopover, Transition } from "@headlessui/react";
 
+import { Title } from "components";
 import { ETypographyVariant, POPOVER_POSITION_STYLES, POPOVER_WIDTH, Typography } from "uikit";
 import type { TPopoverPosition } from "uikit";
 import "./PopoverPage.scss";
@@ -72,7 +73,7 @@ export const PopoverPage: FC = () => {
 
   return (
     <section className="PopoverPage">
-      <Typography variant={ETypographyVariant.TextH1Medium}>Popover</Typography>
+      <Title>Popover</Title>
       <UiPopover className="HeadlessPopover">
         <UiPopover.Button ref={setReferenceElement} className="HeadlessPopover-Button">
           <div ref={triggerRef}>{renderPopoverTrigger()}</div>

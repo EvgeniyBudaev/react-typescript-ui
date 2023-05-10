@@ -1,12 +1,14 @@
+import React from "react";
 import type { FC } from "react";
 import { Link } from "react-router-dom";
+import { Title } from "components";
 import { ERoutes } from "enums";
-import { Breadcrumbs, ETypographyVariant, Typography } from "uikit";
+import { Breadcrumbs } from "uikit";
 
 export const BreadcrumbsPage: FC = () => {
   return (
-    <section className="BreadcrumbsPage">
-      <Typography variant={ETypographyVariant.TextH1Medium}>Breadcrumbs</Typography>
+    <section>
+      <Title>Breadcrumbs</Title>
       <Breadcrumbs />
       <Link to={`${ERoutes.Breadcrumbs}/1`}>Go to detail page</Link>
     </section>
