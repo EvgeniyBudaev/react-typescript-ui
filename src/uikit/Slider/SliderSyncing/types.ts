@@ -1,0 +1,21 @@
+export type TSliderSyncingProps = {
+  alt?: string;
+  arrowsFor?: boolean;
+  arrowsModal?: boolean;
+  arrowsNav?: boolean;
+  dots?: boolean;
+  fade?: boolean;
+  focusOnSelect?: boolean;
+  heightNav?: string;
+  heightFor?: string;
+  images?: string[];
+  infinite?: boolean;
+  nextArrow?: JSX.Element;
+  prevArrow?: JSX.Element;
+  slidesToScroll?: number;
+  slidesToShow?: number;
+  speed?: number;
+  swipeToSlide?: boolean;
+  widthNav?: string;
+  widthFor?: string;
+};
