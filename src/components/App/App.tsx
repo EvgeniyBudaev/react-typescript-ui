@@ -1,7 +1,6 @@
 import type { FC } from "react";
 import { Routes, Route } from "react-router-dom";
-import { Layout } from "components";
-import { PrivateRoutes } from "components/route/PrivateRoutes";
+import { Layout, PrivateRoutes } from "components";
 import { ERoutes } from "enums";
 import {
   AccordionPage,
@@ -62,7 +61,7 @@ export const App: FC = () => {
             <Route path={ERoutes.Overlay} element={<OverlayPage />} />
             <Route path={ERoutes.Popover} element={<PopoverPage />} />
             <Route path={ERoutes.Portal} element={<PortalPage />} />
-            <Route element={<PrivateRoutes isAuthenticated={false} />}>
+            <Route element={<PrivateRoutes isAuthenticated={false} redirectPath={ERoutes.Root} />}>
               <Route path={ERoutes.PrivateRoute} element={<PrivateRoutePage />} />
             </Route>
             <Route path={ERoutes.Rating} element={<RatingPage />} />
