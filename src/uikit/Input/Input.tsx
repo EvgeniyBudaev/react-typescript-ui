@@ -95,8 +95,10 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
           </div>
         )}
 
-        <label className="InputField-Label" htmlFor={name}>
+        <div className="InputField-Label">
           <Typography
+            as="label"
+            htmlFor={name}
             variant={
               !isFocused ? ETypographyVariant.TextB3Regular : ETypographyVariant.TextB4Regular
             }
@@ -104,7 +106,7 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
             {label}
           </Typography>
           {isRequired && <span className="InputField-LabelRequired"> *</span>}
-        </label>
+        </div>
       </div>
     );
   },

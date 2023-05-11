@@ -10,6 +10,7 @@ type TProps = {
   as?: string;
   children?: ReactNode;
   color?: TColor;
+  htmlFor?: string;
   variant?: ETypographyVariant;
 };
 
@@ -17,17 +18,17 @@ const Component: FC<TProps> = ({
   as = "span",
   children,
   color = ETextColor.Dark,
+  htmlFor,
   variant = ETypographyVariant.TextH1Bold,
 }) => {
   const currentTheme = TYPOGRAPHY_THEMES({ color })[variant];
 
-  return createElement(
-    as,
-    {
-      className: currentTheme,
-    },
-    children,
-  );
+  const props = {
+    className: currentTheme,
+    ...(as === "label" && htmlFor && { htmlFor }),
+  };
+
+  return createElement(as, props, children);
 };
 
 export const Typography = memo(Component);
