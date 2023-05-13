@@ -1,5 +1,6 @@
 export * from "./AccordionPage";
 export * from "./AvatarPage";
+export * from "./AutocompletePage";
 export * from "./BreadcrumbsPage";
 export * from "./ButtonPage";
 export * from "./CheckboxPage";

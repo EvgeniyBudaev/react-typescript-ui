@@ -1,3 +1,16 @@
+import type { GroupBase, OptionsOrGroups } from "react-select";
+
+export type TAsyncSelectLoadOptionsCallback = (
+  options: OptionsOrGroups<TSelectOption, GroupBase<any>>,
+) => void;
+
+export type TAsyncSelectLoadOptions =
+  | ((
+      inputValue: string,
+      callback: TAsyncSelectLoadOptionsCallback,
+    ) => void | Promise<OptionsOrGroups<TSelectOption, GroupBase<any>>>)
+  | undefined;
+
 export type TSelectOption = {
   value: string;
   label: string;

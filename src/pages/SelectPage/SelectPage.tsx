@@ -60,7 +60,6 @@ export const SelectPage: FC<TProps> = ({ sorting = "price_asc" }) => {
 
   useEffect(() => {
     if (!isSubmitting) return;
-
     setIsSubmitting((prevState) => !prevState);
   }, [isSubmitting, setIsSubmitting]);
 

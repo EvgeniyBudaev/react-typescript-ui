@@ -14,10 +14,10 @@ export const TablePage: FC = () => {
   const pageSize = 5;
 
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchPosts = async () => {
       setIsLoading(true);
       try {
-        const response = await getPostsApi();
+        const response = await getPostsApi({});
         setPost(response);
       } catch (error) {
         console.error(error);
@@ -25,7 +25,7 @@ export const TablePage: FC = () => {
         setIsLoading(false);
       }
     };
-    void fetchProducts();
+    void fetchPosts();
   }, []);
 
   const { onChangePage, onChangeSize, onSortTableByProperty } = useTable({

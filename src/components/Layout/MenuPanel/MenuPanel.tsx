@@ -8,6 +8,7 @@ import "./MenuPanel.scss";
 export const MenuPanel: FC = () => {
   const navList = [
     ERoutes.Accordion,
+    ERoutes.Autocomplete,
     ERoutes.Avatar,
     ERoutes.Breadcrumbs,
     ERoutes.Button,

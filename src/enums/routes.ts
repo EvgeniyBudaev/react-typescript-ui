@@ -2,6 +2,7 @@ export enum ERoutes {
   Root = "/",
 
   Accordion = "/accordion",
+  Autocomplete = "/autocomplete",
   Avatar = "/avatar",
   Breadcrumbs = "/breadcrumbs",
   Button = "/button",

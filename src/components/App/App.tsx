@@ -4,6 +4,7 @@ import { Layout, PrivateRoutes } from "components";
 import { ERoutes } from "enums";
 import {
   AccordionPage,
+  AutocompletePage,
   AvatarPage,
   BreadcrumbsPage,
   BreadcrumbsDetailPage,
@@ -46,6 +47,7 @@ export const App: FC = () => {
         <Layout>
           <Routes>
             <Route path={ERoutes.Accordion} element={<AccordionPage />} />
+            <Route path={ERoutes.Autocomplete} element={<AutocompletePage />} />
             <Route path={ERoutes.Avatar} element={<AvatarPage />} />
             <Route path={`${ERoutes.Breadcrumbs}/:id`} element={<BreadcrumbsDetailPage />} />
             <Route path={ERoutes.Breadcrumbs} element={<BreadcrumbsPage />} />
