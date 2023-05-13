@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import type { FC } from "react";
-import type { MultiValue, SingleValue } from "react-select";
-import type { OnChangeValue } from "react-select";
 import clsx from "clsx";
 import isNil from "lodash/isNil";
 import { Hr, Title } from "components";
 import { ETheme, Select, useThemeContext } from "uikit";
-import type { isSelectMultiType, TSelectOption, TSorting } from "uikit";
+import type { TSorting } from "uikit";
+import { useSelect } from "./hooks";
 import { StyledDropdownIndicator } from "./styles";
 import "./SelectPage.scss";
 
@@ -15,53 +14,18 @@ type TProps = {
   sorting?: TSorting["value"];
 };
 
-export const SelectPage: FC<TProps> = ({ sorting = "price_asc" }) => {
-  const PRICE_UP = "ascending price";
-  const PRICE_DOWN = "descending price";
-  const options: TSelectOption[] = [
-    { value: "price_asc", label: PRICE_UP },
-    { value: "price_desc", label: PRICE_DOWN },
-  ];
-
+export const SelectPage: FC<TProps> = ({ onSortingChange, sorting = "price_asc" }) => {
   const themeState = useThemeContext();
   const theme = !isNil(themeState) ? themeState.theme : ETheme.Light;
-
-  const [isSelectOpened, setIsSelectOpened] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const [selectedOption, setSelectedOption] = useState<
-    SingleValue<TSelectOption> | MultiValue<TSelectOption>
-  >({
-    value: "price_asc",
-    label: PRICE_UP,
-  });
-  const [multipleSelectedOption, setMultipleSelectedOption] = useState<
-    SingleValue<TSelectOption> | MultiValue<TSelectOption>
-  >({ value: "price_asc", label: PRICE_UP });
-
-  const handleChange = (selectedOption?: OnChangeValue<TSelectOption, isSelectMultiType>) => {
-    if (isNil(selectedOption)) return;
-    if (Array.isArray(selectedOption)) {
-      setMultipleSelectedOption(selectedOption); // onSortingChange?.(selectedOption[0].value);
-    } else {
-      const selectedOptionSingle = selectedOption as TSelectOption;
-      setSelectedOption(selectedOptionSingle); // onSortingChange?.(selectedOptionSingle.value);
-    }
-    setIsSubmitting((prevState) => !prevState);
-  };
-
-  const handleBlur = () => {
-    setIsSelectOpened(false);
-  };
-
-  const handleFocus = () => {
-    setIsSelectOpened(true);
-  };
-
-  useEffect(() => {
-    if (!isSubmitting) return;
-    setIsSubmitting((prevState) => !prevState);
-  }, [isSubmitting, setIsSubmitting]);
+  const {
+    isSelectOpened,
+    multipleSelectedOption,
+    onBlur,
+    onChange,
+    onFocus,
+    options,
+    selectedOption,
+  } = useSelect();
 
   return (
     <section className="SelectPage">
@@ -72,9 +36,9 @@ export const SelectPage: FC<TProps> = ({ sorting = "price_asc" }) => {
         })}
         components={{ DropdownIndicator: StyledDropdownIndicator }}
         isMulti={false}
-        onBlur={handleBlur}
-        onChange={handleChange}
-        onFocus={handleFocus}
+        onBlur={onBlur}
+        onChange={onChange}
+        onFocus={onFocus}
         options={options}
         theme={theme}
         value={selectedOption} // value={options.find(option => option.value === sorting)!}
@@ -90,9 +54,9 @@ export const SelectPage: FC<TProps> = ({ sorting = "price_asc" }) => {
         })}
         components={{ DropdownIndicator: StyledDropdownIndicator }}
         isMulti={true}
-        onBlur={handleBlur}
-        onChange={handleChange}
-        onFocus={handleFocus}
+        onBlur={onBlur}
+        onChange={onChange}
+        onFocus={onFocus}
         options={options}
         theme={theme}
         value={multipleSelectedOption}

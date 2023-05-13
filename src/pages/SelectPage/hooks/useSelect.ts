@@ -1,30 +1,29 @@
 import { useEffect, useState } from "react";
 import type { MultiValue, OnChangeValue, SingleValue } from "react-select";
 import isNil from "lodash/isNil";
-import type { TPosts } from "services/api/posts";
-import { getPostsApi } from "services/api/posts/utils";
-import type {
-  TSelectMultiType,
-  TAsyncSelectLoadOptions,
-  TAsyncSelectLoadOptionsCallback,
-  TSelectOption,
-} from "uikit";
+import type { TSelectMultiType, TSelectOption } from "uikit";
 
-export const usePosts = () => {
-  const [isLoading, setIsLoading] = useState(false);
+export const useSelect = () => {
+  const PRICE_UP = "ascending price";
+  const PRICE_DOWN = "descending price";
+
+  const options: TSelectOption[] = [
+    { value: "price_asc", label: PRICE_UP },
+    { value: "price_desc", label: PRICE_DOWN },
+  ];
+
   const [isSelectOpened, setIsSelectOpened] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [posts, setPost] = useState<TPosts>([]);
 
   const [selectedOption, setSelectedOption] = useState<
     SingleValue<TSelectOption> | MultiValue<TSelectOption>
   >({
-    value: "",
-    label: "",
+    value: "price_asc",
+    label: PRICE_UP,
   });
   const [multipleSelectedOption, setMultipleSelectedOption] = useState<
     SingleValue<TSelectOption> | MultiValue<TSelectOption>
-  >({ value: "", label: "" });
+  >({ value: "price_asc", label: PRICE_UP });
 
   const handleChange = (selectedOption?: OnChangeValue<TSelectOption, TSelectMultiType>) => {
     if (isNil(selectedOption)) return;
@@ -50,40 +49,13 @@ export const usePosts = () => {
     setIsSubmitting((prevState) => !prevState);
   }, [isSubmitting, setIsSubmitting]);
 
-  const fetchPosts = async ({
-    inputValue,
-    callback,
-  }: {
-    inputValue: string;
-    callback: TAsyncSelectLoadOptionsCallback;
-  }) => {
-    setIsLoading(true);
-    try {
-      const params = { userId: inputValue };
-      const response = await getPostsApi({ params });
-      setPost(response);
-      callback(response.map((item) => ({ label: item.title, value: String(item.id) })));
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleLoadOptions: TAsyncSelectLoadOptions = (inputValue, callback) => {
-    void fetchPosts({ inputValue, callback });
-  };
-
   return {
-    isLoading,
     isSelectOpened,
-    isSubmitting,
     multipleSelectedOption,
     onBlur: handleBlur,
     onChange: handleChange,
     onFocus: handleFocus,
-    onLoadOptions: handleLoadOptions,
-    posts,
+    options,
     selectedOption,
   };
 };

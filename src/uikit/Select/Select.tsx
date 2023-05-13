@@ -1,53 +1,15 @@
 import { memo } from "react";
-import type { FC, FocusEventHandler } from "react";
+import type { FC } from "react";
 import { default as ReactSelect } from "react-select";
 import { default as ReactAsyncSelect } from "react-select/async";
-import type {
-  ActionMeta,
-  GroupBase,
-  StylesConfig,
-  OnChangeValue,
-  MultiValue,
-  SingleValue,
-  GetOptionLabel,
-  MenuPosition,
-  MenuPlacement,
-} from "react-select";
-import type { SelectComponents } from "react-select/dist/declarations/src/components";
 import clsx from "clsx";
 
 import { ETheme } from "../enums";
 import { useMounted } from "../hooks";
 import { generateUUID } from "../utils";
 import { selectStyles } from "./selectStyles";
-import type { isSelectMultiType, TAsyncSelectLoadOptions, TSelectOption } from "./types";
+import type { TSelectProps } from "./types";
 import "./Select.scss";
-
-export type TSelectProps = {
-  className?: string;
-  components?: Partial<SelectComponents<any, any, GroupBase<any>>>;
-  defaultValue?: TSelectOption | TSelectOption[];
-  getOptionLabel?: GetOptionLabel<TSelectOption | TSelectOption[]>;
-  id?: string;
-  instanceId?: string;
-  isAutocomplete?: boolean;
-  isMulti?: isSelectMultiType;
-  isSearchable?: boolean;
-  loadOptions?: TAsyncSelectLoadOptions;
-  menuPlacement?: MenuPlacement;
-  menuPosition?: MenuPosition;
-  name?: string;
-  onBlur?: FocusEventHandler;
-  onChange?: (
-    value: OnChangeValue<TSelectOption, isSelectMultiType>,
-    action: ActionMeta<TSelectOption>,
-  ) => void;
-  onFocus?: FocusEventHandler;
-  options?: TSelectOption[];
-  styles?: StylesConfig<TSelectOption, isSelectMultiType, GroupBase<TSelectOption>> | undefined;
-  theme?: ETheme;
-  value?: SingleValue<TSelectOption> | MultiValue<TSelectOption>;
-};
 
 const SelectComponent: FC<TSelectProps> = ({
   className,

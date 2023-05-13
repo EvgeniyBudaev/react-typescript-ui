@@ -1,4 +1,52 @@
-import type { GroupBase, OptionsOrGroups } from "react-select";
+import type { FocusEventHandler } from "react";
+import type {
+  ActionMeta,
+  GetOptionLabel,
+  GroupBase,
+  MenuPlacement,
+  MenuPosition,
+  MultiValue,
+  OnChangeValue,
+  OptionsOrGroups,
+  SingleValue,
+  StylesConfig,
+} from "react-select";
+import type { SelectComponents } from "react-select/dist/declarations/src/components";
+import type { ETheme } from "../enums";
+
+export type TSelectOption = {
+  value: string;
+  label: string;
+  prefixIcon?: JSX.Element;
+};
+
+export type TSelectMultiType = true | false;
+
+export type TSelectProps = {
+  className?: string;
+  components?: Partial<SelectComponents<any, any, GroupBase<any>>>;
+  defaultValue?: TSelectOption | TSelectOption[];
+  getOptionLabel?: GetOptionLabel<TSelectOption | TSelectOption[]>;
+  id?: string;
+  instanceId?: string;
+  isAutocomplete?: boolean;
+  isMulti?: TSelectMultiType;
+  isSearchable?: boolean;
+  loadOptions?: TAsyncSelectLoadOptions;
+  menuPlacement?: MenuPlacement;
+  menuPosition?: MenuPosition;
+  name?: string;
+  onBlur?: FocusEventHandler;
+  onChange?: (
+    value: OnChangeValue<TSelectOption, TSelectMultiType>,
+    action: ActionMeta<TSelectOption>,
+  ) => void;
+  onFocus?: FocusEventHandler;
+  options?: TSelectOption[];
+  styles?: StylesConfig<TSelectOption, TSelectMultiType, GroupBase<TSelectOption>> | undefined;
+  theme?: ETheme;
+  value?: SingleValue<TSelectOption> | MultiValue<TSelectOption>;
+};
 
 export type TAsyncSelectLoadOptionsCallback = (
   options: OptionsOrGroups<TSelectOption, GroupBase<any>>,
@@ -10,12 +58,6 @@ export type TAsyncSelectLoadOptions =
       callback: TAsyncSelectLoadOptionsCallback,
     ) => void | Promise<OptionsOrGroups<TSelectOption, GroupBase<any>>>)
   | undefined;
-
-export type TSelectOption = {
-  value: string;
-  label: string;
-  prefixIcon?: JSX.Element;
-};
 
 export type TSelectVariantStyle = {
   control: {
@@ -66,5 +108,3 @@ export type TSelectVariantStyle = {
     zIndex?: string | number;
   };
 };
-
-export type isSelectMultiType = true | false;

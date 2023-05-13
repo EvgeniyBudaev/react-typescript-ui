@@ -5,7 +5,7 @@ import clsx from "clsx";
 import isNil from "lodash/isNil";
 
 import { ETheme, Select } from "uikit";
-import type { ETablePlacement, isSelectMultiType, TSelectOption } from "uikit";
+import type { ETablePlacement, TSelectMultiType, TSelectOption } from "uikit";
 import { getPageSizeOptions } from "./utils";
 import "./PageSize.scss";
 
@@ -27,7 +27,7 @@ const Component: FC<TProps> = ({
   const [isSelectOpened, setIsSelectOpened] = useState(false);
   const selectOptions = getPageSizeOptions(options);
 
-  const handleChangePageSize = (options?: OnChangeValue<TSelectOption, isSelectMultiType>) => {
+  const handleChangePageSize = (options?: OnChangeValue<TSelectOption, TSelectMultiType>) => {
     if (isNil(options)) return;
     if (Array.isArray(options)) {
       onChangePageSize(Number(options[0].value));
