@@ -1,4 +1,4 @@
-import type { FocusEventHandler } from "react";
+import type { FocusEventHandler, ReactNode } from "react";
 import type {
   ActionMeta,
   GetOptionLabel,
@@ -17,14 +17,14 @@ import type { ETheme } from "../enums";
 export type TSelectOption = {
   value: string;
   label: string;
-  prefixIcon?: JSX.Element;
+  prefixIcon?: ReactNode;
 };
 
 export type TSelectMultiType = true | false;
 
 type TBaseSelectProps = {
   className?: string;
-  components?: Partial<SelectComponents<any, any, GroupBase<any>>>;
+  components?: Partial<SelectComponents<TSelectOption, TSelectMultiType, GroupBase<TSelectOption>>>;
   defaultValue?: TSelectOption | TSelectOption[];
   getOptionLabel?: GetOptionLabel<TSelectOption | TSelectOption[]>;
   id?: string;
@@ -54,14 +54,14 @@ export type TSelectProps = {
 } & TBaseSelectProps;
 
 export type TAsyncSelectLoadOptionsCallback = (
-  options: OptionsOrGroups<TSelectOption, GroupBase<any>>,
+  options: OptionsOrGroups<TSelectOption, GroupBase<TSelectOption>>,
 ) => void;
 
 export type TAsyncSelectLoadOptions =
   | ((
       inputValue: string,
       callback: TAsyncSelectLoadOptionsCallback,
-    ) => void | Promise<OptionsOrGroups<TSelectOption, GroupBase<any>>>)
+    ) => void | Promise<OptionsOrGroups<TSelectOption, GroupBase<TSelectOption>>>)
   | undefined;
 
 export type TSelectVariantStyle = {
