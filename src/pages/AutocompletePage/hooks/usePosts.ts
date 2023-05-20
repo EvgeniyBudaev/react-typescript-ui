@@ -16,7 +16,7 @@ export const usePosts = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isSelectOpened, setIsSelectOpened] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [posts, setPost] = useState<TPosts>([]);
+  const [posts, setPosts] = useState<TPosts>([]);
 
   const [selectedOption, setSelectedOption] = useState<
     SingleValue<TSelectOption> | MultiValue<TSelectOption>
@@ -52,13 +52,6 @@ export const usePosts = () => {
     setIsSubmitting((prevState) => !prevState);
   }, [isSubmitting, setIsSubmitting]);
 
-  const debouncedFetcher = useCallback(
-    debounce(({ inputValue, callback }) => {
-      void fetchPosts({ inputValue, callback });
-    }, DEBOUNCE_TIMEOUT),
-    [],
-  );
-
   const fetchPosts = async ({
     inputValue,
     callback,
@@ -69,8 +62,8 @@ export const usePosts = () => {
     setIsLoading(true);
     try {
       const params = { userId: inputValue };
-      const response = await getPostsApi({ params });
-      setPost(response);
+      const response = await getPostsApi(params);
+      setPosts(response);
       callback(response.map((item) => ({ label: item.title, value: String(item.id) })));
     } catch (error) {
       console.error(error);
@@ -78,6 +71,13 @@ export const usePosts = () => {
       setIsLoading(false);
     }
   };
+
+  const debouncedFetcher = useCallback(
+    debounce(({ inputValue, callback }) => {
+      void fetchPosts({ inputValue, callback });
+    }, DEBOUNCE_TIMEOUT),
+    [],
+  );
 
   const handleLoadOptions: TAsyncSelectLoadOptions = (inputValue, callback) => {
     debouncedFetcher({ inputValue, callback });

@@ -45,14 +45,6 @@ type TBaseSelectProps = {
   value?: SingleValue<TSelectOption> | MultiValue<TSelectOption>;
 };
 
-export type TAsyncSelectProps = {
-  loadOptions?: TAsyncSelectLoadOptions;
-} & TBaseSelectProps;
-
-export type TSelectProps = {
-  options?: TSelectOption[];
-} & TBaseSelectProps;
-
 export type TAsyncSelectLoadOptionsCallback = (
   options: OptionsOrGroups<TSelectOption, GroupBase<TSelectOption>>,
 ) => void;
@@ -63,6 +55,14 @@ export type TAsyncSelectLoadOptions =
       callback: TAsyncSelectLoadOptionsCallback,
     ) => void | Promise<OptionsOrGroups<TSelectOption, GroupBase<TSelectOption>>>)
   | undefined;
+
+export type TAsyncSelectProps = {
+  loadOptions?: TAsyncSelectLoadOptions;
+} & TBaseSelectProps;
+
+export type TSelectProps = {
+  options?: TSelectOption[];
+} & TBaseSelectProps;
 
 export type TSelectVariantStyle = {
   control: {

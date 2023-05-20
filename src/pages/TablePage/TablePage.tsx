@@ -17,7 +17,7 @@ export const TablePage: FC = () => {
     const fetchPosts = async () => {
       setIsLoading(true);
       try {
-        const response = await getPostsApi({});
+        const response = await getPostsApi();
         setPost(response);
       } catch (error) {
         console.error(error);

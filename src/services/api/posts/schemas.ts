@@ -1,6 +1,10 @@
 import { z } from "zod";
 
-export const postsParamsSchema = z.any();
+export const postsParamsSchema = z
+  .object({
+    userId: z.string(),
+  })
+  .nullish();
 
 export const postItemSchema = z.object({
   userId: z.number(),
