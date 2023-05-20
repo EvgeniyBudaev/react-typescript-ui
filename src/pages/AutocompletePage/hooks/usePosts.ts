@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import type { MultiValue, OnChangeValue, SingleValue } from "react-select";
+import debounce from "lodash/debounce";
 import isNil from "lodash/isNil";
 import type { TPosts } from "services/api/posts";
 import { getPostsApi } from "services/api/posts/utils";
+import { DEBOUNCE_TIMEOUT } from "uikit";
 import type {
   TSelectMultiType,
   TAsyncSelectLoadOptions,
@@ -50,6 +52,13 @@ export const usePosts = () => {
     setIsSubmitting((prevState) => !prevState);
   }, [isSubmitting, setIsSubmitting]);
 
+  const debouncedFetcher = useCallback(
+    debounce(({ inputValue, callback }) => {
+      void fetchPosts({ inputValue, callback });
+    }, DEBOUNCE_TIMEOUT),
+    [],
+  );
+
   const fetchPosts = async ({
     inputValue,
     callback,
@@ -71,7 +80,7 @@ export const usePosts = () => {
   };
 
   const handleLoadOptions: TAsyncSelectLoadOptions = (inputValue, callback) => {
-    void fetchPosts({ inputValue, callback });
+    debouncedFetcher({ inputValue, callback });
   };
 
   return {

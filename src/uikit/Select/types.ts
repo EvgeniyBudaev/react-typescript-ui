@@ -22,17 +22,15 @@ export type TSelectOption = {
 
 export type TSelectMultiType = true | false;
 
-export type TSelectProps = {
+type TBaseSelectProps = {
   className?: string;
   components?: Partial<SelectComponents<any, any, GroupBase<any>>>;
   defaultValue?: TSelectOption | TSelectOption[];
   getOptionLabel?: GetOptionLabel<TSelectOption | TSelectOption[]>;
   id?: string;
   instanceId?: string;
-  isAutocomplete?: boolean;
   isMulti?: TSelectMultiType;
   isSearchable?: boolean;
-  loadOptions?: TAsyncSelectLoadOptions;
   menuPlacement?: MenuPlacement;
   menuPosition?: MenuPosition;
   name?: string;
@@ -42,11 +40,18 @@ export type TSelectProps = {
     action: ActionMeta<TSelectOption>,
   ) => void;
   onFocus?: FocusEventHandler;
-  options?: TSelectOption[];
   styles?: StylesConfig<TSelectOption, TSelectMultiType, GroupBase<TSelectOption>> | undefined;
   theme?: ETheme;
   value?: SingleValue<TSelectOption> | MultiValue<TSelectOption>;
 };
+
+export type TAsyncSelectProps = {
+  loadOptions?: TAsyncSelectLoadOptions;
+} & TBaseSelectProps;
+
+export type TSelectProps = {
+  options?: TSelectOption[];
+} & TBaseSelectProps;
 
 export type TAsyncSelectLoadOptionsCallback = (
   options: OptionsOrGroups<TSelectOption, GroupBase<any>>,

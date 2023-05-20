@@ -1,6 +1,6 @@
 import { memo } from "react";
 import type { FC } from "react";
-import { default as ReactSelect } from "react-select";
+import { default as ReactAsyncSelect } from "react-select/async";
 import clsx from "clsx";
 
 import { ETheme } from "../enums";
@@ -8,10 +8,10 @@ import { useMounted } from "../hooks";
 import { generateUUID } from "../utils";
 import { StyledDropdownIndicator } from "./selectComponentsStyles";
 import { selectStyles } from "./selectStyles";
-import type { TSelectProps } from "./types";
+import type { TAsyncSelectProps } from "./types";
 import "./Select.scss";
 
-const SelectComponent: FC<TSelectProps> = ({
+const AsyncSelectComponent: FC<TAsyncSelectProps> = ({
   className,
   components,
   defaultValue,
@@ -20,13 +20,13 @@ const SelectComponent: FC<TSelectProps> = ({
   instanceId,
   isMulti = false,
   isSearchable,
+  loadOptions,
   menuPlacement,
   menuPosition,
   name,
   onBlur,
   onChange,
   onFocus,
-  options,
   styles,
   theme = ETheme.Light,
   value,
@@ -35,7 +35,7 @@ const SelectComponent: FC<TSelectProps> = ({
   const { hasMounted } = useMounted();
 
   return hasMounted ? (
-    <ReactSelect
+    <ReactAsyncSelect
       className={clsx("Select", className)}
       components={{ DropdownIndicator: StyledDropdownIndicator, ...components }}
       defaultValue={defaultValue}
@@ -44,17 +44,17 @@ const SelectComponent: FC<TSelectProps> = ({
       instanceId={instanceId ? instanceId : uuid}
       isMulti={isMulti}
       isSearchable={isSearchable}
+      loadOptions={loadOptions}
       menuPlacement={menuPlacement}
       menuPosition={menuPosition}
       name={name}
       onBlur={onBlur}
       onChange={onChange}
       onFocus={onFocus}
-      options={options}
       styles={!styles && theme ? selectStyles(theme) : styles}
       value={value}
     />
   ) : null;
 };
 
-export const Select = memo(SelectComponent);
+export const AsyncSelect = memo(AsyncSelectComponent);

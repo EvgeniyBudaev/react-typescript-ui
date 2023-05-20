@@ -6,7 +6,6 @@ import { Hr, Title } from "components";
 import { ETheme, Select, useThemeContext } from "uikit";
 import type { TSorting } from "uikit";
 import { useSelect } from "./hooks";
-import { StyledDropdownIndicator } from "./styles";
 import "./SelectPage.scss";
 
 type TProps = {
@@ -34,7 +33,6 @@ export const SelectPage: FC<TProps> = ({ onSortingChange, sorting = "price_asc" 
         className={clsx("SelectPage-Select", {
           "SelectPage-Select__active": isSelectOpened,
         })}
-        components={{ DropdownIndicator: StyledDropdownIndicator }}
         isMulti={false}
         onBlur={onBlur}
         onChange={onChange}
@@ -52,7 +50,6 @@ export const SelectPage: FC<TProps> = ({ onSortingChange, sorting = "price_asc" 
         className={clsx("SelectPage-Select", {
           "SelectPage-Select__active": isSelectOpened,
         })}
-        components={{ DropdownIndicator: StyledDropdownIndicator }}
         isMulti={true}
         onBlur={onBlur}
         onChange={onChange}

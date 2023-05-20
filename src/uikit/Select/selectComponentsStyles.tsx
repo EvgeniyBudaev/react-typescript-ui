@@ -2,9 +2,11 @@ import { components } from "react-select";
 import type { DropdownIndicatorProps, GroupBase, MultiValueRemoveProps } from "react-select";
 import clsx from "clsx";
 import { Icon } from "uikit";
+import type { TSelectOption } from "uikit";
 
 export const StyledDropdownIndicator = (
-  props: JSX.IntrinsicAttributes & DropdownIndicatorProps<unknown, boolean, GroupBase<unknown>>,
+  props: JSX.IntrinsicAttributes &
+    DropdownIndicatorProps<TSelectOption, boolean, GroupBase<TSelectOption>>,
 ) => {
   const menuIsOpen = props.selectProps.menuIsOpen;
   return (
@@ -22,7 +24,8 @@ export const StyledDropdownIndicator = (
 };
 
 export const StyledMultiValueRemove = (
-  props: JSX.IntrinsicAttributes & MultiValueRemoveProps<unknown, boolean, GroupBase<unknown>>,
+  props: JSX.IntrinsicAttributes &
+    MultiValueRemoveProps<TSelectOption[], boolean, GroupBase<TSelectOption[]>>,
 ) => {
   return (
     <div className="Select-MultiValueRemove">
