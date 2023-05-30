@@ -14,14 +14,19 @@ if (process.env.NODE_ENV === "development") {
   app.use(
     "/",
     createProxyMiddleware({
-      target: "http://127.0.0.1:3001",
+      target: "http://localhost:3000",
       changeOrigin: true,
     }),
   );
 }
 
 const httpServer = createServer(app);
-const io = new Server(httpServer);
+const io = new Server(httpServer, {
+  cors: {
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"],
+  },
+});
 
 io.on("connection", (socket) => {
   console.log("[connection]");

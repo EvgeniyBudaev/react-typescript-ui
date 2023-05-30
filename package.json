@@ -6,7 +6,7 @@
     "start": "react-scripts start",
     "dev": "npm-run-all --parallel dev:*",
     "dev:node": "cross-env NODE_ENV=development nodemon ./server.ts --watch ./server.ts",
-    "dev:react": "cross-env PORT=3001 react-scripts start",
+    "dev:react": "cross-env PORT=3000 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
