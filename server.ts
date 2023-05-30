@@ -1,12 +1,24 @@
 import { createServer } from "http";
+import * as process from "process";
 import cors from "cors";
 import express from "express";
+import { createProxyMiddleware } from "http-proxy-middleware";
 import { Server } from "socket.io";
 import { SOCKET_RECEIVE_THEME, SOCKET_SEND_THEME } from "./src/constants";
 
 const app = express();
+console.log("[SERVER START]");
 
 app.use(cors());
+if (process.env.NODE_ENV === "development") {
+  app.use(
+    "/",
+    createProxyMiddleware({
+      target: "http://127.0.0.1:3001",
+      changeOrigin: true,
+    }),
+  );
+}
 
 const httpServer = createServer(app);
 const io = new Server(httpServer);
