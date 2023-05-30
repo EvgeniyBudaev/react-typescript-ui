@@ -1,8 +1,12 @@
+import { useContext, useEffect } from "react";
 import type { FC } from "react";
 import clsx from "clsx";
 import isNil from "lodash/isNil";
+
+import { SocketContext } from "services/context";
 import { ESwitcherVariant, ETheme, Icon, SwitcherHeadless, useThemeContext } from "uikit";
 import { SWITCHER_THEMES } from "../constants";
+import { SOCKET_RECEIVE_THEME, SOCKET_SEND_THEME } from "../../../constants";
 
 type TProps = {
   className?: string;
@@ -11,9 +15,18 @@ type TProps = {
 
 export const ThemeSwitcher: FC<TProps> = ({ className, variant = ESwitcherVariant.Default }) => {
   const currentTheme = SWITCHER_THEMES()[variant];
+  const socket = useContext(SocketContext);
   const themeState = useThemeContext();
   const theme = !isNil(themeState) ? themeState.theme : ETheme.Light;
   const isLight = theme !== ETheme.Dark;
+
+  useEffect(() => {
+    if (!socket) return;
+    socket.on(SOCKET_RECEIVE_THEME, (data) => {
+      console.log("data ", data);
+      themeState?.onChangeTheme(data);
+    });
+  }, [themeState?.onChangeTheme, socket]);
 
   const handleChange = (isChecked: boolean) => {
     isChecked ? handleSwitchToLight() : handleSwitchToDark();
@@ -21,6 +34,7 @@ export const ThemeSwitcher: FC<TProps> = ({ className, variant = ESwitcherVarian
 
   const handleClick = (theme: ETheme) => () => {
     themeState?.onChangeTheme(theme);
+    socket && socket.emit(SOCKET_SEND_THEME, theme);
   };
 
   const handleSwitchToDark = handleClick(ETheme.Dark);
