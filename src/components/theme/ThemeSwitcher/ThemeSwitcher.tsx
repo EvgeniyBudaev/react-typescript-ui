@@ -1,3 +1,4 @@
+import { SOCKET_RECEIVE_THEME, SOCKET_SEND_THEME } from "constants/socket";
 import { useContext, useEffect } from "react";
 import type { FC } from "react";
 import clsx from "clsx";
@@ -6,7 +7,6 @@ import isNil from "lodash/isNil";
 import { SocketContext } from "services/context";
 import { ESwitcherVariant, ETheme, Icon, SwitcherHeadless, useThemeContext } from "uikit";
 import { SWITCHER_THEMES } from "../constants";
-import { SOCKET_RECEIVE_THEME, SOCKET_SEND_THEME } from "../../../constants";
 
 type TProps = {
   className?: string;
@@ -23,7 +23,6 @@ export const ThemeSwitcher: FC<TProps> = ({ className, variant = ESwitcherVarian
   useEffect(() => {
     if (!socket) return;
     socket.on(SOCKET_RECEIVE_THEME, (data) => {
-      console.log("data ", data);
       themeState?.onChangeTheme(data);
     });
   }, [themeState?.onChangeTheme, socket]);

@@ -47,7 +47,7 @@ export const App: FC = () => {
   const themeState = useTheme();
 
   useEffect(() => {
-    const connection = connect();
+    const connection = connect("http://localhost:3001");
     setSocket(connection);
     return () => {
       connection.close();
