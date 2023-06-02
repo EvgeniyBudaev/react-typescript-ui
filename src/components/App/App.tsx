@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
+import { SOCKET_RECEIVE_THEME } from "constants/socket";
+import { useEffect } from "react";
 import type { FC } from "react";
 import { Routes, Route } from "react-router-dom";
-import { connect } from "socket.io-client";
-import type { Socket } from "socket.io-client";
-import type { DefaultEventsMap } from "socket.io/dist/typed-events";
 import { Layout, PrivateRoutes } from "components";
 import { ERoutes } from "enums";
+import { useSocket } from "hooks";
 import {
   AccordionPage,
   AutocompletePage,
@@ -43,16 +42,18 @@ import { useTheme } from "uikit";
 import "./App.scss";
 
 export const App: FC = () => {
-  const [socket, setSocket] = useState<Socket<DefaultEventsMap, DefaultEventsMap>>();
   const themeState = useTheme();
+  const socket = useSocket("http://localhost:3001");
 
   useEffect(() => {
-    const connection = connect("http://localhost:3001");
-    setSocket(connection);
+    if (!socket) return;
+    socket.on(SOCKET_RECEIVE_THEME, (data) => {
+      themeState?.onChangeTheme(data);
+    });
     return () => {
-      connection.close();
+      socket && socket.close();
     };
-  }, []);
+  }, [socket]);
 
   return (
     <SocketProvider value={socket}>

@@ -1,5 +1,5 @@
-import { SOCKET_RECEIVE_THEME, SOCKET_SEND_THEME } from "constants/socket";
-import { useContext, useEffect } from "react";
+import { SOCKET_SEND_THEME } from "constants/socket";
+import { useContext } from "react";
 import type { FC } from "react";
 import clsx from "clsx";
 import isNil from "lodash/isNil";
@@ -22,13 +22,6 @@ export const ThemeSwitcherCustom: FC<TProps> = ({
   const themeState = useThemeContext();
   const theme = !isNil(themeState) ? themeState.theme : ETheme.Light;
   const isLight = theme !== ETheme.Dark;
-
-  useEffect(() => {
-    if (!socket) return;
-    socket.on(SOCKET_RECEIVE_THEME, (data) => {
-      themeState?.onChangeTheme(data);
-    });
-  }, [themeState?.onChangeTheme, socket]);
 
   const handleClick = (theme: ETheme) => () => {
     themeState?.onChangeTheme(theme);

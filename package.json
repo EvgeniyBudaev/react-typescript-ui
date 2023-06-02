@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npm-run-all --parallel dev:*",
-    "dev:node": "cross-env NODE_ENV=development nodemon ./server.ts --watch ./server.ts",
-    "dev:react": "react-scripts start",
+    "start": "npm-run-all --parallel start:*",
+    "start:node": "cross-env NODE_ENV=development nodemon ./server.ts --watch ./server.ts",
+    "start:react": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

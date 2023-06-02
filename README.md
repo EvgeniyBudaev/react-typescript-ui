@@ -29,7 +29,7 @@ The project uses
 - Launching a project:
 
 ```python
-  npm run dev
+  npm start
 ```
 
 ### <a name="Authors">Authors</a>
