@@ -7,11 +7,11 @@ type TProps = TIconProps & {
   onClick?: (event: MouseEvent<HTMLOrSVGElement>) => void;
 };
 
-const Component: FC<TProps> = ({ className, onClick, ...props }) => (
+const Component: FC<TProps> = ({ className, height = 24, width = 24, onClick, ...props }) => (
   <svg
     className={className}
-    width="24"
-    height="24"
+    height={height}
+    width={width}
     xmlns="http://www.w3.org/2000/svg"
     viewBox="-2.5 -2.5 19 19"
     data-tid="81c11660"
