@@ -1,10 +1,8 @@
+import clsx from "clsx";
 import { memo, useEffect, useState, useRef } from "react";
 import type { FC, PropsWithChildren } from "react";
 import { CSSTransition } from "react-transition-group";
-import clsx from "clsx";
-
-import { TRANSITION } from "../constants";
-import { Icon } from "../Icon";
+import { Icon, TRANSITION } from "uikit";
 import "./Accordion.scss";
 
 type TProps = {
@@ -13,12 +11,17 @@ type TProps = {
   title?: string;
 } & PropsWithChildren;
 
-const Component: FC<TProps> = ({ className, isActive = false, title = "", children = null }) => {
+const AccordionComponent: FC<TProps> = ({
+  className,
+  isActive = false,
+  title = "",
+  children = null,
+}) => {
   const [isOpen, setIsOpen] = useState(isActive);
   const nodeRef = useRef<HTMLDivElement>(null);
   const contentHeight = nodeRef.current?.scrollHeight;
 
-  const onToggleAccordion = () => {
+  const handleToggleAccordion = () => {
     setIsOpen((prev?: boolean) => !prev);
   };
 
@@ -38,16 +41,16 @@ const Component: FC<TProps> = ({ className, isActive = false, title = "", childr
         Accordion__active: isOpen,
       })}
     >
-      <div className="Accordion-Header" onClick={onToggleAccordion}>
+      <div className="Accordion-Header" onClick={handleToggleAccordion}>
         <div className="Accordion-HeaderTitle">{title}</div>
         <Icon className="Accordion-HeaderIcon" type="ArrowDown" />
       </div>
 
       <CSSTransition
+        classNames="Accordion-ContentWrapper"
         in={isOpen}
         nodeRef={nodeRef}
         timeout={TRANSITION}
-        classNames="Accordion-ContentWrapper"
         unmountOnExit
       >
         <div ref={nodeRef}>
@@ -58,4 +61,4 @@ const Component: FC<TProps> = ({ className, isActive = false, title = "", childr
   );
 };
 
-export const Accordion = memo(Component);
+export const Accordion = memo(AccordionComponent);
