@@ -1,41 +1,43 @@
+import clsx from "clsx";
 import { useEffect, useState } from "react";
-import type { FC, ReactElement, ReactNode } from "react";
+import type { FC, ReactNode } from "react";
 import ReactDOM from "react-dom";
 import { usePopper } from "react-popper";
-import clsx from "clsx";
 
 import { useMounted } from "uikit";
-import type { TModifiers, TPlacement } from "uikit";
-import { getTooltipOffset, getVirtualReference } from "./utils";
+import type { TClasses, TModifiers, TPlacement } from "./types";
+import { getTooltipOffset } from "./utils";
 import "./Tooltip.scss";
 
 export type TTooltipProps = {
   children?: ReactNode;
-  className?: string;
+  classes?: TClasses;
   dataTestId?: string;
   isOpen?: boolean;
-  message?: string | ReactElement;
+  isVisible?: boolean;
+  message: string | React.ReactElement;
   modifiers?: TModifiers;
   placement?: TPlacement;
+  timerDelay?: number;
 };
 
 export const Tooltip: FC<TTooltipProps> = ({
   children,
+  classes,
   dataTestId,
   isOpen,
+  isVisible = false,
   message,
   modifiers,
-  className = "",
   placement = "right",
+  timerDelay = 100,
 }) => {
   const [referenceElement, setReferenceElement] = useState<HTMLDivElement | null>(null);
-  const [virtualReference, setVirtualReference] = useState<ReturnType<
-    typeof getVirtualReference
-  > | null>(null);
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(null);
   const [arrowElement, setArrowElement] = useState<HTMLDivElement | null>(null);
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(isVisible);
   const isManualVisibility = typeof isOpen !== "undefined";
+  const [timer, setTimer] = useState<NodeJS.Timeout | undefined>();
   const hasMounted = useMounted();
 
   let popperModifiers: TModifiers = [
@@ -43,16 +45,7 @@ export const Tooltip: FC<TTooltipProps> = ({
       name: "arrow",
       options: {
         element: arrowElement,
-        padding:
-          popperElement &&
-          referenceElement &&
-          popperElement.offsetWidth / referenceElement.offsetWidth,
-      },
-    },
-    {
-      name: "flip",
-      options: {
-        altBoundary: true,
+        padding: 12,
       },
     },
     {
@@ -69,42 +62,44 @@ export const Tooltip: FC<TTooltipProps> = ({
     },
   ];
 
+  useEffect(() => {
+    const listener = () => setVisible(false);
+    document.addEventListener("scroll", listener);
+    return () => document.removeEventListener("scroll", listener);
+  }, []);
+
   if (modifiers) {
     popperModifiers = popperModifiers.concat(modifiers);
   }
 
-  const { styles, attributes } = usePopper(virtualReference, popperElement, {
+  const { styles, attributes } = usePopper(referenceElement, popperElement, {
     modifiers: popperModifiers,
     placement,
   });
 
-  const onToggle = (visible: boolean | ((prevState: boolean) => boolean)) => () => {
+  const handleMouseOver = () => {
     if (!isManualVisibility) {
-      setVisible(visible);
+      setVisible(true);
+      clearTimeout(timer);
     }
   };
 
-  useEffect(() => {
-    if (visible) {
-      const listener = ({ clientX, clientY }: MouseEvent) => {
-        setVirtualReference(getVirtualReference(clientX, clientY));
-      };
+  const handleMouseLeave = () => {
+    const newTimer = setTimeout(() => setVisible(false), timerDelay);
+    setTimer(newTimer);
+  };
 
-      document.addEventListener("mousemove", listener);
-
-      return () => document.removeEventListener("mousemove", listener);
-    } else {
-      setVirtualReference(null);
-    }
-  }, [visible]);
+  const handleInnerClick = (event: React.MouseEvent) => {
+    event.stopPropagation();
+  };
 
   return (
     <div data-testid={dataTestId}>
       <div
-        className={clsx("Tooltip", className)}
-        data-testid="tooltip-ref-element"
-        onMouseOver={onToggle(true)}
-        onMouseOut={onToggle(false)}
+        className={classes?.referenceElement}
+        data-testid="tooltip__ref-element"
+        onMouseOver={handleMouseOver}
+        onMouseLeave={handleMouseLeave}
         ref={setReferenceElement}
       >
         {children}
@@ -112,20 +107,31 @@ export const Tooltip: FC<TTooltipProps> = ({
 
       {hasMounted &&
         visible &&
-        virtualReference &&
         message &&
         ReactDOM.createPortal(
           <div
-            className="Tooltip-Element"
+            className={clsx("Tooltip-PoperElement", classes?.popperElement)}
+            data-testid="tooltip__popper-element"
+            onClick={handleInnerClick}
+            onMouseLeave={handleMouseLeave}
+            onMouseOver={handleMouseOver}
             ref={setPopperElement}
             style={{
               ...styles.popper,
-              pointerEvents: "none",
             }}
             {...attributes.popper}
           >
-            {message}
-            <div className="Tooltip-Arrow" ref={setArrowElement} style={styles.arrow} />
+            <div
+              className={clsx("Tooltip-PoperContentElement", classes?.popperContent)}
+              data-testid="tooltip__popper-content-element"
+            >
+              {message}
+              <div
+                className={clsx("Tooltip-Arrow", classes?.arrow)}
+                ref={setArrowElement}
+                style={styles.arrow}
+              />
+            </div>
           </div>,
           document.body,
         )}

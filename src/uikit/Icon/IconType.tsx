@@ -18,6 +18,7 @@ import {
   SortDownIcon,
   SortUpIcon,
   SpinnerIcon,
+  SuccessIcon,
   TelegramIcon,
   VisibilityIcon,
   VisibilityOffIcon,
@@ -43,6 +44,7 @@ export type IconType =
   | "SortDown"
   | "SortUp"
   | "Spinner"
+  | "Success"
   | "Telegram"
   | "Visibility"
   | "VisibilityOff";
@@ -67,6 +69,7 @@ export const iconTypes = new Map([
   ["SortDown", <SortDownIcon key="SortDown" />],
   ["SortUp", <SortUpIcon key="SortUp" />],
   ["Spinner", <SpinnerIcon key="SpinnerIcon" />],
+  ["Success", <SuccessIcon key="SuccessIcon" />],
   ["Telegram", <TelegramIcon key="TelegramIcon" />],
   ["Visibility", <VisibilityIcon key="VisibilityIcon" />],
   ["VisibilityOff", <VisibilityOffIcon key="VisibilityOffIcon" />],

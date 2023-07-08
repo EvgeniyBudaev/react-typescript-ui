@@ -6,6 +6,7 @@ export * from "./Breadcrumbs";
 export * from "./Button";
 export * from "./Checkbox";
 export * from "./ClientOnly";
+export * from "./CopyToClipboard";
 export * from "./DocumentViewer";
 export * from "./DropDown";
 export * from "./Error";

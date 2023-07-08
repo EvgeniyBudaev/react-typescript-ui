@@ -17,6 +17,7 @@ export * from "./SortingIcon";
 export * from "./SortDownIcon";
 export * from "./SortUpIcon";
 export * from "./SpinnerIcon";
+export * from "./SuccessIcon";
 export * from "./TelegramIcon";
 export * from "./VisibilityIcon";
 export * from "./VisibilityOffIcon";

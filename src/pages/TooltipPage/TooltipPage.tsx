@@ -35,7 +35,7 @@ export const TooltipPage: React.FC = () => {
         <Title>Tooltip right</Title>
         <div className="Test">
           <div className="Test-Text">Text</div>
-          <Tooltip className="Test-Tool" message={renderTooltipContent()} placement="right">
+          <Tooltip message={renderTooltipContent()} placement="right">
             <Icon type={"Edit"} />
           </Tooltip>
         </div>
@@ -45,7 +45,7 @@ export const TooltipPage: React.FC = () => {
         <Title>Tooltip left</Title>
         <div className="Test">
           <div className="Test-Text">Text</div>
-          <Tooltip className="Test-Tool" message={renderTooltipContent()} placement="left">
+          <Tooltip message={renderTooltipContent()} placement="left">
             <Icon type={"Edit"} />
           </Tooltip>
         </div>
@@ -55,7 +55,7 @@ export const TooltipPage: React.FC = () => {
         <Title>Tooltip top</Title>
         <div className="Test">
           <div className="Test-Text">Text</div>
-          <Tooltip className="Test-Tool" message={renderTooltipContent()} placement="top">
+          <Tooltip message={renderTooltipContent()} placement="top">
             <Icon type={"Edit"} />
           </Tooltip>
         </div>
@@ -65,7 +65,7 @@ export const TooltipPage: React.FC = () => {
         <Title>Tooltip bottom</Title>
         <div className="Test">
           <div className="Test-Text">Text</div>
-          <Tooltip className="Test-Tool" message={renderTooltipContent()} placement="bottom">
+          <Tooltip message={renderTooltipContent()} placement="bottom">
             <Icon type={"Edit"} />
           </Tooltip>
         </div>
