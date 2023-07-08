@@ -43,6 +43,7 @@ const CopyToClipboardComponent: FC<TProps> = ({
       <div className={clsx("CopyToClipboard", className)} data-testid={dataTestId}>
         {hasCopied ? (
           <Tooltip
+            classes={{ popperElement: "CopyToClipboard-Tooltip-PopperElement" }}
             isVisible={hasCopied}
             message={tooltip?.message ?? "Copied!"}
             placement={tooltip?.placement ?? "right"}
