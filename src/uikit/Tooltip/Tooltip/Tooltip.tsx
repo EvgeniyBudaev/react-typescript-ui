@@ -1,15 +1,18 @@
 import clsx from "clsx";
-import { useEffect, useState } from "react";
+import { createElement, useEffect, useState } from "react";
 import type { FC, ReactNode } from "react";
 import ReactDOM from "react-dom";
 import { usePopper } from "react-popper";
 
 import { useMounted } from "uikit";
-import type { TClasses, TModifiers, TPlacement } from "./types";
+import { ETooltipBehavior } from "./enums";
+import type { TClasses, TModifiers, TPlacement, TTooltipBehaviorType } from "./types";
 import { getTooltipOffset } from "./utils";
 import "./Tooltip.scss";
 
 export type TTooltipProps = {
+  as?: string;
+  behavior?: TTooltipBehaviorType;
   children?: ReactNode;
   classes?: TClasses;
   dataTestId?: string;
@@ -22,6 +25,8 @@ export type TTooltipProps = {
 };
 
 export const Tooltip: FC<TTooltipProps> = ({
+  as = "div",
+  behavior = ETooltipBehavior.Hover,
   children,
   classes,
   dataTestId,
@@ -77,64 +82,98 @@ export const Tooltip: FC<TTooltipProps> = ({
     placement,
   });
 
+  const handleOutsideClick = (event) => {
+    if (referenceElement) {
+      if (referenceElement.contains(event.target)) {
+        return;
+      }
+      const newTimer = setTimeout(() => setVisible(false), timerDelay);
+      setTimer(newTimer);
+    }
+  };
+
+  const handleClick = () => {
+    if (!isManualVisibility && behavior === ETooltipBehavior.Click) {
+      if (!visible) {
+        document.addEventListener("click", handleOutsideClick, false);
+      } else {
+        document.removeEventListener("click", handleOutsideClick, false);
+      }
+      setVisible((prevState) => !prevState);
+      clearTimeout(timer);
+    }
+  };
+
   const handleMouseOver = () => {
-    if (!isManualVisibility) {
+    if (!isManualVisibility && behavior === ETooltipBehavior.Hover) {
       setVisible(true);
       clearTimeout(timer);
     }
   };
 
   const handleMouseLeave = () => {
-    const newTimer = setTimeout(() => setVisible(false), timerDelay);
-    setTimer(newTimer);
+    if (behavior === ETooltipBehavior.Hover) {
+      const newTimer = setTimeout(() => setVisible(false), timerDelay);
+      setTimer(newTimer);
+    }
   };
 
   const handleInnerClick = (event: React.MouseEvent) => {
     event.stopPropagation();
   };
 
-  return (
-    <div data-testid={dataTestId}>
-      <div
-        className={classes?.referenceElement}
-        data-testid="tooltip__ref-element"
-        onMouseOver={handleMouseOver}
-        onMouseLeave={handleMouseLeave}
-        ref={setReferenceElement}
-      >
-        {children}
-      </div>
+  const props = {
+    className: classes?.tooltip,
+    datatestid: dataTestId,
+  };
 
-      {hasMounted &&
-        visible &&
-        message &&
-        ReactDOM.createPortal(
-          <div
-            className={clsx("Tooltip-PoperElement", classes?.popperElement)}
-            data-testid="tooltip__popper-element"
-            onClick={handleInnerClick}
-            onMouseLeave={handleMouseLeave}
-            onMouseOver={handleMouseOver}
-            ref={setPopperElement}
-            style={{
-              ...styles.popper,
-            }}
-            {...attributes.popper}
-          >
+  const renderChildren = () => {
+    return (
+      <>
+        <div
+          className={classes?.referenceElement}
+          data-testid="tooltip__ref-element"
+          onClick={handleClick}
+          onMouseOver={handleMouseOver}
+          onMouseLeave={handleMouseLeave}
+          ref={setReferenceElement}
+        >
+          {children}
+        </div>
+
+        {hasMounted &&
+          visible &&
+          message &&
+          ReactDOM.createPortal(
             <div
-              className={clsx("Tooltip-PoperContentElement", classes?.popperContent)}
-              data-testid="tooltip__popper-content-element"
+              className={clsx("Tooltip-PoperElement", classes?.popperElement)}
+              data-testid="tooltip__popper-element"
+              onClick={handleInnerClick}
+              onMouseLeave={handleMouseLeave}
+              onMouseOver={handleMouseOver}
+              ref={setPopperElement}
+              style={{
+                ...styles.popper,
+              }}
+              {...attributes.popper}
             >
-              {message}
               <div
-                className={clsx("Tooltip-Arrow", classes?.arrow)}
-                ref={setArrowElement}
-                style={styles.arrow}
-              />
-            </div>
-          </div>,
-          document.body,
-        )}
-    </div>
-  );
+                className={clsx("Tooltip-PoperContentElement", classes?.popperContent)}
+                data-testid="tooltip__popper-content-element"
+              >
+                {message}
+                <div
+                  className={clsx("Tooltip-Arrow", classes?.arrow)}
+                  ref={setArrowElement}
+                  style={styles.arrow}
+                />
+              </div>
+            </div>,
+            document.body,
+          )}
+      </>
+    );
+  };
+
+  return createElement(as, props, renderChildren());
 };

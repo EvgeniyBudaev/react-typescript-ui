@@ -7,6 +7,15 @@
     margin-bottom: 50px;
     text-align: center;
   }
+
+  &-Tooltip {
+    display: flex;
+    justify-content: center;
+  }
+
+  &-Inline {
+    max-width: max-content;
+  }
 }
 
 .Test {

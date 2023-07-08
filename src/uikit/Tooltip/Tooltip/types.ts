@@ -8,4 +8,7 @@ export type TClasses = {
   popperContent?: string;
   popperElement?: string;
   referenceElement?: string;
+  tooltip?: string;
 };
+
+export type TTooltipBehaviorType = "click" | "hover";
