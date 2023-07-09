@@ -1,3 +1,45 @@
+@import "styles";
+
+/* ----- Открытие/закрытие DropDown ----- */
+$positionDropDown: -500px;
+$transition: 0.15s;
+
 .DropDown {
-  width: 100%;
+  position: relative;
+
+  &-Panel {
+    content: "";
+    position: absolute;
+    bottom: -165px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    height: max-content;
+    width: max-content;
+    background-color: white;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: $shadow-perimeter;
+    z-index: 103;
+
+    &.enter {
+      opacity: 0;
+    }
+
+    &.enter-active {
+      opacity: 1;
+      transition: opacity $transition;
+    }
+
+    &.exit {
+      opacity: 1;
+      transition: opacity $transition;
+    }
+
+    &.exit-active {
+      opacity: 0;
+      transition: opacity $transition;
+    }
+  }
 }

@@ -1,53 +1,39 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import type { FC } from "react";
 import { Title } from "components";
 import { DropDown } from "uikit";
 import "./DropDownPage.scss";
 
 export const DropDownPage: FC = () => {
-  const [isDropDownOpen, setIsDropDownOpen] = useState(false);
-  const refToggleDropDown = useRef<HTMLLIElement>(null);
-
-  useEffect(() => {
-    window.addEventListener("click", handleClickOutsideDropDown);
-    return () => {
-      window.removeEventListener("click", handleClickOutsideDropDown);
-    };
-  });
-
-  const handleClickOutsideDropDown = (event: MouseEvent) => {
-    if (isDropDownOpen) {
-      if (refToggleDropDown.current && event.target instanceof HTMLElement) {
-        if (!refToggleDropDown.current.contains(event.target)) {
-          setIsDropDownOpen(false);
-        }
-      }
-    }
-  };
-
-  const handleToggleDropDown = () => {
-    setIsDropDownOpen((prevState?: boolean) => !prevState);
-  };
-
   return (
     <section className="DropDownPage">
       <Title>DropDown</Title>
       <nav className="DropDownPage-Navigation">
         <ul className="DropDownPage-Menu">
-          <li
-            className="DropDownPage-MenuItem"
-            ref={refToggleDropDown}
-            onClick={handleToggleDropDown}
-          >
-            <span>Catalog</span>
-            <DropDown className="DropDownCatalog" isOpen={isDropDownOpen}>
+          <DropDown>
+            <DropDown.Button classes={{ dropDownButton: "DropDownPage-MenuItem" }}>
+              <span>Smartphones</span>
+            </DropDown.Button>
+            <DropDown.Panel classes={{ dropDownPanel: "DropDownCatalog" }}>
               <ul className="DropDownCatalog-Menu">
-                <li className="DropDownCatalog-MenuItem">Smartphones</li>
-                <li className="DropDownCatalog-MenuItem">Notebooks</li>
-                <li className="DropDownCatalog-MenuItem">TV</li>
+                <li className="DropDownCatalog-MenuItem">Apple</li>
+                <li className="DropDownCatalog-MenuItem">Samsung</li>
+                <li className="DropDownCatalog-MenuItem">Huawei</li>
               </ul>
-            </DropDown>
-          </li>
+            </DropDown.Panel>
+          </DropDown>
+          <DropDown>
+            <DropDown.Button classes={{ dropDownButton: "DropDownPage-MenuItem" }}>
+              <span>Notebooks</span>
+            </DropDown.Button>
+            <DropDown.Panel classes={{ dropDownPanel: "DropDownCatalog" }}>
+              <ul className="DropDownCatalog-Menu">
+                <li className="DropDownCatalog-MenuItem">Lenovo</li>
+                <li className="DropDownCatalog-MenuItem">Asus</li>
+                <li className="DropDownCatalog-MenuItem">MSI</li>
+              </ul>
+            </DropDown.Panel>
+          </DropDown>
         </ul>
       </nav>
     </section>

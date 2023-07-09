@@ -1,35 +1,64 @@
-import { memo, useRef } from "react";
-import type { FC, ReactNode } from "react";
-import { CSSTransition } from "react-transition-group";
 import clsx from "clsx";
-import { TRANSITION } from "uikit";
+import type { ReactNode } from "react";
+import { CSSTransition } from "react-transition-group";
+import { DropDownProvider, TRANSITION, useDropDown, useDropDownContext } from "uikit";
 import type { TDropDownClasses } from "./types";
 import "./DropDown.scss";
 
 type TProps = {
   children?: ReactNode;
   classes?: TDropDownClasses;
-  className?: string;
-  isOpen?: boolean;
-  transition?: number;
 };
 
-const Component: FC<TProps> = ({ children, classes, className, isOpen, transition }) => {
-  const nodeRef = useRef(null);
+export const DropDown = ({ children, classes }: TProps): JSX.Element => {
+  const dropDownState = useDropDown();
 
   return (
-    <CSSTransition
-      className={className}
-      in={isOpen}
-      nodeRef={nodeRef}
-      timeout={transition ?? TRANSITION}
-      unmountOnExit
-    >
-      <div ref={nodeRef}>
-        <div className={clsx("DropDown", classes?.dropDown)}>{children}</div>
-      </div>
-    </CSSTransition>
+    <DropDownProvider value={dropDownState}>
+      <div className={clsx("DropDown", classes?.dropDown)}>{children}</div>
+    </DropDownProvider>
   );
 };
 
-export const DropDown = memo(Component);
+type TDropDownButton = {
+  children?: ReactNode;
+  classes?: TDropDownClasses;
+};
+
+// eslint-disable-next-line react/display-name
+DropDown.Button = ({ children, classes }: TDropDownButton): JSX.Element => {
+  const dropDownState = useDropDownContext();
+
+  return (
+    <div
+      className={clsx("DropDown-Button", classes?.dropDownButton)}
+      onClick={dropDownState?.onClickButtonDropDown}
+      ref={dropDownState?.refButtonDropDown}
+    >
+      {children}
+    </div>
+  );
+};
+
+type TDropDownPanel = {
+  children?: ReactNode;
+  classes?: TDropDownClasses;
+  transition?: number;
+};
+
+// eslint-disable-next-line react/display-name
+DropDown.Panel = ({ children, classes, transition }: TDropDownPanel): JSX.Element => {
+  const dropDownState = useDropDownContext();
+
+  return (
+    <CSSTransition
+      className={clsx("DropDown-Panel", classes?.dropDownPanel)}
+      in={dropDownState?.isDropDownOpen}
+      nodeRef={dropDownState?.refPanelDropDown}
+      timeout={transition ?? TRANSITION}
+      unmountOnExit
+    >
+      <div ref={dropDownState?.refPanelDropDown}>{children}</div>
+    </CSSTransition>
+  );
+};
