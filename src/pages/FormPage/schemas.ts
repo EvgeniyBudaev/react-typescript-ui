@@ -29,6 +29,7 @@ export const formSchema = z
     [EFormFields.Phone]: z.string().trim().min(1, EMPTY_FIELD_ERROR_MESSAGE),
     [EFormFields.Password]: z.string().trim().min(1, EMPTY_FIELD_ERROR_MESSAGE),
     [EFormFields.RePassword]: z.string().trim().min(1, EMPTY_FIELD_ERROR_MESSAGE),
+    [EFormFields.Comment]: z.string().trim().nullish(),
   })
   .refine(({ password, rePassword }) => password === rePassword, {
     path: [EFormFields.RePassword],

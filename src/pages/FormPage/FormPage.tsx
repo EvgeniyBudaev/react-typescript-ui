@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Input, PhoneInputMask } from "services/form";
+import { Input, PhoneInputMask, Textarea } from "services/form";
 import { Button, ETypographyVariant, Typography } from "uikit";
 import { EFormFields } from "./enums";
 import { formSchema } from "./schemas";
@@ -30,6 +30,7 @@ export const FormPage: FC = () => {
                 <PhoneInputMask label="Mobile phone" name={EFormFields.Phone} />
                 <Input label="Password" name={EFormFields.Password} type="text" />
                 <Input label="Password confirmation" name={EFormFields.RePassword} type="text" />
+                <Textarea label="Comment" name={EFormFields.Comment} />
                 {/*<FormErrors errors={methods.formState.errors} />*/}
               </div>
               <div className="FormPage-Control">
