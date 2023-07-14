@@ -82,7 +82,7 @@ const InputMaskComponent: FC<TInputMaskProps> = (props) => {
             maskPlaceholder={maskPlaceholder}
             onChange={handleChange}
           >
-            <InputUi {...rest} error={error?.message} ref={field.ref} />
+            <InputUi {...rest} error={error?.message} isFocused={!!defaultValue} ref={field.ref} />
           </ReactInputMask>
         )}
       </ClientOnly>
