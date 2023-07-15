@@ -29,6 +29,7 @@ type TBaseSelectProps = {
   getOptionLabel?: GetOptionLabel<TSelectOption | TSelectOption[]>;
   id?: string;
   instanceId?: string;
+  isDisabled?: boolean;
   isMulti?: TSelectMultiType;
   isSearchable?: boolean;
   menuPlacement?: MenuPlacement;

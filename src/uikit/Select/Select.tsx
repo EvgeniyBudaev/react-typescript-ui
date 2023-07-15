@@ -18,6 +18,7 @@ const SelectComponent: FC<TSelectProps> = ({
   getOptionLabel,
   id,
   instanceId,
+  isDisabled = false,
   isMulti = false,
   isSearchable,
   menuPlacement,
@@ -43,6 +44,7 @@ const SelectComponent: FC<TSelectProps> = ({
       getOptionLabel={getOptionLabel}
       id={id ? id : uuid}
       instanceId={instanceId ? instanceId : uuid}
+      isDisabled={isDisabled}
       isMulti={isMulti}
       isSearchable={isSearchable}
       menuPlacement={menuPlacement}
