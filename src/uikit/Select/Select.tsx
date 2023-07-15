@@ -27,6 +27,7 @@ const SelectComponent: FC<TSelectProps> = ({
   onChange,
   onFocus,
   options,
+  placeholder,
   styles,
   theme = ETheme.Light,
   value,
@@ -51,6 +52,7 @@ const SelectComponent: FC<TSelectProps> = ({
       onChange={onChange}
       onFocus={onFocus}
       options={options}
+      placeholder={placeholder}
       styles={!styles && theme ? selectStyles(theme) : styles}
       value={value}
     />

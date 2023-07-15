@@ -40,6 +40,7 @@ type TBaseSelectProps = {
     action: ActionMeta<TSelectOption>,
   ) => void;
   onFocus?: FocusEventHandler;
+  placeholder?: string;
   styles?: StylesConfig<TSelectOption, TSelectMultiType, GroupBase<TSelectOption>> | undefined;
   theme?: ETheme;
   value?: SingleValue<TSelectOption> | MultiValue<TSelectOption>;
