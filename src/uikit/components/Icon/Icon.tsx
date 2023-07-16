@@ -1,6 +1,6 @@
-import { memo, useEffect, useRef } from "react";
 import type { FC, DOMAttributes } from "react";
 import clsx from "clsx";
+import { memo, useEffect, useRef } from "react";
 
 import { EColorType, ETextColor } from "uikit";
 import { formatToStringWithPx } from "uikit/utils";
@@ -14,6 +14,7 @@ const getIcon = (type: string) => iconTypes.get(type);
 interface IProps extends DOMAttributes<HTMLSpanElement> {
   className?: string;
   color?: TColor;
+  dataTestId?: string;
   height?: number;
   size?: number;
   type: IconType;
@@ -23,6 +24,7 @@ interface IProps extends DOMAttributes<HTMLSpanElement> {
 const Component: FC<IProps> = ({
   className,
   color = ETextColor.Dark,
+  dataTestId = "uikit__icon",
   height,
   width,
   size,
@@ -45,7 +47,12 @@ const Component: FC<IProps> = ({
   }, [height, size, width]);
 
   return (
-    <div className={clsx("Icon", className, mainStyles)} ref={iconRef} {...rest}>
+    <div
+      className={clsx("Icon", className, mainStyles)}
+      data-testid={dataTestId}
+      ref={iconRef}
+      {...rest}
+    >
       {getIcon(type)}
     </div>
   );

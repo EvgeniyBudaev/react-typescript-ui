@@ -4,9 +4,10 @@ import "./FadeIn.scss";
 
 type TProps = {
   children?: ReactNode;
+  dataTestId?: string;
 };
 
-export const FadeIn: FC<TProps> = ({ children }) => {
+export const FadeIn: FC<TProps> = ({ children, dataTestId = "uikit__fadeIn" }) => {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -16,5 +17,9 @@ export const FadeIn: FC<TProps> = ({ children }) => {
     return () => clearTimeout(id);
   }, []);
 
-  return <span date-fade={String(isMounted)}>{children}</span>;
+  return (
+    <span data-testid={dataTestId} date-fade={String(isMounted)}>
+      {children}
+    </span>
+  );
 };

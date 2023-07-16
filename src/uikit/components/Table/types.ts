@@ -24,6 +24,7 @@ export type TTableProps<TColumn extends Record<string, any>> = {
   columns: Array<ColumnDef<TColumn>>;
   currentPage?: number;
   data: TColumn[];
+  dataTestId?: string;
   debug?: boolean;
   defaultPageSize?: number | null;
   getId?: (row: TColumn) => string | number;

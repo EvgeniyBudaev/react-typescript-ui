@@ -29,7 +29,7 @@ export const Tooltip: FC<TTooltipProps> = ({
   behavior = ETooltipBehavior.Hover,
   children,
   classes,
-  dataTestId,
+  dataTestId = "uikit__tooltip",
   isOpen,
   isVisible = false,
   message,

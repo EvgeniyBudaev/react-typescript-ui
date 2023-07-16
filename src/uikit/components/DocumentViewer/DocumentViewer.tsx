@@ -1,11 +1,12 @@
+import clsx from "clsx";
 import React, { memo, useEffect, useRef, useState } from "react";
 import shadowRoot from "react-shadow";
-import clsx from "clsx";
 import { IconButton } from "uikit";
 import "./DocumentViewer.scss";
 
 type TProps = {
   className?: string;
+  dataTestId?: string;
   step?: number;
   template?: string;
 };
@@ -15,7 +16,12 @@ interface IPosition {
   y: number;
 }
 
-const Component: React.FC<TProps> = ({ className, step = 0.1, template }) => {
+const DocumentViewerComponent: React.FC<TProps> = ({
+  className,
+  dataTestId = "uikit__documentViewer",
+  step = 0.1,
+  template,
+}) => {
   const defaultPosition = {
     left: 0,
     scale: 1,
@@ -96,7 +102,7 @@ const Component: React.FC<TProps> = ({ className, step = 0.1, template }) => {
     }));
 
   return (
-    <div className={clsx("DocumentViewer", className)}>
+    <div className={clsx("DocumentViewer", className)} data-testid={dataTestId}>
       <div className="DocumentViewer-Content" ref={contentRef}>
         <div
           ref={documentRef}
@@ -130,4 +136,4 @@ const Component: React.FC<TProps> = ({ className, step = 0.1, template }) => {
   );
 };
 
-export const DocumentViewer = memo(Component);
+export const DocumentViewer = memo(DocumentViewerComponent);

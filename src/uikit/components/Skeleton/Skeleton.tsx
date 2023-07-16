@@ -1,18 +1,26 @@
+import clsx from "clsx";
 import { memo, useEffect, useRef } from "react";
 import type { FC, CSSProperties } from "react";
-import clsx from "clsx";
 import { formatToStringWithPx } from "../../utils";
 import "./Skeleton.scss";
 
 type TProps = {
   className?: string;
+  dataTestId?: string;
   height?: string | number;
   style?: CSSProperties;
   width?: string | number;
   isCircle?: boolean;
 };
 
-const Component: FC<TProps> = ({ className, height = "100%", style, width = "100%", isCircle }) => {
+const SkeletonComponent: FC<TProps> = ({
+  className,
+  dataTestId = "uikit__skeleton",
+  height = "100%",
+  style,
+  width = "100%",
+  isCircle,
+}) => {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -27,10 +35,11 @@ const Component: FC<TProps> = ({ className, height = "100%", style, width = "100
       className={clsx("Skeleton", className, {
         Skeleton__circle: isCircle,
       })}
+      data-testid={dataTestId}
       ref={ref}
       style={style}
     />
   );
 };
 
-export const Skeleton = memo(Component);
+export const Skeleton = memo(SkeletonComponent);

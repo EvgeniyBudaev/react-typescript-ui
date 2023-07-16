@@ -22,6 +22,7 @@ const TableComponent = <TColumn extends Record<string, any>>(
     className,
     columns,
     currentPage,
+    dataTestId = "uikit__table",
     debug,
     defaultPageSize,
     pagesCount,
@@ -62,7 +63,7 @@ const TableComponent = <TColumn extends Record<string, any>>(
   });
 
   return (
-    <div ref={ref}>
+    <div ref={ref} data-testid={dataTestId}>
       <div className="Table-Head">
         <div>
           {" "}

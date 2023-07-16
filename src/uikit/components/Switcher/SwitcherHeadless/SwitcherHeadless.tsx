@@ -8,6 +8,7 @@ import { ESwitcherVariant } from "../enums";
 type TProps = {
   children?: ReactNode;
   className?: string;
+  dataTestId?: string;
   isChecked?: boolean;
   onChange?: (isChecked: boolean) => void;
   variant?: ESwitcherVariant;
@@ -16,6 +17,7 @@ type TProps = {
 const SwitcherHeadlessComponent: FC<TProps> = ({
   children,
   className,
+  dataTestId = "uikit__switcher-headless",
   isChecked,
   onChange,
   variant = ESwitcherVariant.Default,
@@ -23,7 +25,12 @@ const SwitcherHeadlessComponent: FC<TProps> = ({
   const currentTheme = SWITCHER_THEMES()[variant];
 
   return (
-    <Switch checked={isChecked} className={clsx(currentTheme, className)} onChange={onChange}>
+    <Switch
+      checked={isChecked}
+      className={clsx(currentTheme, className)}
+      data-testid={dataTestId}
+      onChange={onChange}
+    >
       <div
         className={clsx("Switcher-Pointer", {
           "Switcher-Pointer__checked": isChecked,

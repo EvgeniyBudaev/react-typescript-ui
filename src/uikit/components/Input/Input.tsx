@@ -1,6 +1,6 @@
+import clsx from "clsx";
 import { forwardRef, memo, useState } from "react";
 import type { DetailedHTMLProps, ForwardedRef, HTMLAttributes, FocusEvent } from "react";
-import clsx from "clsx";
 import { ETypographyVariant, FadeIn, Typography } from "uikit";
 import "./Input.scss";
 
@@ -8,6 +8,7 @@ export interface IInputProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLInputElement>, HTMLInputElement> {
   autoComplete?: string;
   className?: string;
+  dataTestId?: string;
   error?: string;
   isFocused?: boolean;
   isRequired?: boolean;
@@ -22,6 +23,7 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
     {
       autoComplete,
       className,
+      dataTestId = "uikit__input",
       error,
       isFocused: isInputFocused,
       isRequired,
@@ -64,6 +66,7 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
         className={clsx("InputField", className, {
           InputField__active: isFocused,
         })}
+        data-testid={dataTestId}
       >
         <div
           className={clsx("InputField-Inner", {

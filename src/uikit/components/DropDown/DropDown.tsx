@@ -8,14 +8,21 @@ import "./DropDown.scss";
 type TProps = {
   children?: ReactNode;
   classes?: TDropDownClasses;
+  dataTestId?: string;
 };
 
-export const DropDown = ({ children, classes }: TProps): JSX.Element => {
+export const DropDown = ({
+  children,
+  classes,
+  dataTestId = "uikit__dropDown",
+}: TProps): JSX.Element => {
   const dropDownState = useDropDown();
 
   return (
     <DropDownProvider value={dropDownState}>
-      <div className={clsx("DropDown", classes?.dropDown)}>{children}</div>
+      <div className={clsx("DropDown", classes?.dropDown)} data-testid={dataTestId}>
+        {children}
+      </div>
     </DropDownProvider>
   );
 };

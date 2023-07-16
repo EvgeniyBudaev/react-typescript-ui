@@ -14,6 +14,7 @@ import "./Select.scss";
 const AsyncSelectComponent: FC<TAsyncSelectProps> = ({
   className,
   components,
+  dataTestId = "uikit__async-select",
   defaultValue,
   getOptionLabel,
   id,
@@ -38,6 +39,7 @@ const AsyncSelectComponent: FC<TAsyncSelectProps> = ({
     <ReactAsyncSelect
       className={clsx("Select", className)}
       components={{ DropdownIndicator: StyledDropdownIndicator, ...components }}
+      data-testid={dataTestId}
       defaultValue={defaultValue}
       getOptionLabel={getOptionLabel}
       id={id ? id : uuid}

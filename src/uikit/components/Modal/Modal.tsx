@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import type { ReactNode } from "react";
-import { default as ReactModal } from "react-responsive-modal";
 import clsx from "clsx";
+import { useState, useEffect } from "react";
+import type { ReactNode, FC } from "react";
+import { default as ReactModal } from "react-responsive-modal";
 import { Icon } from "uikit";
 import "react-responsive-modal/styles.css";
 import "./Modal.scss";
@@ -11,6 +11,7 @@ type IModalSize = "medium";
 type TModalProps = {
   children?: ReactNode;
   className?: string;
+  dataTestId?: string;
   isOpen: boolean;
   onCloseModal: () => void;
   size?: IModalSize;
@@ -19,6 +20,7 @@ type TModalProps = {
 export const Modal = ({
   children,
   className,
+  dataTestId = "uikit__modal",
   isOpen,
   onCloseModal,
   size = "medium",
@@ -54,6 +56,7 @@ export const Modal = ({
       center
       classNames={defaultClassNames}
       closeIcon={<Icon type="Close" />}
+      data-testid={dataTestId}
       onClose={onCloseModal}
       open={isOpen}
       styles={styles}
@@ -69,8 +72,7 @@ type TModalHeaderProps = {
   className?: string;
 };
 
-// eslint-disable-next-line react/display-name
-Modal.Header = ({ align, children, className }: TModalHeaderProps): JSX.Element => {
+const ModalHeader: FC<TModalHeaderProps> = ({ align, children, className }) => {
   return (
     <div
       className={clsx("ModalHeader", className, {
@@ -84,22 +86,26 @@ Modal.Header = ({ align, children, className }: TModalHeaderProps): JSX.Element 
   );
 };
 
+Modal.Header = ModalHeader;
+
 type TModalContentProps = {
   children?: ReactNode;
   className?: string;
 };
 
-// eslint-disable-next-line react/display-name
-Modal.Content = ({ children, className }: TModalContentProps): JSX.Element => {
+const ModalContent: FC<TModalContentProps> = ({ children, className }) => {
   return <div className={clsx("ModalContent", className)}>{children}</div>;
 };
+
+Modal.Content = ModalContent;
 
 type TModalFooterProps = {
   className?: string;
   children?: ReactNode;
 };
 
-// eslint-disable-next-line react/display-name
-Modal.Footer = ({ children, className }: TModalFooterProps): JSX.Element => {
+const ModalFooter: FC<TModalFooterProps> = ({ children, className }) => {
   return <div className={clsx("ModalFooter", className)}>{children}</div>;
 };
+
+Modal.Footer = ModalFooter;

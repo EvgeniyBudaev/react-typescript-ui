@@ -10,14 +10,21 @@ export type TTab = {
 
 type TProps = {
   className?: string;
+  dataTestId?: string;
   onClick: (id: string | number) => void;
   selectedId: string | number;
   tabs: TTab[];
 };
 
-const Component: FC<TProps> = ({ className, onClick, selectedId, tabs }) => {
+const TabsComponent: FC<TProps> = ({
+  className,
+  dataTestId = "uikit__tabs",
+  onClick,
+  selectedId,
+  tabs,
+}) => {
   return (
-    <div className={clsx("Tabs", className)}>
+    <div className={clsx("Tabs", className)} data-testid={dataTestId}>
       {tabs &&
         tabs.map((tab: TTab) => (
           <div
@@ -40,4 +47,4 @@ const Component: FC<TProps> = ({ className, onClick, selectedId, tabs }) => {
   );
 };
 
-export const Tabs = memo(Component);
+export const Tabs = memo(TabsComponent);

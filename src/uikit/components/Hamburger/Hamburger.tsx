@@ -1,6 +1,6 @@
+import clsx from "clsx";
 import { memo } from "react";
 import type { FC, MouseEvent } from "react";
-import classNames from "classnames";
 import "./Hamburger.scss";
 
 enum EColor {
@@ -13,15 +13,22 @@ type TColor = "black" | "white";
 type TProps = {
   className?: string;
   color?: TColor;
+  dataTestId?: string;
   isActive?: boolean;
   onClick?: (event: MouseEvent) => void;
 };
 
-const Component: FC<TProps> = ({ className, color = EColor.BLACK, isActive = false, onClick }) => {
+const HamburgerComponent: FC<TProps> = ({
+  className,
+  color = EColor.BLACK,
+  dataTestId = "uikit__hamburger",
+  isActive = false,
+  onClick,
+}) => {
   return (
-    <div className={classNames("Hamburger", className)} onClick={onClick}>
+    <div className={clsx("Hamburger", className)} data-testid={dataTestId} onClick={onClick}>
       <div
-        className={classNames("Burger", {
+        className={clsx("Burger", {
           Burger__black: color === EColor.BLACK,
           Burger__white: color === EColor.WHITE,
           Burger__active: isActive,
@@ -31,4 +38,4 @@ const Component: FC<TProps> = ({ className, color = EColor.BLACK, isActive = fal
   );
 };
 
-export const Hamburger = memo(Component);
+export const Hamburger = memo(HamburgerComponent);

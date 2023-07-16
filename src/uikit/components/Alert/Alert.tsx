@@ -9,19 +9,25 @@ export enum EAlert {
 
 type TProps = {
   className?: string;
+  dataTestId?: string;
   description?: string;
   title?: string;
   type?: EAlert;
   onClose?: () => void;
 };
 
-const Component: FC<TProps> = ({ className, description, title }) => {
+const AlertComponent: FC<TProps> = ({
+  className,
+  dataTestId = "uikit__alert",
+  description,
+  title,
+}) => {
   return (
-    <div className={className}>
+    <div className={className} data-testid={dataTestId}>
       <div>{title}</div>
       <div>{description}</div>
     </div>
   );
 };
 
-export const Alert = memo(Component);
+export const Alert = memo(AlertComponent);

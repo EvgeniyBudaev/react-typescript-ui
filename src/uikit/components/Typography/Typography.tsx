@@ -10,6 +10,7 @@ type TProps = {
   as?: string;
   children?: ReactNode;
   color?: TColor;
+  dataTestId?: string;
   htmlFor?: string;
   variant?: ETypographyVariant;
 };
@@ -18,6 +19,7 @@ const Component: FC<TProps> = ({
   as = "span",
   children,
   color = ETextColor.Dark,
+  dataTestId = "uikit__typography",
   htmlFor,
   variant = ETypographyVariant.TextH1Bold,
 }) => {
@@ -25,6 +27,7 @@ const Component: FC<TProps> = ({
 
   const props = {
     className: currentTheme,
+    "data-testid": dataTestId,
     ...(as === "label" && htmlFor && { htmlFor }),
   };
 

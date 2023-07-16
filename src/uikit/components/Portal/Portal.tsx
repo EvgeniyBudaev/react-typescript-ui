@@ -1,10 +1,11 @@
+import clsx from "clsx";
 import type { FC, ReactNode } from "react";
 import ReactDOM from "react-dom";
-import clsx from "clsx";
 
 type TProps = {
   children?: ReactNode;
   className?: string;
+  dataTestId?: string;
   element?: keyof JSX.IntrinsicElements;
   elementFindById: string;
 };
@@ -12,6 +13,7 @@ type TProps = {
 export const Portal: FC<TProps> = ({
   children,
   className,
+  dataTestId = "uikit__portal",
   element: Element = "div",
   elementFindById,
 }) => {
@@ -19,7 +21,9 @@ export const Portal: FC<TProps> = ({
 
   return root
     ? ReactDOM.createPortal(
-        <Element className={clsx("Portal", className)}>{children}</Element>,
+        <Element className={clsx("Portal", className)} data-testid={dataTestId}>
+          {children}
+        </Element>,
         root,
       )
     : null;

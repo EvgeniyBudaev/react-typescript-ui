@@ -25,6 +25,7 @@ export type TSelectMultiType = true | false;
 type TBaseSelectProps = {
   className?: string;
   components?: Partial<SelectComponents<TSelectOption, TSelectMultiType, GroupBase<TSelectOption>>>;
+  dataTestId?: string;
   defaultValue?: TSelectOption | TSelectOption[];
   getOptionLabel?: GetOptionLabel<TSelectOption | TSelectOption[]>;
   id?: string;

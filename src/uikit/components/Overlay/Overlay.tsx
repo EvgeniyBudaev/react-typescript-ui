@@ -1,23 +1,31 @@
 import { memo, useRef } from "react";
 import type { FC, MouseEvent } from "react";
 import { CSSTransition } from "react-transition-group";
-import classNames from "classnames";
+import clsx from "clsx";
 import { TRANSITION } from "../../constants";
 import "./Overlay.scss";
 
 type TProps = {
   className?: string;
+  dataTestId?: string;
   isActive?: boolean;
   onClick?: (event: MouseEvent) => void;
   timeout?: number;
 };
 
-const Component: FC<TProps> = ({ className, isActive = false, onClick, timeout = TRANSITION }) => {
+const OverlayComponent: FC<TProps> = ({
+  className,
+  dataTestId = "uikit__overlay",
+  isActive = false,
+  onClick,
+  timeout = TRANSITION,
+}) => {
   const nodeRef = useRef(null);
 
   return (
     <CSSTransition
-      className={classNames("Overlay", className)}
+      className={clsx("Overlay", className)}
+      data-testid={dataTestId}
       in={isActive}
       nodeRef={nodeRef}
       onClick={onClick}
@@ -29,4 +37,4 @@ const Component: FC<TProps> = ({ className, isActive = false, onClick, timeout =
   );
 };
 
-export const Overlay = memo(Component);
+export const Overlay = memo(OverlayComponent);

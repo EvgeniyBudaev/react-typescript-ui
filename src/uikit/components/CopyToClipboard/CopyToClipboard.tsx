@@ -18,7 +18,7 @@ type TProps = {
 const CopyToClipboardComponent: FC<TProps> = ({
   classes,
   className,
-  dataTestId,
+  dataTestId = "uikit__copyToClipboard",
   timerDelay = 1000,
   tooltip,
   value,

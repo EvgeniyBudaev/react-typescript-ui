@@ -1,6 +1,6 @@
+import clsx from "clsx";
 import { memo } from "react";
 import type { ButtonHTMLAttributes, DetailedHTMLProps, FC, MouseEvent } from "react";
-import clsx from "clsx";
 import { Icon } from "uikit";
 import type { IconType } from "uikit";
 import type { TButton } from "./types";
@@ -9,15 +9,17 @@ import "./Button.scss";
 export interface IButtonProps
   extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
   className?: string;
+  dataTestId?: string;
   isDisabled?: boolean;
   onClick?: (event: MouseEvent) => void;
   type?: TButton;
   typeIcon?: IconType;
 }
 
-const Component: FC<IButtonProps> = ({
+const ButtonComponent: FC<IButtonProps> = ({
   className,
   children,
+  dataTestId = "uikit__button",
   isDisabled = false,
   onClick,
   type = "button",
@@ -29,7 +31,7 @@ const Component: FC<IButtonProps> = ({
       className={clsx("Button", className, {
         Button__disabled: isDisabled,
       })}
-      data-testid="test-button"
+      data-testid={dataTestId}
       disabled={isDisabled}
       onClick={onClick}
       type={type}
@@ -41,4 +43,4 @@ const Component: FC<IButtonProps> = ({
   );
 };
 
-export const Button = memo(Component);
+export const Button = memo(ButtonComponent);

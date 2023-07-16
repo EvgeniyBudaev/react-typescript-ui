@@ -1,7 +1,7 @@
+import clsx from "clsx";
 import { memo, useEffect, useMemo, useRef, useState } from "react";
 import type { FC, MouseEvent, ReactNode } from "react";
 import { CSSTransition } from "react-transition-group";
-import clsx from "clsx";
 import { TRANSITION } from "uikit/constants/transition";
 import "./TooltipCustom.scss";
 
@@ -19,14 +19,16 @@ type TProps = {
   children: ReactNode;
   className?: string;
   content: JSX.Element | string;
+  dataTestId?: string;
   placement: TTooltipCustomPlacementType;
 };
 
-const Component: FC<TProps> = ({
+const TooltipCustomComponent: FC<TProps> = ({
   behavior = ETooltipCustomBehavior.HOVER,
   children,
   className,
   content,
+  dataTestId = "uikit__tooltip-custom",
   placement,
 }) => {
   const [isClicked, setIsClicked] = useState(false);
@@ -94,7 +96,7 @@ const Component: FC<TProps> = ({
   }, [isClicked]);
 
   return (
-    <div className={clsx("TooltipCustom", className)}>
+    <div className={clsx("TooltipCustom", className)} data-testid={dataTestId}>
       <button
         className="TooltipCustom_Target"
         onMouseEnter={handleMouseEnter}
@@ -129,4 +131,4 @@ const Component: FC<TProps> = ({
   );
 };
 
-export const TooltipCustom = memo(Component);
+export const TooltipCustom = memo(TooltipCustomComponent);

@@ -1,11 +1,12 @@
+import clsx from "clsx";
 import type { FC } from "react";
 import ReactPaginate from "react-paginate";
-import clsx from "clsx";
 import { ETheme, Icon } from "uikit";
 import "./Pagination.scss";
 
 type TProps = {
   className?: string;
+  dataTestId?: string;
   forcePage?: number;
   initialPage?: number;
   marginPagesDisplayed?: number;
@@ -17,6 +18,7 @@ type TProps = {
 
 export const Pagination: FC<TProps> = ({
   className,
+  dataTestId = "uikit__pagination",
   forcePage,
   initialPage,
   marginPagesDisplayed = 3,
@@ -33,6 +35,7 @@ export const Pagination: FC<TProps> = ({
       breakClassName="Pagination__page-item"
       breakLinkClassName="Pagination__page-link"
       containerClassName={clsx("Pagination", { Pagination__dark: isDark }, className)}
+      data-testid={dataTestId}
       forcePage={forcePage}
       initialPage={initialPage}
       marginPagesDisplayed={marginPagesDisplayed}

@@ -8,6 +8,7 @@ export interface ITextareaProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement> {
   autoComplete?: string;
   className?: string;
+  dataTestId?: string;
   hidden?: boolean;
   isFocused?: boolean;
   isRequired?: boolean;
@@ -21,6 +22,7 @@ const TextareaComponent = forwardRef<HTMLTextAreaElement, ITextareaProps>(
     {
       autoComplete,
       className,
+      dataTestId = "uikit__textarea",
       hidden,
       isFocused: isTextareaFocused,
       isRequired,
@@ -62,6 +64,7 @@ const TextareaComponent = forwardRef<HTMLTextAreaElement, ITextareaProps>(
         className={clsx("TextareaField", className, {
           TextareaField__active: isFocused,
         })}
+        data-testid={dataTestId}
       >
         <div
           className={clsx("TextareaField-Inner", {

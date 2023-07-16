@@ -1,11 +1,12 @@
+import clsx from "clsx";
 import { memo } from "react";
 import type { FC, MouseEvent } from "react";
-import clsx from "clsx";
 import "./Avatar.scss";
 
 type TProps = {
   className?: string;
   classNameSmallCircle?: string;
+  dataTestId?: string;
   image?: string;
   onClick?: (event: MouseEvent<HTMLDivElement>) => void;
   size?: number;
@@ -15,6 +16,7 @@ type TProps = {
 const AvatarComponent: FC<TProps> = ({
   className,
   classNameSmallCircle,
+  dataTestId = "uikit__avatar",
   image,
   onClick,
   size = 46,
@@ -28,9 +30,9 @@ const AvatarComponent: FC<TProps> = ({
   return (
     <div
       className={clsx("Avatar", className)}
-      style={{ width: sizeInner, height: sizeInner }}
+      data-testid={dataTestId}
       onClick={onClick}
-      data-testid="test-avatar"
+      style={{ width: sizeInner, height: sizeInner }}
     >
       <div
         className={clsx("AvatarInner", classNameSmallCircle)}
@@ -41,19 +43,19 @@ const AvatarComponent: FC<TProps> = ({
       >
         {image && (
           <img
-            className="AvatarFace"
-            src={image}
             alt=""
-            width={sizeInner}
-            height={sizeInner}
+            className="AvatarFace"
             data-testid="test-avatarFace_image"
+            height={sizeInner}
+            src={image}
+            width={sizeInner}
           />
         )}
         {title && (
           <div
             className="AvatarFace"
-            style={{ fontSize: sizeTitle }}
             data-testid="test-avatarFace_title"
+            style={{ fontSize: sizeTitle }}
           >
             {title}
           </div>

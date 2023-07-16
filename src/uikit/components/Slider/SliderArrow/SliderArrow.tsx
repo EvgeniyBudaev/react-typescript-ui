@@ -1,11 +1,12 @@
+import clsx from "clsx";
 import { useEffect, useRef } from "react";
 import type { CSSProperties, FC, MouseEventHandler } from "react";
-import clsx from "clsx";
 import { ESliderArrow, Icon } from "uikit";
 
 type TProps = {
   backgroundColor?: string;
   className?: string;
+  dataTestId?: string;
   onClick?: MouseEventHandler<HTMLDivElement>;
   opacity?: number;
   style?: CSSProperties;
@@ -16,6 +17,7 @@ type TProps = {
 export const SliderArrow: FC<TProps> = ({
   backgroundColor = "#e8e8e8",
   className,
+  dataTestId = "uikit__slider-arrow",
   onClick,
   opacity = 1,
   style,
@@ -34,6 +36,7 @@ export const SliderArrow: FC<TProps> = ({
   return (
     <div
       className={clsx("Slider-Arrow", className)}
+      data-testid={dataTestId}
       ref={arrowRef}
       style={{ ...style, ...styles }}
       onClick={onClick}

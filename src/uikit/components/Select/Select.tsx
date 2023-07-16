@@ -14,6 +14,7 @@ import "./Select.scss";
 const SelectComponent: FC<TSelectProps> = ({
   className,
   components,
+  dataTestId = "uikit__select",
   defaultValue,
   getOptionLabel,
   id,
@@ -40,6 +41,7 @@ const SelectComponent: FC<TSelectProps> = ({
     <ReactSelect
       className={clsx("Select", className)}
       components={{ DropdownIndicator: StyledDropdownIndicator, ...components }}
+      data-testid={dataTestId}
       defaultValue={defaultValue}
       getOptionLabel={getOptionLabel}
       id={id ? id : uuid}

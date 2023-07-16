@@ -1,5 +1,5 @@
-import { forwardRef, memo, useEffect, useState } from "react";
 import clsx from "clsx";
+import { forwardRef, memo, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { ETypographyVariant, FadeIn, Typography } from "uikit";
 import { EErrorTheme } from "uikit/components/Error/enums";
@@ -8,7 +8,13 @@ import "./Error.scss";
 
 const ErrorComponent = forwardRef<HTMLDivElement, TErrorProps>(
   (
-    { dataTestId, id, errors = [], role = "alert", theme = EErrorTheme.Error }: TErrorProps,
+    {
+      dataTestId = "uikit__error",
+      id,
+      errors = [],
+      role = "alert",
+      theme = EErrorTheme.Error,
+    }: TErrorProps,
     ref,
   ) => {
     const [length, setLength] = useState(0);

@@ -1,6 +1,6 @@
+import clsx from "clsx";
 import { memo } from "react";
 import type { FC, MouseEvent } from "react";
-import clsx from "clsx";
 import { Button, Icon } from "uikit";
 import type { IconType } from "uikit";
 import type { IButtonProps } from "../Button";

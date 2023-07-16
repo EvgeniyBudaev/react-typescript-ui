@@ -1,6 +1,6 @@
+import clsx from "clsx";
 import { memo } from "react";
 import type { ChangeEvent, FC, ReactNode } from "react";
-import clsx from "clsx";
 import { Icon } from "uikit";
 import "./Checkbox.scss";
 
@@ -8,6 +8,7 @@ export type TCheckboxProps = {
   checked?: boolean;
   children?: ReactNode;
   className?: string;
+  dataTestId?: string;
   defaultChecked?: boolean;
   id: string;
   label: string;
@@ -16,10 +17,11 @@ export type TCheckboxProps = {
   onChange?: (event: ChangeEvent<HTMLInputElement>, id: string, nameGroup: string) => void;
 };
 
-export const Component: FC<TCheckboxProps> = ({
+export const CheckboxComponent: FC<TCheckboxProps> = ({
   checked,
   children,
   className,
+  dataTestId = "uikit__checkbox",
   defaultChecked,
   id,
   label,
@@ -32,7 +34,7 @@ export const Component: FC<TCheckboxProps> = ({
   };
 
   return (
-    <div className={clsx("Checkbox-Wrapper", className)}>
+    <div className={clsx("Checkbox-Wrapper", className)} data-testid={dataTestId}>
       <input
         checked={checked}
         className="Checkbox"
@@ -54,4 +56,4 @@ export const Component: FC<TCheckboxProps> = ({
   );
 };
 
-export const Checkbox = memo(Component);
+export const Checkbox = memo(CheckboxComponent);

@@ -7,12 +7,14 @@ import "./Accordion.scss";
 
 type TProps = {
   className?: string;
+  dataTestId?: string;
   isActive?: boolean;
   title?: string;
 } & PropsWithChildren;
 
 const AccordionComponent: FC<TProps> = ({
   className,
+  dataTestId = "uikit__accordion",
   isActive = false,
   title = "",
   children = null,
@@ -40,6 +42,7 @@ const AccordionComponent: FC<TProps> = ({
       className={clsx("Accordion", className, {
         Accordion__active: isOpen,
       })}
+      data-testid={dataTestId}
     >
       <div className="Accordion-Header" onClick={handleToggleAccordion}>
         <div className="Accordion-HeaderTitle">{title}</div>
