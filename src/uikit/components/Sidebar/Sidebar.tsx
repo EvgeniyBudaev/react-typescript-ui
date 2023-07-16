@@ -3,7 +3,7 @@ import type { MouseEvent, ForwardedRef, ReactNode } from "react";
 import { CSSTransition } from "react-transition-group";
 import clsx from "clsx";
 import { TRANSITION } from "uikit/constants/transition";
-import { Overlay } from "uikit/index";
+import { Overlay } from "uikit";
 import "./Sidebar.scss";
 
 type TProps = {

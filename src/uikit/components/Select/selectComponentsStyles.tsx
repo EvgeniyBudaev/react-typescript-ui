@@ -1,8 +1,8 @@
 import { components } from "react-select";
 import type { DropdownIndicatorProps, GroupBase, MultiValueRemoveProps } from "react-select";
 import clsx from "clsx";
-import { Icon } from "uikit/index";
-import type { TSelectOption } from "uikit/index";
+import { Icon } from "uikit";
+import type { TSelectOption } from "uikit";
 
 export const StyledDropdownIndicator = (
   props: JSX.IntrinsicAttributes &

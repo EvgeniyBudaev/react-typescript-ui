@@ -1,4 +1,4 @@
-import type { TPlacement } from "uikit/index";
+import type { TPlacement } from "uikit";
 
 type TGetTooltipOffsetParams = {
   placement?: TPlacement;

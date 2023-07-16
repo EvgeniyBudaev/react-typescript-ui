@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import type { CSSProperties, FC, MouseEventHandler } from "react";
 import clsx from "clsx";
-import { ESliderArrow, Icon } from "uikit/index";
+import { ESliderArrow, Icon } from "uikit";
 
 type TProps = {
   backgroundColor?: string;

@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import ReactPaginate from "react-paginate";
 import clsx from "clsx";
-import { ETheme, Icon } from "uikit/index";
+import { ETheme, Icon } from "uikit";
 import "./Pagination.scss";
 
 type TProps = {

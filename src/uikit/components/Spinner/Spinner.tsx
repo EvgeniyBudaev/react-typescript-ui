@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import { Icon } from "uikit/index";
+import { Icon } from "uikit";
 import "./Spinner.scss";
 
 export const Spinner: FC = () => {

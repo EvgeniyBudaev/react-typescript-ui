@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { memo, useEffect, useState } from "react";
 import type { FC } from "react";
-import { Icon, Tooltip } from "uikit/index";
+import { Icon, Tooltip } from "uikit";
 import { useCopyToClipboard } from "uikit/hooks";
 import type { TCopyToClipboardClasses, TCopyToClipboardTooltip } from "./types";
 import "./CopyToClipboard.scss";

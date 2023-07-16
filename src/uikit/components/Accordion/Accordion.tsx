@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { memo, useEffect, useState, useRef } from "react";
 import type { FC, PropsWithChildren } from "react";
 import { CSSTransition } from "react-transition-group";
-import { Icon, TRANSITION } from "uikit/index";
+import { Icon, TRANSITION } from "uikit";
 import "./Accordion.scss";
 
 type TProps = {

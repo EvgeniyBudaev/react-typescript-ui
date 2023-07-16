@@ -3,7 +3,7 @@ import type { FC, ReactNode } from "react";
 import { Link } from "react-router-dom";
 import clsx from "clsx";
 import type { BreadcrumbMatch } from "use-react-router-breadcrumbs";
-import { Icon } from "uikit/index";
+import { Icon } from "uikit";
 import "./Crumb.scss";
 
 type TProps = {

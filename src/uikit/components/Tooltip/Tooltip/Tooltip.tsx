@@ -4,7 +4,7 @@ import type { FC, ReactNode } from "react";
 import ReactDOM from "react-dom";
 import { usePopper } from "react-popper";
 
-import { useMounted } from "uikit/index";
+import { useMounted } from "uikit";
 import { ETooltipBehavior } from "./enums";
 import type { TClasses, TModifiers, TPlacement, TTooltipBehaviorType } from "./types";
 import { getTooltipOffset } from "./utils";

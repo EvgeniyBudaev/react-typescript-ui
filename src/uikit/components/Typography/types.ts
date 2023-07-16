@@ -1,3 +1,3 @@
-import type { ETextColor } from "uikit/index";
+import type { ETextColor } from "uikit";
 
 export type TColor = `${ETextColor}` | "inherit";

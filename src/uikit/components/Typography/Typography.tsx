@@ -1,7 +1,7 @@
 import { createElement, memo } from "react";
 import type { FC, ReactNode } from "react";
 
-import { ETextColor, ETypographyVariant } from "uikit/index";
+import { ETextColor, ETypographyVariant } from "uikit";
 import { TYPOGRAPHY_THEMES } from "uikit/components/Typography/constants";
 import type { TColor } from "./types";
 import "./Typography.scss";

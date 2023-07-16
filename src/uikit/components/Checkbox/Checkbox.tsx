@@ -1,7 +1,7 @@
 import { memo } from "react";
 import type { ChangeEvent, FC, ReactNode } from "react";
 import clsx from "clsx";
-import { Icon } from "uikit/index";
+import { Icon } from "uikit";
 import "./Checkbox.scss";
 
 export type TCheckboxProps = {

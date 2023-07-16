@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { HeaderGroup } from "@tanstack/react-table";
 
-import type { TTableSortingProps } from "uikit/index";
+import type { TTableSortingProps } from "uikit";
 import { TableHeaderItem } from "../TableHeaderItem";
 import type { TSortingColumnStateWithReset } from "./types";
 import { getInitialSortingColumnState } from "./utils";

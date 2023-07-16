@@ -1,7 +1,7 @@
 import { forwardRef, memo, useEffect, useState } from "react";
 import clsx from "clsx";
 import { v4 as uuidv4 } from "uuid";
-import { ETypographyVariant, FadeIn, Typography } from "uikit/index";
+import { ETypographyVariant, FadeIn, Typography } from "uikit";
 import { EErrorTheme } from "uikit/components/Error/enums";
 import type { TErrorProps } from "uikit/components/Error/types";
 import "./Error.scss";

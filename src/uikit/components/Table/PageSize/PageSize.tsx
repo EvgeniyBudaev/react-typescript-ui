@@ -4,8 +4,8 @@ import type { OnChangeValue } from "react-select";
 import clsx from "clsx";
 import isNil from "lodash/isNil";
 
-import { ETheme, Select } from "uikit/index";
-import type { ETablePlacement, TSelectMultiType, TSelectOption } from "uikit/index";
+import { ETheme, Select } from "uikit";
+import type { ETablePlacement, TSelectMultiType, TSelectOption } from "uikit";
 import { getPageSizeOptions } from "./utils";
 import "./PageSize.scss";
 

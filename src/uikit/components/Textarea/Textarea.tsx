@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { forwardRef, memo, useState } from "react";
 import type { DetailedHTMLProps, ForwardedRef, HTMLAttributes, FocusEvent } from "react";
-import { ETypographyVariant, Typography } from "uikit/index";
+import { ETypographyVariant, Typography } from "uikit";
 import "./Textarea.scss";
 
 export interface ITextareaProps

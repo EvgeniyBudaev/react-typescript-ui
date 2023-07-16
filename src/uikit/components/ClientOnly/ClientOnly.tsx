@@ -1,5 +1,5 @@
 import type { FC, ReactNode } from "react";
-import { useHydrated } from "uikit/index";
+import { useHydrated } from "uikit";
 
 type TProps = {
   children(): ReactNode;

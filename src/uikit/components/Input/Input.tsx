@@ -1,7 +1,7 @@
 import { forwardRef, memo, useState } from "react";
 import type { DetailedHTMLProps, ForwardedRef, HTMLAttributes, FocusEvent } from "react";
 import clsx from "clsx";
-import { ETypographyVariant, FadeIn, Typography } from "uikit/index";
+import { ETypographyVariant, FadeIn, Typography } from "uikit";
 import "./Input.scss";
 
 export interface IInputProps

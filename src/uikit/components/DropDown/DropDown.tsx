@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import type { FC, ReactNode } from "react";
 import { CSSTransition } from "react-transition-group";
-import { DropDownProvider, TRANSITION, useDropDown, useDropDownContext } from "uikit/index";
+import { DropDownProvider, TRANSITION, useDropDown, useDropDownContext } from "uikit";
 import type { TDropDownClasses } from "./types";
 import "./DropDown.scss";
 

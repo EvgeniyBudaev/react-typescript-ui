@@ -1,7 +1,7 @@
 import React from "react";
 import type { FC } from "react";
 import Dropzone from "react-dropzone";
-import { Button } from "uikit/index";
+import { Button } from "uikit";
 import type { TUploaderConfig } from "../types";
 import "./UploaderDropzone.scss";
 

@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useRef, useState } from "react";
 import shadowRoot from "react-shadow";
 import clsx from "clsx";
-import { IconButton } from "uikit/index";
+import { IconButton } from "uikit";
 import "./DocumentViewer.scss";
 
 type TProps = {

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import type { ReactNode } from "react";
 import { default as ReactModal } from "react-responsive-modal";
 import clsx from "clsx";
-import { Icon } from "uikit/index";
+import { Icon } from "uikit";
 import "react-responsive-modal/styles.css";
 import "./Modal.scss";
 
