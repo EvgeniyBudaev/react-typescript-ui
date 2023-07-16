@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import type { ReactNode } from "react";
+import type { FC, ReactNode } from "react";
 import { CSSTransition } from "react-transition-group";
 import { DropDownProvider, TRANSITION, useDropDown, useDropDownContext } from "uikit";
 import type { TDropDownClasses } from "./types";
@@ -25,8 +25,7 @@ type TDropDownButton = {
   classes?: TDropDownClasses;
 };
 
-// eslint-disable-next-line react/display-name
-DropDown.Button = ({ children, classes }: TDropDownButton): JSX.Element => {
+const DropDownButton: FC<TDropDownButton> = ({ children, classes }) => {
   const dropDownState = useDropDownContext();
 
   return (
@@ -40,14 +39,15 @@ DropDown.Button = ({ children, classes }: TDropDownButton): JSX.Element => {
   );
 };
 
+DropDown.Button = DropDownButton;
+
 type TDropDownPanel = {
   children?: ReactNode;
   classes?: TDropDownClasses;
   transition?: number;
 };
 
-// eslint-disable-next-line react/display-name
-DropDown.Panel = ({ children, classes, transition }: TDropDownPanel): JSX.Element => {
+const DropDownPanel: FC<TDropDownPanel> = ({ children, classes, transition }) => {
   const dropDownState = useDropDownContext();
 
   return (
@@ -62,3 +62,5 @@ DropDown.Panel = ({ children, classes, transition }: TDropDownPanel): JSX.Elemen
     </CSSTransition>
   );
 };
+
+DropDown.Panel = DropDownPanel;

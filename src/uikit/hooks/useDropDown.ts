@@ -1,4 +1,4 @@
-import { useContext, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { DropDownContext } from "uikit";
 import type { TDropDownState } from "uikit";
 
@@ -11,9 +11,9 @@ export const useDropDown = () => {
   const refButtonDropDown = useRef<HTMLDivElement>(null);
   const refPanelDropDown = useRef<HTMLDivElement>(null);
 
-  const handleClickButtonDropDown = () => {
+  const handleClickButtonDropDown = useCallback(() => {
     setIsDropDownOpen((prevState?: boolean) => !prevState);
-  };
+  }, []);
 
   const handleClickOutsideDropDown = (event: MouseEvent) => {
     if (
