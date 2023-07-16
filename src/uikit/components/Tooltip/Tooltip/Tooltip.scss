@@ -1,0 +1,60 @@
+@import "../../../../styles/index";
+
+.Tooltip {
+  &-PoperElement {
+    background-color: transparent;
+    border-radius: $border-radius;
+    padding: 4px;
+    max-width: 300px;
+    width: 100%;
+    z-index: 10;
+  }
+
+  &-PoperContentElement {
+    background-color: $color-black;
+    border-radius: $border-radius;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    color: $color-white;
+    display: flex;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 8px 16px;
+  }
+
+  &-Arrow,
+  &-Arrow::before {
+    background-color: $color-black;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: inherit;
+    z-index: -1;
+  }
+
+  &-Arrow {
+    visibility: hidden;
+  }
+
+  &-Arrow::before {
+    content: "";
+    visibility: visible;
+    transform: rotate(45deg);
+  }
+
+  &-PoperElement[data-popper-placement^="top"] &-Arrow {
+    bottom: 0px;
+  }
+
+  &-PoperElement[data-popper-placement^="bottom"] &-Arrow {
+    top: 0px;
+  }
+
+  &-PoperElement[data-popper-placement^="left"] &-Arrow {
+    right: 0px;
+  }
+
+  &-PoperElement[data-popper-placement^="right"] &-Arrow {
+    left: 0px;
+  }
+}

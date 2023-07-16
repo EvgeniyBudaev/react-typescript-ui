@@ -10,7 +10,7 @@ import type { TDeleteModalState } from "components/modal/ModalDelete";
 import type { TSearchParams } from "components/search";
 import { mapTableSortingToDto } from "services/api/sorting";
 import { DEBOUNCE_TIMEOUT, DEFAULT_PAGE, DEFAULT_PAGE_SIZE } from "../constants";
-import type { TTableSortingColumnState } from "../Table/types";
+import type { TTableSortingColumnState } from "../components/Table/types";
 
 type TParams = {
   onDelete?: (alias: string) => void;

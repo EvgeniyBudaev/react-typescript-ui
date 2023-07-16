@@ -1,0 +1,205 @@
+@import "../../../styles/index";
+
+.InputField {
+  $this: &;
+  position: relative;
+  margin-bottom: 30px;
+  height: 56px;
+  width: 100%;
+  word-wrap: break-word;
+
+  &-Label {
+    position: absolute;
+    top: 20px;
+    left: 12px;
+    z-index: 1;
+    color: $color-lighting;
+    pointer-events: none;
+    transition: all $transition;
+
+    #{$this}-Inner__error {
+      background-color: $color-light-red;
+    }
+
+    &Required {
+      color: $color-red;
+    }
+  }
+
+  &-Visibility {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 12px;
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+
+    svg {
+      fill: rgba(0, 0, 0, 0.54);
+      height: 24px;
+      width: 24px;
+    }
+  }
+
+  &-Inner {
+    width: 100%;
+    border: 1px solid transparent;
+    border-radius: $border-radius;
+  }
+
+  &__active {
+    width: 100%;
+
+    #{$this}-Label {
+      top: 0;
+      padding: 0;
+      color: $color-lighting;
+    }
+
+    #{$this}-Inner__active {
+      background-color: transparent;
+      border: 1px solid rgba(0, 0, 0, 0.54);
+      color: $color-text;
+
+      input:hover,
+      input {
+        background-color: $color-white;
+      }
+    }
+
+    input:-webkit-autofill.Input__active,
+    input:-webkit-autofill.Input__active:hover,
+    input:-webkit-autofill.Input__active:focus,
+    input:-webkit-autofill.Input__active:active {
+      -webkit-box-shadow: 0 0 0 30px white inset !important;
+    }
+
+    & textarea,
+    & textarea:hover {
+      background-color: $color-white;
+    }
+
+    #{$this}-Inner__active#{$this}-Inner__error {
+      border: 1px solid $color-red;
+      background-color: $color-white;
+    }
+  }
+
+  /* -------------------- Fix autocomplete form -------------------- */
+  #{$this}-Inner:-webkit-autofill {
+    -webkit-background-clip: text;
+  }
+
+  #{$this}-Inner {
+    &:-webkit-autofill {
+      border: 1px solid rgba(0, 0, 0, 0.54);
+
+      & ~ #{$this}-Label {
+        top: 0;
+        padding: 0;
+        color: $color-text;
+        background-color: $color-white;
+      }
+    }
+  }
+
+  &-ErrorField {
+    display: block;
+    padding-top: 5px;
+    color: $color-red;
+    transition: all 0.3s;
+  }
+}
+
+.Input {
+  $this: &;
+  display: flex;
+  align-items: center;
+  padding: 18px 40px 18px 12px;
+  width: 100%;
+  background-color: $color-primary-light;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  outline: transparent;
+
+  &:hover {
+    background-color: $color-primary-light-hover;
+    transition: background-color 0.25s ease;
+  }
+
+  &#{$this}__error {
+    background-color: $color-light-red;
+
+    &:hover {
+      background-color: $color-light-red-hover;
+      transition: background-color 0.25s ease;
+    }
+  }
+}
+
+.theme-dark {
+  .InputField {
+    &-Label .text-dark {
+      color: $color-lighting;
+    }
+
+    &__active {
+      .InputField-Inner__active {
+        border: 1px solid $color-primary;
+
+        input:hover,
+        input {
+          background-color: $color-darkness;
+        }
+      }
+
+      input:-webkit-autofill.Input__active,
+      input:-webkit-autofill.Input__active:hover,
+      input:-webkit-autofill.Input__active:focus,
+      input:-webkit-autofill.Input__active:active {
+        -webkit-box-shadow: 0 0 0 30px $color-darkness inset !important;
+      }
+
+      & textarea,
+      & textarea:hover {
+        background-color: $color-darkness;
+      }
+    }
+
+    & .InputField-ErrorField .text-dark {
+      color: $color-red;
+    }
+
+    /* -------------------- Fix autocomplete form -------------------- */
+    .InputField-Inner {
+      &:-webkit-autofill {
+        color: red;
+
+        & ~ .InputField-Label {
+          color: $color-white;
+        }
+      }
+
+      input:-webkit-autofill {
+        -webkit-text-fill-color: $color-white;
+      }
+    }
+  }
+
+  .Input {
+    background-color: $color-darkness;
+    border: 1px solid $color-nightSky;
+    color: $color-white;
+
+    &.Input__error {
+      background-color: $color-darkness;
+      border: 1px solid $color-red;
+
+      &:hover {
+        background-color: $color-darkness;
+      }
+    }
+  }
+}

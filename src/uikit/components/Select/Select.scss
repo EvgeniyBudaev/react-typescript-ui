@@ -1,0 +1,27 @@
+@import "../../../styles/index";
+
+.Select {
+  width: 100%;
+
+  &-IconDropdownIndicator {
+    transition: all $transition;
+
+    svg {
+      fill: $color-black;
+    }
+  }
+
+  &-IconDropdownIndicator__open {
+    transform: rotate(180deg);
+  }
+}
+
+.theme-dark {
+  .Select {
+    &-IconDropdownIndicator {
+      svg {
+        fill: $color-white;
+      }
+    }
+  }
+}

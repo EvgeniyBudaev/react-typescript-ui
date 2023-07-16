@@ -1,0 +1,91 @@
+@import "../../../styles/index";
+
+$base-font-family: "Roboto", sans-serif;
+$base-font-style: normal;
+$base-line-height: 1.25;
+
+.Typography {
+  font-family: $base-font-family;
+  font-style: $base-font-style;
+  line-height: $base-line-height;
+
+  &.text {
+    &-h1 {
+      font-size: 32px;
+    }
+
+    &-h2 {
+      font-size: 28px;
+    }
+
+    &-h3 {
+      font-size: 26px;
+    }
+
+    &-h4 {
+      font-size: 24px;
+    }
+
+    &-h5 {
+      font-size: 22px;
+    }
+
+    &-h6 {
+      font-size: 20px;
+    }
+
+    &-b2 {
+      font-size: 16px;
+    }
+
+    &-b3 {
+      font-size: 14px;
+    }
+
+    &-b4 {
+      font-size: 12px;
+    }
+  }
+
+  &.text-bold {
+    font-weight: 700;
+  }
+
+  &.text-medium {
+    font-weight: 500;
+  }
+
+  &.text-regular {
+    font-weight: 400;
+  }
+}
+
+@media (max-width: 768px) {
+  .Typography {
+    &.text {
+      &-h1 {
+        font-size: 22px;
+      }
+
+      &-h2 {
+        font-size: 20px;
+      }
+
+      &-h3 {
+        font-size: 18px;
+      }
+
+      &-h4 {
+        font-size: 18px;
+      }
+
+      &-h5 {
+        font-size: 16px;
+      }
+
+      &-h6 {
+        font-size: 16px;
+      }
+    }
+  }
+}

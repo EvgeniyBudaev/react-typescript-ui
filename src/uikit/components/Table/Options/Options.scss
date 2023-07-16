@@ -1,0 +1,60 @@
+@import "../../../../styles/index";
+
+.Options {
+  &-FieldHeader {
+    margin-bottom: 8px;
+  }
+
+  &-Columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 40px;
+  }
+
+  &-ColumnsButton {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 8px 16px;
+    border-radius: 100px;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+    color: $color-white;
+
+    &:hover {
+      background-color: $color-primary-hover;
+    }
+
+    &__canHide {
+      cursor: pointer;
+    }
+
+    &__notCanHide {
+      color: $color-alto-gray;
+      background-color: $color-disabled;
+      cursor: default;
+    }
+
+    &__notLocalHiddenColls {
+      background-color: $color-primary;
+      border-color: $color-primary-hover;
+    }
+
+    &__localHiddenColls {
+      border-color: $color-alto-gray;
+      background-color: $color-silver-gray;
+    }
+  }
+
+  &-ModalCancel {
+    margin-right: 24px;
+  }
+}
+
+.theme-dark {
+  .Options {
+    &-ColumnsButton {
+      color: $color-white;
+    }
+  }
+}

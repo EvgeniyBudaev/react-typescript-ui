@@ -1,0 +1,24 @@
+@import "../../../../styles/index";
+
+.TableHeader {
+  $this: &;
+
+  &-THead {
+    background-color: $color-primary;
+  }
+
+  &-TR {
+    position: relative;
+  }
+
+  &-TH {
+    padding: 20px;
+    text-align: start;
+    border-bottom: 1px solid rgba(224, 224, 224, 1);
+  }
+
+  &-SortingIcon {
+    display: inline-flex;
+    align-items: center;
+  }
+}

@@ -1,0 +1,34 @@
+@import "../../../../styles/index";
+
+.SliderSyncing {
+  &-For {
+    cursor: pointer;
+  }
+
+  &-Nav {
+    .slick-slide {
+      cursor: pointer;
+      padding: 12px;
+
+      img {
+        border: 2px solid transparent;
+        border-radius: $border-radius;
+        padding: 6px;
+        height: 230px;
+        transition: $transition;
+      }
+
+      &:hover {
+        img {
+          border-color: $color-primary;
+        }
+      }
+    }
+
+    .slick-slide.slick-current {
+      img {
+        border-color: $color-primary;
+      }
+    }
+  }
+}

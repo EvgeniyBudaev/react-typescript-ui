@@ -1,0 +1,126 @@
+@import "../../../styles/index";
+
+/* ----- Резиновая главная картинка в слайдере ----- */
+.slick-slide img {
+  max-width: 100%;
+  width: 100%;
+  max-height: 600px;
+  margin: 0 auto;
+  outline: transparent;
+}
+
+.slick-slider {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.slick-slider .slick-dots {
+  display: flex !important;
+  justify-content: center;
+  bottom: -45px;
+}
+
+.slick-slider .slick-dots li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 5px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.slick-slider .slick-dots li button {
+  padding: 0;
+  font-size: 0;
+  max-width: 100%;
+  width: 30px;
+  height: 3px;
+  background-color: #e5e5e5;
+  border: none;
+  outline: transparent;
+  transition: all $transition;
+}
+
+.slick-slider .slick-dots li button:hover {
+  background-color: #b9b5b5;
+}
+
+.slick-slider .slick-dots li.slick-active button {
+  background-color: #b0976a;
+  outline: transparent;
+}
+
+.slick-slider .slick-dots li button:before,
+.slick-slider .slick-dots li.slick-active button:before {
+  color: transparent;
+}
+
+/* ----- Общие свойства для всех слайдеров ----- */
+.slick-list,
+.slick-track {
+  touch-action: pan-y;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  touch-action: pan-y;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  opacity: 0 !important;
+}
+
+.Slider {
+  &-Arrow {
+    position: absolute !important;
+    top: 50% !important;
+    z-index: 1 !important;
+
+    &.slick-disabled {
+      .Slider-ArrowButton {
+        display: none;
+      }
+    }
+  }
+
+  &-ArrowButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    height: 40px;
+    width: 40px;
+    background-color: var(--slider-arrow-backgroundColor);
+    border: 1px solid $color-mercury-gray;
+    border-radius: 50%;
+    box-shadow: $shadow-sliderArrow;
+    opacity: var(--slider-arrow-opacity);
+    transition: all $transition;
+
+    &__left {
+      left: 15px;
+    }
+
+    &__right {
+      right: 15px;
+    }
+
+    &:hover {
+      background-color: $color-alto-gray;
+      border: 1px solid $color-alto-gray;
+      opacity: 0.8;
+    }
+  }
+
+  &-ArrowCustom {
+    svg {
+      fill: $color-primary;
+      height: 16px;
+      width: 8px;
+    }
+  }
+}

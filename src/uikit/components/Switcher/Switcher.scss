@@ -1,0 +1,37 @@
+@import "../../../styles/index";
+
+.Switcher {
+  $this: &;
+  background-color: $color-grey;
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  display: flex;
+  padding: 0;
+
+  &-Pointer {
+    position: absolute;
+    width: 50%;
+    height: 38px;
+    background-color: $color-white;
+    border-radius: 9999px;
+    box-shadow: 0 1px 16px rgba(4, 6, 28, 0.1);
+    transition: transform $transition linear;
+    z-index: 0;
+    transform: translateX(100%);
+
+    &__checked {
+      transform: translateX(0);
+    }
+  }
+}
+
+.theme-dark {
+  .Switcher {
+    background-color: $color-darkness;
+
+    &-Pointer {
+      background: linear-gradient(40deg, rgba(138, 143, 160, 0.16), rgba(31, 32, 41, 0.24) 40%),
+      linear-gradient(210deg, rgba(138, 143, 160, 0.5), rgba(31, 32, 41, 0.24) 40%);
+    }
+  }
+}
