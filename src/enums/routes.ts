@@ -8,6 +8,7 @@ export enum ERoutes {
   Button = "/button",
   Checkbox = "/checkbox",
   Copy = "/copy",
+  DatePicker = "/DatePicker",
   DocumentViewer = "/documentViewer",
   DropDown = "/dropDown",
   Form = "/form",

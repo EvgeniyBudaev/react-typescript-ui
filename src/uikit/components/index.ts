@@ -7,6 +7,7 @@ export * from "./Button";
 export * from "./Checkbox";
 export * from "./ClientOnly";
 export * from "./CopyToClipboard";
+export * from "./DatePicker";
 export * from "./DocumentViewer";
 export * from "./DropDown";
 export * from "./Error";

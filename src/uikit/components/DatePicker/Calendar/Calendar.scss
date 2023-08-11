@@ -1,0 +1,124 @@
+@import "../../../../styles/index";
+
+.Calendar {
+  border-radius: 8px;
+  border-width: 0;
+  width: 400px;
+
+  &-MonthTile {
+    align-items: center;
+    background-color: $color-white;
+    color: $color-primary;
+    display: flex;
+    box-sizing: border-box;
+    height: 24px;
+    justify-content: center;
+    text-transform: capitalize;
+    width: 80px;
+
+    &:enabled:hover,
+    &:enabled:focus {
+      background-color: $color-grey;
+    }
+
+    &:disabled {
+      color: $color-disabled;
+      background-color: $color-white;
+    }
+  }
+
+  &-DayTile {
+    align-items: center;
+    background-color: $color-white;
+    box-sizing: border-box;
+    color: $color-primary;
+    display: flex;
+    justify-content: center;
+    height: 24px;
+    padding: 16px 0;
+    text-transform: capitalize;
+    width: 24px;
+
+    &:enabled:hover,
+    &:enabled:focus {
+      background-color: $color-grey;
+    }
+
+    &:disabled {
+      background-color: $color-white;
+      color: $color-disabled;
+    }
+  }
+
+  .react-calendar__month-view__weekdays__weekday {
+    text-transform: capitalize;
+
+    > abbr {
+      color: $color-primary;
+      text-decoration: none;
+    }
+  }
+
+  .react-calendar__navigation {
+    margin-bottom: 0;
+    height: 40px;
+  }
+
+  .react-calendar__navigation__label {
+    color: $color-primary;
+    text-transform: capitalize;
+
+    &:enabled:hover,
+    &:focus {
+      background-color: $color-white;
+    }
+  }
+
+  .react-calendar__navigation__prev2-button,
+  .react-calendar__navigation__next2-button {
+    display: none;
+  }
+
+  .react-calendar__navigation__prev-button,
+  .react-calendar__navigation__next-button {
+    background-color: $color-white;
+    border-radius: 8px;
+    color: $color-primary;
+    font-size: 28px;
+
+    &:hover {
+      background-color: $color-grey;
+    }
+
+    &:disabled {
+      color: $color-disabled;
+      background-color: $color-white;
+    }
+  }
+
+  .react-calendar__navigation button {
+    min-width: 40px;
+  }
+
+  .react-calendar__navigation button[disabled] {
+    color: $color-disabled;
+    background-color: white;
+  }
+
+  .react-calendar__viewContainer {
+    padding: 9px 20px;
+  }
+
+  .react-calendar__year-view .react-calendar__tile,
+  .react-calendar__decade-view .react-calendar__tile,
+  .react-calendar__century-view .react-calendar__tile {
+    border-radius: 2px;
+    margin: 21px 0;
+    padding: 0;
+  }
+
+  .react-calendar button {
+    border: 0;
+    outline: none;
+  }
+}

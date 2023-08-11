@@ -5,6 +5,7 @@ export * from "./BreadcrumbsPage";
 export * from "./ButtonPage";
 export * from "./CheckboxPage";
 export * from "./CopyPage";
+export * from "./DatePickerPage";
 export * from "./DocumentViewerPage";
 export * from "./DropDownPage";
 export * from "./FormPage";
