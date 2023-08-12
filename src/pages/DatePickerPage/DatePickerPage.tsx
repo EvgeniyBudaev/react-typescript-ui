@@ -1,6 +1,6 @@
 import { addDays, format, subDays } from "date-fns";
 import { enUS } from "date-fns/locale";
-import React, { useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import type { FC } from "react";
 import type { RangeKeyDict } from "react-date-range";
 import type { Range } from "react-date-range";
@@ -8,7 +8,6 @@ import type { Range } from "react-date-range";
 import { Hr, Title } from "components";
 import type { TCalendarValue } from "uikit";
 import { Calendar, DatePicker, DateRangePicker } from "uikit";
-import "./DatePickerPage.scss";
 
 export const DatePickerPage: FC = () => {
   // Calendar

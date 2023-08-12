@@ -27,28 +27,28 @@
     }
   }
 
-  &-DayTile {
-    align-items: center;
-    background-color: $color-white;
-    box-sizing: border-box;
-    color: $color-primary;
-    display: flex;
-    justify-content: center;
-    height: 24px;
-    padding: 16px 0;
-    text-transform: capitalize;
-    width: 24px;
-
-    &:enabled:hover,
-    &:enabled:focus {
-      background-color: $color-grey;
-    }
-
-    &:disabled {
-      background-color: $color-white;
-      color: $color-disabled;
-    }
-  }
+  //&-DayTile {
+  //  align-items: center;
+  //  background-color: $color-white;
+  //  box-sizing: border-box;
+  //  color: $color-primary;
+  //  display: flex;
+  //  justify-content: center;
+  //  height: 24px;
+  //  padding: 16px 0;
+  //  text-transform: capitalize;
+  //  width: 24px;
+  //
+  //  &:enabled:hover,
+  //  &:enabled:focus {
+  //    background-color: $color-grey;
+  //  }
+  //
+  //  &:disabled {
+  //    background-color: $color-white;
+  //    color: $color-disabled;
+  //  }
+  //}
 
   .react-calendar__month-view__weekdays__weekday {
     text-transform: capitalize;
