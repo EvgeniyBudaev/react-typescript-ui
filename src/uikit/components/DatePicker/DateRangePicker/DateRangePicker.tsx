@@ -1,35 +1,25 @@
 import { memo } from "react";
 import type { FC } from "react";
-import type { Range, RangeKeyDict } from "react-date-range";
 import { DateRange } from "react-date-range";
+import type { DateRangeProps, Range, RangeKeyDict } from "react-date-range";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 
 type TProps = {
-  dateDisplayFormat?: string;
   editableDateInputs?: boolean;
   locale?: Locale;
-  maxDate?: Date;
-  minDate?: Date;
-  months?: number;
-  moveRangeOnFirstSelection?: boolean;
   onChange?: ((rangesByKey: RangeKeyDict) => void) | undefined;
   ranges?: Range[] | undefined;
   scroll?: boolean;
   showDateDisplay?: boolean;
   showMonthAndYearPickers?: boolean;
   showPreview?: boolean;
-};
+} & DateRangeProps;
 
 const DateRangePickerComponent: FC<TProps> = (props) => {
   const {
-    dateDisplayFormat,
-    editableDateInputs,
+    editableDateInputs = false,
     locale,
-    maxDate,
-    minDate,
-    months = 1,
-    moveRangeOnFirstSelection = false,
     onChange,
     ranges,
     scroll = false,
@@ -40,20 +30,16 @@ const DateRangePickerComponent: FC<TProps> = (props) => {
 
   return (
     <DateRange
-      dateDisplayFormat={dateDisplayFormat}
-      direction="horizontal"
-      editableDateInputs={editableDateInputs}
+      {...props}
+      direction="horizontal" // direction of calendar months. can be vertical or horizontal
+      editableDateInputs={editableDateInputs} // whether dates can be edited in the Calendar's input fields
       locale={locale}
-      maxDate={maxDate}
-      minDate={minDate}
-      months={months}
-      moveRangeOnFirstSelection={moveRangeOnFirstSelection}
-      onChange={onChange}
-      ranges={ranges}
-      scroll={{ enabled: scroll }}
-      showDateDisplay={showDateDisplay}
-      showMonthAndYearPickers={showMonthAndYearPickers}
-      showPreview={showPreview}
+      onChange={onChange} // startDate/endDate callback function for range changes. fn(changes). changes contains changed ranges with new startDate/endDate properties.
+      ranges={ranges} // Defines ranges. array of range object
+      scroll={{ enabled: scroll }} // infinite scroll behaviour configuration. Check out Infinite Scroll section
+      showDateDisplay={showDateDisplay} // show/hide selection display row. Uses dateDisplayFormat for formatter
+      showMonthAndYearPickers={showMonthAndYearPickers} // show select tags for month and year on calendar top, if false it will just display the month and year
+      showPreview={showPreview} // visibility of preview
     />
   );
 };
