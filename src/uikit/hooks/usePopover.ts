@@ -6,11 +6,11 @@ import type { TPopoverPosition } from "../components";
 
 type TUsePopoverResponse = {
   attributes: { [p: string]: { [p: string]: string } | undefined };
+  onPopperElement: Dispatch<SetStateAction<HTMLDivElement | null | undefined>>;
+  onPopoverPosition: Dispatch<SetStateAction<TPopoverPosition>>;
+  onReferenceElement: Dispatch<SetStateAction<HTMLButtonElement | null | undefined>>;
   popperElement?: HTMLDivElement | null;
   popoverPosition: TPopoverPosition;
-  setPopperElement: Dispatch<SetStateAction<HTMLDivElement | null | undefined>>;
-  setPopoverPosition: Dispatch<SetStateAction<TPopoverPosition>>;
-  setReferenceElement: Dispatch<SetStateAction<HTMLButtonElement | null | undefined>>;
   referenceElement?: HTMLButtonElement | null;
   styles: { [p: string]: CSSProperties };
 };
@@ -76,12 +76,12 @@ export const usePopover: TUsePopover = (props) => {
 
   return {
     attributes,
+    onPopperElement: setPopperElement,
+    onPopoverPosition: setPopoverPosition,
+    onReferenceElement: setReferenceElement,
     popperElement,
     popoverPosition,
     referenceElement,
-    setPopperElement,
-    setPopoverPosition,
-    setReferenceElement,
     styles,
   };
 };

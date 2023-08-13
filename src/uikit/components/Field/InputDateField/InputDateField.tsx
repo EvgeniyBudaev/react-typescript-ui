@@ -25,14 +25,14 @@ const InputDateFieldComponent: FC<TProps> = (props) => {
   const { isInvalid, locale, onChange, onFieldClear, placeholder, subTitle, title, value } = props;
   const triggerRef = createRef<HTMLDivElement>();
 
-  const { attributes, popoverPosition, setPopperElement, setReferenceElement, styles } = usePopover(
-    { triggerRef },
-  );
+  const { attributes, onPopperElement, onReferenceElement, popoverPosition, styles } = usePopover({
+    triggerRef,
+  });
 
   return (
     <div className="InputDateField">
       <UiPopover className="HeadlessPopover">
-        <UiPopover.Button ref={setReferenceElement} className="HeadlessPopover-Button">
+        <UiPopover.Button ref={onReferenceElement} className="HeadlessPopover-Button">
           <div className="HeadlessPopover-Trigger" ref={triggerRef}>
             <InputDate
               isInvalid={isInvalid}
@@ -46,7 +46,7 @@ const InputDateFieldComponent: FC<TProps> = (props) => {
         </UiPopover.Button>
         <Transition as={Fragment}>
           <UiPopover.Panel
-            ref={setPopperElement}
+            ref={onPopperElement}
             style={styles.popper}
             className={clsx(
               "HeadlessPopover-Panel",
