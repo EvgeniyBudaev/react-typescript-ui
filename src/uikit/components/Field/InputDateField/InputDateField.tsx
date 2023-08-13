@@ -5,15 +5,24 @@ import isNil from "lodash/isNil";
 import { createRef, Fragment, memo } from "react";
 import type { FC, SyntheticEvent } from "react";
 
+import { FORMAT_DATE } from "../../../constants";
 import { DatePicker } from "../../DatePicker";
 import { usePopover } from "../../../hooks";
 import { InputDate } from "../../Input";
 import { POPOVER_POSITION_STYLES } from "../../Popover";
 import "./InputDateField.scss";
 
+type TClasses = {
+  inputDateField?: string;
+};
+
 type TProps = {
+  classes?: TClasses;
+  isDisabled?: boolean;
   isInvalid?: boolean;
   locale?: Locale;
+  maxDate?: Date | null;
+  minDate?: Date | null;
   onChange: (value: Date | null) => void;
   onFieldClear?: (event: SyntheticEvent) => void;
   placeholder?: string;
@@ -23,20 +32,37 @@ type TProps = {
 };
 
 const InputDateFieldComponent: FC<TProps> = (props) => {
-  const { isInvalid, locale, onChange, onFieldClear, placeholder, subTitle, title, value } = props;
+  const {
+    classes,
+    isDisabled,
+    isInvalid,
+    locale,
+    maxDate,
+    minDate,
+    onChange,
+    onFieldClear,
+    placeholder,
+    subTitle,
+    title,
+    value,
+  } = props;
   const triggerRef = createRef<HTMLDivElement>();
-  const formattedValue = !isNil(value) ? format(value, "dd.MM.yyyy", { locale }) : null;
+  const formattedValue = !isNil(value) ? format(value, FORMAT_DATE, { locale }) : null;
+  const date = !isNil(value) ? value : undefined;
+  const maxDateValue = !isNil(maxDate) ? maxDate : undefined;
+  const minDateValue = !isNil(minDate) ? minDate : undefined;
 
   const { attributes, onPopperElement, onReferenceElement, popoverPosition, styles } = usePopover({
     triggerRef,
   });
 
   return (
-    <div className="InputDateField">
+    <div className={clsx("InputDateField", classes?.inputDateField)}>
       <UiPopover className="HeadlessPopover">
         <UiPopover.Button className="HeadlessPopover-Button" ref={onReferenceElement}>
           <div className="HeadlessPopover-Trigger" ref={triggerRef}>
             <InputDate
+              isDisabled={isDisabled}
               isInvalid={isInvalid}
               onFieldClear={onFieldClear}
               placeholder={placeholder}
@@ -69,11 +95,13 @@ const InputDateFieldComponent: FC<TProps> = (props) => {
                 <div className="HeadlessPopover-PanelContent">
                   <DatePicker
                     locale={locale}
+                    maxDate={maxDateValue}
+                    minDate={minDateValue}
                     onChange={(date: Date) => {
                       onChange(date);
                       close();
                     }}
-                    value={value}
+                    value={date}
                   />
                 </div>
               </Transition.Child>

@@ -1,12 +1,25 @@
 import { enUS } from "date-fns/locale";
 import { useState } from "react";
 import type { FC } from "react";
-import { Title } from "components";
-import { InputDateField } from "uikit";
+import { Hr, Title } from "components";
+import { InputDateField, InputDateRangeField } from "uikit";
 import "./FieldPage.scss";
 
+type TPeriodValue = [Date | null, Date | null];
+
 export const FieldPage: FC = () => {
+  // Input date field
   const [valueInputDateField, setValueInputDateField] = useState<Date | null>(new Date());
+
+  // Input date range field
+  const [valueInputDateRangeField, setValueInputDateRangeField] = useState<TPeriodValue>([
+    new Date(),
+    new Date(),
+  ]);
+
+  const handleChangeInputDateRangeField = (periodValue: TPeriodValue) => {
+    setValueInputDateRangeField(periodValue);
+  };
 
   return (
     <section className="FieldPage">
@@ -20,6 +33,16 @@ export const FieldPage: FC = () => {
           value={valueInputDateField}
         />
       </div>
+      <Hr />
+      <Title>Input date range field</Title>
+      <InputDateRangeField
+        classes={{ inputDateField: "FieldPage-Field" }}
+        locale={enUS}
+        onChange={handleChangeInputDateRangeField}
+        onFieldClear={handleChangeInputDateRangeField}
+        placeholder="Date"
+        value={[valueInputDateRangeField[0], valueInputDateRangeField[1]]}
+      />
     </section>
   );
 };

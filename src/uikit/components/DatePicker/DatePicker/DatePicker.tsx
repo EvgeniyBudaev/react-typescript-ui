@@ -1,4 +1,3 @@
-import isNil from "lodash/isNil";
 import { memo } from "react";
 import type { FC } from "react";
 import { Calendar } from "react-date-range";
@@ -8,15 +7,16 @@ import "react-date-range/dist/theme/default.css";
 
 type TProps = {
   locale?: Locale;
+  maxDate?: Date;
+  minDate?: Date;
   onChange?: (date: Date) => void;
-  value?: Date | null;
+  value?: Date;
 } & CalendarProps;
 
 const DatePickerComponent: FC<TProps> = (props) => {
   const { locale, onChange, value } = props;
-  const date = !isNil(value) ? value : undefined;
 
-  return <Calendar {...props} date={date} locale={locale} onChange={onChange} />;
+  return <Calendar {...props} date={value} locale={locale} onChange={onChange} />;
 };
 
 export const DatePicker = memo(DatePickerComponent);
