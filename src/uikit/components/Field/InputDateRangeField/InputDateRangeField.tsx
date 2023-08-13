@@ -18,9 +18,9 @@ type TProps = {
   minDateTo?: Date | null;
   onChange: (periodValue: TPeriodValue) => void;
   onFieldClear?: (periodValue: TPeriodValue) => void;
-  placeholder?: string;
+  placeholder?: [string, string];
   subTitle?: [string, string];
-  title?: string;
+  title?: [string, string];
   value: TPeriodValue;
 };
 
@@ -34,9 +34,9 @@ const InputDateRangeFieldComponent: FC<TProps> = (props) => {
     minDateTo,
     onChange,
     onFieldClear,
-    placeholder,
+    placeholder: [placeholderFrom, placeholderTo] = [],
     subTitle: [subTitleFrom, subTitleTo] = [],
-    title,
+    title: [titleFrom, titleTo] = [],
     value: [valueFrom, valueTo],
   } = props;
 
@@ -66,9 +66,9 @@ const InputDateRangeFieldComponent: FC<TProps> = (props) => {
         maxDate={maxDateFrom}
         onChange={(value: Date | null) => handleChange(value)}
         onFieldClear={() => handleFieldClear()}
-        placeholder={placeholder}
+        placeholder={placeholderFrom}
         subTitle={subTitleFrom}
-        title={title}
+        title={titleFrom}
         value={valueFrom}
       />
       <InputDateField
@@ -79,9 +79,9 @@ const InputDateRangeFieldComponent: FC<TProps> = (props) => {
         minDate={minDateTo}
         onChange={(value: Date | null) => handleChange(value, true)}
         onFieldClear={() => handleFieldClear(true)}
-        placeholder={placeholder}
+        placeholder={placeholderTo}
         subTitle={subTitleTo}
-        title={title}
+        title={titleTo}
         value={valueTo}
       />
     </div>

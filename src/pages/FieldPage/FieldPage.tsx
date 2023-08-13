@@ -40,7 +40,8 @@ export const FieldPage: FC = () => {
         locale={enUS}
         onChange={handleChangeInputDateRangeField}
         onFieldClear={handleChangeInputDateRangeField}
-        placeholder="Date"
+        placeholder={["Date", "Date"]}
+        title={["From", "To"]}
         value={[valueInputDateRangeField[0], valueInputDateRangeField[1]]}
       />
     </section>
