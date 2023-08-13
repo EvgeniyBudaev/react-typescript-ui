@@ -42,7 +42,7 @@ export const FieldPage: FC = () => {
         onFieldClear={handleChangeInputDateRangeField}
         placeholder={["Date", "Date"]}
         title={["From", "To"]}
-        value={[valueInputDateRangeField[0], valueInputDateRangeField[1]]}
+        value={valueInputDateRangeField}
       />
     </section>
   );
