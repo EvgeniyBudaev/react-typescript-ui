@@ -8,6 +8,7 @@ export * from "./CopyPage";
 export * from "./DatePickerPage";
 export * from "./DocumentViewerPage";
 export * from "./DropDownPage";
+export * from "./FieldPage";
 export * from "./FormPage";
 export * from "./HamburgerPage";
 export * from "./IconPage";

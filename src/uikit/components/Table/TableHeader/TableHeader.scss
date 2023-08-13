@@ -15,6 +15,18 @@
     padding: 20px;
     text-align: start;
     border-bottom: 1px solid rgba(224, 224, 224, 1);
+
+    .HeadlessPopover {
+      &-Button {
+        background-color: $color-primary;
+        color: $color-white;
+        padding: 8px;
+
+        &:hover {
+          background-color: $color-primary-hover;
+        }
+      }
+    }
   }
 
   &-SortingIcon {

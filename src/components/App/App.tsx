@@ -17,6 +17,7 @@ import {
   DatePickerPage,
   DocumentViewerPage,
   DropDownPage,
+  FieldPage,
   FormPage,
   HamburgerPage,
   IconPage,
@@ -73,6 +74,7 @@ export const App: FC = () => {
               <Route path={ERoutes.DatePicker} element={<DatePickerPage />} />
               <Route path={ERoutes.DocumentViewer} element={<DocumentViewerPage />} />
               <Route path={ERoutes.DropDown} element={<DropDownPage />} />
+              <Route path={ERoutes.Field} element={<FieldPage />} />
               <Route path={ERoutes.Form} element={<FormPage />} />
               <Route path={ERoutes.Hamburger} element={<HamburgerPage />} />
               <Route path={ERoutes.Icon} element={<IconPage />} />

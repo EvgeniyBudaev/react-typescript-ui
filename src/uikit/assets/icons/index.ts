@@ -1,6 +1,7 @@
 export * from "./ArrowDownIcon";
 export * from "./ArrowLeftIcon";
 export * from "./ArrowRightIcon";
+export * from "./CalendarIcon";
 export * from "./CenterIcon";
 export * from "./CheckboxIcon";
 export * from "./CloseIcon";

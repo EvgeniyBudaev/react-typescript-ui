@@ -6,8 +6,8 @@ import type { RangeKeyDict } from "react-date-range";
 import type { Range } from "react-date-range";
 
 import { Hr, Title } from "components";
-import type { TCalendarValue } from "uikit";
 import { Calendar, DatePicker, DateRangePicker } from "uikit";
+import type { TCalendarValue } from "uikit";
 
 export const DatePickerPage: FC = () => {
   // Calendar

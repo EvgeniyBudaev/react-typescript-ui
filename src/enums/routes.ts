@@ -11,6 +11,7 @@ export enum ERoutes {
   DatePicker = "/DatePicker",
   DocumentViewer = "/documentViewer",
   DropDown = "/dropDown",
+  Field = "/field",
   Form = "/form",
   Hamburger = "/hamburger",
   Icon = "/icon",

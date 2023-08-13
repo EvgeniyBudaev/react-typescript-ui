@@ -2,6 +2,7 @@ import {
   ArrowDownIcon,
   ArrowLeftIcon,
   ArrowRightIcon,
+  CalendarIcon,
   CenterIcon,
   CheckboxIcon,
   CloseIcon,
@@ -28,6 +29,7 @@ export type IconType =
   | "ArrowDown"
   | "ArrowLeft"
   | "ArrowRight"
+  | "Calendar"
   | "Center"
   | "Checkbox"
   | "Close"
@@ -53,6 +55,7 @@ export const iconTypes = new Map([
   ["ArrowDown", <ArrowDownIcon key="ArrowDownIcon" />],
   ["ArrowLeft", <ArrowLeftIcon key="ArrowLeftIcon" />],
   ["ArrowRight", <ArrowRightIcon key="ArrowRightIcon" />],
+  ["Calendar", <CalendarIcon key="CalendarIcon" />],
   ["Center", <CenterIcon key="CenterIcon" />],
   ["Checkbox", <CheckboxIcon key="CheckboxIcon" />],
   ["Close", <CloseIcon key="CloseIcon" />],

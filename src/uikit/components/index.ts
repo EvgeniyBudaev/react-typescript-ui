@@ -12,6 +12,7 @@ export * from "./DocumentViewer";
 export * from "./DropDown";
 export * from "./Error";
 export * from "./FadeIn";
+export * from "./Field";
 export * from "./Hamburger";
 export * from "./Icon";
 export * from "./Input";

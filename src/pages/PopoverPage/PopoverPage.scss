@@ -3,7 +3,13 @@
 .PopoverPage {
   .HeadlessPopover {
     &-Button {
+      background-color: $color-primary;
+      color: $color-white;
       padding: 8px;
+
+      &:hover {
+        background-color: $color-primary-hover;
+      }
     }
 
     &-PanelContent {
@@ -14,23 +20,21 @@
 
 .HeadlessPopover {
   position: relative;
+  height: inherit;
   width: 100%;
 
   &-Button {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: $color-primary;
     border: none;
-    color: $color-white;
+    background-color: inherit;
+    color: inherit;
     outline-width: 0;
+    height: inherit;
     width: 100%;
     cursor: pointer;
     transition: all $transition;
-
-    &:hover {
-      background-color: $color-primary-hover;
-    }
   }
 
   &-Trigger {
