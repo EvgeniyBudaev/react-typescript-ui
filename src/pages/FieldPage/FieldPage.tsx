@@ -2,7 +2,7 @@ import { enUS } from "date-fns/locale";
 import { useState } from "react";
 import type { FC } from "react";
 import { Title } from "components";
-import { InputDateField } from "../../uikit";
+import { InputDateField } from "uikit";
 import "./FieldPage.scss";
 
 export const FieldPage: FC = () => {

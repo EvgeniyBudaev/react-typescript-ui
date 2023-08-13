@@ -120,7 +120,7 @@
     }
   }
 
-  &_isDisabled {
+  &__isDisabled {
     #{$this}-Text {
       background-color: $color-light-gray;
       color: $color-silver-gray;

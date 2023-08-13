@@ -1,6 +1,7 @@
 import { Popover as UiPopover, Transition } from "@headlessui/react";
 import clsx from "clsx";
 import { format } from "date-fns";
+import isNil from "lodash/isNil";
 import { createRef, Fragment, memo } from "react";
 import type { FC, SyntheticEvent } from "react";
 
@@ -24,6 +25,7 @@ type TProps = {
 const InputDateFieldComponent: FC<TProps> = (props) => {
   const { isInvalid, locale, onChange, onFieldClear, placeholder, subTitle, title, value } = props;
   const triggerRef = createRef<HTMLDivElement>();
+  const formattedValue = !isNil(value) ? format(value, "dd.MM.yyyy", { locale }) : null;
 
   const { attributes, onPopperElement, onReferenceElement, popoverPosition, styles } = usePopover({
     triggerRef,
@@ -32,7 +34,7 @@ const InputDateFieldComponent: FC<TProps> = (props) => {
   return (
     <div className="InputDateField">
       <UiPopover className="HeadlessPopover">
-        <UiPopover.Button ref={onReferenceElement} className="HeadlessPopover-Button">
+        <UiPopover.Button className="HeadlessPopover-Button" ref={onReferenceElement}>
           <div className="HeadlessPopover-Trigger" ref={triggerRef}>
             <InputDate
               isInvalid={isInvalid}
@@ -40,18 +42,18 @@ const InputDateFieldComponent: FC<TProps> = (props) => {
               placeholder={placeholder}
               subTitle={subTitle}
               title={title}
-              value={value ? format(value, "dd.MM.yyyy", { locale }) : null}
+              value={formattedValue}
             />
           </div>
         </UiPopover.Button>
         <Transition as={Fragment}>
           <UiPopover.Panel
-            ref={onPopperElement}
-            style={styles.popper}
             className={clsx(
               "HeadlessPopover-Panel",
               `HeadlessPopover-Panel__${POPOVER_POSITION_STYLES[popoverPosition]}`,
             )}
+            ref={onPopperElement}
+            style={styles.popper}
             {...attributes.popper}
           >
             {({ close }) => (

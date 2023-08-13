@@ -32,8 +32,8 @@ const InputDateComponent: FC<TProps> = (props) => {
   return (
     <div
       className={clsx("InputDate", className, {
-        InputDate_isDisabled: isDisabled,
-        InputDate_isInvalid: isInvalid && !isDisabled,
+        InputDate__isDisabled: isDisabled,
+        InputDate__isInvalid: isInvalid && !isDisabled,
       })}
       onClick={!isDisabled ? onClick : undefined}
     >
