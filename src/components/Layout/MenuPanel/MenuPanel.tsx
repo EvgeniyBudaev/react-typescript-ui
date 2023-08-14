@@ -36,6 +36,7 @@ export const MenuPanel: FC = () => {
     ERoutes.Switcher,
     ERoutes.Table,
     ERoutes.Tabs,
+    ERoutes.TextEditor,
     ERoutes.Tooltip,
     ERoutes.Typography,
   ];

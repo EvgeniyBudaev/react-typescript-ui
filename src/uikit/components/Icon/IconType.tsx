@@ -2,6 +2,7 @@ import {
   ArrowDownIcon,
   ArrowLeftIcon,
   ArrowRightIcon,
+  BoldIcon,
   CalendarIcon,
   CenterIcon,
   CheckboxIcon,
@@ -9,9 +10,12 @@ import {
   CopyIcon,
   DarkModeIcon,
   EditIcon,
+  HighlightIcon,
   HomeIcon,
+  H2Icon,
   LightModeIcon,
   MinusIcon,
+  OLIcon,
   PlusIcon,
   SearchIcon,
   SettingsIcon,
@@ -21,6 +25,8 @@ import {
   SpinnerIcon,
   SuccessIcon,
   TelegramIcon,
+  ULIcon,
+  UnderlineIcon,
   VisibilityIcon,
   VisibilityOffIcon,
 } from "uikit/assets/icons";
@@ -29,6 +35,7 @@ export type IconType =
   | "ArrowDown"
   | "ArrowLeft"
   | "ArrowRight"
+  | "Bold"
   | "Calendar"
   | "Center"
   | "Checkbox"
@@ -36,9 +43,12 @@ export type IconType =
   | "Copy"
   | "DarkMode"
   | "Edit"
+  | "Highlight"
   | "Home"
+  | "H2"
   | "LightMode"
   | "Minus"
+  | "OL"
   | "Plus"
   | "Search"
   | "Settings"
@@ -48,6 +58,8 @@ export type IconType =
   | "Spinner"
   | "Success"
   | "Telegram"
+  | "UL"
+  | "Underline"
   | "Visibility"
   | "VisibilityOff";
 
@@ -55,6 +67,7 @@ export const iconTypes = new Map([
   ["ArrowDown", <ArrowDownIcon key="ArrowDownIcon" />],
   ["ArrowLeft", <ArrowLeftIcon key="ArrowLeftIcon" />],
   ["ArrowRight", <ArrowRightIcon key="ArrowRightIcon" />],
+  ["Bold", <BoldIcon key="BoldIcon" />],
   ["Calendar", <CalendarIcon key="CalendarIcon" />],
   ["Center", <CenterIcon key="CenterIcon" />],
   ["Checkbox", <CheckboxIcon key="CheckboxIcon" />],
@@ -62,9 +75,12 @@ export const iconTypes = new Map([
   ["Copy", <CopyIcon key="CopyIcon" />],
   ["DarkMode", <DarkModeIcon key="DarkModeIcon" />],
   ["Edit", <EditIcon key="EditIcon" />],
+  ["Highlight", <HighlightIcon key="HighlightIcon" />],
   ["Home", <HomeIcon key="HomeIcon" />],
+  ["H2", <H2Icon key="H2Icon" />],
   ["LightMode", <LightModeIcon key="LightModeIcon" />],
   ["Minus", <MinusIcon key="MinusIcon" />],
+  ["OL", <OLIcon key="OLIcon" />],
   ["Plus", <PlusIcon key="PlusIcon" />],
   ["Search", <SearchIcon key="SearchIcon" />],
   ["Settings", <SettingsIcon key="Settings" />],
@@ -74,6 +90,8 @@ export const iconTypes = new Map([
   ["Spinner", <SpinnerIcon key="SpinnerIcon" />],
   ["Success", <SuccessIcon key="SuccessIcon" />],
   ["Telegram", <TelegramIcon key="TelegramIcon" />],
+  ["UL", <ULIcon key="ULIcon" />],
+  ["Underline", <UnderlineIcon key="UnderlineIcon" />],
   ["Visibility", <VisibilityIcon key="VisibilityIcon" />],
   ["VisibilityOff", <VisibilityOffIcon key="VisibilityOffIcon" />],
 ]);

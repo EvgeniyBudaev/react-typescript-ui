@@ -36,6 +36,7 @@ import {
   SwitcherPage,
   TablePage,
   TabsPage,
+  TextEditorPage,
   TooltipPage,
   TypographyPage,
 } from "pages";
@@ -97,6 +98,7 @@ export const App: FC = () => {
               <Route path={ERoutes.Switcher} element={<SwitcherPage />} />
               <Route path={ERoutes.Table} element={<TablePage />} />
               <Route path={ERoutes.Tabs} element={<TabsPage />} />
+              <Route path={ERoutes.TextEditor} element={<TextEditorPage />} />
               <Route path={ERoutes.Tooltip} element={<TooltipPage />} />
               <Route path={ERoutes.Typography} element={<TypographyPage />} />
             </Routes>

@@ -40,6 +40,8 @@
     "clsx": "^1.2.1",
     "cors": "^2.8.5",
     "date-fns": "^2.30.0",
+    "draft-convert": "^2.1.13",
+    "draft-js": "^0.11.7",
     "express": "^4.18.2",
     "lodash": "^4.17.21",
     "nodemon": "^2.0.22",

@@ -27,5 +27,6 @@ export * from "./SpinnerPage";
 export * from "./SwitcherPage";
 export * from "./TablePage";
 export * from "./TabsPage";
+export * from "./TextEditorPage";
 export * from "./TooltipPage";
 export * from "./TypographyPage";

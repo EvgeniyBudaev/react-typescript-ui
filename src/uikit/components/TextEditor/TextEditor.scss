@@ -1,0 +1,88 @@
+@import "../../../styles/index";
+
+.TextEditor {
+  h1,
+  h2 {
+    margin: revert !important;
+  }
+
+  h1 {
+    line-height: 36px;
+  }
+
+  h2 {
+    line-height: 24px;
+  }
+
+  ol,
+  ul {
+    margin: 0 0 10px 25px;
+  }
+
+  &-Wrapper {
+    padding: 16px;
+  }
+
+  .DraftEditor-root {
+    & .public-DraftEditorPlaceholder-root {
+      color: $color-primary;
+      opacity: 0.5;
+    }
+
+    & .public-DraftStyleDefault-orderedListItem,
+    .public-DraftStyleDefault-unorderedListItem {
+      position: unset;
+    }
+
+    & .public-DraftStyleDefault-orderedListItem {
+      list-style-type: unset;
+    }
+
+    & .public-DraftStyleDefault-orderedListItem::before {
+      display: none;
+    }
+  }
+
+  .DraftEditor-editorContainer {
+    height: 222px;
+    color: $color-primary;
+    overflow-y: scroll;
+  }
+
+  position: relative;
+  box-sizing: border-box;
+
+  &-Title {
+    opacity: 0.5;
+    color: $color-primary;
+    margin-bottom: 4px;
+  }
+
+  &-Area {
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 1px solid $color-grey;
+
+    &__isFocused {
+      border: 1px solid $color-grey;
+    }
+
+    &__isInvalid {
+      border: 1px solid $color-red;
+    }
+  }
+
+  &-Sub {
+    display: flex;
+    gap: 8px;
+    box-sizing: border-box;
+    padding: 16px;
+    border-top: 1px solid #d9d9d6;
+  }
+}
+
+.TextEditor-Wrapper {
+  &__hidePlaceholder .public-DraftEditorPlaceholder-root {
+    display: none;
+  }
+}

@@ -1,3 +1,5 @@
+import { TextEditorPage } from "../pages";
+
 export enum ERoutes {
   Root = "/",
 
@@ -30,6 +32,7 @@ export enum ERoutes {
   Switcher = "/switcher",
   Table = "/table",
   Tabs = "/tabs",
+  TextEditor = "/textEditor",
   Tooltip = "/tooltip",
   Typography = "/typography",
 }
