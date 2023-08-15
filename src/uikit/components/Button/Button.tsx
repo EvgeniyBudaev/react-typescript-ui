@@ -10,6 +10,7 @@ export interface IButtonProps
   extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
   className?: string;
   dataTestId?: string;
+  isActive?: boolean;
   isDisabled?: boolean;
   onClick?: (event: MouseEvent) => void;
   type?: TButton;
@@ -20,6 +21,7 @@ const ButtonComponent: FC<IButtonProps> = ({
   className,
   children,
   dataTestId = "uikit__button",
+  isActive = false,
   isDisabled = false,
   onClick,
   type = "button",
@@ -29,7 +31,8 @@ const ButtonComponent: FC<IButtonProps> = ({
   return (
     <button
       className={clsx("Button", className, {
-        Button__disabled: isDisabled,
+        Button__isDisabled: isDisabled,
+        Button__isActive: isActive,
       })}
       data-testid={dataTestId}
       disabled={isDisabled}

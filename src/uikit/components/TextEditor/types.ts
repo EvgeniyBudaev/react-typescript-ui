@@ -1,4 +1,4 @@
-export type TextEditorTextStyle =
+export type TTextEditorTextStyle =
   | "H1"
   | "H2"
   | "OL"

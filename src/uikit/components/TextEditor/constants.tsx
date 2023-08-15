@@ -1,6 +1,6 @@
-import type { TextEditorTextStyle } from "./types";
+import type { TTextEditorTextStyle } from "./types";
 
-export const TEXT_EDITOR_STYLE_TO_HTML = (style: TextEditorTextStyle) => {
+export const TEXT_EDITOR_STYLE_TO_HTML = (style: TTextEditorTextStyle) => {
   switch (style) {
     case "H1":
       return <h1 />;

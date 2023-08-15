@@ -23,7 +23,15 @@
     background-color: $color-primary-hover;
   }
 
-  &#{$this}__disabled {
+  &#{$this}__isActive {
+    background-color: $color-mercury-gray;
+
+    &:hover {
+      background-color: $color-mercury-gray;
+    }
+  }
+
+  &#{$this}__isDisabled {
     color: $color-disabled;
     background-color: $color-disabled-secondary;
     border-color: $color-disabled-secondary;

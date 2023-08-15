@@ -7,7 +7,7 @@ import type { FC } from "react";
 import { BlockStyleControls } from "./BlockStyleControls";
 import { TEXT_EDITOR_CUSTOM_STYLES, TEXT_EDITOR_STYLE_TO_HTML } from "./constants";
 import { InlineStyleControls } from "./InlineStyleControls";
-import type { TextEditorTextStyle } from "./types";
+import type { TTextEditorTextStyle } from "./types";
 import "draft-js/dist/Draft.css";
 import "./TextEditor.scss";
 
@@ -45,7 +45,7 @@ const TextEditorComponent: FC<TProps> = ({
   }
 
   const options = {
-    styleToHTML: (style: string) => TEXT_EDITOR_STYLE_TO_HTML(style as TextEditorTextStyle),
+    styleToHTML: (style: string) => TEXT_EDITOR_STYLE_TO_HTML(style as TTextEditorTextStyle),
   };
   const convertMessageToHtml = convertToHTML(options);
 
@@ -78,12 +78,10 @@ const TextEditorComponent: FC<TProps> = ({
     setFocused(true);
   };
 
-  const handleChangeText = (val: EditorState) => {
-    const currentSelection = val.getSelection();
-    onHTMLText?.(convertMessageToHtml(val.getCurrentContent()));
-    const stateWithContentAndSelection = EditorState.forceSelection(val, currentSelection);
-
-    // setEditorState(val);
+  const handleChangeText = (value: EditorState) => {
+    const currentSelection = value.getSelection();
+    onHTMLText?.(convertMessageToHtml(value.getCurrentContent()));
+    const stateWithContentAndSelection = EditorState.forceSelection(value, currentSelection);
     setEditorState(stateWithContentAndSelection);
   };
 

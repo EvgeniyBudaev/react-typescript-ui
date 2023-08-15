@@ -8,6 +8,7 @@ import "./IconButton.scss";
 
 export interface IIconButtonProps extends IButtonProps {
   className?: string;
+  isActive?: boolean;
   isDisabled?: boolean;
   onClick?: (event: MouseEvent) => void;
   typeIcon: IconType;
@@ -15,6 +16,7 @@ export interface IIconButtonProps extends IButtonProps {
 
 const Component: FC<IIconButtonProps> = ({
   className,
+  isActive = false,
   isDisabled = false,
   onClick,
   typeIcon,
@@ -24,6 +26,7 @@ const Component: FC<IIconButtonProps> = ({
     <Button
       className={clsx("IconButton", className)}
       data-testid="test-icon-button"
+      isActive={isActive}
       isDisabled={isDisabled}
       onClick={onClick}
       {...rest}
