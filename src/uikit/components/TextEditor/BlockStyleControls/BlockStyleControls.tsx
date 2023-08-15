@@ -5,7 +5,7 @@ import { FormatButton } from "../FormatButton";
 
 type TProps = {
   editorState: EditorState;
-  onToggle: (blockType: any) => void;
+  onToggle: (value: string) => void;
 };
 
 export const BlockStyleControls: FC<TProps> = ({ editorState, onToggle }) => {
@@ -13,18 +13,18 @@ export const BlockStyleControls: FC<TProps> = ({ editorState, onToggle }) => {
   const blockType = editorState
     .getCurrentContent()
     .getBlockForKey(selection.getStartKey())
-    .getType();
+    .getType("");
 
   return (
     <>
       {TEXT_EDITOR_BLOCK_TYPES.map((type) => (
         <FormatButton
           key={type.label}
-          active={type.style === blockType}
+          isActive={type.style === blockType}
           onToggle={onToggle}
-          style={type.style}
-          icon={type.icon}
           size={type.size}
+          style={type.style}
+          typeIcon={type.icon}
         />
       ))}
     </>

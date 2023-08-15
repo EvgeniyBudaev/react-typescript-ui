@@ -1,13 +1,8 @@
 import { memo } from "react";
-import type { FC, MouseEvent } from "react";
+import type { FC } from "react";
 import type { TIconProps } from "../types";
 
-type TProps = TIconProps & {
-  className?: string;
-  onClick?: (e: MouseEvent<HTMLOrSVGElement>) => void;
-};
-
-export const SuccessIconComponent: FC<TProps> = ({
+export const SuccessIconComponent: FC<TIconProps> = ({
   className,
   height = 24,
   width = 24,

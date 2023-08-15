@@ -1,18 +1,27 @@
+import type { FC } from "react";
 import { IconButton } from "../../Button";
+import type { IconType } from "../../Icon/IconType";
 
-export const FormatButton = ({ onToggle, active, style, icon, size }: any): JSX.Element => {
-  console.log("icon: ", icon);
+type TProps = {
+  isActive?: boolean;
+  onToggle: (style: string) => void;
+  size?: string;
+  style: string;
+  typeIcon: IconType | string;
+};
+
+export const FormatButton: FC<TProps> = ({ isActive, onToggle, size, style, typeIcon }) => {
   return (
     <div
       onMouseDown={(e) => {
         e.preventDefault();
-        onToggle(style);
+        onToggle?.(style);
       }}
     >
       <IconButton
         // iconSize={size}
         // isSelected={active}
-        typeIcon={icon}
+        typeIcon={typeIcon as IconType}
       />
     </div>
   );

@@ -39,7 +39,7 @@ const TextEditorComponent: FC<TProps> = ({
   let wrapperClassName = "TextEditor-Wrapper";
   const contentState = editorState.getCurrentContent();
   if (!contentState.hasText()) {
-    if (contentState.getBlockMap().first().getType() !== "unstyled") {
+    if (contentState.getBlockMap().first().getType("") !== "unstyled") {
       wrapperClassName += " TextEditor-Wrapper__hidePlaceholder";
     }
   }
@@ -100,7 +100,7 @@ const TextEditorComponent: FC<TProps> = ({
   );
 
   const getBlockStyle = (block) => {
-    switch (block.getType()) {
+    switch (block.getType("")) {
       case "blockquote":
         return "RichEditor-blockquote";
       default:
