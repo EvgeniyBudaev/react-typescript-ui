@@ -1,4 +1,3 @@
-import React from "react";
 import { Title } from "components";
 import { Icon, Tooltip } from "uikit";
 import "./TooltipPage.scss";

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import type { FC } from "react";
 import { Title } from "components";
-import { ETypographyVariant, Tabs, Typography } from "uikit";
+import { Tabs } from "uikit";
 import type { TTab } from "uikit";
 import "./TabsPage.scss";
 

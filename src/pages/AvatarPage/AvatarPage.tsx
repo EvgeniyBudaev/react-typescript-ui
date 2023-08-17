@@ -1,4 +1,3 @@
-import React from "react";
 import type { FC } from "react";
 import { Hr, Title } from "components";
 import { Avatar } from "uikit";

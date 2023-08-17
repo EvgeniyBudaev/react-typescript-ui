@@ -1,4 +1,3 @@
-import React from "react";
 import type { FC } from "react";
 import Dropzone from "react-dropzone";
 import { Button } from "uikit";

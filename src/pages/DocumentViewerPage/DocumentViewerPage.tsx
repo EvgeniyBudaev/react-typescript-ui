@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import type { FC } from "react";
 import { Hr, Title } from "components";
 import { Button, DocumentViewer, Modal } from "uikit";

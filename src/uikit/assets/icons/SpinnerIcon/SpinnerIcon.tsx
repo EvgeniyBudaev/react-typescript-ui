@@ -2,9 +2,8 @@ import { memo } from "react";
 import type { FC } from "react";
 import type { TIconProps } from "../types";
 
-const Component: FC<TIconProps> = ({ className, height = 200, width = 200, onClick, ...props }) => (
+const Component: FC<TIconProps> = ({ height = 200, width = 200, ...props }) => (
   <svg
-    className={className}
     width={width}
     height={height}
     xmlns="http://www.w3.org/2000/svg"
@@ -16,7 +15,6 @@ const Component: FC<TIconProps> = ({ className, height = 200, width = 200, onCli
     }}
     viewBox="0 0 100 100"
     preserveAspectRatio="xMidYMid"
-    onClick={onClick}
     {...props}
   >
     <g transform="rotate(0 50 50)">

@@ -1,7 +1,7 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import type { FC } from "react";
 import { Title } from "components";
-import { Avatar, ETypographyVariant, Hamburger, Sidebar, Typography } from "uikit";
+import { Avatar, Hamburger, Sidebar } from "uikit";
 import "./SidebarPage.scss";
 
 export const SidebarPage: FC = () => {

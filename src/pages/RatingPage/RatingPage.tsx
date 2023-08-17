@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import type { FC } from "react";
 import { Title } from "components";
 import { Rating } from "uikit";

@@ -2,7 +2,6 @@ import type { FC } from "react";
 import { Title } from "components";
 import { Portal } from "uikit";
 import "./PortalPage.scss";
-import React from "react";
 
 export const PortalPage: FC = () => {
   return (

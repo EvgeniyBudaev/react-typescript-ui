@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import type { FC } from "react";
 import type { Scrollbar as BaseScrollbar } from "smooth-scrollbar/scrollbar";
 import type { OverscrollEffect } from "smooth-scrollbar/plugins/overscroll";

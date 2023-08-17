@@ -1,4 +1,4 @@
-import React, { createRef, Fragment, useEffect, useState } from "react";
+import { createRef, Fragment, useEffect, useState } from "react";
 import { usePopper } from "react-popper";
 import type { FC } from "react";
 import clsx from "clsx";

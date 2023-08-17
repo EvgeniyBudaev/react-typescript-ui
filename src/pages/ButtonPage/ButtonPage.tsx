@@ -1,4 +1,3 @@
-import React from "react";
 import type { FC, MouseEvent } from "react";
 import { Hr, Title } from "components";
 import { Button, IconButton } from "uikit";

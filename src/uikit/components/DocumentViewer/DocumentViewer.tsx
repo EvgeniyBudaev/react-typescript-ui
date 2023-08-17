@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { memo, useEffect, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import shadowRoot from "react-shadow";
 import { IconButton } from "uikit";
 import "./DocumentViewer.scss";

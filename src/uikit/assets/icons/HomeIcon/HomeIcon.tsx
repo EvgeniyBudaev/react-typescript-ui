@@ -2,9 +2,8 @@ import { memo } from "react";
 import type { FC } from "react";
 import type { TIconProps } from "../types";
 
-const Component: FC<TIconProps> = ({ className, height = 24, width = 24, onClick, ...props }) => (
+const Component: FC<TIconProps> = ({ height = 24, width = 24, ...props }) => (
   <svg
-    className={className}
     height={height}
     width={width}
     version="1.1"
@@ -13,7 +12,6 @@ const Component: FC<TIconProps> = ({ className, height = 24, width = 24, onClick
     y="0px"
     viewBox="0 0 26.39 26.39"
     enableBackground="new 0 0 26.39 26.39"
-    onClick={onClick}
     {...props}
   >
     <g>

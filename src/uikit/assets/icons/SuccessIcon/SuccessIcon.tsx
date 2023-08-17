@@ -2,22 +2,14 @@ import { memo } from "react";
 import type { FC } from "react";
 import type { TIconProps } from "../types";
 
-export const SuccessIconComponent: FC<TIconProps> = ({
-  className,
-  height = 24,
-  width = 24,
-  onClick,
-  ...props
-}) => {
+export const SuccessIconComponent: FC<TIconProps> = ({ height = 24, width = 24, ...props }) => {
   return (
     <svg
-      className={className}
       height={height}
       width={width}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      onClick={onClick}
       {...props}
     >
       <path
