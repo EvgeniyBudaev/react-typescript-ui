@@ -1,13 +1,14 @@
 import clsx from "clsx";
 import { Editor, EditorState, RichUtils } from "draft-js";
 import { convertToHTML, convertFromHTML } from "draft-convert";
-import { memo, useCallback, useEffect, useRef, useState } from "react";
+import { memo, useCallback, useEffect, useState } from "react";
 import type { FC } from "react";
 
 import { BlockStyleControls } from "./BlockStyleControls";
 import { TEXT_EDITOR_CUSTOM_STYLES, TEXT_EDITOR_STYLE_TO_HTML } from "./constants";
 import { InlineStyleControls } from "./InlineStyleControls";
 import type { TTextEditorTextStyle } from "./types";
+
 import "draft-js/dist/Draft.css";
 import "./TextEditor.scss";
 
@@ -19,7 +20,7 @@ type TProps = {
   classes?: TClasses;
   htmlText?: string;
   isInvalid?: boolean;
-  onHTMLText?: (value: string) => void;
+  onChangeHTMLText?: (value: string) => void;
   placeholder?: string;
   title?: string;
 };
@@ -28,13 +29,12 @@ const TextEditorComponent: FC<TProps> = ({
   classes,
   htmlText,
   isInvalid = false,
-  onHTMLText,
+  onChangeHTMLText,
   placeholder,
   title,
 }) => {
   const [isFocused, setFocused] = useState(false);
   const [editorState, setEditorState] = useState<EditorState>(EditorState.createEmpty());
-  const editorRef = useRef<HTMLDivElement>(null);
 
   let wrapperClassName = "TextEditor-Wrapper";
   const contentState = editorState.getCurrentContent();
@@ -66,24 +66,20 @@ const TextEditorComponent: FC<TProps> = ({
     htmlText && setEditorState(convertHtmlToRaw(htmlText));
   }, [htmlText]);
 
-  const handleFocus = () => {
-    if (editorRef.current) editorRef.current.focus();
-  };
-
   const handleChangeBlur = () => {
-    setFocused(false);
+    setFocused((prevState: boolean) => (prevState ? false : prevState));
   };
 
   const handleChangeFocus = () => {
-    setFocused(true);
+    setFocused((prevState: boolean) => (prevState ? true : !prevState));
   };
 
-  const handleChangeText = (value: EditorState) => {
+  const handleChangeText = useCallback((value: EditorState) => {
     const currentSelection = value.getSelection();
-    onHTMLText?.(convertMessageToHtml(value.getCurrentContent()));
+    onChangeHTMLText?.(convertMessageToHtml(value.getCurrentContent()));
     const stateWithContentAndSelection = EditorState.forceSelection(value, currentSelection);
     setEditorState(stateWithContentAndSelection);
-  };
+  }, []);
 
   const handleKeyCommand = useCallback(
     (command, editorState) => {
@@ -111,22 +107,20 @@ const TextEditorComponent: FC<TProps> = ({
       <div className="TextEditor-Title">{title}</div>
       <div
         className={clsx("TextEditor-Area", {
-          "TextEditor-Area__isFocused": isFocused,
+          "TextEditor-Area__isFocused": isFocused || contentState.hasText(),
           "TextEditor-Area__isInvalid": isInvalid,
         })}
-        onClick={handleFocus}
+        onClick={handleChangeFocus}
       >
-        <div className={wrapperClassName} onClick={handleFocus}>
+        <div className={wrapperClassName}>
           <Editor
             blockStyleFn={getBlockStyle}
             customStyleMap={TEXT_EDITOR_CUSTOM_STYLES}
             editorState={editorState}
             handleKeyCommand={handleKeyCommand}
             onBlur={handleChangeBlur}
-            onFocus={handleChangeFocus}
             onChange={handleChangeText}
             placeholder={placeholder}
-            ref={editorRef}
           />
         </div>
         <div className="TextEditor-Sub">

@@ -15,8 +15,8 @@ export const FormatButton: FC<TProps> = ({ isActive, onToggle, style, typeIcon }
   return (
     <div
       className="FormatButton"
-      onMouseDown={(e) => {
-        e.preventDefault();
+      onMouseDown={(event) => {
+        event.preventDefault();
         onToggle?.(style);
       }}
     >
