@@ -17,6 +17,7 @@ const SliderSyncingComponent: FC<TSliderSyncingProps> = (props) => {
   const [nav2, setNav2] = useState<Slider | undefined>();
   const slider1 = useRef<Slider>(null);
   const slider2 = useRef<Slider>(null);
+  const sliderModal = useRef<Slider>(null);
 
   const settingsForModal = SLIDER_SYNCING_SETTINGS(props).settingsForModal;
   const settingsFor = SLIDER_SYNCING_SETTINGS(props).settingsFor;
@@ -25,11 +26,13 @@ const SliderSyncingComponent: FC<TSliderSyncingProps> = (props) => {
   useEffect(() => {
     slider1.current && setNav1(slider1.current);
     slider2.current && setNav2(slider2.current);
+    sliderModal.current && setNav2(sliderModal.current);
   }, []);
 
   useEffect(() => {
     slider1.current && slider1.current.slickGoTo(currentSlide);
     slider2.current && slider2.current.slickGoTo(currentSlide);
+    sliderModal.current && sliderModal.current.slickGoTo(currentSlide);
   }, [currentSlide]);
 
   const handleOpenModal = () => {
@@ -51,7 +54,7 @@ const SliderSyncingComponent: FC<TSliderSyncingProps> = (props) => {
           <Slider
             asNavFor={nav2}
             initialSlide={currentSlide}
-            ref={slider1}
+            ref={sliderModal}
             afterChange={handleAfterChange}
             {...settingsForModal}
           >
