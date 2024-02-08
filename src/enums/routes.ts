@@ -1,3 +1,5 @@
+import { RangeSliderPage } from "../pages/RangeSliderPage";
+
 export enum ERoutes {
   Root = "/",
 
@@ -20,6 +22,7 @@ export enum ERoutes {
   Popover = "/popover",
   Portal = "/portal",
   PrivateRoute = "/private-route",
+  RangeSlider = "/range-slider",
   Rating = "/rating",
   Scrollbar = "/scrollbar",
   Select = "/select",

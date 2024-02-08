@@ -1,0 +1,94 @@
+@import "../../../styles/index";
+
+.RangeSlider {
+  $this: &;
+
+  &-Info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  &-NumberList {
+    display: flex;
+    align-items: center;
+  }
+
+  &-Slider {
+    position: relative;
+    width: 100%;
+    height: 5px;
+    margin: 30px 0;
+    background-color: #8a8a8a;
+
+    &-Track {
+      height: 100%;
+      position: absolute;
+      background-color: $color-primary;
+    }
+
+    &-Input {
+      position: absolute;
+      width: 100%;
+      background: none;
+      pointer-events: none;
+      top: 50%;
+      transform: translateY(-50%);
+      appearance: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    & input[type="range"]::-webkit-slider-thumb {
+      height: 25px;
+      width: 25px;
+      border-radius: 50%;
+      border: 3px solid $color-white;
+      background: $color-white;
+      pointer-events: auto;
+      appearance: none;
+      -moz-appearance: none;
+      cursor: pointer;
+      box-shadow: 0 0.125rem 0.5625rem -0.125rem rgba(0, 0, 0, 0.25);
+    }
+
+    & input[type="range"]::-moz-range-thumb {
+      height: 25px;
+      width: 25px;
+      border-radius: 50%;
+      border: 3px solid $color-white;
+      background: $color-white;
+      pointer-events: auto;
+      appearance: none;
+      -moz-appearance: none;
+      cursor: pointer;
+      box-shadow: 0 0.125rem 0.5625rem -0.125rem rgba(0, 0, 0, 0.25);
+    }
+
+    &-Tooltip {
+      padding: 0.25rem 0.5rem;
+      border: 0;
+      background: #373f50;
+      color: $color-white;
+      border-radius: 0.25rem;
+      bottom: 120%;
+      display: block;
+      position: absolute;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    &-Tooltip-Min {
+      left: 50%;
+      transform: translateX(-50%) translateY(-100%);
+      z-index: 5;
+    }
+
+    &-Tooltip-Max {
+      right: 50%;
+      transform: translateX(50%) translateY(-100%);
+      z-index: 5;
+    }
+  }
+}

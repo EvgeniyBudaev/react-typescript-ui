@@ -26,6 +26,7 @@ export const MenuPanel: FC = () => {
     ERoutes.Popover,
     ERoutes.Portal,
     ERoutes.PrivateRoute,
+    ERoutes.RangeSlider,
     ERoutes.Rating,
     ERoutes.Scrollbar,
     ERoutes.Select,

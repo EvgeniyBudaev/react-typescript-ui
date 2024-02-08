@@ -26,6 +26,7 @@ import {
   PopoverPage,
   PortalPage,
   PrivateRoutePage,
+  RangeSliderPage,
   RatingPage,
   ScrollbarPage,
   SelectPage,
@@ -88,6 +89,7 @@ export const App: FC = () => {
               >
                 <Route path={ERoutes.PrivateRoute} element={<PrivateRoutePage />} />
               </Route>
+              <Route path={ERoutes.RangeSlider} element={<RangeSliderPage />} />
               <Route path={ERoutes.Rating} element={<RatingPage />} />
               <Route path={ERoutes.Scrollbar} element={<ScrollbarPage />} />
               <Route path={ERoutes.Select} element={<SelectPage />} />

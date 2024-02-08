@@ -17,6 +17,7 @@ export * from "./OverlayPage";
 export * from "./PopoverPage";
 export * from "./PortalPage";
 export * from "./PrivateRoutePage";
+export * from "./RangeSliderPage";
 export * from "./RatingPage";
 export * from "./ScrollbarPage";
 export * from "./SelectPage";
