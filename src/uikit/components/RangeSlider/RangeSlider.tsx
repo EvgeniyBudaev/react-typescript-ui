@@ -21,8 +21,8 @@ type TProps = {
   isShowRangeValue?: boolean;
   isShowTooltip?: boolean;
   label: string;
-  maxValue: number;
-  minValue: number;
+  max: number;
+  min: number;
   onChange?: Dispatch<SetStateAction<number[]>>;
   step: number;
   value: number[];
@@ -33,14 +33,14 @@ const RangeSliderComponent: FC<TProps> = ({
   isShowRangeValue = false,
   isShowTooltip = false,
   label,
-  maxValue,
-  minValue,
+  max,
+  min,
   onChange,
   step,
   value,
 }) => {
-  const [min, setMin] = useState(value[0]);
-  const [max, setMax] = useState(value[1]);
+  const [minValue, setMin] = useState(value[0]);
+  const [maxValue, setMax] = useState(value[1]);
   const [minTooltip, setMinTooltip] = useState(value[0]);
   const [maxTooltip, setMaxTooltip] = useState(value[1]);
   const trackRef = useRef<HTMLDivElement | null>(null);
@@ -58,8 +58,8 @@ const RangeSliderComponent: FC<TProps> = ({
       maxTooltipRef &&
       maxTooltipRef.current
     ) {
-      const minLeft = `${((min - minValue) / (maxValue - minValue)) * 100}%`;
-      const maxRight = `${((maxValue - max) / (maxValue - minValue)) * 100}%`;
+      const minLeft = `${((minValue - min) / (max - min)) * 100}%`;
+      const maxRight = `${((max - maxValue) / (max - min)) * 100}%`;
       trackRef.current.style.left = minLeft;
       trackRef.current.style.right = maxRight;
       minTooltipRef.current.style.left = minLeft;
@@ -77,11 +77,11 @@ const RangeSliderComponent: FC<TProps> = ({
       maxTooltipRef.current.style.zIndex = "5";
     }
     const value = Number(event.target.value);
-    if (value <= max) {
+    if (value <= maxValue) {
       setMin(value);
       setMinTooltip(value);
       if (onChange) {
-        onChange?.([value, max]);
+        onChange?.([value, maxValue]);
       }
     }
   };
@@ -96,10 +96,10 @@ const RangeSliderComponent: FC<TProps> = ({
       maxTooltipRef.current.style.zIndex = "10";
     }
     const value = Number(event.target.value);
-    if (value >= min) {
+    if (value >= minValue) {
       setMax(value);
       setMaxTooltip(value);
-      onChange?.([min, value]);
+      onChange?.([minValue, value]);
     }
   };
 
@@ -119,25 +119,25 @@ const RangeSliderComponent: FC<TProps> = ({
         <div className="RangeSlider-Slider-Track" ref={trackRef}></div>
         <input
           className="RangeSlider-Slider-Input RangeSlider-Slider-Input-Min"
-          max={maxValue}
-          min={minValue}
+          max={max}
+          min={min}
           name="min"
           onChange={handleChangeMin}
           ref={minInputRef}
           step={step}
           type="range"
-          value={min}
+          value={minValue}
         />
         <input
           className="RangeSlider-Slider-Input RangeSlider-Slider-Input-Max"
-          max={maxValue}
-          min={minValue}
+          max={max}
+          min={min}
           name="max"
           onChange={handleChangeMax}
           ref={maxInputRef}
           step={step}
           type="range"
-          value={max}
+          value={maxValue}
         />
         {isShowTooltip && (
           <>

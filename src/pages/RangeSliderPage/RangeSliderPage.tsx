@@ -14,8 +14,8 @@ export const RangeSliderPage: FC = () => {
         // isShowRangeValue={true}
         isShowTooltip={true}
         label="Range"
-        maxValue={100}
-        minValue={18}
+        max={100}
+        min={18}
         onChange={setRange}
         step={1}
         value={range}
