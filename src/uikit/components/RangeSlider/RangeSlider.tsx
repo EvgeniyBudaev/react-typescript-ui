@@ -1,7 +1,6 @@
-"use client";
-
 import clsx from "clsx";
 import {
+  type ChangeEvent,
   type Dispatch,
   type FC,
   memo,
@@ -63,11 +62,13 @@ const RangeSliderComponent: FC<TProps> = ({
       trackRef.current.style.left = minLeft;
       trackRef.current.style.right = maxRight;
       minTooltipRef.current.style.left = minLeft;
+      minTooltipRef.current.style.transform = `translateX(-${minLeft})`;
       maxTooltipRef.current.style.right = maxRight;
+      maxTooltipRef.current.style.transform = `translateX(${maxRight})`;
     }
   }, [max, maxValue, min, minValue]);
 
-  const handleChangeMin = (event?: any) => {
+  const handleChangeMin = (event?: ChangeEvent<HTMLInputElement>) => {
     if (minInputRef && minInputRef.current && maxInputRef && maxInputRef.current) {
       minInputRef.current.style.zIndex = "10";
       maxInputRef.current.style.zIndex = "5";
@@ -76,7 +77,7 @@ const RangeSliderComponent: FC<TProps> = ({
       minTooltipRef.current.style.zIndex = "10";
       maxTooltipRef.current.style.zIndex = "5";
     }
-    const value = Number(event.target.value);
+    const value = Number(event?.target.value);
     if (value <= maxValue) {
       setMin(value);
       setMinTooltip(value);
@@ -86,7 +87,7 @@ const RangeSliderComponent: FC<TProps> = ({
     }
   };
 
-  const handleChangeMax = (event?: any) => {
+  const handleChangeMax = (event?: ChangeEvent<HTMLInputElement>) => {
     if (minInputRef && minInputRef.current && maxInputRef && maxInputRef.current) {
       minInputRef.current.style.zIndex = "5";
       maxInputRef.current.style.zIndex = "10";
@@ -95,7 +96,7 @@ const RangeSliderComponent: FC<TProps> = ({
       minTooltipRef.current.style.zIndex = "5";
       maxTooltipRef.current.style.zIndex = "10";
     }
-    const value = Number(event.target.value);
+    const value = Number(event?.target.value);
     if (value >= minValue) {
       setMax(value);
       setMaxTooltip(value);
@@ -141,17 +142,15 @@ const RangeSliderComponent: FC<TProps> = ({
         />
         {isShowTooltip && (
           <>
-            <div
-              className="RangeSlider-Slider-Tooltip RangeSlider-Slider-Tooltip-Min"
-              ref={minTooltipRef}
-            >
-              {minTooltip}
+            <div className="RangeSlider-Slider-WapperTooltip" ref={minTooltipRef}>
+              <div className="RangeSlider-Slider-Tooltip RangeSlider-Slider-Tooltip-Min">
+                {minTooltip}
+              </div>
             </div>
-            <div
-              className="RangeSlider-Slider-Tooltip RangeSlider-Slider-Tooltip-Max"
-              ref={maxTooltipRef}
-            >
-              {maxTooltip}
+            <div className="RangeSlider-Slider-WapperTooltip" ref={maxTooltipRef}>
+              <div className="RangeSlider-Slider-Tooltip RangeSlider-Slider-Tooltip-Max">
+                {maxTooltip}
+              </div>
             </div>
           </>
         )}
