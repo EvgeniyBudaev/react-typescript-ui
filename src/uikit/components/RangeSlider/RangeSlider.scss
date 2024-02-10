@@ -80,17 +80,17 @@
       display: block;
       text-align: center;
       white-space: nowrap;
-      pointer-events: auto;
+      //pointer-events: auto; // enables/disables interaction with tooltip
     }
 
     &-Tooltip-Min {
       transform: translateY(-200%);
-      z-index: 5;
+      z-index: 10;
     }
 
     &-Tooltip-Max {
       transform: translateY(-200%);
-      z-index: 5;
+      z-index: 10;
     }
   }
 }
