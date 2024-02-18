@@ -34,8 +34,8 @@ const RangeSliderComponent: FC<TProps> = ({
   step,
   value,
 }) => {
-  const [minValue, setMin] = useState(value[0]);
-  const [maxValue, setMax] = useState(value[1]);
+  const [minValue, setMinValue] = useState(value[0]);
+  const [maxValue, setMaxValue] = useState(value[1]);
   const [minTooltip, setMinTooltip] = useState(value[0]);
   const [maxTooltip, setMaxTooltip] = useState(value[1]);
   const trackRef = useRef<HTMLDivElement | null>(null);
@@ -77,11 +77,9 @@ const RangeSliderComponent: FC<TProps> = ({
     }
     const value = Number(event?.target.value);
     if (value <= maxValue) {
-      setMin(value);
+      setMinValue(value);
       setMinTooltip(value);
-      if (onChange) {
-        onChange?.([value, maxValue]);
-      }
+      onChange?.([value, maxValue]);
     }
   };
 
@@ -96,7 +94,7 @@ const RangeSliderComponent: FC<TProps> = ({
     }
     const value = Number(event?.target.value);
     if (value >= minValue) {
-      setMax(value);
+      setMaxValue(value);
       setMaxTooltip(value);
       onChange?.([minValue, value]);
     }
