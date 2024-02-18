@@ -1,5 +1,5 @@
 import { type FC, useState } from "react";
-import { Hr, Title } from "components";
+import { Title } from "components";
 import { RangeSlider } from "uikit/components/RangeSlider";
 import "./RangeSliderPage.scss";
 
@@ -8,14 +8,13 @@ export const RangeSliderPage: FC = () => {
 
   return (
     <section className="RangeSliderPage">
-      <Title>Range slider</Title>
-      <Hr />
+      <Title>Range slider with tooltip</Title>
       <RangeSlider
-        // isShowRangeValue={true}
+        classes={{ root: "RangeSliderPage-Slider" }}
         isShowTooltip={true}
         label="Range"
         max={100}
-        min={18}
+        min={0}
         onChange={setRange}
         step={1}
         value={range}

@@ -17,7 +17,6 @@ type TClasses = {
 
 type TProps = {
   classes?: TClasses;
-  isShowRangeValue?: boolean;
   isShowTooltip?: boolean;
   label: string;
   max: number;
@@ -29,7 +28,6 @@ type TProps = {
 
 const RangeSliderComponent: FC<TProps> = ({
   classes,
-  isShowRangeValue = false,
   isShowTooltip = false,
   label,
   max,
@@ -108,16 +106,6 @@ const RangeSliderComponent: FC<TProps> = ({
 
   return (
     <div className={clsx("RangeSlider", classes?.root)}>
-      {isShowRangeValue && (
-        <div className="RangeSlider-Info">
-          <div className="RangeSlider-Title">{label}</div>
-          <div className="RangeSlider-NumberList">
-            <div>{Array.isArray(value) && value?.[0]}</div>
-            &nbsp;-&nbsp;
-            <div>{Array.isArray(value) && value?.[1]}</div>
-          </div>
-        </div>
-      )}
       <div className="RangeSlider-Slider">
         <div className="RangeSlider-Slider-Track" ref={trackRef}></div>
         <input
