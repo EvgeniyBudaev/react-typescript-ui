@@ -12,7 +12,6 @@ export const RangeSliderPage: FC = () => {
       <RangeSlider
         classes={{ root: "RangeSliderPage-Slider" }}
         isShowTooltip={true}
-        label="Range"
         max={100}
         min={0}
         onChange={setRange}

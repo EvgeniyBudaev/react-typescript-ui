@@ -18,7 +18,6 @@ type TClasses = {
 type TProps = {
   classes?: TClasses;
   isShowTooltip?: boolean;
-  label: string;
   max: number;
   min: number;
   onChange?: Dispatch<SetStateAction<number[]>>;
@@ -29,7 +28,6 @@ type TProps = {
 const RangeSliderComponent: FC<TProps> = ({
   classes,
   isShowTooltip = false,
-  label,
   max,
   min,
   onChange,
