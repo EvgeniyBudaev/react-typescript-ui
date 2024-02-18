@@ -1,5 +1,3 @@
-import { RangeSliderPage } from "../pages/RangeSliderPage";
-
 export enum ERoutes {
   Root = "/",
 
