@@ -10,12 +10,15 @@ export interface IInputProps
   className?: string;
   dataTestId?: string;
   error?: string;
+  hidden?: boolean;
+  isDisabled?: boolean;
   isFocused?: boolean;
+  isReadOnly?: boolean;
   isRequired?: boolean;
   label?: string;
   name?: string;
   type?: string;
-  value?: string;
+  value?: string | number | readonly string[] | undefined;
 }
 
 const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
@@ -25,7 +28,10 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
       className,
       dataTestId = "uikit__input",
       error,
+      hidden,
+      isDisabled = false,
       isFocused: isInputFocused,
+      isReadOnly,
       isRequired,
       label,
       name,
@@ -33,11 +39,12 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
       onBlur,
       onChange,
       onFocus,
+      value,
       ...rest
     }: IInputProps,
     ref: ForwardedRef<HTMLInputElement>,
   ): JSX.Element => {
-    const [isFocused, setIsFocused] = useState<boolean | undefined>(isInputFocused);
+    const [isFocused, setIsFocused] = useState<boolean | undefined>(isInputFocused || !!value);
 
     const onBlurCallback = (event: FocusEvent<HTMLInputElement>) => {
       if (event.target.value !== "") {
@@ -45,7 +52,6 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
       } else {
         setIsFocused(false);
       }
-
       if (onBlur) {
         onBlur(event);
       }
@@ -55,7 +61,6 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
       if (!isFocused) {
         setIsFocused(true);
       }
-
       if (onFocus) {
         onFocus(event);
       }
@@ -64,29 +69,36 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
     return (
       <div
         className={clsx("InputField", className, {
-          InputField__active: isFocused,
+          InputField__disabled: isReadOnly || isDisabled,
+          InputField__active: isFocused && !isReadOnly && !isDisabled,
         })}
         data-testid={dataTestId}
       >
         <div
           className={clsx("InputField-Inner", {
+            "InputField-Inner__disabled": isReadOnly || isDisabled,
             "InputField-Inner__active": isFocused,
             "InputField-Inner__error": error,
           })}
         >
           <input
+            {...rest}
             className={clsx(className, "Input", {
-              Input__active: isFocused,
+              Input__disabled: isReadOnly || isDisabled,
+              Input__active: isFocused && !isReadOnly && !isDisabled,
               Input__error: error,
             })}
+            aria-disabled={isReadOnly}
             autoComplete={autoComplete}
+            disabled={isDisabled}
+            hidden={hidden}
             name={name}
             type={type}
+            readOnly={isReadOnly}
             ref={ref}
             onChange={onChange}
             onFocus={onFocusCallback}
             onBlur={onBlurCallback}
-            {...rest}
           />
         </div>
 
