@@ -1,11 +1,10 @@
-import { memo, useState } from "react";
-import type { FC } from "react";
-import type { OnChangeValue } from "react-select";
 import clsx from "clsx";
 import isNil from "lodash/isNil";
+import { memo, useState } from "react";
+import type { FC } from "react";
 
-import { ETheme, Select } from "uikit";
-import type { ETablePlacement, TSelectMultiType, TSelectOption } from "uikit";
+import { ETheme, Select, type TSelectOnChange } from "uikit";
+import type { ETablePlacement, TSelectOption } from "uikit";
 import { getPageSizeOptions } from "./utils";
 import "./PageSize.scss";
 
@@ -27,12 +26,12 @@ const Component: FC<TProps> = ({
   const [isSelectOpened, setIsSelectOpened] = useState(false);
   const selectOptions = getPageSizeOptions(options);
 
-  const handleChangePageSize = (options?: OnChangeValue<TSelectOption, TSelectMultiType>) => {
-    if (isNil(options)) return;
-    if (Array.isArray(options)) {
-      onChangePageSize(Number(options[0].value));
+  const handleChangePageSize: TSelectOnChange = (selectedOption) => {
+    if (isNil(selectedOption)) return undefined;
+    if (Array.isArray(selectedOption)) {
+      onChangePageSize(Number(selectedOption[0].value));
     } else {
-      const optionsSingle = options as TSelectOption;
+      const optionsSingle = selectedOption as TSelectOption;
       onChangePageSize(Number(optionsSingle.value));
     }
   };

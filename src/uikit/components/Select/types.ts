@@ -8,23 +8,33 @@ import type {
   MultiValue,
   OnChangeValue,
   OptionsOrGroups,
+  SelectComponentsConfig,
   SingleValue,
   StylesConfig,
 } from "react-select";
-import type { SelectComponents } from "react-select/dist/declarations/src/components";
 import type { ETheme } from "../../enums";
 
 export type TSelectOption = {
-  value: string;
+  value: string | number;
   label: string;
   prefixIcon?: ReactNode;
 };
 
 export type TSelectMultiType = true | false;
 
+export type TSelectOnChange = (
+  newValue: OnChangeValue<TSelectOption, TSelectMultiType>,
+  actionMeta: ActionMeta<TSelectOption>,
+) =>
+  | ((
+      newValue: OnChangeValue<TSelectOption, TSelectMultiType>,
+      actionMeta: ActionMeta<TSelectOption>,
+    ) => void)
+  | undefined;
+
 type TBaseSelectProps = {
   className?: string;
-  components?: Partial<SelectComponents<TSelectOption, TSelectMultiType, GroupBase<TSelectOption>>>;
+  components?: SelectComponentsConfig<TSelectOption, TSelectMultiType, GroupBase<TSelectOption>>;
   dataTestId?: string;
   defaultValue?: TSelectOption | TSelectOption[];
   getOptionLabel?: GetOptionLabel<TSelectOption | TSelectOption[]>;
@@ -37,10 +47,7 @@ type TBaseSelectProps = {
   menuPosition?: MenuPosition;
   name?: string;
   onBlur?: FocusEventHandler;
-  onChange?: (
-    value: OnChangeValue<TSelectOption, TSelectMultiType>,
-    action: ActionMeta<TSelectOption>,
-  ) => void;
+  onChange?: TSelectOnChange;
   onFocus?: FocusEventHandler;
   placeholder?: string;
   styles?: StylesConfig<TSelectOption, TSelectMultiType, GroupBase<TSelectOption>> | undefined;

@@ -1,12 +1,12 @@
-import { useCallback, useEffect, useState } from "react";
-import type { MultiValue, OnChangeValue, SingleValue } from "react-select";
 import debounce from "lodash/debounce";
 import isNil from "lodash/isNil";
+import { useCallback, useEffect, useState } from "react";
+import type { MultiValue, SingleValue } from "react-select";
+
 import type { TPosts } from "services/api/posts";
 import { getPostsApi } from "services/api/posts/utils";
-import { DEBOUNCE_TIMEOUT } from "uikit";
+import { DEBOUNCE_TIMEOUT, type TSelectOnChange } from "uikit";
 import type {
-  TSelectMultiType,
   TAsyncSelectLoadOptions,
   TAsyncSelectLoadOptionsCallback,
   TSelectOption,
@@ -28,8 +28,8 @@ export const usePosts = () => {
     SingleValue<TSelectOption> | MultiValue<TSelectOption>
   >({ value: "", label: "" });
 
-  const handleChange = (selectedOption?: OnChangeValue<TSelectOption, TSelectMultiType>) => {
-    if (isNil(selectedOption)) return;
+  const handleChange: TSelectOnChange = (selectedOption) => {
+    if (isNil(selectedOption)) return undefined;
     if (Array.isArray(selectedOption)) {
       setMultipleSelectedOption(selectedOption); // onSortingChange?.(selectedOption[0].value);
     } else {
