@@ -13,6 +13,14 @@
       height: 100%;
       position: absolute;
       background-color: $color-primary;
+
+      &__initial {
+        height: 100%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        background-color: $color-lighting;
+      }
     }
 
     &-Input {
