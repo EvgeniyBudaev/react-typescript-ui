@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import type { FC, ReactNode } from "react";
 import "./FadeIn.scss";
 
@@ -7,7 +7,7 @@ type TProps = {
   dataTestId?: string;
 };
 
-export const FadeIn: FC<TProps> = ({ children, dataTestId = "uikit__fadeIn" }) => {
+const FadeInComponent: FC<TProps> = ({ children, dataTestId = "uikit__fadeIn" }) => {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -23,3 +23,7 @@ export const FadeIn: FC<TProps> = ({ children, dataTestId = "uikit__fadeIn" }) =
     </span>
   );
 };
+
+FadeInComponent.displayName = "FadeIn";
+
+export const FadeIn = memo(FadeInComponent);

@@ -30,4 +30,6 @@ const AlertComponent: FC<TProps> = ({
   );
 };
 
+AlertComponent.displayName = "Alert";
+
 export const Alert = memo(AlertComponent);

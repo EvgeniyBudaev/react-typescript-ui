@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { memo, useEffect, useRef, useState } from "react";
 import shadowRoot from "react-shadow";
-import { IconButton } from "uikit";
+import { DateRangePicker, IconButton } from "uikit";
 import "./DocumentViewer.scss";
 
 type TProps = {
@@ -135,5 +135,7 @@ const DocumentViewerComponent: React.FC<TProps> = ({
     </div>
   );
 };
+
+DocumentViewerComponent.displayName = "DocumentViewer";
 
 export const DocumentViewer = memo(DocumentViewerComponent);

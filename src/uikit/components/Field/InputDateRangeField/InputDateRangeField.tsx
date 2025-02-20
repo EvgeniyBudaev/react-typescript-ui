@@ -88,4 +88,6 @@ const InputDateRangeFieldComponent: FC<TProps> = (props) => {
   );
 };
 
+InputDateRangeFieldComponent.displayName = "InputDateRangeField";
+
 export const InputDateRangeField = memo(InputDateRangeFieldComponent);

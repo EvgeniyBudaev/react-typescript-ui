@@ -1,4 +1,4 @@
-import { createRef, Fragment, useCallback, useEffect, useState } from "react";
+import { createRef, Fragment, memo, useCallback, useEffect, useState } from "react";
 import type { ReactElement } from "react";
 import { useSearchParams } from "react-router-dom";
 import { usePopper } from "react-popper";
@@ -32,7 +32,7 @@ type TProps<T extends object> = {
   state: TSortingColumnStateWithReset | Array<TSortingColumnStateWithReset> | null;
 };
 
-export const TableHeaderItem = <T extends object>({
+const TableHeaderItemComponent = <T extends object>({
   hasSorting,
   header,
   hiddenColumns,
@@ -331,3 +331,7 @@ export const TableHeaderItem = <T extends object>({
     </UiPopover>
   );
 };
+
+TableHeaderItemComponent.displayName = "TableHeaderItem";
+
+export const TableHeaderItem = memo(TableHeaderItemComponent) as typeof TableHeaderItemComponent;

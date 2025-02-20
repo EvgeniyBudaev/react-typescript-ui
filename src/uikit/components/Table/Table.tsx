@@ -97,4 +97,6 @@ const TableComponent = <TColumn extends Record<string, any>>(
   );
 };
 
+TableComponent.displayName = "Table";
+
 export const Table = forwardRef(TableComponent) as typeof TableComponent;

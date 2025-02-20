@@ -16,7 +16,7 @@ type TProps = {
   theme?: ETheme;
 };
 
-const Component: FC<TProps> = ({
+const PageSizeComponent: FC<TProps> = ({
   defaultPageSize,
   dropdownPosition,
   options,
@@ -64,4 +64,6 @@ const Component: FC<TProps> = ({
   );
 };
 
-export const PageSize = memo(Component);
+PageSizeComponent.displayName = "PageSize";
+
+export const PageSize = memo(PageSizeComponent);

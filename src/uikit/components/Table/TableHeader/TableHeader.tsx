@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import type { HeaderGroup } from "@tanstack/react-table";
 
 import type { TTableSortingProps } from "uikit";
@@ -19,7 +19,7 @@ type TProps<TColumn extends object> = {
   sorting?: TTableSortingProps;
 };
 
-export const TableHeader = <T extends object>({
+const TableHeaderComponent = <T extends object>({
   headerGroups,
   hiddenColumns,
   optionsSorting,
@@ -94,3 +94,7 @@ export const TableHeader = <T extends object>({
     </thead>
   );
 };
+
+TableHeaderComponent.displayName = "TableHeader";
+
+export const TableHeader = memo(TableHeaderComponent) as typeof TableHeaderComponent;

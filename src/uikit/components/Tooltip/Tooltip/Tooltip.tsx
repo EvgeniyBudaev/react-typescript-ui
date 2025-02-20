@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { createElement, useEffect, useState } from "react";
+import { createElement, memo, useEffect, useState } from "react";
 import type { FC, ReactNode } from "react";
 import ReactDOM from "react-dom";
 import { usePopper } from "react-popper";
@@ -24,7 +24,7 @@ export type TTooltipProps = {
   timerDelay?: number;
 };
 
-export const Tooltip: FC<TTooltipProps> = ({
+const TooltipComponent: FC<TTooltipProps> = ({
   as = "div",
   behavior = ETooltipBehavior.Hover,
   children,
@@ -177,3 +177,7 @@ export const Tooltip: FC<TTooltipProps> = ({
 
   return createElement(as, props, renderChildren());
 };
+
+TooltipComponent.displayName = "Tooltip";
+
+export const Tooltip = memo(TooltipComponent);

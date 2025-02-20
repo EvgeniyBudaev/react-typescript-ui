@@ -47,4 +47,6 @@ const TabsComponent: FC<TProps> = ({
   );
 };
 
+TabsComponent.displayName = "Tabs";
+
 export const Tabs = memo(TabsComponent);

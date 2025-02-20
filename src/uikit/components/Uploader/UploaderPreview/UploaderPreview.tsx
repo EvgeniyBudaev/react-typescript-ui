@@ -1,11 +1,11 @@
-import type { FC } from "react";
+import { type FC, memo } from "react";
 import isNil from "lodash/isNil";
 
 type TProps = {
   files?: File[];
 };
 
-export const UploaderPreview: FC<TProps> = ({ files }) => {
+const UploaderPreviewComponent: FC<TProps> = ({ files }) => {
   return (
     <div className="UploaderPreview">
       {files && !isNil(files)
@@ -14,3 +14,7 @@ export const UploaderPreview: FC<TProps> = ({ files }) => {
     </div>
   );
 };
+
+UploaderPreviewComponent.displayName = "UploaderPreview";
+
+export const UploaderPreview = memo(UploaderPreviewComponent);

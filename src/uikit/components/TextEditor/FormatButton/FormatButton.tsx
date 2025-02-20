@@ -1,4 +1,4 @@
-import type { FC } from "react";
+import { type FC, memo } from "react";
 import { IconButton } from "../../Button";
 import type { IconType } from "../../Icon/IconType";
 import "./FormatButton.scss";
@@ -11,7 +11,7 @@ type TProps = {
   typeIcon: IconType | string;
 };
 
-export const FormatButton: FC<TProps> = ({ isActive, onToggle, style, typeIcon }) => {
+const FormatButtonComponent: FC<TProps> = ({ isActive, onToggle, style, typeIcon }) => {
   return (
     <div
       className="FormatButton"
@@ -24,3 +24,7 @@ export const FormatButton: FC<TProps> = ({ isActive, onToggle, style, typeIcon }
     </div>
   );
 };
+
+FormatButtonComponent.displayName = "FormatButton";
+
+export const FormatButton = memo(FormatButtonComponent);

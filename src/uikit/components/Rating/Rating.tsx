@@ -28,4 +28,6 @@ const RatingComponent: FC<TProps> = ({
   );
 };
 
+RatingComponent.displayName = "Rating";
+
 export const Rating = memo(RatingComponent);

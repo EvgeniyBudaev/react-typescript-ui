@@ -59,4 +59,6 @@ const AsyncSelectComponent: FC<TAsyncSelectProps> = ({
   ) : null;
 };
 
+AsyncSelectComponent.displayName = "AsyncSelect";
+
 export const AsyncSelect = memo(AsyncSelectComponent);

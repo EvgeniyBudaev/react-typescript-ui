@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { memo } from "react";
 import type { FC, ReactNode } from "react";
 import ReactDOM from "react-dom";
 
@@ -10,7 +11,7 @@ type TProps = {
   elementFindById: string;
 };
 
-export const Portal: FC<TProps> = ({
+const PortalComponent: FC<TProps> = ({
   children,
   className,
   dataTestId = "uikit__portal",
@@ -28,3 +29,7 @@ export const Portal: FC<TProps> = ({
       )
     : null;
 };
+
+PortalComponent.displayName = "Portal";
+
+export const Portal = memo(PortalComponent);

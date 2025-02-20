@@ -15,7 +15,7 @@ type TProps = {
   match: BreadcrumbMatch<string>;
 };
 
-const Component: FC<TProps> = ({
+const CrumbComponent: FC<TProps> = ({
   breadcrumb,
   className,
   isFirstCrumb,
@@ -45,4 +45,6 @@ const Component: FC<TProps> = ({
   );
 };
 
-export const Crumb = memo(Component);
+CrumbComponent.displayName = "Crumb";
+
+export const Crumb = memo(CrumbComponent);

@@ -63,4 +63,6 @@ const InputDateComponent: FC<TProps> = (props) => {
   );
 };
 
+InputDateComponent.displayName = "InputDate";
+
 export const InputDate = memo(InputDateComponent);

@@ -131,4 +131,6 @@ const TooltipCustomComponent: FC<TProps> = ({
   );
 };
 
+TooltipCustomComponent.displayName = "TooltipCustom";
+
 export const TooltipCustom = memo(TooltipCustomComponent);

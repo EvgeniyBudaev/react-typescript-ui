@@ -8,8 +8,10 @@ type TProps<T extends object> = {
   columns: TTableOptionsProps<T>["columns"];
 };
 
-const Component = <T extends object>({ options, columns }: TProps<T>): ReactElement => {
+const ControlComponent = <T extends object>({ options, columns }: TProps<T>): ReactElement => {
   return <div>{options && <Options {...options} columns={columns} />}</div>;
 };
 
-export const Control = memo(Component) as typeof Component;
+ControlComponent.displayName = "Control";
+
+export const Control = memo(ControlComponent) as typeof ControlComponent;

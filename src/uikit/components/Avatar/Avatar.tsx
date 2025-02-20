@@ -68,4 +68,6 @@ const AvatarComponent: FC<TProps> = ({
   );
 };
 
+AvatarComponent.displayName = "Avatar";
+
 export const Avatar = memo(AvatarComponent);

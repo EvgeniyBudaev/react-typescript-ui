@@ -38,4 +38,6 @@ const HamburgerComponent: FC<TProps> = ({
   );
 };
 
+HamburgerComponent.displayName = "Hamburger";
+
 export const Hamburger = memo(HamburgerComponent);

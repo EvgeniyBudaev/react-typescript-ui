@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { useEffect, useRef } from "react";
+import { memo, useEffect, useRef } from "react";
 import type { CSSProperties, FC, MouseEventHandler } from "react";
 import { ESliderArrow, Icon } from "uikit";
 
@@ -14,7 +14,7 @@ type TProps = {
   type: ESliderArrow;
 };
 
-export const SliderArrow: FC<TProps> = ({
+const SliderArrowComponent: FC<TProps> = ({
   backgroundColor = "#e8e8e8",
   className,
   dataTestId = "uikit__slider-arrow",
@@ -55,3 +55,7 @@ export const SliderArrow: FC<TProps> = ({
     </div>
   );
 };
+
+SliderArrowComponent.displayName = "SliderArrow";
+
+export const SliderArrow = memo(SliderArrowComponent);

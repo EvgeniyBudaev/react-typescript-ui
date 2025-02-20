@@ -41,4 +41,6 @@ const SwitcherHeadlessComponent: FC<TProps> = ({
   );
 };
 
+SwitcherHeadlessComponent.displayName = "SwitcherHeadless";
+
 export const SwitcherHeadless = memo(SwitcherHeadlessComponent);

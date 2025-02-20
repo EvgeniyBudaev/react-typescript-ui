@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { memo, useEffect, useState } from "react";
 import type { FC } from "react";
-import { Icon, Tooltip } from "uikit";
+import { CheckboxComponent, Icon, Tooltip } from "uikit";
 import { useCopyToClipboard } from "uikit/hooks";
 import type { TCopyToClipboardClasses, TCopyToClipboardTooltip } from "./types";
 import "./CopyToClipboard.scss";
@@ -64,5 +64,7 @@ const CopyToClipboardComponent: FC<TProps> = ({
 
   return renderContent(value);
 };
+
+CopyToClipboardComponent.displayName = "CopyToClipboard";
 
 export const CopyToClipboard = memo(CopyToClipboardComponent);

@@ -44,4 +44,6 @@ const DateRangePickerComponent: FC<TProps> = (props) => {
   );
 };
 
+DateRangePickerComponent.displayName = "DateRangePicker";
+
 export const DateRangePicker = memo(DateRangePickerComponent);

@@ -33,4 +33,6 @@ const SwitcherCustomComponent: FC<TProps> = ({
   );
 };
 
+SwitcherCustomComponent.displayName = "SwitcherCustom";
+
 export const SwitcherCustom = memo(SwitcherCustomComponent);

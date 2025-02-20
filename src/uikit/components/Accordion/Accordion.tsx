@@ -64,4 +64,6 @@ const AccordionComponent: FC<TProps> = ({
   );
 };
 
+AccordionComponent.displayName = "Accordion";
+
 export const Accordion = memo(AccordionComponent);

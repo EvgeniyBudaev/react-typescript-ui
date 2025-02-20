@@ -47,4 +47,6 @@ const CalendarComponent: FC<TProps> = (props) => {
   );
 };
 
+CalendarComponent.displayName = "Calendar";
+
 export const Calendar = memo(CalendarComponent);

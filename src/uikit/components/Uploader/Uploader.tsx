@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 import type { FC } from "react";
 import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
@@ -10,7 +10,7 @@ interface IUploaderProps {
   onFilesUploadedAll?: (handleFilesAllAdd: File[]) => void;
 }
 
-export const Uploader: FC<IUploaderProps> = ({ config, onFilesUploadedAll }) => {
+const UploaderComponent: FC<IUploaderProps> = ({ config, onFilesUploadedAll }) => {
   const UPLOADER_CONFIG_DEFAULT: TUploaderConfig = {
     accept: {},
   };
@@ -44,3 +44,7 @@ export const Uploader: FC<IUploaderProps> = ({ config, onFilesUploadedAll }) => 
     </div>
   );
 };
+
+UploaderComponent.displayName = "Uploader";
+
+export const Uploader = memo(UploaderComponent);

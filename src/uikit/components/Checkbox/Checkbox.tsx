@@ -56,4 +56,6 @@ export const CheckboxComponent: FC<TCheckboxProps> = ({
   );
 };
 
+CheckboxComponent.displayName = "Checkbox";
+
 export const Checkbox = memo(CheckboxComponent);

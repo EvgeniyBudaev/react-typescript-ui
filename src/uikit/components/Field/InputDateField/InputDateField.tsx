@@ -113,4 +113,6 @@ const InputDateFieldComponent: FC<TProps> = (props) => {
   );
 };
 
+InputDateFieldComponent.displayName = "InputDateField";
+
 export const InputDateField = memo(InputDateFieldComponent);

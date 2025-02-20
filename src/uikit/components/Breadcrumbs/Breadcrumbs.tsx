@@ -33,4 +33,6 @@ const BreadcrumbsComponent: FC<TProps> = ({ dataTestId = "uikit__breadcrumbs" })
   );
 };
 
+BreadcrumbsComponent.displayName = "Breadcrumbs";
+
 export const Breadcrumbs = memo(BreadcrumbsComponent);

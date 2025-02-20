@@ -46,4 +46,6 @@ const ButtonComponent: FC<IButtonProps> = ({
   );
 };
 
+ButtonComponent.displayName = "Button";
+
 export const Button = memo(ButtonComponent);

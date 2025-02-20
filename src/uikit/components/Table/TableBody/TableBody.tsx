@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { flexRender } from "@tanstack/react-table";
 import type { Row } from "@tanstack/react-table";
 import "./TableBody.scss";
@@ -6,7 +7,7 @@ type TProps<TColumn extends object> = {
   rows: Row<TColumn>[];
 };
 
-export const TableBody = <T extends object>({ rows }: TProps<T>) => {
+const TableBodyComponent = <T extends object>({ rows }: TProps<T>) => {
   return (
     <tbody className="TableBody-TBody">
       {rows.map((row) => {
@@ -33,3 +34,7 @@ export const TableBody = <T extends object>({ rows }: TProps<T>) => {
     </tbody>
   );
 };
+
+TableBodyComponent.displayName = "TableBody";
+
+export const TableBody = memo(TableBodyComponent) as typeof TableBodyComponent;

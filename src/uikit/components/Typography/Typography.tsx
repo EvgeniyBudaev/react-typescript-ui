@@ -15,7 +15,7 @@ type TProps = {
   variant?: ETypographyVariant;
 };
 
-const Component: FC<TProps> = ({
+const TypographyComponent: FC<TProps> = ({
   as = "span",
   children,
   color = ETextColor.Dark,
@@ -34,4 +34,6 @@ const Component: FC<TProps> = ({
   return createElement(as, props, children);
 };
 
-export const Typography = memo(Component);
+TypographyComponent.displayName = "Typography";
+
+export const Typography = memo(TypographyComponent);

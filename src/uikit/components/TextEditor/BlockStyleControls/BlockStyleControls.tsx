@@ -1,5 +1,5 @@
 import type { EditorState } from "draft-js";
-import type { FC } from "react";
+import { type FC, memo } from "react";
 import { TEXT_EDITOR_BLOCK_TYPES } from "../constants";
 import { FormatButton } from "../FormatButton";
 
@@ -8,7 +8,7 @@ type TProps = {
   onToggle: (value: string) => void;
 };
 
-export const BlockStyleControls: FC<TProps> = ({ editorState, onToggle }) => {
+const BlockStyleControlsComponent: FC<TProps> = ({ editorState, onToggle }) => {
   const selection = editorState.getSelection();
   const blockType = editorState
     .getCurrentContent()
@@ -30,3 +30,7 @@ export const BlockStyleControls: FC<TProps> = ({ editorState, onToggle }) => {
     </>
   );
 };
+
+BlockStyleControlsComponent.displayName = "BlockStyleControls";
+
+export const BlockStyleControls = memo(BlockStyleControlsComponent);

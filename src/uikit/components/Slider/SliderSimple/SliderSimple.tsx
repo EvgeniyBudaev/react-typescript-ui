@@ -39,4 +39,6 @@ const SliderSimpleComponent: FC<TSliderSimpleProps> = (props) => {
   );
 };
 
+SliderSimpleComponent.displayName = "SliderSimple";
+
 export const SliderSimple = memo(SliderSimpleComponent);

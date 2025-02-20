@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import type { FC } from "react";
+import { type FC, memo } from "react";
 import ReactPaginate from "react-paginate";
 import { ETheme, Icon } from "uikit";
 import "./Pagination.scss";
@@ -16,7 +16,7 @@ type TProps = {
   theme?: ETheme;
 };
 
-export const Pagination: FC<TProps> = ({
+const PaginationComponent: FC<TProps> = ({
   className,
   dataTestId = "uikit__pagination",
   forcePage,
@@ -61,3 +61,7 @@ export const Pagination: FC<TProps> = ({
     />
   );
 };
+
+PaginationComponent.displayName = "Pagination";
+
+export const Pagination = memo(PaginationComponent);

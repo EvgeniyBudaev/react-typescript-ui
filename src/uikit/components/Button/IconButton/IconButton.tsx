@@ -14,7 +14,7 @@ export interface IIconButtonProps extends IButtonProps {
   typeIcon: IconType;
 }
 
-const Component: FC<IIconButtonProps> = ({
+const IconButtonComponent: FC<IIconButtonProps> = ({
   className,
   isActive = false,
   isDisabled = false,
@@ -36,4 +36,6 @@ const Component: FC<IIconButtonProps> = ({
   );
 };
 
-export const IconButton = memo(Component);
+IconButtonComponent.displayName = "IconButton";
+
+export const IconButton = memo(IconButtonComponent);

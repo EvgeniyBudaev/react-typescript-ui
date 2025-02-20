@@ -42,4 +42,6 @@ const SkeletonComponent: FC<TProps> = ({
   );
 };
 
+SkeletonComponent.displayName = "Skeleton";
+
 export const Skeleton = memo(SkeletonComponent);

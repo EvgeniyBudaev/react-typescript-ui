@@ -1,5 +1,5 @@
 import type { EditorState } from "draft-js";
-import type { FC } from "react";
+import { type FC, memo } from "react";
 import { TEXT_EDITOR_INLINE_STYLES } from "../constants";
 import { FormatButton } from "../FormatButton";
 
@@ -8,7 +8,7 @@ type TProps = {
   onToggle: (value: string) => void;
 };
 
-export const InlineStyleControls: FC<TProps> = ({ editorState, onToggle }) => {
+const InlineStyleControlsComponent: FC<TProps> = ({ editorState, onToggle }) => {
   const currentStyle = editorState.getCurrentInlineStyle();
 
   return (
@@ -26,3 +26,7 @@ export const InlineStyleControls: FC<TProps> = ({ editorState, onToggle }) => {
     </>
   );
 };
+
+InlineStyleControlsComponent.displayName = "InlineStyleControls";
+
+export const InlineStyleControls = memo(InlineStyleControlsComponent);

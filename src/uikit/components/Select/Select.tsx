@@ -63,4 +63,6 @@ const SelectComponent: FC<TSelectProps> = ({
   ) : null;
 };
 
+SelectComponent.displayName = "Select";
+
 export const Select = memo(SelectComponent);

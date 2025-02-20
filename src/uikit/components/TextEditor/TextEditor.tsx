@@ -144,4 +144,6 @@ const TextEditorComponent: FC<TProps> = ({
   );
 };
 
+TextEditorComponent.displayName = "TextEditor";
+
 export const TextEditor = memo(TextEditorComponent);

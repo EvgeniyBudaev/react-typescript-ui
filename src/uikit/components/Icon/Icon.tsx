@@ -21,7 +21,7 @@ interface IProps extends DOMAttributes<HTMLSpanElement> {
   width?: number;
 }
 
-const Component: FC<IProps> = ({
+const IconComponent: FC<IProps> = ({
   className,
   color = ETextColor.Dark,
   dataTestId = "uikit__icon",
@@ -58,4 +58,6 @@ const Component: FC<IProps> = ({
   );
 };
 
-export const Icon = memo(Component);
+IconComponent.displayName = "Icon";
+
+export const Icon = memo(IconComponent);

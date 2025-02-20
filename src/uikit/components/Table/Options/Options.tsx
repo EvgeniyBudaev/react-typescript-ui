@@ -10,7 +10,7 @@ import { ETypographyVariant, Typography } from "../../Typography";
 import type { TTableOptionsProps } from "./types";
 import "./Options.scss";
 
-const Component = <T extends object>({
+const OptionsComponent = <T extends object>({
   columns,
   hiddenColumns,
   optionsCancelText,
@@ -96,4 +96,6 @@ const Component = <T extends object>({
   );
 };
 
-export const Options = memo(Component) as typeof Component;
+OptionsComponent.displayName = "Options";
+
+export const Options = memo(OptionsComponent) as typeof OptionsComponent;

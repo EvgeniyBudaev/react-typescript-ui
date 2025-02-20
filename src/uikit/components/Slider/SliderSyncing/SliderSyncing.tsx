@@ -120,4 +120,6 @@ const SliderSyncingComponent: FC<TSliderSyncingProps> = (props) => {
   );
 };
 
+SliderSyncingComponent.displayName = "SliderSyncing";
+
 export const SliderSyncing = memo(SliderSyncingComponent);

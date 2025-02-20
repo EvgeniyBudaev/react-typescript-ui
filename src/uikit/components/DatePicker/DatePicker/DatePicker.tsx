@@ -19,4 +19,6 @@ const DatePickerComponent: FC<TProps> = (props) => {
   return <Calendar {...props} date={value} locale={locale} onChange={onChange} />;
 };
 
+DatePickerComponent.displayName = "DatePicker";
+
 export const DatePicker = memo(DatePickerComponent);

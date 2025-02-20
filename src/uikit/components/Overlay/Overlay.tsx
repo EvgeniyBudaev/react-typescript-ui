@@ -37,4 +37,6 @@ const OverlayComponent: FC<TProps> = ({
   );
 };
 
+OverlayComponent.displayName = "Overlay";
+
 export const Overlay = memo(OverlayComponent);
