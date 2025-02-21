@@ -1,20 +1,12 @@
-import { memo } from "react";
-import type { FC, ReactNode } from "react";
-import { Switch } from "@headlessui/react";
 import clsx from "clsx";
+import { memo, type FC } from "react";
+import { Switch } from "@headlessui/react";
+
 import { SWITCHER_THEMES } from "../constants";
 import { ESwitcherVariant } from "../enums";
+import type { TSwitcherHeadlessProps } from "./types";
 
-type TProps = {
-  children?: ReactNode;
-  className?: string;
-  dataTestId?: string;
-  isChecked?: boolean;
-  onChange?: (isChecked: boolean) => void;
-  variant?: ESwitcherVariant;
-};
-
-const SwitcherHeadlessComponent: FC<TProps> = ({
+const SwitcherHeadlessComponent: FC<TSwitcherHeadlessProps> = ({
   children,
   className,
   dataTestId = "uikit__switcher-headless",

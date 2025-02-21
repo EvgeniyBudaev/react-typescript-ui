@@ -1,22 +1,18 @@
 import clsx from "clsx";
-import { memo, useEffect, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState, type FC } from "react";
 import shadowRoot from "react-shadow";
-import { DateRangePicker, IconButton } from "uikit";
-import "./DocumentViewer.scss";
 
-type TProps = {
-  className?: string;
-  dataTestId?: string;
-  step?: number;
-  template?: string;
-};
+import { IconButton } from "uikit";
+
+import type { TDocumentViewerProps } from "./types";
+import "./DocumentViewer.scss";
 
 interface IPosition {
   x: number;
   y: number;
 }
 
-const DocumentViewerComponent: React.FC<TProps> = ({
+const DocumentViewerComponent: FC<TDocumentViewerProps> = ({
   className,
   dataTestId = "uikit__documentViewer",
   step = 0.1,

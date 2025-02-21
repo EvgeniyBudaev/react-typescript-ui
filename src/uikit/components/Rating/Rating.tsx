@@ -1,16 +1,9 @@
-import { memo } from "react";
-import type { FC } from "react";
+import { memo, type FC } from "react";
 import ReactStars from "react-rating-stars-component";
 
-type TProps = {
-  activeColor?: string;
-  count?: number;
-  dataTestId?: string;
-  onChange?: (newRating: number) => void;
-  size?: number;
-};
+import type { TRatingProps } from "./types";
 
-const RatingComponent: FC<TProps> = ({
+const RatingComponent: FC<TRatingProps> = ({
   activeColor,
   count,
   dataTestId = "uikit__rating",

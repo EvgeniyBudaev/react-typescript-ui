@@ -1,20 +1,11 @@
 import clsx from "clsx";
-import { memo, useEffect, useRef } from "react";
-import type { CSSProperties, FC, MouseEventHandler } from "react";
+import { memo, useEffect, useRef, type FC } from "react";
+
 import { ESliderArrow, Icon } from "uikit";
 
-type TProps = {
-  backgroundColor?: string;
-  className?: string;
-  dataTestId?: string;
-  onClick?: MouseEventHandler<HTMLDivElement>;
-  opacity?: number;
-  style?: CSSProperties;
-  styles?: CSSProperties;
-  type: ESliderArrow;
-};
+import type { TSliderArrowProps } from "./types";
 
-const SliderArrowComponent: FC<TProps> = ({
+const SliderArrowComponent: FC<TSliderArrowProps> = ({
   backgroundColor = "#e8e8e8",
   className,
   dataTestId = "uikit__slider-arrow",

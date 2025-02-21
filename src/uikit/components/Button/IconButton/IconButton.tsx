@@ -1,18 +1,10 @@
 import clsx from "clsx";
-import { memo } from "react";
-import type { FC, MouseEvent } from "react";
-import { Button, Icon } from "uikit";
-import type { IconType } from "uikit";
-import type { IButtonProps } from "../Button";
-import "./IconButton.scss";
+import { memo, type FC } from "react";
 
-export interface IIconButtonProps extends IButtonProps {
-  className?: string;
-  isActive?: boolean;
-  isDisabled?: boolean;
-  onClick?: (event: MouseEvent) => void;
-  typeIcon: IconType;
-}
+import { Button, Icon } from "uikit";
+
+import type { IIconButtonProps } from "./types";
+import "./IconButton.scss";
 
 const IconButtonComponent: FC<IIconButtonProps> = ({
   className,

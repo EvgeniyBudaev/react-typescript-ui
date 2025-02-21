@@ -1,22 +1,10 @@
-import { memo } from "react";
-import type { FC } from "react";
 import clsx from "clsx";
+import { memo, type FC } from "react";
+
+import type { TTab, TTabsProps } from "./types";
 import "./Tabs.scss";
 
-export type TTab = {
-  id: string | number;
-  label?: string | number;
-};
-
-type TProps = {
-  className?: string;
-  dataTestId?: string;
-  onClick: (id: string | number) => void;
-  selectedId: string | number;
-  tabs: TTab[];
-};
-
-const TabsComponent: FC<TProps> = ({
+const TabsComponent: FC<TTabsProps> = ({
   className,
   dataTestId = "uikit__tabs",
   onClick,

@@ -1,21 +1,12 @@
-import { createElement, memo } from "react";
-import type { FC, ReactNode } from "react";
+import { createElement, memo, type FC } from "react";
 
 import { ETextColor, ETypographyVariant } from "uikit";
 import { TYPOGRAPHY_THEMES } from "uikit/components/Typography/constants";
-import type { TColor } from "./types";
+
+import type { TTypographyProps } from "./types";
 import "./Typography.scss";
 
-type TProps = {
-  as?: string;
-  children?: ReactNode;
-  color?: TColor;
-  dataTestId?: string;
-  htmlFor?: string;
-  variant?: ETypographyVariant;
-};
-
-const TypographyComponent: FC<TProps> = ({
+const TypographyComponent: FC<TTypographyProps> = ({
   as = "span",
   children,
   color = ETextColor.Dark,

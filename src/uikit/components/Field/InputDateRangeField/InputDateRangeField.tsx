@@ -1,30 +1,10 @@
-import { memo } from "react";
-import type { FC } from "react";
+import { memo, type FC } from "react";
+
 import { InputDateField } from "../InputDateField";
+import type { TInputDateRangeFieldProps } from "./types";
 import "./InputDateRangeField.scss";
 
-type TClasses = {
-  inputDateField?: string;
-};
-
-type TPeriodValue = [Date | null, Date | null];
-
-type TProps = {
-  classes?: TClasses;
-  isDisabled?: [boolean, boolean];
-  isInvalid?: [boolean, boolean];
-  locale?: Locale;
-  maxDateFrom?: Date | null;
-  minDateTo?: Date | null;
-  onChange: (periodValue: TPeriodValue) => void;
-  onFieldClear?: (periodValue: TPeriodValue) => void;
-  placeholder?: [string, string];
-  subTitle?: [string, string];
-  title?: [string, string];
-  value: TPeriodValue;
-};
-
-const InputDateRangeFieldComponent: FC<TProps> = (props) => {
+const InputDateRangeFieldComponent: FC<TInputDateRangeFieldProps> = (props) => {
   const {
     classes,
     isDisabled: [isDisabledFrom, isDisabledTo] = [],

@@ -1,22 +1,8 @@
-import { memo } from "react";
-import type { FC } from "react";
+import { memo, type FC } from "react";
 
-export enum EAlert {
-  Error = "Error",
-  Success = "Success",
-  Warning = "Warning",
-}
+import type { TAlertProps } from "./types";
 
-type TProps = {
-  className?: string;
-  dataTestId?: string;
-  description?: string;
-  title?: string;
-  type?: EAlert;
-  onClose?: () => void;
-};
-
-const AlertComponent: FC<TProps> = ({
+const AlertComponent: FC<TAlertProps> = ({
   className,
   dataTestId = "uikit__alert",
   description,

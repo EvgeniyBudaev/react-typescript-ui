@@ -1,21 +1,17 @@
 import clsx from "clsx";
-import { useState, useEffect } from "react";
-import type { ReactNode, FC } from "react";
+import { useState, useEffect, type FC } from "react";
 import { default as ReactModal } from "react-responsive-modal";
-import { Icon } from "uikit";
 import "react-responsive-modal/styles.css";
+
+import { Icon } from "uikit";
+
+import type {
+  TModalContentProps,
+  TModalFooterProps,
+  TModalHeaderProps,
+  TModalProps,
+} from "./types";
 import "./Modal.scss";
-
-type IModalSize = "medium";
-
-type TModalProps = {
-  children?: ReactNode;
-  className?: string;
-  dataTestId?: string;
-  isOpen: boolean;
-  onCloseModal: () => void;
-  size?: IModalSize;
-};
 
 export const Modal = ({
   children,
@@ -66,12 +62,6 @@ export const Modal = ({
   );
 };
 
-type TModalHeaderProps = {
-  align?: "start" | "center" | "end";
-  children?: ReactNode;
-  className?: string;
-};
-
 const ModalHeader: FC<TModalHeaderProps> = ({ align, children, className }) => {
   return (
     <div
@@ -88,21 +78,11 @@ const ModalHeader: FC<TModalHeaderProps> = ({ align, children, className }) => {
 
 Modal.Header = ModalHeader;
 
-type TModalContentProps = {
-  children?: ReactNode;
-  className?: string;
-};
-
 const ModalContent: FC<TModalContentProps> = ({ children, className }) => {
   return <div className={clsx("ModalContent", className)}>{children}</div>;
 };
 
 Modal.Content = ModalContent;
-
-type TModalFooterProps = {
-  className?: string;
-  children?: ReactNode;
-};
 
 const ModalFooter: FC<TModalFooterProps> = ({ children, className }) => {
   return <div className={clsx("ModalFooter", className)}>{children}</div>;

@@ -1,13 +1,9 @@
-import { memo, useEffect, useState } from "react";
-import type { FC, ReactNode } from "react";
+import { memo, useEffect, useState, type FC } from "react";
+
+import type { TFadeInProps } from "./types";
 import "./FadeIn.scss";
 
-type TProps = {
-  children?: ReactNode;
-  dataTestId?: string;
-};
-
-const FadeInComponent: FC<TProps> = ({ children, dataTestId = "uikit__fadeIn" }) => {
+const FadeInComponent: FC<TFadeInProps> = ({ children, dataTestId = "uikit__fadeIn" }) => {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {

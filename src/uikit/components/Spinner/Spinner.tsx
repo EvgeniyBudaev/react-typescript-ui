@@ -1,12 +1,10 @@
 import { type FC, memo } from "react";
 import { Icon } from "uikit";
+
+import type { TSpinnerProps } from "./types";
 import "./Spinner.scss";
 
-type TProps = {
-  dataTestId?: string;
-};
-
-const SpinnerComponent: FC<TProps> = ({ dataTestId = "uikit__spinner" }) => {
+const SpinnerComponent: FC<TSpinnerProps> = ({ dataTestId = "uikit__spinner" }) => {
   return (
     <div className="Spinner" data-testid={dataTestId}>
       <Icon type="Spinner" />

@@ -1,17 +1,10 @@
 import clsx from "clsx";
-import { memo } from "react";
-import type { FC, ReactNode } from "react";
+import { memo, type FC } from "react";
 import ReactDOM from "react-dom";
 
-type TProps = {
-  children?: ReactNode;
-  className?: string;
-  dataTestId?: string;
-  element?: keyof JSX.IntrinsicElements;
-  elementFindById: string;
-};
+import type { TPortalProps } from "./types";
 
-const PortalComponent: FC<TProps> = ({
+const PortalComponent: FC<TPortalProps> = ({
   children,
   className,
   dataTestId = "uikit__portal",

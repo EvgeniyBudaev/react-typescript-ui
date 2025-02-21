@@ -1,16 +1,11 @@
-import { useState, useEffect, memo } from "react";
-import type { FC } from "react";
 import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
+import { useState, useEffect, memo, type FC } from "react";
+
+import type { TUploaderConfig, TUploaderProps } from "./types";
 import { UploaderDropzone } from "./UploaderDropzone";
-import type { TUploaderConfig } from "./types";
 
-interface IUploaderProps {
-  config?: TUploaderConfig;
-  onFilesUploadedAll?: (handleFilesAllAdd: File[]) => void;
-}
-
-const UploaderComponent: FC<IUploaderProps> = ({ config, onFilesUploadedAll }) => {
+const UploaderComponent: FC<TUploaderProps> = ({ config, onFilesUploadedAll }) => {
   const UPLOADER_CONFIG_DEFAULT: TUploaderConfig = {
     accept: {},
   };

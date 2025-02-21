@@ -12,3 +12,12 @@ type TCopyToClipboardTooltipElement = {
 };
 
 export type TCopyToClipboardTooltip = Partial<TCopyToClipboardTooltipElement>;
+
+export type TCopyToClipboardProps = {
+  classes?: TCopyToClipboardClasses;
+  className?: string;
+  dataTestId?: string;
+  timerDelay?: number;
+  tooltip?: TCopyToClipboardTooltip;
+  value: string;
+};

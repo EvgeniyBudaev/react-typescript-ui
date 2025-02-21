@@ -1,19 +1,12 @@
-import { memo, useRef } from "react";
-import type { FC, MouseEvent } from "react";
+import { memo, useRef, type FC } from "react";
 import { CSSTransition } from "react-transition-group";
 import clsx from "clsx";
+
 import { TRANSITION } from "../../constants";
+import type { TOverlayProps } from "./types";
 import "./Overlay.scss";
 
-type TProps = {
-  className?: string;
-  dataTestId?: string;
-  isActive?: boolean;
-  onClick?: (event: MouseEvent) => void;
-  timeout?: number;
-};
-
-const OverlayComponent: FC<TProps> = ({
+const OverlayComponent: FC<TOverlayProps> = ({
   className,
   dataTestId = "uikit__overlay",
   isActive = false,

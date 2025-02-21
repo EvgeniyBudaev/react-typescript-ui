@@ -1,19 +1,11 @@
 import clsx from "clsx";
-import { memo, useEffect, useRef } from "react";
-import type { FC, CSSProperties } from "react";
+import { memo, useEffect, useRef, type FC } from "react";
+
 import { formatToStringWithPx } from "../../utils";
+import type { TSkeletonProps } from "./types";
 import "./Skeleton.scss";
 
-type TProps = {
-  className?: string;
-  dataTestId?: string;
-  height?: string | number;
-  style?: CSSProperties;
-  width?: string | number;
-  isCircle?: boolean;
-};
-
-const SkeletonComponent: FC<TProps> = ({
+const SkeletonComponent: FC<TSkeletonProps> = ({
   className,
   dataTestId = "uikit__skeleton",
   height = "100%",

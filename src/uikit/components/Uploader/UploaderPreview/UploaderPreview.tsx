@@ -1,11 +1,9 @@
-import { type FC, memo } from "react";
 import isNil from "lodash/isNil";
+import { type FC, memo } from "react";
 
-type TProps = {
-  files?: File[];
-};
+import type { TUploaderPreviewProps } from "./types";
 
-const UploaderPreviewComponent: FC<TProps> = ({ files }) => {
+const UploaderPreviewComponent: FC<TUploaderPreviewProps> = ({ files }) => {
   return (
     <div className="UploaderPreview">
       {files && !isNil(files)

@@ -1,22 +1,13 @@
 import clsx from "clsx";
 import { type FC, memo } from "react";
 import ReactPaginate from "react-paginate";
+
 import { ETheme, Icon } from "uikit";
+
+import type { TPaginationProps } from "./types";
 import "./Pagination.scss";
 
-type TProps = {
-  className?: string;
-  dataTestId?: string;
-  forcePage?: number;
-  initialPage?: number;
-  marginPagesDisplayed?: number;
-  onChange: ({ selected }: { selected: number }) => void;
-  pagesCount: number;
-  pageRangeDisplayed?: number;
-  theme?: ETheme;
-};
-
-const PaginationComponent: FC<TProps> = ({
+const PaginationComponent: FC<TPaginationProps> = ({
   className,
   dataTestId = "uikit__pagination",
   forcePage,

@@ -1,22 +1,11 @@
-import { memo } from "react";
-import type { FC } from "react";
+import { memo, type FC } from "react";
 import { DateRange } from "react-date-range";
-import type { DateRangeProps, Range, RangeKeyDict } from "react-date-range";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 
-type TProps = {
-  editableDateInputs?: boolean;
-  locale?: Locale;
-  onChange?: ((rangesByKey: RangeKeyDict) => void) | undefined;
-  ranges?: Range[] | undefined;
-  scroll?: boolean;
-  showDateDisplay?: boolean;
-  showMonthAndYearPickers?: boolean;
-  showPreview?: boolean;
-} & DateRangeProps;
+import type { TDateRangePickerProps } from "./types";
 
-const DateRangePickerComponent: FC<TProps> = (props) => {
+const DateRangePickerComponent: FC<TDateRangePickerProps> = (props) => {
   const {
     editableDateInputs = false,
     locale,

@@ -1,31 +1,17 @@
 import clsx from "clsx";
 import { Editor, EditorState, RichUtils } from "draft-js";
 import { convertToHTML, convertFromHTML } from "draft-convert";
-import { memo, useCallback, useEffect, useState } from "react";
-import type { FC } from "react";
+import { memo, useCallback, useEffect, useState, type FC } from "react";
+import "draft-js/dist/Draft.css";
 
 import { BlockStyleControls } from "./BlockStyleControls";
 import { TEXT_EDITOR_CUSTOM_STYLES, TEXT_EDITOR_STYLE_TO_HTML } from "./constants";
 import { InlineStyleControls } from "./InlineStyleControls";
-import type { TTextEditorTextStyle } from "./types";
+import type { TTextEditorProps, TTextEditorTextStyle } from "./types";
 
-import "draft-js/dist/Draft.css";
 import "./TextEditor.scss";
 
-type TClasses = {
-  textEditor?: string;
-};
-
-type TProps = {
-  classes?: TClasses;
-  htmlText?: string;
-  isInvalid?: boolean;
-  onChangeHTMLText?: (value: string) => void;
-  placeholder?: string;
-  title?: string;
-};
-
-const TextEditorComponent: FC<TProps> = ({
+const TextEditorComponent: FC<TTextEditorProps> = ({
   classes,
   htmlText,
   isInvalid = false,

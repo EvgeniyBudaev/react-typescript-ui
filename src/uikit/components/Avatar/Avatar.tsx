@@ -1,19 +1,10 @@
 import clsx from "clsx";
-import { memo } from "react";
-import type { FC, MouseEvent } from "react";
+import { memo, type FC } from "react";
+
+import type { TAvatarProps } from "./types";
 import "./Avatar.scss";
 
-type TProps = {
-  className?: string;
-  classNameSmallCircle?: string;
-  dataTestId?: string;
-  image?: string;
-  onClick?: (event: MouseEvent<HTMLDivElement>) => void;
-  size?: number;
-  title?: string;
-};
-
-const AvatarComponent: FC<TProps> = ({
+const AvatarComponent: FC<TAvatarProps> = ({
   className,
   classNameSmallCircle,
   dataTestId = "uikit__avatar",

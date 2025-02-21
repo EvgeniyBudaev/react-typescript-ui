@@ -1,14 +1,12 @@
 import { memo } from "react";
 import type { FC } from "react";
 import useBreadcrumbs from "use-react-router-breadcrumbs";
+
 import { Crumb } from "./Crumb";
+import type { TBreadcrumbsProps } from "./types";
 import "./Breadcrumbs.scss";
 
-type TProps = {
-  dataTestId?: string;
-};
-
-const BreadcrumbsComponent: FC<TProps> = ({ dataTestId = "uikit__breadcrumbs" }) => {
+const BreadcrumbsComponent: FC<TBreadcrumbsProps> = ({ dataTestId = "uikit__breadcrumbs" }) => {
   const breadcrumbs = useBreadcrumbs();
 
   return (

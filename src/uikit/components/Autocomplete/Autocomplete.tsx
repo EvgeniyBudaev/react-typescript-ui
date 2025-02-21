@@ -1,5 +1,7 @@
 import { type FC, memo } from "react";
+
 import { AsyncSelect } from "uikit";
+
 import type { TAutocompleteProps } from "./types";
 
 const AutocompleteComponent: FC<TAutocompleteProps> = (props) => {

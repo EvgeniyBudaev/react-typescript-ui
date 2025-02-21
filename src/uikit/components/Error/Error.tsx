@@ -1,9 +1,11 @@
 import clsx from "clsx";
 import { forwardRef, memo, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+
 import { ETypographyVariant, FadeIn, Typography } from "uikit";
 import { EErrorTheme } from "uikit/components/Error/enums";
 import type { TErrorProps } from "uikit/components/Error/types";
+
 import "./Error.scss";
 
 const ErrorComponent = forwardRef<HTMLDivElement, TErrorProps>(

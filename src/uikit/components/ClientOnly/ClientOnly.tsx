@@ -1,11 +1,9 @@
-import type { FC, ReactNode } from "react";
+import type { FC } from "react";
+
 import { useHydrated } from "uikit";
 
-type TProps = {
-  children(): ReactNode;
-  fallback?: ReactNode;
-};
+import type { TClientOnlyProps } from "./types";
 
-export const ClientOnly: FC<TProps> = ({ children, fallback = null }) => {
+export const ClientOnly: FC<TClientOnlyProps> = ({ children, fallback = null }) => {
   return useHydrated() ? <>{children()}</> : <>{fallback}</>;
 };

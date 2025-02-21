@@ -1,22 +1,11 @@
 import clsx from "clsx";
-import { memo } from "react";
-import type { FC, SyntheticEvent } from "react";
+import { memo, type FC } from "react";
+
 import { Icon } from "../../Icon";
+import type { TInputDateProps } from "./types";
 import "./InputDate.scss";
 
-type TProps = {
-  className?: string;
-  isDisabled?: boolean;
-  isInvalid?: boolean;
-  onClick?: (event: SyntheticEvent) => void;
-  onFieldClear?: (event: SyntheticEvent) => void;
-  placeholder?: string;
-  subTitle?: string;
-  title?: string;
-  value?: string | null;
-};
-
-const InputDateComponent: FC<TProps> = (props) => {
+const InputDateComponent: FC<TInputDateProps> = (props) => {
   const {
     className,
     isDisabled,

@@ -1,7 +1,6 @@
-import { memo } from "react";
-import type { FC } from "react";
-import { default as ReactSelect } from "react-select";
 import clsx from "clsx";
+import { memo, type FC } from "react";
+import { default as ReactSelect } from "react-select";
 
 import { ETheme } from "../../enums";
 import { useMounted } from "../../hooks";

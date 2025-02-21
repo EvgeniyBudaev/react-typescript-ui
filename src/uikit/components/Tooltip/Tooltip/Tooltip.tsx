@@ -1,28 +1,14 @@
 import clsx from "clsx";
-import { createElement, memo, useEffect, useState } from "react";
-import type { FC, ReactNode } from "react";
+import { createElement, memo, useEffect, useState, type FC } from "react";
 import ReactDOM from "react-dom";
 import { usePopper } from "react-popper";
 
-import { useMounted } from "uikit";
+import { type TTooltipProps, useMounted } from "uikit";
+
 import { ETooltipBehavior } from "./enums";
-import type { TClasses, TModifiers, TPlacement, TTooltipBehaviorType } from "./types";
+import type { TModifiers } from "./types";
 import { getTooltipOffset } from "./utils";
 import "./Tooltip.scss";
-
-export type TTooltipProps = {
-  as?: string;
-  behavior?: TTooltipBehaviorType;
-  children?: ReactNode;
-  classes?: TClasses;
-  dataTestId?: string;
-  isOpen?: boolean;
-  isVisible?: boolean;
-  message: string | React.ReactElement;
-  modifiers?: TModifiers;
-  placement?: TPlacement;
-  timerDelay?: number;
-};
 
 const TooltipComponent: FC<TTooltipProps> = ({
   as = "div",

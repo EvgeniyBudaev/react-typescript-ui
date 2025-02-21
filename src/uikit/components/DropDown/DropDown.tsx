@@ -1,21 +1,17 @@
 import clsx from "clsx";
-import type { FC, ReactNode } from "react";
+import type { FC } from "react";
 import { CSSTransition } from "react-transition-group";
-import { DropDownProvider, TRANSITION, useDropDown, useDropDownContext } from "uikit";
-import type { TDropDownClasses } from "./types";
-import "./DropDown.scss";
 
-type TProps = {
-  children?: ReactNode;
-  classes?: TDropDownClasses;
-  dataTestId?: string;
-};
+import { DropDownProvider, TRANSITION, useDropDown, useDropDownContext } from "uikit";
+
+import type { TDropDownButtonProps, TDropDownPanelProps, TDropDownProps } from "./types";
+import "./DropDown.scss";
 
 export const DropDown = ({
   children,
   classes,
   dataTestId = "uikit__dropDown",
-}: TProps): JSX.Element => {
+}: TDropDownProps): JSX.Element => {
   const dropDownState = useDropDown();
 
   return (
@@ -27,12 +23,7 @@ export const DropDown = ({
   );
 };
 
-type TDropDownButton = {
-  children?: ReactNode;
-  classes?: TDropDownClasses;
-};
-
-const DropDownButton: FC<TDropDownButton> = ({ children, classes }) => {
+const DropDownButton: FC<TDropDownButtonProps> = ({ children, classes }) => {
   const dropDownState = useDropDownContext();
 
   return (
@@ -48,13 +39,7 @@ const DropDownButton: FC<TDropDownButton> = ({ children, classes }) => {
 
 DropDown.Button = DropDownButton;
 
-type TDropDownPanel = {
-  children?: ReactNode;
-  classes?: TDropDownClasses;
-  transition?: number;
-};
-
-const DropDownPanel: FC<TDropDownPanel> = ({ children, classes, transition }) => {
+const DropDownPanel: FC<TDropDownPanelProps> = ({ children, classes, transition }) => {
   const dropDownState = useDropDownContext();
 
   return (

@@ -1,15 +1,12 @@
 import { type FC, memo } from "react";
 import Dropzone from "react-dropzone";
+
 import { Button } from "uikit";
-import type { TUploaderConfig } from "../types";
+
+import type { TUploaderDropzoneProps } from "./types";
 import "./UploaderDropzone.scss";
 
-type TProps = {
-  config: TUploaderConfig;
-  onDrop: (acceptedFiles: any) => void;
-};
-
-const UploaderDropzoneComponent: FC<TProps> = ({ config, onDrop }) => {
+const UploaderDropzoneComponent: FC<TUploaderDropzoneProps> = ({ config, onDrop }) => {
   return (
     <Dropzone accept={config.accept} onDrop={onDrop}>
       {({ getRootProps, getInputProps, isDragActive, isDragReject }) => {

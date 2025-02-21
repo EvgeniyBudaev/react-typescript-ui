@@ -1,21 +1,11 @@
 import clsx from "clsx";
 import { forwardRef, memo, useState } from "react";
-import type { DetailedHTMLProps, ForwardedRef, HTMLAttributes, FocusEvent } from "react";
-import { ETypographyVariant, Typography } from "uikit";
-import "./Textarea.scss";
+import type { ForwardedRef, FocusEvent } from "react";
 
-export interface ITextareaProps
-  extends DetailedHTMLProps<HTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement> {
-  autoComplete?: string;
-  className?: string;
-  dataTestId?: string;
-  hidden?: boolean;
-  isFocused?: boolean;
-  isRequired?: boolean;
-  label?: string;
-  name?: string;
-  value?: string;
-}
+import { ETypographyVariant, Typography } from "uikit";
+
+import type { ITextareaProps } from "./types";
+import "./Textarea.scss";
 
 const TextareaComponent = forwardRef<HTMLTextAreaElement, ITextareaProps>(
   (

@@ -1,25 +1,11 @@
 import clsx from "clsx";
 import { forwardRef, memo, useState } from "react";
-import type { DetailedHTMLProps, ForwardedRef, HTMLAttributes, FocusEvent } from "react";
-import { ETypographyVariant, FadeIn, Typography } from "uikit";
-import "./Input.scss";
+import type { ForwardedRef, FocusEvent } from "react";
 
-export interface IInputProps
-  extends DetailedHTMLProps<HTMLAttributes<HTMLInputElement>, HTMLInputElement> {
-  autoComplete?: string;
-  className?: string;
-  dataTestId?: string;
-  error?: string;
-  hidden?: boolean;
-  isDisabled?: boolean;
-  isFocused?: boolean;
-  isReadOnly?: boolean;
-  isRequired?: boolean;
-  label?: string;
-  name?: string;
-  type?: string;
-  value?: string | number | readonly string[] | undefined;
-}
+import { ETypographyVariant, FadeIn, Typography } from "uikit";
+
+import type { IInputProps } from "./types";
+import "./Input.scss";
 
 const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
   (

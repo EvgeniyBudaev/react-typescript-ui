@@ -1,18 +1,14 @@
 import clsx from "clsx";
 import { memo, useEffect, useState, useRef } from "react";
-import type { FC, PropsWithChildren } from "react";
+import type { FC } from "react";
 import { CSSTransition } from "react-transition-group";
+
 import { Icon, TRANSITION } from "uikit";
+
+import type { TAccordionProps } from "./types";
 import "./Accordion.scss";
 
-type TProps = {
-  className?: string;
-  dataTestId?: string;
-  isActive?: boolean;
-  title?: string;
-} & PropsWithChildren;
-
-const AccordionComponent: FC<TProps> = ({
+const AccordionComponent: FC<TAccordionProps> = ({
   className,
   dataTestId = "uikit__accordion",
   isActive = false,

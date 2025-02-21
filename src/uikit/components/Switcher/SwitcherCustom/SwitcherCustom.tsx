@@ -1,18 +1,11 @@
-import { memo } from "react";
-import type { FC, ReactNode } from "react";
 import clsx from "clsx";
+import { memo, type FC } from "react";
+
 import { SWITCHER_THEMES } from "../constants";
 import { ESwitcherVariant } from "../enums";
+import type { TSwitcherCustomProps } from "./types";
 
-type TProps = {
-  children?: ReactNode;
-  className?: string;
-  dataTestId?: string;
-  isChecked?: boolean;
-  variant?: ESwitcherVariant;
-};
-
-const SwitcherCustomComponent: FC<TProps> = ({
+const SwitcherCustomComponent: FC<TSwitcherCustomProps> = ({
   children,
   className,
   dataTestId = "uikit__switcher-custom",

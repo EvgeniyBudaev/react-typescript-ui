@@ -1,21 +1,10 @@
 import clsx from "clsx";
-import { memo } from "react";
-import type { ButtonHTMLAttributes, DetailedHTMLProps, FC, MouseEvent } from "react";
-import { Icon } from "uikit";
-import type { IconType } from "uikit";
-import type { TButton } from "./types";
-import "./Button.scss";
+import { memo, type FC } from "react";
 
-export interface IButtonProps
-  extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
-  className?: string;
-  dataTestId?: string;
-  isActive?: boolean;
-  isDisabled?: boolean;
-  onClick?: (event: MouseEvent) => void;
-  type?: TButton;
-  typeIcon?: IconType;
-}
+import { Icon } from "uikit";
+
+import type { IButtonProps } from "./types";
+import "./Button.scss";
 
 const ButtonComponent: FC<IButtonProps> = ({
   className,

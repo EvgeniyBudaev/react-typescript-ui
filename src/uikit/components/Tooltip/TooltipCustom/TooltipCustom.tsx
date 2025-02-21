@@ -1,29 +1,15 @@
 import clsx from "clsx";
 import { memo, useEffect, useMemo, useRef, useState } from "react";
-import type { FC, MouseEvent, ReactNode } from "react";
+import type { FC, MouseEvent } from "react";
 import { CSSTransition } from "react-transition-group";
+
 import { TRANSITION } from "uikit/constants/transition";
+
+import { ETooltipCustomBehavior } from "./enums";
+import type { TTooltipCustomProps } from "./types";
 import "./TooltipCustom.scss";
 
-export type TTooltipCustomPlacementType = "top" | "bottom" | "left" | "right";
-export type TTooltipCustomBehaviorType = "click" | "focus" | "hover";
-
-export enum ETooltipCustomBehavior {
-  CLICK = "click",
-  FOCUS = "focus",
-  HOVER = "hover",
-}
-
-type TProps = {
-  behavior?: TTooltipCustomBehaviorType;
-  children: ReactNode;
-  className?: string;
-  content: JSX.Element | string;
-  dataTestId?: string;
-  placement: TTooltipCustomPlacementType;
-};
-
-const TooltipCustomComponent: FC<TProps> = ({
+const TooltipCustomComponent: FC<TTooltipCustomProps> = ({
   behavior = ETooltipCustomBehavior.HOVER,
   children,
   className,

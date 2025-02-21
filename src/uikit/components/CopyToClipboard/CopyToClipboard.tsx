@@ -1,21 +1,13 @@
 import clsx from "clsx";
-import { memo, useEffect, useState } from "react";
-import type { FC } from "react";
-import { CheckboxComponent, Icon, Tooltip } from "uikit";
+import { memo, useEffect, useState, type FC } from "react";
+
+import { Icon, Tooltip } from "uikit";
 import { useCopyToClipboard } from "uikit/hooks";
-import type { TCopyToClipboardClasses, TCopyToClipboardTooltip } from "./types";
+
+import type { TCopyToClipboardProps } from "./types";
 import "./CopyToClipboard.scss";
 
-type TProps = {
-  classes?: TCopyToClipboardClasses;
-  className?: string;
-  dataTestId?: string;
-  timerDelay?: number;
-  tooltip?: TCopyToClipboardTooltip;
-  value: string;
-};
-
-const CopyToClipboardComponent: FC<TProps> = ({
+const CopyToClipboardComponent: FC<TCopyToClipboardProps> = ({
   classes,
   className,
   dataTestId = "uikit__copyToClipboard",

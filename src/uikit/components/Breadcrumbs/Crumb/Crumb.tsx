@@ -2,20 +2,13 @@ import clsx from "clsx";
 import { memo } from "react";
 import type { FC, ReactNode } from "react";
 import { Link } from "react-router-dom";
-import type { BreadcrumbMatch } from "use-react-router-breadcrumbs";
+
 import { Icon } from "uikit";
+
+import type { TCrumbProps } from "./types";
 import "./Crumb.scss";
 
-type TProps = {
-  breadcrumb: ReactNode;
-  className?: string;
-  isFirstCrumb: boolean;
-  isLastCrumb: boolean;
-  isShowArrow: boolean;
-  match: BreadcrumbMatch<string>;
-};
-
-const CrumbComponent: FC<TProps> = ({
+const CrumbComponent: FC<TCrumbProps> = ({
   breadcrumb,
   className,
   isFirstCrumb,

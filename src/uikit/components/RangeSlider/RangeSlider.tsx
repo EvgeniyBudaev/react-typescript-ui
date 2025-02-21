@@ -1,31 +1,10 @@
 import clsx from "clsx";
-import {
-  type ChangeEvent,
-  type Dispatch,
-  type FC,
-  memo,
-  type SetStateAction,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { type ChangeEvent, type FC, memo, useEffect, useRef, useState } from "react";
+
+import type { TRangeSliderProps } from "./types";
 import "./RangeSlider.scss";
 
-type TClasses = {
-  root?: string;
-};
-
-type TProps = {
-  classes?: TClasses;
-  isShowTooltip?: boolean;
-  max: number;
-  min: number;
-  onChange?: Dispatch<SetStateAction<number[]>>;
-  step: number;
-  value: number[];
-};
-
-const RangeSliderComponent: FC<TProps> = ({
+const RangeSliderComponent: FC<TRangeSliderProps> = ({
   classes,
   isShowTooltip = false,
   max,

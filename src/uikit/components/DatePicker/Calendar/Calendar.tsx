@@ -1,21 +1,13 @@
 import isNull from "lodash/isNull";
-import { memo, useState } from "react";
-import type { FC } from "react";
+import { memo, useState, type FC } from "react";
 import CalendarUI from "react-calendar";
 import type { CalendarProps } from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import type { TCalendarValue } from "./types";
+
+import type { TCalendarProps } from "./types";
 import "./Calendar.scss";
 
-type TProps = {
-  locale?: string;
-  maxDate?: Date;
-  minDate?: Date;
-  onChange?: (date: Date) => void;
-  value?: TCalendarValue;
-} & CalendarProps;
-
-const CalendarComponent: FC<TProps> = (props) => {
+const CalendarComponent: FC<TCalendarProps> = (props) => {
   const { locale, maxDate, minDate, onChange, value } = props;
   const [activeDate, setActiveDate] = useState<Date | undefined>(new Date());
 

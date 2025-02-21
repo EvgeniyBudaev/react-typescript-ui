@@ -1,13 +1,14 @@
 import clsx from "clsx";
 import isNil from "lodash/isNil";
-import { memo } from "react";
-import type { FC } from "react";
+import { memo, type FC } from "react";
 import Slider from "react-slick";
 import { useMediaQuery } from "react-responsive";
-import { SLIDER_SIMPLE_SETTINGS } from "uikit";
-import type { TSliderSimpleProps } from "uikit";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+import { SLIDER_SIMPLE_SETTINGS } from "uikit";
+import type { TSliderSimpleProps } from "uikit";
+
 import "./SliderSimple.scss";
 import "../Slider.scss";
 
