@@ -1,3 +1,5 @@
+import { RadioButtonPage } from "../pages";
+
 export enum ERoutes {
   Root = "/",
 
@@ -20,6 +22,7 @@ export enum ERoutes {
   Popover = "/popover",
   Portal = "/portal",
   PrivateRoute = "/privateRoute",
+  RadioButton = "/radioButton",
   RangeSlider = "/rangeSlider",
   Rating = "/rating",
   Scrollbar = "/scrollbar",

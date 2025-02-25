@@ -21,6 +21,7 @@ export * from "./Overlay";
 export * from "./Pagination";
 export * from "./Popover";
 export * from "./Portal";
+export * from "./RadioButton";
 export * from "./Rating";
 export * from "./Scrollbar";
 export * from "./Select";
