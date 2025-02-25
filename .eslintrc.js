@@ -11,15 +11,8 @@ module.exports = {
     project: "tsconfig.json",
     tsconfigRootDir: ".",
   },
-  plugins: ["@typescript-eslint", "prettier", "import"],
+  plugins: ["@typescript-eslint", "import"],
   rules: {
-    "prettier/prettier": [
-      "error",
-      {
-        endOfLine: "auto",
-        arrowParens: "always",
-      },
-    ],
     semi: "off",
     "@typescript-eslint/semi": ["warn"],
     "@typescript-eslint/no-empty-interface": [
