@@ -37,7 +37,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "axios": "^1.7.9",
+    "axios": "^1.8.4",
     "clsx": "^1.2.1",
     "cors": "^2.8.5",
     "date-fns": "^2.30.0",

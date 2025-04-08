@@ -3,6 +3,7 @@ export * from "./AvatarPage";
 export * from "./AutocompletePage";
 export * from "./BreadcrumbsPage";
 export * from "./ButtonPage";
+export * from "./CanvasImageResizePage";
 export * from "./CheckboxPage";
 export * from "./CopyPage";
 export * from "./DatePickerPage";

@@ -1,5 +1,3 @@
-import { RadioButtonPage } from "../pages";
-
 export enum ERoutes {
   Root = "/",
 
@@ -8,6 +6,7 @@ export enum ERoutes {
   Avatar = "/avatar",
   Breadcrumbs = "/breadcrumbs",
   Button = "/button",
+  Canvas = "/canvas",
   Checkbox = "/checkbox",
   Copy = "/copy",
   DatePicker = "/DatePicker",

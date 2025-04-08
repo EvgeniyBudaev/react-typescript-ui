@@ -12,6 +12,7 @@ import {
   BreadcrumbsPage,
   BreadcrumbsDetailPage,
   ButtonPage,
+  CanvasImageResizePage,
   CheckboxPage,
   CopyPage,
   DatePickerPage,
@@ -72,6 +73,7 @@ export const App: FC = () => {
               <Route path={`${ERoutes.Breadcrumbs}/:id`} element={<BreadcrumbsDetailPage />} />
               <Route path={ERoutes.Breadcrumbs} element={<BreadcrumbsPage />} />
               <Route path={ERoutes.Button} element={<ButtonPage />} />
+              <Route path={ERoutes.Canvas} element={<CanvasImageResizePage />} />
               <Route path={ERoutes.Checkbox} element={<CheckboxPage />} />
               <Route path={ERoutes.Copy} element={<CopyPage />} />
               <Route path={ERoutes.DatePicker} element={<DatePickerPage />} />

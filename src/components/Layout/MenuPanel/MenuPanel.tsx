@@ -12,6 +12,7 @@ export const MenuPanel: FC = () => {
     ERoutes.Avatar,
     ERoutes.Breadcrumbs,
     ERoutes.Button,
+    ERoutes.Canvas,
     ERoutes.Checkbox,
     ERoutes.Copy,
     ERoutes.DatePicker,
