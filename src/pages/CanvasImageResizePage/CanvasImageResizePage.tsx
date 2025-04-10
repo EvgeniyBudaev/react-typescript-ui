@@ -1,8 +1,9 @@
+import { resize } from "canvas-image-resize";
 import isNil from "lodash/isNil";
 import { type FC, useEffect, useRef, useState } from "react";
+
 import { Title } from "components";
 import { Button, Spinner } from "uikit";
-import { resize } from "./resize";
 
 export const CanvasImageResizePage: FC = () => {
   const [isLoading, setIsLoading] = useState(false);

@@ -6,7 +6,7 @@ export enum ERoutes {
   Avatar = "/avatar",
   Breadcrumbs = "/breadcrumbs",
   Button = "/button",
-  Canvas = "/canvas",
+  Canvas = "/canvasImageResize",
   Checkbox = "/checkbox",
   Copy = "/copy",
   DatePicker = "/DatePicker",
