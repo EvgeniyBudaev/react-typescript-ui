@@ -36,4 +36,5 @@ export enum ERoutes {
   TextEditor = "/textEditor",
   Tooltip = "/tooltip",
   Typography = "/typography",
+  WordWrap = "/wordWrap",
 }

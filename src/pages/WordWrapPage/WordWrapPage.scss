@@ -1,0 +1,29 @@
+.WordWrapPage {
+  &-Inner {
+    display: flex;
+    margin-bottom: 16px;
+  }
+
+  &-Container {
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+    border: 1px solid #000;
+    border-radius: 4px;
+    padding: 0;
+    margin-right: 16px;
+  }
+
+  &-Text {
+    white-space: pre-wrap; // Preserves spaces and wraps text
+    word-break: break-word; // Allows breaking of long words
+    width: 100%;
+  }
+
+  &-Canvas {
+    border: 1px solid #000;
+    border-radius: 4px;
+    padding: 0;
+    margin-right: 16px;
+  }
+}

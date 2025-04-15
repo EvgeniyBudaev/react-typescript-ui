@@ -42,6 +42,7 @@ import {
   TextEditorPage,
   TooltipPage,
   TypographyPage,
+  WordWrapPage,
 } from "pages";
 import { SocketProvider, ThemeProvider } from "services/context";
 import { useTheme } from "uikit";
@@ -107,6 +108,7 @@ export const App: FC = () => {
               <Route path={ERoutes.TextEditor} element={<TextEditorPage />} />
               <Route path={ERoutes.Tooltip} element={<TooltipPage />} />
               <Route path={ERoutes.Typography} element={<TypographyPage />} />
+              <Route path={ERoutes.WordWrap} element={<WordWrapPage />} />
             </Routes>
           </Layout>
         </div>

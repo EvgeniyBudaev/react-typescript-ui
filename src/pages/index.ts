@@ -33,3 +33,4 @@ export * from "./TabsPage";
 export * from "./TextEditorPage";
 export * from "./TooltipPage";
 export * from "./TypographyPage";
+export * from "./WordWrapPage";

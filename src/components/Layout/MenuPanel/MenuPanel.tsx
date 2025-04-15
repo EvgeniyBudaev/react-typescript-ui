@@ -42,6 +42,7 @@ export const MenuPanel: FC = () => {
     ERoutes.TextEditor,
     ERoutes.Tooltip,
     ERoutes.Typography,
+    ERoutes.WordWrap,
   ];
 
   return (
