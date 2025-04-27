@@ -8,6 +8,7 @@ const Component: FC<TIconProps> = ({ height = 24, width = 24, ...props }) => (
     width={width}
     xmlns="http://www.w3.org/2000/svg"
     viewBox="-2.5 -2.5 19 19"
+    fill="currentColor"
     {...props}
   >
     <path

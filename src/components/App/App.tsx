@@ -22,6 +22,7 @@ import {
   FormPage,
   HamburgerPage,
   IconPage,
+  MapPage,
   ModalPage,
   OverlayPage,
   PopoverPage,
@@ -84,6 +85,7 @@ export const App: FC = () => {
               <Route path={ERoutes.Form} element={<FormPage />} />
               <Route path={ERoutes.Hamburger} element={<HamburgerPage />} />
               <Route path={ERoutes.Icon} element={<IconPage />} />
+              <Route path={ERoutes.Map} element={<MapPage />} />
               <Route path={ERoutes.Modal} element={<ModalPage />} />
               <Route path={ERoutes.Overlay} element={<OverlayPage />} />
               <Route path={ERoutes.Popover} element={<PopoverPage />} />

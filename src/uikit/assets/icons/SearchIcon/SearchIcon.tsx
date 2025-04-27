@@ -13,6 +13,7 @@ const Component: FC<TIconProps> = ({ height = 24, width = 24, ...props }) => (
     y="0px"
     viewBox="0 0 487.95 487.95"
     enableBackground="new 0 0 487.95 487.95"
+    fill="currentColor"
     {...props}
   >
     <g>

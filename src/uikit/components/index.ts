@@ -16,6 +16,7 @@ export * from "./Field";
 export * from "./Hamburger";
 export * from "./Icon";
 export * from "./Input";
+export * from "./Map/OpenLayersMap";
 export * from "./Modal";
 export * from "./Overlay";
 export * from "./Pagination";

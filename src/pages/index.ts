@@ -13,6 +13,7 @@ export * from "./FieldPage";
 export * from "./FormPage";
 export * from "./HamburgerPage";
 export * from "./IconPage";
+export * from "./MapPage";
 export * from "./ModalPage";
 export * from "./OverlayPage";
 export * from "./PopoverPage";

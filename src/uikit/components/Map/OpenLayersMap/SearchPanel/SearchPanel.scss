@@ -1,0 +1,83 @@
+@import "../../../../../styles/index";
+
+.SearchPanel {
+  border-radius: 16px;
+  background-color: #fff;
+  max-width: 352px;
+  width: 100%;
+  position: absolute;
+  left: 36px;
+  top: 8px;
+
+  &-View {
+    display: flex;
+    box-shadow: 0 2px 6px #b0b0b0;
+    overflow: hidden;
+
+    &__isOpen {
+      border-bottom: 1px solid $color-light-gray;
+      box-shadow: none;
+    }
+  }
+
+  &-Icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    width: 48px;
+  }
+
+  &-LocationIcon {
+    color: #f43; // rgb(255, 68, 51);
+  }
+
+  &-Input {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-grow: 1;
+    font-size: 14px;
+    margin: 0;
+    padding: 0 16px;
+    border: 0;
+    min-height: 48px;
+    max-height: 48px;
+    line-height: 48px;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    background: 0 0;
+    background-image: none;
+    outline: transparent;
+  }
+
+  &-SearchIcon,
+  &-CloseIcon {
+    color: #4d4d4d;
+    cursor: pointer;
+
+    &:hover {
+      color: #000;
+    }
+  }
+
+  &-SuggestedPlaces {
+    &-List {
+    }
+
+    &-ListItem {
+      min-height: 44px;
+      cursor: pointer;
+      padding: 8px 16px;
+
+      &:hover {
+        background-color: $color-light-gray;
+      }
+    }
+
+    &-NotFound {
+      min-height: 44px;
+      padding: 8px 16px;
+    }
+  }
+}

@@ -14,6 +14,7 @@ import {
   HomeIcon,
   H2Icon,
   LightModeIcon,
+  LocationIcon,
   MinusIcon,
   OLIcon,
   PlusIcon,
@@ -24,6 +25,7 @@ import {
   SortUpIcon,
   SpinnerIcon,
   SuccessIcon,
+  TargetIcon,
   TelegramIcon,
   ULIcon,
   UnderlineIcon,
@@ -47,6 +49,7 @@ export type IconType =
   | "Home"
   | "H2"
   | "LightMode"
+  | "Location"
   | "Minus"
   | "OL"
   | "Plus"
@@ -57,6 +60,7 @@ export type IconType =
   | "SortUp"
   | "Spinner"
   | "Success"
+  | "Target"
   | "Telegram"
   | "UL"
   | "Underline"
@@ -79,6 +83,7 @@ export const iconTypes = new Map([
   ["Home", <HomeIcon key="HomeIcon" />],
   ["H2", <H2Icon key="H2Icon" />],
   ["LightMode", <LightModeIcon key="LightModeIcon" />],
+  ["Location", <LocationIcon key="LocationIcon" />],
   ["Minus", <MinusIcon key="MinusIcon" />],
   ["OL", <OLIcon key="OLIcon" />],
   ["Plus", <PlusIcon key="PlusIcon" />],
@@ -89,6 +94,7 @@ export const iconTypes = new Map([
   ["SortUp", <SortUpIcon key="SortUp" />],
   ["Spinner", <SpinnerIcon key="SpinnerIcon" />],
   ["Success", <SuccessIcon key="SuccessIcon" />],
+  ["Target", <TargetIcon key="TargetIcon" />],
   ["Telegram", <TelegramIcon key="TelegramIcon" />],
   ["UL", <ULIcon key="ULIcon" />],
   ["Underline", <UnderlineIcon key="UnderlineIcon" />],

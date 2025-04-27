@@ -1,0 +1,22 @@
+.ControlsPanel {
+  position: absolute;
+  right: 16px;
+  top: 250px;
+  transform: translateY(-50%);
+
+  &-Control {
+    height: 40px;
+    width: 40px;
+    border-radius: 12px;
+    cursor: pointer;
+    color: #4d4d4d;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      color: #000;
+    }
+  }
+}

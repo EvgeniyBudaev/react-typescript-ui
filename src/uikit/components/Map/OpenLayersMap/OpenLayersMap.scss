@@ -1,0 +1,19 @@
+.OpenLayersMap {
+  &-Map {
+    position: absolute;
+    top: 0;
+    bottom: 25px;
+    left: 0;
+    width: 100%;
+  }
+
+  &-Visible {
+    position: relative;
+    z-index: 1;
+  }
+
+  &-Coordinates-Container {
+    position: absolute;
+    bottom: 0;
+  }
+}

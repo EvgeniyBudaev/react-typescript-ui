@@ -1,0 +1,183 @@
+import { Map, View } from "ol";
+import type { Coordinate } from "ol/coordinate";
+import Feature from "ol/Feature";
+import Point from "ol/geom/Point";
+import TileLayer from "ol/layer/Tile";
+import VectorLayer from "ol/layer/Vector";
+import { fromLonLat } from "ol/proj";
+import { OSM } from "ol/source";
+import VectorSource from "ol/source/Vector";
+import { Icon, Style } from "ol/style";
+import "ol/ol.css";
+import { type ChangeEvent, type FC, useEffect, useRef, useState } from "react";
+
+import { ControlsPanel } from "./ControlsPanel";
+import { SearchPanel } from "./SearchPanel";
+import type { TNominatimItem } from "./types";
+import "./OpenLayersMap.scss";
+
+type TProps = {
+  latitude?: number;
+  longitude?: number;
+};
+
+export const OpenLayersMap: FC<TProps> = ({ latitude, longitude }) => {
+  const mapRef = useRef<HTMLDivElement | null>(null);
+  const [olMap, setOlMap] = useState<Map | null>(null);
+  const [clickedCoordinate, setClickedCoordinate] = useState<Coordinate>();
+  const [hasSearched, setHasSearched] = useState<boolean>(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [suggestedPlaces, setSuggestedPlaces] = useState<TNominatimItem[]>([]);
+  const vectorSourceRef = useRef<VectorSource>(new VectorSource());
+  const vectorLayerRef = useRef<VectorLayer<VectorSource>>(
+    new VectorLayer({
+      source: vectorSourceRef.current,
+    }),
+  );
+  const DEFAULT_LATITUDE = 55.75449;
+  const DEFAULT_LONGITUDE = 37.6191;
+
+  useEffect(() => {
+    const map = new Map({
+      target: mapRef.current as HTMLDivElement,
+      layers: [
+        new TileLayer({
+          source: new OSM(),
+        }),
+        vectorLayerRef.current, // Добавляем векторный слой
+      ],
+      view: new View({
+        center: fromLonLat([longitude || DEFAULT_LONGITUDE, latitude || DEFAULT_LATITUDE]),
+        zoom: longitude && latitude ? 10 : 2,
+      }),
+    });
+
+    map.on("click", (e) => {
+      setClickedCoordinate(e.coordinate);
+      addMarker(e.coordinate);
+    });
+
+    setOlMap(map);
+
+    return () => map.setTarget(undefined);
+  }, [latitude, longitude]);
+
+  const setDefaultLocation = () => {
+    if (latitude && longitude && olMap) {
+      const coordinate = fromLonLat([longitude, latitude]);
+      addMarker(coordinate);
+
+      // Центрируем карту на маркере
+      olMap.getView().setCenter(coordinate);
+      olMap.getView().setZoom(10);
+    }
+  };
+
+  // Эффект для добавления маркера при изменении latitude/longitude
+  useEffect(() => {
+    setDefaultLocation();
+  }, [latitude, longitude, olMap]);
+
+  const addMarker = (coordinate: Coordinate) => {
+    // Очищаем предыдущие маркеры
+    vectorSourceRef.current.clear();
+
+    // Создаем новую точку (маркер)
+    const marker = new Feature({
+      geometry: new Point(coordinate),
+    });
+
+    // Стилизуем маркер
+    marker.setStyle(
+      new Style({
+        image: new Icon({
+          anchor: [0.5, 1],
+          src: "/images/marker.png",
+          height: 48,
+        }),
+      }),
+    );
+
+    // Добавляем маркер в источник
+    vectorSourceRef.current.addFeature(marker);
+  };
+
+  // Функция для поиска места через Nominatim API
+  const handleSearch = async () => {
+    if (!searchQuery.trim() || !olMap) return;
+
+    try {
+      const response = await fetch(
+        `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
+          searchQuery,
+        )}`,
+        {
+          headers: {
+            "User-Agent": "Telegram dating/1.0.0",
+          },
+        },
+      );
+      const data: TNominatimItem[] = await response.json();
+      setHasSearched(true);
+
+      if (data.length > 0) {
+        setSuggestedPlaces(data);
+      }
+    } catch (error) {
+      console.error("Error while searching:", error);
+    }
+  };
+
+  const handleChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(event.target.value);
+  };
+
+  const handleChangePlace = (place?: TNominatimItem) => {
+    const lonStr = place?.lon;
+    const latStr = place?.lat;
+    if (!place || !lonStr || !latStr || !olMap) return;
+    const lon = parseFloat(lonStr);
+    const lat = parseFloat(latStr);
+    const coordinate = fromLonLat([lon, lat]);
+    addMarker(coordinate);
+    olMap.getView().setCenter(coordinate);
+    olMap.getView().setZoom(14);
+  };
+
+  const handleClear = () => {
+    setSearchQuery("");
+    setHasSearched(false);
+  };
+
+  const handleClickControl = ({ type }: { type: "target" }) => {
+    type === "target" && setDefaultLocation();
+  };
+
+  return (
+    <>
+      <div className="OpenLayersMap-Visible">
+        <SearchPanel
+          hasSearched={hasSearched}
+          isOpen={true}
+          onChangeInput={handleChangeInput}
+          onChangePlace={handleChangePlace}
+          onClear={handleClear}
+          onSearch={handleSearch}
+          suggestedPlaces={suggestedPlaces}
+          query={searchQuery}
+        />
+      </div>
+      <div className="OpenLayersMap-Visible">
+        <ControlsPanel onClick={handleClickControl} />
+      </div>
+
+      <div ref={mapRef} className="OpenLayersMap-Map"></div>
+
+      {clickedCoordinate && (
+        <span className="OpenLayersMap-Coordinates-Container">
+          You clicked at: {clickedCoordinate[0].toFixed(2)} / {clickedCoordinate[1].toFixed(2)}
+        </span>
+      )}
+    </>
+  );
+};

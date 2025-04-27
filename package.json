@@ -47,6 +47,7 @@
     "express": "^4.21.2",
     "lodash": "^4.17.21",
     "nodemon": "^2.0.22",
+    "ol": "^10.5.0",
     "react": "^18.2.0",
     "react-calendar": "^4.6.0",
     "react-date-range": "^1.4.0",

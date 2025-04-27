@@ -16,6 +16,7 @@ export enum ERoutes {
   Form = "/form",
   Hamburger = "/hamburger",
   Icon = "/icon",
+  Map = "/map",
   Modal = "/modal",
   Overlay = "/overlay",
   Popover = "/popover",

@@ -22,6 +22,7 @@ export const MenuPanel: FC = () => {
     ERoutes.Form,
     ERoutes.Hamburger,
     ERoutes.Icon,
+    ERoutes.Map,
     ERoutes.Modal,
     ERoutes.Overlay,
     ERoutes.Popover,
