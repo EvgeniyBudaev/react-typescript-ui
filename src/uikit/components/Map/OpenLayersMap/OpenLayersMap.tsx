@@ -1,3 +1,4 @@
+import debounce from "lodash/debounce";
 import { Map, View } from "ol";
 import type { Coordinate } from "ol/coordinate";
 import Feature from "ol/Feature";
@@ -9,12 +10,13 @@ import { OSM } from "ol/source";
 import VectorSource from "ol/source/Vector";
 import { Icon, Style } from "ol/style";
 import "ol/ol.css";
-import { type ChangeEvent, type FC, useEffect, useRef, useState } from "react";
+import { type ChangeEvent, type FC, useCallback, useEffect, useRef, useState } from "react";
 
 import { ControlsPanel } from "./ControlsPanel";
 import { SearchPanel } from "./SearchPanel";
 import type { TNominatimItem } from "./types";
 import "./OpenLayersMap.scss";
+import isEmpty from "lodash/isEmpty";
 
 type TProps = {
   latitude?: number;
@@ -25,7 +27,9 @@ export const OpenLayersMap: FC<TProps> = ({ latitude, longitude }) => {
   const mapRef = useRef<HTMLDivElement | null>(null);
   const [olMap, setOlMap] = useState<Map | null>(null);
   const [clickedCoordinate, setClickedCoordinate] = useState<Coordinate>();
-  const [hasSearched, setHasSearched] = useState<boolean>(false);
+  const [hasSearched, setHasSearched] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSuggestedPlacesOpen, setIsSuggestedPlacesOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestedPlaces, setSuggestedPlaces] = useState<TNominatimItem[]>([]);
   const vectorSourceRef = useRef<VectorSource>(new VectorSource());
@@ -102,34 +106,76 @@ export const OpenLayersMap: FC<TProps> = ({ latitude, longitude }) => {
     vectorSourceRef.current.addFeature(marker);
   };
 
+  // Функция для выполнения запроса с повторными попытками
+  const fetchWithRetry = async (query: string, retries = 3) => {
+    try {
+      const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
+        query,
+      )}`;
+      const response = await fetch(url, {
+        headers: {
+          "User-Agent": "Telegram dating/1.0.0",
+        },
+      });
+
+      if (response.status === 429) {
+        // Получаем информацию о времени ожидания из заголовков (если есть)
+        const retryAfter = response.headers.get("Retry-After") || "5";
+        throw new Error(`rate_limit|${retryAfter}`);
+      }
+
+      if (!response.ok) throw new Error("Network error");
+      return await response.json();
+    } catch (error) {
+      if (retries > 0) {
+        let delay = 1000;
+
+        if (error instanceof Error && error.message.startsWith("rate_limit")) {
+          const [, seconds] = error.message.split("|");
+          delay = parseInt(seconds) * 1000;
+        }
+
+        await new Promise((resolve) => setTimeout(resolve, delay));
+        return fetchWithRetry(query, retries - 1);
+      }
+      throw error;
+    }
+  };
+
   // Функция для поиска места через Nominatim API
-  const handleSearch = async () => {
-    if (!searchQuery.trim() || !olMap) return;
+  const fetchPlaces = async (searchQuery: string) => {
+    if (isEmpty(searchQuery.trim()) || searchQuery.length < 3) return;
 
     try {
-      const response = await fetch(
-        `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
-          searchQuery,
-        )}`,
-        {
-          headers: {
-            "User-Agent": "Telegram dating/1.0.0",
-          },
-        },
-      );
-      const data: TNominatimItem[] = await response.json();
+      setIsLoading(true);
+      const data: TNominatimItem[] = await fetchWithRetry(searchQuery);
       setHasSearched(true);
 
       if (data.length > 0) {
         setSuggestedPlaces(data);
       }
+      setIsLoading(false);
     } catch (error) {
       console.error("Error while searching:", error);
+      setIsLoading(false);
     }
   };
 
-  const handleChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(event.target.value);
+  const handleSearch = async () => {
+    await fetchPlaces(searchQuery);
+  };
+
+  const debounceHandleChangeInput = useCallback(
+    debounce(async (searchQuery: string) => {
+      await fetchPlaces(searchQuery);
+    }, 2000),
+    [],
+  );
+
+  const handleChangeInput = async (event: ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setSearchQuery(value);
+    await debounceHandleChangeInput(value);
   };
 
   const handleChangePlace = (place?: TNominatimItem) => {
@@ -142,15 +188,26 @@ export const OpenLayersMap: FC<TProps> = ({ latitude, longitude }) => {
     addMarker(coordinate);
     olMap.getView().setCenter(coordinate);
     olMap.getView().setZoom(14);
+    setIsSuggestedPlacesOpen(false);
   };
 
   const handleClear = () => {
     setSearchQuery("");
     setHasSearched(false);
+    setIsSuggestedPlacesOpen(false);
   };
 
-  const handleClickControl = ({ type }: { type: "target" }) => {
-    type === "target" && setDefaultLocation();
+  const handleOpenSuggestedPlaces = () => {
+    setIsSuggestedPlacesOpen(true);
+  };
+
+  const handleClickControl = (type: "target") => {
+    if (!olMap) return;
+    switch (type) {
+      case "target":
+        setDefaultLocation();
+        break;
+    }
   };
 
   return (
@@ -158,10 +215,12 @@ export const OpenLayersMap: FC<TProps> = ({ latitude, longitude }) => {
       <div className="OpenLayersMap-Visible">
         <SearchPanel
           hasSearched={hasSearched}
-          isOpen={true}
+          isLoading={isLoading}
+          isOpen={isSuggestedPlacesOpen}
           onChangeInput={handleChangeInput}
           onChangePlace={handleChangePlace}
           onClear={handleClear}
+          onOpen={handleOpenSuggestedPlaces}
           onSearch={handleSearch}
           suggestedPlaces={suggestedPlaces}
           query={searchQuery}

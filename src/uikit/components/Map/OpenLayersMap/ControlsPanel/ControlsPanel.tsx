@@ -3,14 +3,18 @@ import { Icon } from "uikit";
 import "./ControlsPanel.scss";
 
 type TProps = {
-  onClick?: ({ type }: { type: "target" }) => void;
+  onClick?: (type: "target") => void;
 };
 
 const ControlsPanelComponent: FC<TProps> = ({ onClick }) => {
   return (
     <div className="ControlsPanel">
-      <div className="ControlsPanel-Control" onClick={() => onClick?.({ type: "target" })}>
-        <Icon type="Target" />
+      <div className="ControlsPanel-Map-Group">
+        <div className="ControlsPanel-Group ControlsPanel-Group-Button">
+          <div className="ControlsPanel-Control" onClick={() => onClick?.("target")}>
+            <Icon type="Target" />
+          </div>
+        </div>
       </div>
     </div>
   );

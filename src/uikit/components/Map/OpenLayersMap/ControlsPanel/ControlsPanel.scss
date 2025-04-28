@@ -4,19 +4,89 @@
   top: 250px;
   transform: translateY(-50%);
 
-  &-Control {
-    height: 40px;
+  &-Map-Group {
+    width: 48px;
+    padding: 4px;
+  }
+
+  &-Group {
     width: 40px;
     border-radius: 12px;
     cursor: pointer;
     color: #4d4d4d;
     background-color: #fff;
+    box-shadow: 0 2px 6px #b0b0b0;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+
+    &-Button {
+      height: 40px;
+      margin-top: 4px;
+    }
 
     &:hover {
       color: #000;
     }
   }
+
+  &-Control {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.ol-zoom {
+  left: auto;
+  right: 16px;
+  top: 176px;
+  transform: translateY(-50%);
+}
+
+.ol-control {
+  height: 80px;
+  width: 48px;
+  cursor: pointer;
+  color: #4d4d4d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: none;
+  background-color: transparent;
+}
+
+.ol-control button {
+  padding: 4px;
+  margin: 0;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ol-zoom .ol-zoom-in,
+.ol-zoom .ol-zoom-out {
+  border-radius: 0 0 0 0;
+  box-shadow: 0 2px 6px #b0b0b0;
+}
+
+.ol-zoom .ol-zoom-in {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.ol-zoom .ol-zoom-out {
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.ol-control button:hover,
+.ol-control button:focus {
+  text-decoration: none;
+  outline: transparent;
+  color: #000;
 }

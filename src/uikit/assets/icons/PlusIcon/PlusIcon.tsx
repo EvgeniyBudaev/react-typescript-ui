@@ -13,6 +13,7 @@ const Component: FC<TIconProps> = ({ height = 24, width = 24, ...props }) => (
     y="0px"
     viewBox="0 0 455 455"
     enableBackground="new 0 0 455 455"
+    fill="currentColor"
     {...props}
   >
     <polygon
