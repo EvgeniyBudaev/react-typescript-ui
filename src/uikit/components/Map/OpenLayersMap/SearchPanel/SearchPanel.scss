@@ -11,8 +11,11 @@
 
   &-View {
     display: flex;
+    align-items: center;
     box-shadow: 0 2px 6px #b0b0b0;
     overflow: hidden;
+    padding: 0 8px;
+    height: 48px;
 
     &__isOpen {
       border-bottom: 1px solid $color-light-gray;
@@ -24,8 +27,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 48px;
-    width: 48px;
+    height: 24px;
+    width: 24px;
+  }
+
+  &-Icon .Icon {
+    height: 24px;
+    width: 24px;
   }
 
   &-LocationIcon {
@@ -39,7 +47,7 @@
     flex-grow: 1;
     font-size: 14px;
     margin: 0;
-    padding: 0 16px;
+    padding: 0 16px 0 8px;
     border: 0;
     min-height: 48px;
     max-height: 48px;
@@ -61,23 +69,7 @@
     }
   }
 
-  &-SuggestedPlaces {
-    &-List {
-    }
-
-    &-ListItem {
-      min-height: 44px;
-      cursor: pointer;
-      padding: 8px 16px;
-
-      &:hover {
-        background-color: $color-light-gray;
-      }
-    }
-
-    &-NotFound {
-      min-height: 44px;
-      padding: 8px 16px;
-    }
+  &-CloseIcon {
+    margin-left: 8px;
   }
 }

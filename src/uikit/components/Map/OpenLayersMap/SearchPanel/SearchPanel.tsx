@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { type ChangeEvent, type FC, memo } from "react";
 import { Icon } from "uikit";
+import { SuggestedPlaces } from "../SuggestedPlaces";
 import type { TNominatimItem } from "../types";
 import "./SearchPanel.scss";
 
@@ -9,7 +10,7 @@ type TProps = {
   isLoading?: boolean;
   isOpen?: boolean;
   onChangeInput?: (event: ChangeEvent<HTMLInputElement>) => void;
-  onChangePlace?: (item: TNominatimItem) => void;
+  onChangePlace?: (place: TNominatimItem) => void;
   onClear?: () => void;
   onOpen?: () => void;
   onSearch?: () => void;
@@ -58,22 +59,11 @@ const SearchPanelComponent: FC<TProps> = ({
         </div>
       </div>
       {isOpen && (
-        <div className="SearchPanel-SuggestedPlaces">
-          <div className="SearchPanel-SuggestedPlaces-List">
-            {(displayedPlaces ?? []).map((place) => (
-              <div
-                key={place.place_id}
-                className="SearchPanel-SuggestedPlaces-ListItem"
-                onClick={() => onChangePlace?.(place)}
-              >
-                {place.display_name}
-              </div>
-            ))}
-            {hasSearched && !displayedPlaces?.length && (
-              <div className="SearchPanel-SuggestedPlaces-NotFound">Nothing found.</div>
-            )}
-          </div>
-        </div>
+        <SuggestedPlaces
+          hasSearched={hasSearched}
+          onChangePlace={onChangePlace}
+          places={displayedPlaces}
+        />
       )}
     </div>
   );

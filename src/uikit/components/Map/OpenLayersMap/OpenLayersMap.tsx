@@ -150,11 +150,9 @@ export const OpenLayersMap: FC<TProps> = ({ latitude, longitude }) => {
       setIsLoading(true);
       const data: TNominatimItem[] = await fetchWithRetry(searchQuery);
       setHasSearched(true);
-
-      if (data.length > 0) {
-        setSuggestedPlaces(data);
-      }
+      setSuggestedPlaces(data);
       setIsLoading(false);
+      setIsSuggestedPlacesOpen(true);
     } catch (error) {
       console.error("Error while searching:", error);
       setIsLoading(false);
