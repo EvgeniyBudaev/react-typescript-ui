@@ -1,5 +1,6 @@
-import { ESliderArrow, SliderArrow } from "uikit";
-import type { TSliderSyncingProps } from "uikit";
+import { SliderArrow } from "uikit";
+import { ESliderArrow } from "../SliderArrow/enums";
+import type { TSliderSyncingProps } from "./types";
 
 export const SLIDER_SYNCING_SETTINGS = (props: TSliderSyncingProps) => {
   const {

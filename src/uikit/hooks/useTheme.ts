@@ -1,6 +1,6 @@
 import { useContext, useMemo, useState } from "react";
-import { ThemeContext } from "services/context";
-import type { TThemeState } from "services/context";
+import { ThemeContext } from "services/context/themeContext";
+import type { TThemeState } from "services/context/themeContext";
 import { ETheme } from "uikit";
 
 export const useThemeContext = (): TThemeState | null => {

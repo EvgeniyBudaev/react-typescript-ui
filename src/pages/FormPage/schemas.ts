@@ -10,7 +10,7 @@ import {
   PASSWORD_ERROR_MESSAGE,
   PHONE_ERROR_MESSAGE,
   PHONE_REGEXP,
-} from "services/validation";
+} from "services/validation/constants";
 import { EFormFields } from "./enums";
 
 export const formSchema = z

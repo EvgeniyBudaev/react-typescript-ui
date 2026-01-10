@@ -1,4 +1,4 @@
-import type { TPlacement } from "uikit/components/Tooltip";
+import type { TPlacement } from "../Tooltip/Tooltip/types";
 
 type TCopyToClipboardElement = {
   copyIcon?: string;

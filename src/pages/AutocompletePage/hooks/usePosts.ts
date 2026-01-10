@@ -3,8 +3,8 @@ import isNil from "lodash/isNil";
 import { useCallback, useEffect, useState } from "react";
 import type { MultiValue, SingleValue } from "react-select";
 
-import type { TPosts } from "services/api/posts";
-import { getPostsApi } from "services/api/posts/utils";
+import type { TPosts } from "services/api/posts/types";
+import { getPostsApi } from "services/api/posts/utils/getPostsApi";
 import { DEBOUNCE_TIMEOUT, type TSelectOnChange } from "uikit";
 import type {
   TAsyncSelectLoadOptions,

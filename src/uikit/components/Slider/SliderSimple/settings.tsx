@@ -1,5 +1,6 @@
-import { ESliderArrow, SliderArrow } from "uikit";
-import type { TSliderSimpleProps } from "uikit";
+import { SliderArrow } from "uikit";
+import { ESliderArrow } from "../SliderArrow/enums";
+import type { TSliderSimpleProps } from "./types";
 
 export const SLIDER_SIMPLE_SETTINGS = (props: TSliderSimpleProps) => {
   const {

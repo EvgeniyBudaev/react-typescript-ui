@@ -1,5 +1,6 @@
 import type { Column, ColumnDef, OnChangeFn, RowSelectionState } from "@tanstack/react-table";
-import type { ETableSortDirection, ETheme } from "uikit";
+import type { ETheme } from "uikit";
+import type { ETableSortDirection } from "./enums";
 
 type TOptionsProps<T extends object> = {
   columns: Column<T, unknown>[];

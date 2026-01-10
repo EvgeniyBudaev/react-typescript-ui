@@ -6,11 +6,11 @@ import isEmpty from "lodash/isEmpty";
 import isNull from "lodash/isNull";
 import isNil from "lodash/isNil";
 
-import type { TDeleteModalState } from "components/modal/ModalDelete";
 import type { TSearchParams } from "components/search";
-import { mapTableSortingToDto } from "services/api/sorting";
+import { mapTableSortingToDto } from "services/api/sorting/mapTableSortingToDto";
+import type { TTableSortingColumnState } from "../components";
+import type { TDeleteModalState } from "../../components/modal/ModalDelete/types";
 import { DEBOUNCE_TIMEOUT, DEFAULT_PAGE, DEFAULT_PAGE_SIZE } from "../constants";
-import type { TTableSortingColumnState } from "../components/Table/types";
 
 type TParams = {
   onDelete?: (alias: string) => void;

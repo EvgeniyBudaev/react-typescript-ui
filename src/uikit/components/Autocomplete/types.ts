@@ -1,3 +1,3 @@
-import type { TAsyncSelectProps } from "uikit";
+import type { TAsyncSelectProps } from "../Select/types";
 
 export type TAutocompleteProps = TAsyncSelectProps;

@@ -2,7 +2,7 @@ import { createServer } from "http";
 import cors from "cors";
 import express from "express";
 import { Server } from "socket.io";
-import { SOCKET_RECEIVE_THEME, SOCKET_SEND_THEME } from "./src/constants";
+import { SOCKET_RECEIVE_THEME, SOCKET_SEND_THEME } from "./src/constants/socket";
 
 const app = express();
 

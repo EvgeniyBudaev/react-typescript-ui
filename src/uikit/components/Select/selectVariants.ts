@@ -1,4 +1,4 @@
-import type { ETheme } from "../../enums";
+import { ETheme } from "../../enums";
 import type { TSelectVariantStyle } from "./types";
 
 const COLOR_PRIMARY = "#b0976a";
@@ -15,7 +15,7 @@ const Z_INDEX = 10;
 
 export const VARIANTS: { [key in ETheme]: TSelectVariantStyle } = {
   // Dark theme
-  DARK: {
+  [ETheme.Dark]: {
     control: {
       background:
         "linear-gradient(40deg, rgba(138, 143, 160, 0.16), rgba(31, 32, 41, 0.24) 40%),\n" +
@@ -62,7 +62,7 @@ export const VARIANTS: { [key in ETheme]: TSelectVariantStyle } = {
   },
 
   // Light theme
-  LIGHT: {
+  [ETheme.Light]: {
     control: {
       background: TRANSPARENT,
       border: `1px solid ${COLOR_GRAY}`,
