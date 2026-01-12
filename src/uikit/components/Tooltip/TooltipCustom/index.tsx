@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { memo, useEffect, useMemo, useRef, useState } from "react";
-import type { FC, MouseEvent } from "react";
+import type { MouseEvent } from "react";
 import { CSSTransition } from "react-transition-group";
 
 import { TRANSITION } from "uikit/constants/transition";

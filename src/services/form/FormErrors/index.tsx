@@ -1,4 +1,3 @@
-import type { FC } from "react";
 import { Error, useGetFormErrors } from "uikit";
 import type { TError } from "uikit/components/Error/types";
 

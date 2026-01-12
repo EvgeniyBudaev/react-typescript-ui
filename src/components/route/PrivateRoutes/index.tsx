@@ -1,5 +1,5 @@
-import type { FC } from "react";
 import { Outlet, Navigate } from "react-router-dom";
+
 import { ERoutes } from "enums/routes";
 
 type TProps = {

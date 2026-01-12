@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { memo } from "react";
-import type { FC, ReactNode } from "react";
+import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 
 import { Icon } from "uikit";

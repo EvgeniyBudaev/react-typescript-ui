@@ -1,6 +1,6 @@
 import { memo } from "react";
-import type { FC } from "react";
 import type { BeforeMaskedStateChangeStates } from "react-input-mask";
+
 import { InputMask } from "services/form/InputMask";
 import type { TInputMaskProps } from "services/form/InputMask";
 import {

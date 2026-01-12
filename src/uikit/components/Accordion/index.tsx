@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import { memo, useEffect, useState, useRef } from "react";
-import type { FC } from "react";
 import { CSSTransition } from "react-transition-group";
 
 import { Icon, TRANSITION } from "uikit";

@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import isNil from "lodash/isNil";
-import { memo, type FC } from "react";
+import { memo } from "react";
 import Slider from "react-slick";
 import { useMediaQuery } from "react-responsive";
 import "slick-carousel/slick/slick.css";

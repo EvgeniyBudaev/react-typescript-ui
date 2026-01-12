@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { type ChangeEvent, type FC, memo, useEffect, useRef, useState } from "react";
+import { type ChangeEvent, memo, useEffect, useRef, useState } from "react";
 
 import type { TRangeSliderProps } from "./types";
 import "./RangeSlider.scss";

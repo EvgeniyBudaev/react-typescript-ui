@@ -1,8 +1,9 @@
-import type { FC } from "react";
 import clsx from "clsx";
 import isNil from "lodash/isNil";
+
 import { Title } from "components/Title";
 import { Autocomplete, ETheme, useThemeContext } from "uikit";
+
 import { usePosts } from "./hooks";
 import "./AutocompletePage.scss";
 

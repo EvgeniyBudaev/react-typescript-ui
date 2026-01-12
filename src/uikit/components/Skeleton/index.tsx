@@ -1,7 +1,7 @@
 import clsx from "clsx";
-import { memo, useEffect, useRef, type FC } from "react";
+import { memo, useEffect, useRef } from "react";
 
-import { formatToStringWithPx } from "../../utils";
+import { formatToStringWithPx } from "../../utils/format";
 import type { TSkeletonProps } from "./types";
 import "./Skeleton.scss";
 

@@ -1,6 +1,6 @@
-import { type FC } from "react";
 import { Title } from "components/Title";
 import { OpenLayersMap } from "uikit/components/Map/OpenLayersMap";
+
 import "./MapPage.scss";
 
 export const MapPage: FC = () => {

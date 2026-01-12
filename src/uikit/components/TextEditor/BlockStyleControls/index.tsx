@@ -1,4 +1,4 @@
-import { type FC, memo } from "react";
+import { memo } from "react";
 
 import { TEXT_EDITOR_BLOCK_TYPES } from "../constants";
 import { FormatButton } from "../FormatButton";

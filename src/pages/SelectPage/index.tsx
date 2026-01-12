@@ -1,10 +1,11 @@
-import type { FC } from "react";
 import clsx from "clsx";
 import isNil from "lodash/isNil";
+
 import { Hr } from "components/Hr";
 import { Title } from "components/Title";
 import { ETheme, Select, useThemeContext } from "uikit";
 import type { TSorting } from "uikit";
+
 import { useSelect } from "./hooks";
 import "./SelectPage.scss";
 

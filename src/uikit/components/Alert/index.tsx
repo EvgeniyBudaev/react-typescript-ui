@@ -1,4 +1,4 @@
-import { memo, type FC } from "react";
+import { memo } from "react";
 
 import type { TAlertProps } from "./types";
 

@@ -1,4 +1,4 @@
-import { type FC, memo } from "react";
+import { memo } from "react";
 
 import { IconButton } from "../../Button/IconButton";
 import type { IconType } from "../../Icon/IconType";

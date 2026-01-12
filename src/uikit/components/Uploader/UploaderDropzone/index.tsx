@@ -1,4 +1,4 @@
-import { type FC, memo } from "react";
+import { memo } from "react";
 import Dropzone from "react-dropzone";
 
 import { Button } from "uikit";

@@ -1,10 +1,12 @@
 import isNil from "lodash/isNil";
 import { useEffect, useRef } from "react";
 import { wordWrap } from "word-wrap-canvas";
+
 import { Title } from "components/Title";
+
 import "./WordWrapPage.scss";
 
-export const WordWrapPage = () => {
+export const WordWrapPage: FC = () => {
   const text =
     "Lorem Ipsum is simply dummy text 63cd5262396af745513c70f0e73b7e7b4c8e2cae37a55c1ded99acde2ebba761 of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
   const hash = "63cd5262396af745513c70f0e73b7e7b4c8e2cae37a55c1ded99acde2ebba761";

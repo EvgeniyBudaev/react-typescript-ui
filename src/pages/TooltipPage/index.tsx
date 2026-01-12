@@ -1,8 +1,9 @@
 import { Title } from "components/Title";
 import { Icon, Tooltip } from "uikit";
+
 import "./TooltipPage.scss";
 
-export const TooltipPage: React.FC = () => {
+export const TooltipPage: FC = () => {
   const renderTooltipContent = (): JSX.Element => {
     return <span>This is tooltip!</span>;
   };

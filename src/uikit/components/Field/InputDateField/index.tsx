@@ -2,7 +2,7 @@ import { Popover as UiPopover, Transition } from "@headlessui/react";
 import clsx from "clsx";
 import { format } from "date-fns";
 import isNil from "lodash/isNil";
-import { createRef, Fragment, memo, type FC } from "react";
+import { createRef, Fragment, memo } from "react";
 
 import { FORMAT_DATE } from "../../../constants";
 import { DatePicker } from "../../DatePicker/DatePicker";

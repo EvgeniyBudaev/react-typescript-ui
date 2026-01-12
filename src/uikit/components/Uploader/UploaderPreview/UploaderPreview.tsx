@@ -1,5 +1,5 @@
 import isNil from "lodash/isNil";
-import { type FC, memo } from "react";
+import { memo } from "react";
 
 import type { TUploaderPreviewProps } from "./types";
 

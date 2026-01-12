@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { memo, type FC } from "react";
+import { memo } from "react";
 
 import { Icon } from "../../Icon";
 import type { TInputDateProps } from "./types";

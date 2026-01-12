@@ -1,4 +1,3 @@
-import type { FC } from "react";
 import { Hr } from "components/Hr";
 import { ETypographyVariant, Typography } from "uikit";
 

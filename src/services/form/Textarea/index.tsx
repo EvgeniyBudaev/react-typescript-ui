@@ -1,6 +1,7 @@
 import { memo, useCallback } from "react";
-import type { ChangeEventHandler, FC } from "react";
+import type { ChangeEventHandler } from "react";
 import { useController, useFormContext } from "react-hook-form";
+
 import { Textarea as TextareaUi } from "uikit";
 import type { ITextareaProps as TTextareaPropsUi } from "uikit";
 

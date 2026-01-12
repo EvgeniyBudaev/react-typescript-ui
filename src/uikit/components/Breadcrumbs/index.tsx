@@ -1,5 +1,4 @@
 import { memo } from "react";
-import type { FC } from "react";
 import useBreadcrumbs from "use-react-router-breadcrumbs";
 
 import { Crumb } from "./Crumb";

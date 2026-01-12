@@ -1,5 +1,6 @@
 import { useState } from "react";
-import type { ChangeEvent, FC } from "react";
+import type { ChangeEvent } from "react";
+
 import { Title } from "components/Title";
 import { Checkbox } from "uikit";
 

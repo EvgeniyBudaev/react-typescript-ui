@@ -1,16 +1,13 @@
 import { useEffect } from "react";
-import type { FC, ReactNode } from "react";
 import clsx from "clsx";
 import isNil from "lodash/isNil";
+
 import { ETheme, useThemeContext } from "uikit";
+
 import { MenuPanel } from "./MenuPanel";
 import "./Layout.scss";
 
-type TProps = {
-  children?: ReactNode;
-};
-
-export const Layout: FC<TProps> = ({ children }) => {
+export const Layout: FCC = ({ children }) => {
   const themeState = useThemeContext();
   const theme = !isNil(themeState) ? themeState.theme : ETheme.Light;
 

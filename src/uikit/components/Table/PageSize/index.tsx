@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import isNil from "lodash/isNil";
 import { memo, useState } from "react";
-import type { FC } from "react";
 
 import { ETheme, Select } from "uikit";
 

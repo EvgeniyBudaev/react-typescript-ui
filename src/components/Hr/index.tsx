@@ -1,4 +1,5 @@
-import type { CSSProperties, FC } from "react";
+import type { CSSProperties } from "react";
+
 import "./Hr.scss";
 
 type TProps = {

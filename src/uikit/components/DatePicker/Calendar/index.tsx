@@ -1,5 +1,5 @@
 import isNull from "lodash/isNull";
-import { memo, useState, type FC } from "react";
+import { memo, useState } from "react";
 import CalendarUI from "react-calendar";
 import type { CalendarProps } from "react-calendar";
 import "react-calendar/dist/Calendar.css";

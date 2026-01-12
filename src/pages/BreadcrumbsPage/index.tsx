@@ -1,5 +1,5 @@
-import type { FC } from "react";
 import { Link } from "react-router-dom";
+
 import { Title } from "components/Title";
 import { ERoutes } from "enums/routes";
 import { Breadcrumbs } from "uikit";

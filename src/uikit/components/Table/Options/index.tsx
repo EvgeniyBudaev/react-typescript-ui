@@ -1,8 +1,8 @@
-import { memo, useCallback, useEffect, useState } from "react";
 import { flexRender } from "@tanstack/react-table";
 import type { HeaderContext } from "@tanstack/react-table";
 import clsx from "clsx";
 import xor from "lodash/xor";
+import { memo, useCallback, useEffect, useState } from "react";
 
 import { Button } from "../../Button";
 import { IconButton } from "../../Button/IconButton";

@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { Editor, EditorState, RichUtils } from "draft-js";
 import { convertToHTML, convertFromHTML } from "draft-convert";
-import { memo, useCallback, useEffect, useState, type FC } from "react";
+import { memo, useCallback, useEffect, useState } from "react";
 import "draft-js/dist/Draft.css";
 
 import { BlockStyleControls } from "./BlockStyleControls";

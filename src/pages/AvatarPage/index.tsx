@@ -1,7 +1,7 @@
-import type { FC } from "react";
 import { Hr } from "components/Hr";
 import { Title } from "components/Title";
 import { Avatar } from "uikit";
+
 import avatar from "./avatar.jpg";
 
 export const AvatarPage: FC = () => {

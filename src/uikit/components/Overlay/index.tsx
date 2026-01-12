@@ -1,4 +1,4 @@
-import { memo, useRef, type FC } from "react";
+import { memo, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import clsx from "clsx";
 

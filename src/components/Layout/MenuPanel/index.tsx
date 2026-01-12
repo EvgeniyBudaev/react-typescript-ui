@@ -1,8 +1,9 @@
-import type { FC } from "react";
 import { Link, NavLink } from "react-router-dom";
+
 import { ERoutes } from "enums/routes";
 import { ETypographyVariant, Typography } from "uikit";
 import { formatToCapitalize } from "utils/format";
+
 import "./MenuPanel.scss";
 
 export const MenuPanel: FC = () => {
@@ -24,6 +25,7 @@ export const MenuPanel: FC = () => {
     ERoutes.Icon,
     ERoutes.Map,
     ERoutes.Modal,
+    ERoutes.Otp,
     ERoutes.Overlay,
     ERoutes.Popover,
     ERoutes.Portal,

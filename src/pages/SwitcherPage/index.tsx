@@ -1,4 +1,3 @@
-import type { FC } from "react";
 import { Hr } from "components/Hr";
 import { ThemeSwitcher } from "components/theme/ThemeSwitcher";
 import { ThemeSwitcherCustom } from "components/theme/ThemeSwitcherCustom";

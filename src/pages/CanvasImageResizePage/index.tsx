@@ -1,6 +1,6 @@
 import { resize } from "canvas-image-resize";
 import isNil from "lodash/isNil";
-import { type FC, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { Title } from "components/Title";
 import { Button, Spinner } from "uikit";

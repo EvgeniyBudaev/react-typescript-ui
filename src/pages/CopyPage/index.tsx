@@ -1,7 +1,7 @@
-import type { FC } from "react";
 import { Hr } from "components/Hr";
 import { Title } from "components/Title";
 import { CopyToClipboard } from "uikit";
+
 import "./CopyPage.scss";
 
 export const CopyPage: FC = () => {

@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { useState, useEffect, type FC } from "react";
+import { useState, useEffect } from "react";
 import { default as ReactModal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
 

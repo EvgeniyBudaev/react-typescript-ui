@@ -1,5 +1,6 @@
 import clsx from "clsx";
-import { type FC, memo } from "react";
+import { memo } from "react";
+
 import { Typography } from "../Typography";
 import type { TRadioButtonProps } from "./types";
 import { NativeRadioButton } from "./NativeRadioButton";

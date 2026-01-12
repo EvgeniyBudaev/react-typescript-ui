@@ -1,4 +1,5 @@
-import { type FC, memo } from "react";
+import { memo } from "react";
+
 import { DATA_TEST_ID } from "../constants";
 import type { TNativeRadioButtonProps } from "./types";
 

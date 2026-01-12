@@ -1,4 +1,5 @@
 import debounce from "lodash/debounce";
+import isEmpty from "lodash/isEmpty";
 import { Map, View } from "ol";
 import type { Coordinate } from "ol/coordinate";
 import Feature from "ol/Feature";
@@ -10,13 +11,12 @@ import { OSM } from "ol/source";
 import VectorSource from "ol/source/Vector";
 import { Icon, Style } from "ol/style";
 import "ol/ol.css";
-import { type ChangeEvent, type FC, useCallback, useEffect, useRef, useState } from "react";
+import { type ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
 
 import { ControlsPanel } from "./ControlsPanel";
 import { SearchPanel } from "./SearchPanel";
 import type { TNominatimItem } from "./types";
 import "./OpenLayersMap.scss";
-import isEmpty from "lodash/isEmpty";
 
 type TProps = {
   latitude?: number;

@@ -1,12 +1,12 @@
 import { createRef, Fragment, useEffect, useState } from "react";
 import { usePopper } from "react-popper";
-import type { FC } from "react";
 import clsx from "clsx";
 import { Popover as UiPopover, Transition } from "@headlessui/react";
 
 import { Title } from "components/Title";
 import { ETypographyVariant, POPOVER_POSITION_STYLES, POPOVER_WIDTH, Typography } from "uikit";
 import type { TPopoverPosition } from "uikit";
+
 import "./PopoverPage.scss";
 
 export const PopoverPage: FC = () => {

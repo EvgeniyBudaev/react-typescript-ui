@@ -1,5 +1,5 @@
-import { memo, useState } from "react";
 import type { HeaderGroup } from "@tanstack/react-table";
+import { memo, useState } from "react";
 
 import { TableHeaderItem } from "../TableHeaderItem";
 import type { TTableSortingProps } from "../types";

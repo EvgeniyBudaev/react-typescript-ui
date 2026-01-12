@@ -6,7 +6,7 @@ import isEmpty from "lodash/isEmpty";
 import isNull from "lodash/isNull";
 import isNil from "lodash/isNil";
 
-import type { TSearchParams } from "components/search";
+import type { TSearchParams } from "components/search/types";
 import { mapTableSortingToDto } from "services/api/sorting/mapTableSortingToDto";
 import type { TTableSortingColumnState } from "../components";
 import type { TDeleteModalState } from "../../components/modal/ModalDelete/types";

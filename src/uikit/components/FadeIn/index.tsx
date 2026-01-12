@@ -1,4 +1,4 @@
-import { memo, useEffect, useState, type FC } from "react";
+import { memo, useEffect, useState } from "react";
 
 import type { TFadeInProps } from "./types";
 import "./FadeIn.scss";

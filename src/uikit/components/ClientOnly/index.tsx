@@ -1,5 +1,3 @@
-import type { FC } from "react";
-
 import { useHydrated } from "uikit";
 
 import type { TClientOnlyProps } from "./types";

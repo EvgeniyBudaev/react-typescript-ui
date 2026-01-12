@@ -1,6 +1,6 @@
-import type { FC } from "react";
 import { Title } from "components/Title";
 import { DropDown } from "uikit";
+
 import "./DropDownPage.scss";
 
 export const DropDownPage: FC = () => {

@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { memo, type FC } from "react";
+import { memo } from "react";
 import { Switch } from "@headlessui/react";
 
 import { SWITCHER_THEMES } from "../constants";

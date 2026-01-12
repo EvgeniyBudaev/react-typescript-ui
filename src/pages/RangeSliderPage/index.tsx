@@ -1,6 +1,8 @@
-import { type FC, useState } from "react";
+import { useState } from "react";
+
 import { Title } from "components/Title";
 import { RangeSlider } from "uikit/components/RangeSlider";
+
 import "./RangeSliderPage.scss";
 
 export const RangeSliderPage: FC = () => {

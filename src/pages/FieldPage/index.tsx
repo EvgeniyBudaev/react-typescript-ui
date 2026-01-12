@@ -1,9 +1,10 @@
 import { enUS } from "date-fns/locale";
 import { useState } from "react";
-import type { FC } from "react";
+
 import { Hr } from "components/Hr";
 import { Title } from "components/Title";
 import { InputDateField, InputDateRangeField } from "uikit";
+
 import "./FieldPage.scss";
 
 type TPeriodValue = [Date | null, Date | null];

@@ -1,5 +1,4 @@
 import { memo } from "react";
-import type { FC } from "react";
 
 import type { ETablePlacement } from "../enums";
 import type { ETheme } from "../../../enums";

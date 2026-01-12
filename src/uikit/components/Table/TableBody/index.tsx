@@ -1,6 +1,7 @@
-import { memo } from "react";
 import { flexRender } from "@tanstack/react-table";
 import type { Row } from "@tanstack/react-table";
+import { memo } from "react";
+
 import "./TableBody.scss";
 
 type TProps<TColumn extends object> = {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { FC } from "react";
+
 import { Title } from "components/Title";
 import { Hamburger } from "uikit";
 

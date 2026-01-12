@@ -1,7 +1,6 @@
 import { addDays, format, subDays } from "date-fns";
 import { enUS } from "date-fns/locale";
 import { useCallback, useState } from "react";
-import type { FC } from "react";
 import type { RangeKeyDict } from "react-date-range";
 import type { Range } from "react-date-range";
 

@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { createElement, memo, useEffect, useState, type FC } from "react";
+import { createElement, memo, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { usePopper } from "react-popper";
 

@@ -1,9 +1,11 @@
+import { createColumnHelper } from "@tanstack/table-core";
 import { forwardRef, memo, useMemo, useState } from "react";
 import isNil from "lodash/isNil";
+
 import type { TPost, TPosts } from "services/api/posts/types";
 import { ETheme, Table, useThemeContext } from "uikit";
 import type { TTableSortingProps } from "uikit";
-import { createColumnHelper } from "@tanstack/table-core";
+
 import { useGetColumns } from "./hooks";
 
 type TProps = {

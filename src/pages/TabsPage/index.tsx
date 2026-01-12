@@ -1,8 +1,9 @@
 import { useState } from "react";
-import type { FC } from "react";
+
 import { Title } from "components/Title";
 import { Tabs } from "uikit";
 import type { TTab } from "uikit";
+
 import "./TabsPage.scss";
 
 export const TabsPage: FC = () => {

@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { type FC, memo } from "react";
+import { memo } from "react";
 import ReactPaginate from "react-paginate";
 
 import { ETheme, Icon } from "uikit";

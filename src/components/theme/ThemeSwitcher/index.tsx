@@ -1,11 +1,11 @@
 import { SOCKET_SEND_THEME } from "constants/socket";
-import { useContext } from "react";
-import type { FC } from "react";
 import clsx from "clsx";
 import isNil from "lodash/isNil";
+import { useContext } from "react";
 
 import { SocketContext } from "services/context/socketContext";
 import { ESwitcherVariant, ETheme, Icon, SwitcherHeadless, useThemeContext } from "uikit";
+
 import { SWITCHER_THEMES } from "../constants";
 
 type TProps = {

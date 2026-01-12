@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import type { FC } from "react";
+
 import { Title } from "components/Title";
 import type { TPosts } from "services/api/posts/types";
 import { getPostsApi } from "services/api/posts/utils/getPostsApi";
 import { Spinner, useTable } from "uikit";
+
 import { PostsTable } from "./PostsTable";
 import { ETableColumns } from "./PostsTable/enums";
 

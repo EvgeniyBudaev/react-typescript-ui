@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { memo, useEffect, useRef, type FC } from "react";
+import { memo, useEffect, useRef } from "react";
 
 import { Icon } from "uikit";
 

@@ -1,4 +1,5 @@
-import { type FC, memo } from "react";
+import { memo } from "react";
+
 import { Icon } from "uikit";
 
 import type { TSpinnerProps } from "./types";

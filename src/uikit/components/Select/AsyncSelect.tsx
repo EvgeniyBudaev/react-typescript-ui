@@ -1,10 +1,10 @@
 import clsx from "clsx";
-import { memo, type FC } from "react";
+import { memo } from "react";
 import { default as ReactAsyncSelect } from "react-select/async";
 
 import { ETheme } from "../../enums";
 import { useMounted } from "../../hooks";
-import { generateUUID } from "../../utils";
+import { generateUUID } from "../../utils/generateUUID";
 import { StyledDropdownIndicator } from "./selectComponentsStyles";
 import { selectStyles } from "./selectStyles";
 import type { TAsyncSelectProps } from "./types";

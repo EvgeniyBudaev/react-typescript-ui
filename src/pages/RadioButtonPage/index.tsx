@@ -1,5 +1,6 @@
-import { type ChangeEvent, type FC, useRef, useState } from "react";
+import { type ChangeEvent, useRef, useState } from "react";
 import { Input, RadioButton } from "uikit";
+
 import { EHobby } from "./enum";
 import "./RadioButtonPage.scss";
 

@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { memo, type FC } from "react";
+import { memo } from "react";
 import ReactDOM from "react-dom";
 
 import type { TPortalProps } from "./types";

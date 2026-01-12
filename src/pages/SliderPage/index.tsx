@@ -1,7 +1,7 @@
-import type { FC } from "react";
 import { Hr } from "components/Hr";
 import { Title } from "components/Title";
 import { SliderSimple, SliderSyncing } from "uikit";
+
 import { sliderImages } from "./data";
 
 export const SliderPage: FC = () => {

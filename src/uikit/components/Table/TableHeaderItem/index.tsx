@@ -1,12 +1,12 @@
+import { Popover as UiPopover, Transition } from "@headlessui/react";
+import { flexRender } from "@tanstack/react-table";
+import type { Header } from "@tanstack/react-table";
+import clsx from "clsx";
+import xor from "lodash/xor";
 import { createRef, Fragment, memo, useCallback, useEffect, useState } from "react";
 import type { ReactElement } from "react";
 import { useSearchParams } from "react-router-dom";
 import { usePopper } from "react-popper";
-import clsx from "clsx";
-import xor from "lodash/xor";
-import { Popover as UiPopover, Transition } from "@headlessui/react";
-import { flexRender } from "@tanstack/react-table";
-import type { Header } from "@tanstack/react-table";
 
 import { ETableSortDirection } from "../enums";
 import { Icon } from "../../Icon";

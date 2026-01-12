@@ -1,10 +1,11 @@
-import type { FC } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+
 import { Input } from "services/form/Input";
 import { PhoneInputMask } from "services/form/PhoneInputMask";
 import { Textarea } from "services/form/Textarea";
 import { Button, ETypographyVariant, Typography } from "uikit";
+
 import { EFormFields } from "./enums";
 import { formSchema } from "./schemas";
 import "./FormPage.scss";

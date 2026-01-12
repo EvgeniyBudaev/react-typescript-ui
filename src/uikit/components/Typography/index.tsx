@@ -1,4 +1,4 @@
-import { createElement, memo, type FC } from "react";
+import { createElement, memo } from "react";
 
 import { ETextColor, ETypographyVariant } from "uikit";
 import { TYPOGRAPHY_THEMES } from "uikit/components/Typography/constants";

@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { memo } from "react";
-import type { ChangeEvent, FC } from "react";
+import type { ChangeEvent } from "react";
 
 import { Icon } from "uikit";
 

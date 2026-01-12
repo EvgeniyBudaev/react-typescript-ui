@@ -1,8 +1,9 @@
 import { useState } from "react";
-import type { FC } from "react";
+
 import { Hr } from "components/Hr";
 import { Title } from "components/Title";
 import { Button, DocumentViewer, Modal } from "uikit";
+
 import { template } from "./template";
 import "./DocumentViewerPage.scss";
 

@@ -1,4 +1,3 @@
-import type { FC } from "react";
 import { Title } from "components/Title";
 import { Breadcrumbs } from "uikit";
 

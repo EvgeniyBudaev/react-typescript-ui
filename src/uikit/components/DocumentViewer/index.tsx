@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { memo, useEffect, useRef, useState, type FC } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import shadowRoot from "react-shadow";
 
 import { IconButton } from "uikit";

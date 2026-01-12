@@ -1,8 +1,8 @@
-import { forwardRef, useMemo } from "react";
-import type { ForwardedRef, ReactElement } from "react";
 import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import type { VisibilityState } from "@tanstack/react-table";
 import clsx from "clsx";
+import { forwardRef, useMemo } from "react";
+import type { ForwardedRef, ReactElement } from "react";
 
 import { DEFAULT_PAGE_SIZE, DEFAULT_PAGE_SIZE_LIST } from "../../constants";
 import { Control } from "./Control";
