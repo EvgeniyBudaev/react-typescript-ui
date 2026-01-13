@@ -18,6 +18,7 @@ export enum ERoutes {
   Icon = "/icon",
   Map = "/map",
   Modal = "/modal",
+  Otp = "/otp",
   Overlay = "/overlay",
   Popover = "/popover",
   Portal = "/portal",

@@ -1,6 +1,5 @@
 import { SOCKET_RECEIVE_THEME } from "constants/socket";
 import { useEffect } from "react";
-import type { FC } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import { ERoutes } from "enums/routes";
@@ -28,6 +27,7 @@ import { IconPage } from "../../pages/IconPage";
 import { Layout } from "../Layout";
 import { MapPage } from "../../pages/MapPage";
 import { ModalPage } from "../../pages/ModalPage";
+import { OtpPage } from "../../pages/OtpPage";
 import { OverlayPage } from "../../pages/OverlayPage";
 import { PopoverPage } from "../../pages/PopoverPage";
 import { PortalPage } from "../../pages/PortalPage";
@@ -89,6 +89,7 @@ export const App: FC = () => {
               <Route path={ERoutes.Icon} element={<IconPage />} />
               <Route path={ERoutes.Map} element={<MapPage />} />
               <Route path={ERoutes.Modal} element={<ModalPage />} />
+              <Route path={ERoutes.Otp} element={<OtpPage />} />
               <Route path={ERoutes.Overlay} element={<OverlayPage />} />
               <Route path={ERoutes.Popover} element={<PopoverPage />} />
               <Route path={ERoutes.Portal} element={<PortalPage />} />

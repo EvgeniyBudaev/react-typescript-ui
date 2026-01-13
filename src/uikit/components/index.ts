@@ -27,6 +27,7 @@ export * from "./Map/OpenLayersMap";
 export * from "./Modal";
 export * from "./Overlay";
 export * from "./Pagination";
+export * from "./Otp";
 export * from "./Popover";
 export * from "./Portal";
 export * from "./RadioButton";

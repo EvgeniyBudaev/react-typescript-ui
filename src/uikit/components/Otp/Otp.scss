@@ -1,0 +1,82 @@
+.Otp {
+  $this: &;
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  &-Inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    width: 100%;
+  }
+
+  &-PinCode {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex: 1 1 0;
+    max-width: 52px;
+    width: 100%;
+    height: 68px;
+    border: 1px solid #ffffff29;
+    border-radius: 12px;
+    color: #126cfd;
+
+    &__focused {
+      border-color: #126cfd;
+    }
+
+    &__error {
+      color: #d14900;
+      border-color: #d14900;
+    }
+  }
+
+  &-Circle {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background-color: #126cfd;
+
+    &__error {
+      background-color: #d14900;
+    }
+  }
+
+  &-Caret {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 2px;
+    height: 14px;
+    background-color: #126cfd;
+    animation: OtpBlink 1s infinite;
+    pointer-events: none;
+  }
+
+  &-Input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: none;
+    color: transparent;
+  }
+}
+
+@keyframes OtpBlink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
